@@ -1,0 +1,161 @@
+:root {
+  --main-color: #4f46e5;
+  --darker-main: #423bc1;
+  --lighter-main: #756fe4;
+  --bgcolor: #eeeeee;
+  --darkblue: #111828;
+  --lightgrey: #9ca2ae;
+  --darkgrey: #5f5f5f;
+  --animation-duration: 400ms;
+  --main-font: "Poppins";
+}
+
+* {
+  font-family: var(--main-font);
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/*---------------------------- LANDING PAGE---------------- */
+
+.navbar {
+  background-color: #fff;
+  padding: 10px 10px;
+}
+
+.nav-main {
+  color: #000;
+}
+
+.navbar-nav .nav-link.active {
+  color: var(--main-color);
+  font-weight: 500;
+}
+
+.navbar-nav .nav-link.active:hover {
+  color: var(--darker-main);
+}
+
+.navbar-nav .nav-link:hover {
+  color: var(--main-color);
+}
+
+.btn-nav a {
+  text-decoration: none;
+}
+
+.logo {
+  transition: transform 0.3s ease-in-out;
+}
+
+.logo:hover {
+  transform: rotate(360deg);
+}
+.btn-nav {
+  background-color: var(--main-color);
+  box-shadow: 0 5px 8px rgba(0, 0, 0, 0.2);
+  border-radius: 30px;
+  padding: 8px 35px;
+  color: white;
+}
+
+.btn-nav:hover {
+  background-color: var(--darker-main);
+  color: white;
+}
+
+.navbar-toggler {
+  border: none !important;
+}
+
+.navbar-toggler:focus {
+  box-shadow: 0 0 0 0;
+}
+
+/* ----------------HEADER------------------- */
+header h1 {
+  font-size: 50px;
+  font-weight: 600;
+}
+
+header {
+  background-image: url(imgs/car-header.jpg);
+  background-size: cover;
+  background-position: center;
+}
+
+.header-overlay {
+  background-color: rgba(0, 0, 0, 0.502);
+}
+
+.header-content p {
+  font-size: 20px;
+}
+
+.btn-header {
+  padding: 8px 65px;
+}
+
+/* ------------MINI CAR LISTINGS------------ */
+
+.small-headline {
+  color: var(--main-color);
+}
+
+.headline {
+  font-weight: 600;
+  color: #000;
+}
+
+.car-details-icons,
+.car-details-icons i {
+  font-style: normal;
+  color: var(--darkgrey);
+  font-size: 15px;
+}
+
+.car-headline h3 {
+  font-size: 20px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.car-card {
+  width: 100%;
+  height: 100%;
+  box-shadow: 0 5px 8px rgba(0, 0, 0, 0.2);
+  border-radius: 20px;
+}
+
+.car-type {
+  background-color: var(--lighter-main);
+  padding: 0px 8px;
+  border-radius: 20px;
+  font-size: 13px;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.car-type span {
+  white-space: nowrap;
+  display: inline-block;
+}
+
+.car-card img {
+  border-radius: 20px;
+  width: 100%;
+  height: 200px; /* or whatever height you want for the image */
+  object-fit: cover;
+}
+
+.car-details {
+  border-bottom: var(--darkgrey) 1px solid;
+}
+
+.per {
+  color: var(--darkgrey);
+}
