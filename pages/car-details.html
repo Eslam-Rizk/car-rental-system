@@ -1,11 +1,455 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Car Details</title>
+    <title>Hyundai Accent 2025</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.11.1/font/bootstrap-icons.min.css"
+        rel="stylesheet">
+    <style>
+        .text-violet {
+            color: #4f46e5;
+        }
+
+        .bg-light-violet {
+            background-color: #cbc8ff;
+        }
+
+        .bg-violet {
+            background-color: #7c3aed;
+        }
+
+        .bg-violet:hover {
+            background-color: #6d28d9;
+        }
+
+        .car-card {
+            transition: transform 0.3s;
+        }
+
+        .car-card:hover {
+            transform: translateY(-5px);
+        }
+
+        footer {
+            background-color: #111;
+            color: white;
+        }
+
+        .social-icon {
+            width: 36px;
+            height: 36px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            background-color: #333;
+            color: white;
+            text-decoration: none;
+        }
+
+        .payment-icon {
+            background-color: white;
+            height: 24px;
+            width: 38px;
+            border-radius: 4px;
+        }
+    </style>
 </head>
+
 <body>
-    
+    <div class="container mt-4">
+
+        <!-- reviews -->
+        <div class="row mb-3">
+            <div class="col-12">
+                <div class="d-flex align-items-center">
+                    <span class="text-violet"><i class="fas fa-star"></i></span>
+                    <span class="ms-2">4.7 (852 reviews)</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- car name and action buttons -->
+        <div class="row mb-3">
+            <div class="col-md-8">
+                <h1 class="fs-3 fw-bold">Hyundai Accent 2025 - Modern Compact Sedan in Blue Color Beautiful Dark Wheels
+                </h1>
+            </div>
+            <div class="col-md-4">
+                <div class="d-flex justify-content-md-end mt-2 mt-md-0">
+                    <button class="btn btn-outline-secondary text-violet rounded-pill me-2">
+                        <i class="fas fa-share-alt"></i> Share
+                    </button>
+                    <button class="btn btn-outline-secondary text-violet rounded-pill">
+                        <i class="fas fa-heart"></i> Wishlist
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- car main image -->
+        <div class="row">
+            <div class="col-md-8 mb-3">
+                <div class="ratio ratio-16x9 rounded overflow-hidden">
+                    <img src="../assets/images/1.webp" alt="Hyundai Accent 2025 front view in foggy forest"
+                        class="img-fluid w-100 h-100 object-fit-cover" />
+                </div>
+            </div>
+
+            <!-- car secondary images -->
+            <div class="col-md-4 mb-3">
+                <div class="row g-2 h-100">
+                    <div class="col-6">
+                        <img src="../assets/images/2.webp" alt="Hyundai Accent 2025 rear view"
+                            class="img-fluid rounded h-100 w-100 object-fit-cover" />
+                    </div>
+                    <div class="col-6">
+                        <img src="../assets/images/3.webp" alt="Hyundai Accent 2025 side view"
+                            class="img-fluid rounded h-100 w-100 object-fit-cover" />
+                    </div>
+                    <div class="col-6">
+                        <img src="../assets/images/4.webp" alt="Hyundai Accent 2025 interior"
+                            class="img-fluid rounded h-100 w-100 object-fit-cover" />
+                    </div>
+                    <div class="col-6">
+                        <img src="../assets/images/5.webp" alt="Hyundai Accent 2025 on road"
+                            class="img-fluid rounded h-100 w-100 object-fit-cover" />
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- car details -->
+        <div class="row">
+
+            <!-- description -->
+            <div class="col-md-8 mb-4">
+                <div class="card shadow-sm mb-4">
+                    <div class="card-body">
+                        <div class="row gy-3">
+                            <div class="col-6 col-md-3">
+                                <div class="bg-light-violet p-3 rounded">
+                                    <i class="fas fa-tachometer-alt me-2"></i>
+                                    <span>62,500</span>
+                                </div>
+                            </div>
+                            <div class="col-6 col-md-3">
+                                <div class="bg-light-violet p-3 rounded">
+                                    <i class="fas fa-gas-pump me-2"></i>
+                                    <span>Diesel</span>
+                                </div>
+                            </div>
+                            <div class="col-6 col-md-3">
+                                <div class="bg-light-violet p-3 rounded">
+                                    <i class="fas fa-cog me-2"></i>
+                                    <span>Manual</span>
+                                </div>
+                            </div>
+                            <div class="col-6 col-md-3">
+                                <div class="bg-light-violet p-3 rounded">
+                                    <i class="fas fa-chair me-2"></i>
+                                    <span>05 Seats</span>
+                                </div>
+                            </div>
+                            <div class="col-6 col-md-3">
+                                <div class="bg-light-violet p-3 rounded">
+                                    <i class="fas fa-suitcase me-2"></i>
+                                    <span>03 Bags</span>
+                                </div>
+                            </div>
+                            <div class="col-6 col-md-3">
+                                <div class="bg-light-violet p-3 rounded">
+                                    <i class="fas fa-car me-2"></i>
+                                    <span>Hyundai</span>
+                                </div>
+                            </div>
+                            <div class="col-6 col-md-3">
+                                <div class="bg-light-violet p-3 rounded">
+                                    <i class="fas fa-door-open me-2"></i>
+                                    <span>Doors</span>
+                                </div>
+                            </div>
+                            <div class="col-6 col-md-3">
+                                <div class="bg-light-violet p-3 rounded">
+                                    <i class="fas fa-gas-pump me-2"></i>
+                                    <span>3.5 L</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tabs Section -->
+                <div class="card shadow-sm">
+                    <div class="card-body">
+                        <ul class="nav nav-tabs" id="vehicleTabs" role="tablist">
+                            <li class="nav-item" role="presentation">
+                                <button class="nav-link active fw-medium" id="description-tab" data-bs-toggle="tab"
+                                    data-bs-target="#description" type="button" role="tab">Description</button>
+                            </li>
+                            <li class="nav-item" role="presentation">
+                                <button class="nav-link fw-medium" id="specifications-tab" data-bs-toggle="tab"
+                                    data-bs-target="#specifications" type="button" role="tab">Specifications</button>
+                            </li>
+                            <li class="nav-item" role="presentation">
+                                <button class="nav-link fw-medium" id="gallery-tab" data-bs-toggle="tab"
+                                    data-bs-target="#gallery" type="button" role="tab">Image Gallery</button>
+                            </li>
+                            <li class="nav-item" role="presentation">
+                                <button class="nav-link fw-medium" id="reviews-tab" data-bs-toggle="tab"
+                                    data-bs-target="#reviews" type="button" role="tab">Reviews</button>
+                            </li>
+                        </ul>
+                        <div class="tab-content pt-4" id="vehicleTabsContent">
+                            <div class="tab-pane fade show active" id="description" role="tabpanel">
+                                <p class="text-muted">Lorem Ipsum is simply dummy text of the printing and typesetting
+                                    industry. Lorem Ipsum has been the industry's standard dummy text ever since the
+                                    1500s, when an unknown printer took a galley of type and scrambled it to make a type
+                                    specimen book. It has survived not only five centuries, but also the leap into
+                                    electronic typesetting, remaining essentially unchanged. It was popularised in the
+                                    1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more
+                                    recently with desktop publishing software like Aldus PageMaker including versions of
+                                    Lorem Ipsum.</p>
+
+                                <h5 class="mt-4">Overview</h5>
+                                <p class="text-muted">Lorem Ipsum is simply dummy text of the printing and typesetting
+                                    industry. Lorem Ipsum has been the industry's standard dummy text ever since the
+                                    1500s, when an unknown printer took a galley of type and scrambled it to make a type
+                                    specimen book. It has survived not only five centuries, but also the leap into
+                                    electronic typesetting, remaining essentially unchanged. It was popularised in the
+                                    1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more
+                                    recently with desktop publishing software like Aldus PageMaker including versions of
+                                    Lorem Ipsum. Lorem Ipsum is simply dummy text of the printing and typesetting
+                                    industry. Lorem Ipsum has been the industry's standard dummy text ever since the
+                                    1500s.</p>
+                            </div>
+                            <div class="tab-pane fade" id="specifications" role="tabpanel">
+                                <p class="text-muted">Detailed specifications will appear here.</p>
+                            </div>
+                            <div class="tab-pane fade" id="gallery" role="tabpanel">
+                                <p class="text-muted">Image gallery will appear here.</p>
+                            </div>
+                            <div class="tab-pane fade" id="reviews" role="tabpanel">
+                                <p class="text-muted">Customer reviews will appear here.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Rental Form Section -->
+            <div class="col-md-4 d-flex flex-column mb-4">
+                <div class="card shadow-sm rounded-3 h-100 d-flex flex-column">
+                    <div class="card-header bg-light text-center py-3">
+                        <h5 class="mb-0">Rent This Vehicle</h5>
+                    </div>
+                    <!-- Card Body as flex column -->
+                    <div class="card-body d-flex flex-column justify-content-between">
+                        <div class="bg-white p-3 rounded mb-3 d-flex justify-content-between align-items-center border">
+                            <div class="fw-medium">Pick-Up</div>
+                            <input type="date" class="border-0" id="pickup-date" placeholder="Select Date">
+                        </div>
+                        <div class="bg-white p-3 rounded mb-3 d-flex justify-content-between align-items-center border">
+                            <div class="fw-medium">Drop-off</div>
+                            <input type="date" class="border-0" id="dropoff-date" placeholder="Select Date">
+                        </div>
+
+                        <div class="mt-4 pt-4 border-top">
+                            <h6>Add Extra:</h6>
+                            <div class="d-flex justify-content-between mb-2">
+                                <span>GPS Navigation System</span>
+                                <span>$25.00</span>
+                            </div>
+                            <div class="d-flex justify-content-between mb-2">
+                                <span>Child Seat</span>
+                                <span>$32.00</span>
+                            </div>
+                            <div class="d-flex justify-content-between mb-2">
+                                <span>Additional Driver</span>
+                                <span>$25.00</span>
+                            </div>
+                            <div class="d-flex justify-content-between mb-2">
+                                <span>Insurance Coverage</span>
+                                <span>$55.00</span>
+                            </div>
+                        </div>
+
+                        <div class="mt-4 pt-4 border-top">
+                            <div class="d-flex justify-content-between mb-2">
+                                <span>Sub Total</span>
+                                <span>$137.00</span>
+                            </div>
+                            <div class="d-flex justify-content-between mb-2">
+                                <span>Tax</span>
+                                <span>$13.00</span>
+                            </div>
+                            <div class="d-flex justify-content-between pt-2 fw-bold mt-2">
+                                <span>Total Payable</span>
+                                <span>$150.00</span>
+                            </div>
+                        </div>
+
+                        <!-- Button sticks to bottom due to flex layout -->
+                        <button class="bg-violet btn text-white w-100 mt-4 py-3 fw-bold">Book Now</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Recommended Cars Section -->
+        <div class="container my-5">
+            <h2 class="mb-4 fw-bold">You May Also Like These</h2>
+
+            <div class="row row-cols-1 row-cols-md-3 g-4">
+                <!-- Car 1 -->
+                <div class="col">
+                    <div class="card shadow-sm car-card h-100">
+                        <img src="../assets/images/6.webp" class="card-img-top" alt="Red BMW E30">
+                        <div class="card-body">
+                            <div class="d-flex justify-content-between align-items-center mb-2">
+                                <h5 class="card-title m-0">E-Tron GT</h5>
+                                <span class="badge bg-light text-dark">Sedan</span>
+                            </div>
+                            <div class="d-flex gap-3 mb-3">
+                                <div><i class="bi bi-people"></i> 05</div>
+                                <div><i class="bi bi-door-closed"></i> 03</div>
+                                <div><i class="bi bi-gear"></i> Manual</div>
+                                <div><i class="bi bi-fuel-pump"></i> Diesel</div>
+                            </div>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <span class="fw-bold">$160 USD <small class="text-muted fw-normal">/Per
+                                        Day</small></span>
+                                <a href="#" class="btn btn-outline-dark rounded-circle"><i
+                                        class="bi bi-arrow-right"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Car 2 -->
+                <div class="col">
+                    <div class="card shadow-sm car-card h-100">
+                        <img src="../assets/images/7.webp" class="card-img-top" alt="Purple Sports Car">
+                        <div class="card-body">
+                            <div class="d-flex justify-content-between align-items-center mb-2">
+                                <h5 class="card-title m-0">E-Tron GT</h5>
+                                <span class="badge bg-light text-dark">Sedan</span>
+                            </div>
+                            <div class="d-flex gap-3 mb-3">
+                                <div><i class="bi bi-people"></i> 05</div>
+                                <div><i class="bi bi-door-closed"></i> 03</div>
+                                <div><i class="bi bi-gear"></i> Manual</div>
+                                <div><i class="bi bi-fuel-pump"></i> Diesel</div>
+                            </div>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <span class="fw-bold">$160 USD <small class="text-muted fw-normal">/Per
+                                        Day</small></span>
+                                <a href="#" class="btn btn-outline-dark rounded-circle"><i
+                                        class="bi bi-arrow-right"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Car 3 -->
+                <div class="col">
+                    <div class="card shadow-sm car-card h-100">
+                        <img src="../assets/images/8.webp" class="card-img-top" alt="White SUV">
+                        <div class="card-body">
+                            <div class="d-flex justify-content-between align-items-center mb-2">
+                                <h5 class="card-title m-0">E-Tron GT</h5>
+                                <span class="badge bg-light text-dark">Sedan</span>
+                            </div>
+                            <div class="d-flex gap-3 mb-3">
+                                <div><i class="bi bi-people"></i> 05</div>
+                                <div><i class="bi bi-door-closed"></i> 03</div>
+                                <div><i class="bi bi-gear"></i> Manual</div>
+                                <div><i class="bi bi-fuel-pump"></i> Diesel</div>
+                            </div>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <span class="fw-bold">$160 USD <small class="text-muted fw-normal">/Per
+                                        Day</small></span>
+                                <a href="#" class="btn btn-outline-dark rounded-circle"><i
+                                        class="bi bi-arrow-right"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <!-- Footer -->
+    <footer class="pt-5 pb-4">
+        <div class="container">
+            <div class="row">
+                <!-- Logo & Contact -->
+                <div class="col-6 col-lg-4 mb-4 d-flex flex-column align-items-center">
+                    <a href="#" class="d-flex align-items-center mb-3 text-decoration-none">
+                        <i class="bi bi-circle-fill text-violet me-2"></i>
+                        <h5 class="m-0 text-white">Wheelzy</h5>
+                    </a>
+                    <div class="mt-4">
+                        <div class="d-flex align-items-center mb-2">
+                            <i class="bi bi-geo-alt me-2"></i>
+                            <small>123, Mansoura,<br>Dakahlia, EGY</small>
+                        </div>
+                        <div class="d-flex align-items-center mb-2">
+                            <i class="bi bi-envelope me-2"></i>
+                            <small>info@wheelzy.com</small>
+                        </div>
+                        <div class="d-flex align-items-center mb-2">
+                            <i class="bi bi-telephone me-2"></i>
+                            <small>+0123 456 789</small>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Resources -->
+                <div class="col-6 col-lg-4 mb-4 d-flex flex-column align-items-center">
+                    <h6 class="mb-3">Resources</h6>
+                    <ul class="nav flex-column">
+                        <li class="nav-item mb-1"><a href="#" class="nav-link p-0 small">About Us</a>
+                        </li>
+                        <li class="nav-item mb-1"><a href="#" class="nav-link p-0 small">Gallery</a></li>
+                        <li class="nav-item mb-1"><a href="#" class="nav-link p-0 small">Our Team</a>
+                        </li>
+                        <li class="nav-item mb-1"><a href="#" class="nav-link p-0 small">Pricing</a></li>
+                        <li class="nav-item mb-1"><a href="#" class="nav-link p-0 small">Contact</a></li>
+                    </ul>
+                </div>
+
+                <!-- Hours -->
+                <div class="col-lg-4 mb-4 d-flex flex-column align-items-center">
+                    <h6 class="mb-3">Working Hours</h6>
+                    <p class="small mb-1">Sunday To Thursday: 8:00 AM - 8:00 PM</p>
+                    <p class="small mb-3">Friday To Saturday: 8:00 AM - 5:00 PM</p>
+
+                    <h6 class="mb-3">Social Media</h6>
+                    <div class="d-flex gap-2">
+                        <a href="www.facebook.com" class="social-icon"><i class="bi bi-facebook"></i></a>
+                        <a href="www.instagram.com" class="social-icon"><i class="bi bi-instagram"></i></a>
+                        <a href="www.x.com" class="social-icon"><i class="bi bi-twitter-x"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <hr class="my-4">
+
+            <!-- Copyright & Payment -->
+            <div class="col-12 d-flex flex-column align-items-center">
+                <div class="small mb-3 mb-md-0">Copyright © 2025 <span class="text-violet">Wheelzy</span>, Inc. All
+                    Rights Reserved</div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/js/bootstrap.bundle.min.js"></script>
 </body>
+
 </html>
