@@ -1,0 +1,819 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carent - Car Listing</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap">
+    <link rel="stylesheet" href="../assets/css/carListing.css">
+</head>
+<body>
+  <!-- Header -->
+  <header class="header">
+    <nav class="navbar navbar-expand-lg navbar-light">
+        <div class="container">
+            <a class="navbar-brand logo" href="#">
+                <img src="../assets/images/steering wheel logo.png" alt="steering logo"> Wheelzy
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav mx-auto">
+                    <li class="nav-item"><a class="nav-link" href="#index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="#listing.html">Car Listing</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">Contact Us</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">About Us</a></li>
+           
+                </ul>
+                <button class="btn btn-primary">Book A Car</button>
+            </div>
+        </div>
+    </nav>
+</header>
+
+<!-- Hero Section -->
+<section class="hero-section">
+    <div class="container text-center">
+        <h1>Car Listing</h1>
+        <div class="search-form">
+            <div class="row">
+                <div class="col-md-3">
+                    <label for="location">Destination</label>
+                    <div class="input-group destination">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <select class="form-select">
+                            <option>Add your location</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <label for="pickup-date" class="form-label">Pick-up Date</label>
+                    <div class="input-group">
+                        <input type="date" class="form-control" id="pickup-date" placeholder="MM/DD/YYYY">      
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <label for="dropoff-date" class="form-label">Drop-off Date</label>
+                    <div class="input-group">
+                        <input type="date" class="form-control" id="dropoff-date" placeholder="MM/DD/YYYY">
+                    </div>
+                </div>
+                <div class="col-md-3 book">
+                    <button class="btn btn-primary w-100">Book A Car</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Main Content -->
+<section class="main-content py-5">
+    <div class="container">
+        <div class="row">
+            <!-- Sidebar (Filters) -->
+            <div class="col-md-3">
+                <!-- Car Type Filter -->
+                <div class="filter-box mb-4">
+                    <h5>Car Type</h5>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="sedans">
+                        <label class="form-check-label" for="sedans">All <span class="badge bg-light text-dark">33</span></label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="suvs">
+                        <label class="form-check-label" for="suvs">Sedans <span class="badge bg-light text-dark">22</span></label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="coupes">
+                        <label class="form-check-label" for="coupes">SUVS <span class="badge bg-light text-dark">41</span></label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="electric">
+                        <label class="form-check-label" for="electric">Coupes Cars <span class="badge bg-light text-dark">51</span></label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="luxury">
+                        <label class="form-check-label" for="luxury">Electric Cars <span class="badge bg-light text-dark">12</span></label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="sport">
+                        <label class="form-check-label" for="sport">Luxury Cars <span class="badge bg-light text-dark">15</span></label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="convertible">
+                        <label class="form-check-label" for="convertible">Sport Cars <span class="badge bg-light text-dark">08</span></label>
+                    </div>
+                    <a href="#" class="see-more">SEE MORE <i class="fas fa-chevron-down"></i></a>
+                </div>
+
+                <!-- Filter Price -->
+                <div class="filter-box mb-4">
+                    <h5>Filter Price</h5>
+                    <input type="range" class="form-range" min="0" max="500" value="280">
+                    <div class="d-flex justify-content-between">
+                        <span>$0</span>
+                        <span>$280</span>
+                        <span>$500</span>
+                    </div>
+                    <button class="btn btn-primary w-100 mt-3">Apply</button>
+                </div>
+
+                <!-- Fuel Type Filter -->
+                <div class="filter-box mb-4">
+                    <h5>Fuel Type</h5>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="all-fuel">
+                        <label class="form-check-label" for="all-fuel">All <span class="badge bg-light text-dark">75</span></label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="petrol">
+                        <label class="form-check-label" for="petrol">Petrol <span class="badge bg-light text-dark">31</span></label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="diesel">
+                        <label class="form-check-label" for="diesel">Diesel <span class="badge bg-light text-dark">27</span></label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="electric-fuel">
+                        <label class="form-check-label" for="electric-fuel">Electric <span class="badge bg-light text-dark">15</span></label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="hydrogen">
+                        <label class="form-check-label" for="hydrogen">Hydrogen <span class="badge bg-light text-dark">08</span></label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="hybrid">
+                        <label class="form-check-label" for="hybrid">Hybrid <span class="badge bg-light text-dark">08</span></label>
+                    </div>
+                </div>
+
+                <!-- Pick-up Location Filter -->
+                <div class="filter-box">
+                    <h5>Pick-up Location</h5>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="maldives">
+                        <label class="form-check-label" for="maldives">Maldives Haven <span class="badge bg-light text-dark">66</span></label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="parisian">
+                        <label class="form-check-label" for="parisian">Parisian Plaza <span class="badge bg-light text-dark">17</span></label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="tokyo">
+                        <label class="form-check-label" for="tokyo">Tokyo Tower <span class="badge bg-light text-dark">22</span></label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="caribbean">
+                        <label class="form-check-label" for="caribbean">Caribbean Cave <span class="badge bg-light text-dark">39</span></label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="dubai">
+                        <label class="form-check-label" for="dubai">Dubai Oasis <span class="badge bg-light text-dark">16</span></label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="london">
+                        <label class="form-check-label" for="london">London Luxe <span class="badge bg-light text-dark">31</span></label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="barcelona">
+                        <label class="form-check-label" for="barcelona">Barcelona Beach <span class="badge bg-light text-dark">12</span></label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="santorini">
+                        <label class="form-check-label" for="santorini">Santorini Cliff <span class="badge bg-light text-dark">24</span></label>
+                    </div>
+                    <a href="#" class="see-more">SEE MORE <i class="fas fa-chevron-down"></i></a>
+                </div>
+            </div>
+
+            <!-- Car Listings -->
+            <div class="col-md-9">
+                <div class="row" id="carListings">
+                    <!-- Car Card 1 -->
+                    <div class="col-md-4 mb-4 car-card-item">
+                        <div class="car-card">
+                            <img src="https://images.pexels.com/photos/170811/pexels-photo-170811.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" class="card-img-top" alt="BMW 3 Series">
+                            <div class="card-body">
+                                <h5>BMW 3 Series</h5>
+                                <p class="car-type">Sedan</p>
+                                <div class="car-specs">
+                                    <span><i class="fas fa-users"></i> 05</span>
+                                    <span><i class="fas fa-suitcase"></i> 02</span>
+                                    <span><i class="fas fa-cogs"></i> Automatic</span>
+                                    <span><i class="fas fa-gas-pump"></i> Petrol</span>
+                                </div>
+                                <p class="price">$120 USD /Per Day</p>
+                                <a href="#" class="carousel-control-next-icon"></a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Car Card 2 -->
+                    <div class="col-md-4 mb-4 car-card-item">
+                        <div class="car-card">
+                            <img src="https://images.pexels.com/photos/919073/pexels-photo-919073.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" class="card-img-top" alt="Porsche 911">
+                            <div class="card-body">
+                                <h5>Porsche 911</h5>
+                                <p class="car-type">Sport</p>
+                                <div class="car-specs">
+                                    <span><i class="fas fa-users"></i> 02</span>
+                                    <span><i class="fas fa-suitcase"></i> 01</span>
+                                    <span><i class="fas fa-cogs"></i> Manual</span>
+                                    <span><i class="fas fa-gas-pump"></i> Petrol</span>
+                                </div>
+                                <p class="price">$250 USD /Per Day</p>
+                                <a href="#" class="carousel-control-next-icon"></a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Car Card 3 -->
+                    <div class="col-md-4 mb-4 car-card-item">
+                        <div class="car-card">
+                            <img src="https://images.pexels.com/photos/244206/pexels-photo-244206.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" class="card-img-top" alt="Toyota RAV4">
+                            <div class="card-body">
+                                <h5>Toyota RAV4</h5>
+                                <p class="car-type">SUV</p>
+                                <div class="car-specs">
+                                    <span><i class="fas fa-users"></i> 07</span>
+                                    <span><i class="fas fa-suitcase"></i> 04</span>
+                                    <span><i class="fas fa-cogs"></i> Automatic</span>
+                                    <span><i class="fas fa-gas-pump"></i> Hybrid</span>
+                                </div>
+                                <p class="price">$140 USD /Per Day</p>
+                                <a href="#" class="carousel-control-next-icon"></a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Car Card 4 -->
+                    <div class="col-md-4 mb-4 car-card-item">
+                        <div class="car-card">
+                            <img src="https://images.pexels.com/photos/385997/pexels-photo-385997.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" class="card-img-top" alt="Tesla Model 3">
+                            <div class="card-body">
+                                <h5>Tesla Model 3</h5>
+                                <p class="car-type">Electric</p>
+                                <div class="car-specs">
+                                    <span><i class="fas fa-users"></i> 05</span>
+                                    <span><i class="fas fa-suitcase"></i> 02</span>
+                                    <span><i class="fas fa-cogs"></i> Automatic</span>
+                                    <span><i class="fas fa-gas-pump"></i> Electric</span>
+                                </div>
+                                <p class="price">$180 USD /Per Day</p>
+                                <a href="#" class="carousel-control-next-icon"></a>
+                            </div>
+                        </div>
+                    </div>
+                         <!-- Car Card 5 -->
+                         <div class="col-md-4 mb-4 car-card-item">
+                            <div class="car-card">
+                                <img src="https://images.pexels.com/photos/1687147/pexels-photo-1687147.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" class="card-img-top" alt="Mercedes S-Class">
+                                <div class="card-body">
+                                    <h5>Mercedes S-Class</h5>
+                                    <p class="car-type">Luxury</p>
+                                    <div class="car-specs">
+                                        <span><i class="fas fa-users"></i> 04</span>
+                                        <span><i class="fas fa-suitcase"></i> 03</span>
+                                        <span><i class="fas fa-cogs"></i> Automatic</span>
+                                        <span><i class="fas fa-gas-pump"></i> Petrol</span>
+                                    </div>
+                                    <p class="price">$300 USD /Per Day</p>
+                                    <a href="#" class="carousel-control-next-icon"></a>
+                                </div>
+                            </div>
+                        </div>
+                    <!-- Car Card 6 -->
+                    <div class="col-md-4 mb-4 car-card-item">
+                        <div class="car-card">
+                            <img src="https://images.pexels.com/photos/1402787/pexels-photo-1402787.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" class="card-img-top" alt="Mazda MX-5">
+                            <div class="card-body">
+                                <h5>Mazda MX-5</h5>
+                                <p class="car-type">Convertible</p>
+                                <div class="car-specs">
+                                    <span><i class="fas fa-users"></i> 02</span>
+                                    <span><i class="fas fa-suitcase"></i> 01</span>
+                                    <span><i class="fas fa-cogs"></i> Manual</span>
+                                    <span><i class="fas fa-gas-pump"></i> Petrol</span>
+                                </div>
+                                <p class="price">$200 USD /Per Day</p>
+                                <a href="#" class="carousel-control-next-icon"></a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Car Card 7 -->
+                    <div class="col-md-4 mb-4 car-card-item">
+                        <div class="car-card">
+                            <img src="https://images.pexels.com/photos/3729464/pexels-photo-3729464.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" class="card-img-top" alt="Range Rover">
+                            <div class="card-body">
+                                <h5>Range Rover</h5>
+                                <p class="car-type">Luxury SUV</p>
+                                <div class="car-specs">
+                                    <span><i class="fas fa-users"></i> 06</span>
+                                    <span><i class="fas fa-suitcase"></i> 05</span>
+                                    <span><i class="fas fa-cogs"></i> Automatic</span>
+                                    <span><i class="fas fa-gas-pump"></i> Diesel</span>
+                                </div>
+                                <p class="price">$350 USD /Per Day</p>
+                                <a href="#" class="carousel-control-next-icon"></a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Car Card 8 -->
+                    <div class="col-md-4 mb-4 car-card-item">
+                        <div class="car-card">
+                            <img src="https://images.pexels.com/photos/210019/pexels-photo-210019.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" class="card-img-top" alt="Ford Mustang">
+                            <div class="card-body">
+                                <h5>Ford Mustang</h5>
+                                <p class="car-type">Sport</p>
+                                <div class="car-specs">
+                                    <span><i class="fas fa-users"></i> 04</span>
+                                    <span><i class="fas fa-suitcase"></i> 02</span>
+                                    <span><i class="fas fa-cogs"></i> Manual</span>
+                                    <span><i class="fas fa-gas-pump"></i> Petrol</span>
+                                </div>
+                                <p class="price">$220 USD /Per Day</p>
+                                <a href="#" class="carousel-control-next-icon"></a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Car Card 9 -->
+                    <div class="col-md-4 mb-4 car-card-item">
+                        <div class="car-card">
+                            <img src="https://images.pexels.com/photos/1592384/pexels-photo-1592384.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" class="card-img-top" alt="Honda Civic">
+                            <div class="card-body">
+                                <h5>Honda Civic</h5>
+                                <p class="car-type">Sedan</p>
+                                <div class="car-specs">
+                                    <span><i class="fas fa-users"></i> 05</span>
+                                    <span><i class="fas fa-suitcase"></i> 02</span>
+                                    <span><i class="fas fa-cogs"></i> Automatic</span>
+                                    <span><i class="fas fa-gas-pump"></i> Petrol</span>
+                                </div>
+                                <p class="price">$100 USD /Per Day</p>
+                                <a href="#" class="carousel-control-next-icon"></a>
+                            </div>
+                        </div>
+                    </div>
+                          <!-- Car Card 10 -->
+                          <div class="col-md-4 mb-4 car-card-item">
+                            <div class="car-card">
+                                <img src="https://images.pexels.com/photos/1687147/pexels-photo-1687147.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" class="card-img-top" alt="Mercedes S-Class">
+                                <div class="card-body">
+                                    <h5>Mercedes S-Class</h5>
+                                    <p class="car-type">Luxury</p>
+                                    <div class="car-specs">
+                                        <span><i class="fas fa-users"></i> 04</span>
+                                        <span><i class="fas fa-suitcase"></i> 03</span>
+                                        <span><i class="fas fa-cogs"></i> Automatic</span>
+                                        <span><i class="fas fa-gas-pump"></i> Petrol</span>
+                                    </div>
+                                    <p class="price">$300 USD /Per Day</p>
+                                    <a href="#" class="carousel-control-next-icon"></a>
+                                </div>
+                            </div>
+                        </div>
+                    <!-- Car Card 11 -->
+                    <div class="col-md-4 mb-4 car-card-item">
+                        <div class="car-card">
+                            <img src="https://images.pexels.com/photos/170811/pexels-photo-170811.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" class="card-img-top" alt="Audi A4">
+                            <div class="card-body">
+                                <h5>Audi A4</h5>
+                                <p class="car-type">Sedan</p>
+                                <div class="car-specs">
+                                    <span><i class="fas fa-users"></i> 05</span>
+                                    <span><i class="fas fa-suitcase"></i> 02</span>
+                                    <span><i class="fas fa-cogs"></i> Automatic</span>
+                                    <span><i class="fas fa-gas-pump"></i> Petrol</span>
+                                </div>
+                                <p class="price">$130 USD /Per Day</p>
+                                <a href="#" class="carousel-control-next-icon"></a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Car Card 12 -->
+                    <div class="col-md-4 mb-4 car-card-item">
+                        <div class="car-card">
+                            <img src="https://images.pexels.com/photos/919073/pexels-photo-919073.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" class="card-img-top" alt="Chevrolet Corvette">
+                            <div class="card-body">
+                                <h5>Chevrolet Corvette</h5>
+                                <p class="car-type">Sport</p>
+                                <div class="car-specs">
+                                    <span><i class="fas fa-users"></i> 02</span>
+                                    <span><i class="fas fa-suitcase"></i> 01</span>
+                                    <span><i class="fas fa-cogs"></i> Manual</span>
+                                    <span><i class="fas fa-gas-pump"></i> Petrol</span>
+                                </div>
+                                <p class="price">$270 USD /Per Day</p>
+                                <a href="#" class="carousel-control-next-icon"></a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Car Card 13 -->
+                    <div class="col-md-4 mb-4 car-card-item">
+                        <div class="car-card">
+                            <img src="https://images.pexels.com/photos/244206/pexels-photo-244206.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" class="card-img-top" alt="Jeep Wrangler">
+                            <div class="card-body">
+                                <h5>Jeep Wrangler</h5>
+                                <p class="car-type">SUV</p>
+                                <div class="car-specs">
+                                    <span><i class="fas fa-users"></i> 05</span>
+                                    <span><i class="fas fa-suitcase"></i> 03</span>
+                                    <span><i class="fas fa-cogs"></i> Manual</span>
+                                    <span><i class="fas fa-gas-pump"></i> Petrol</span>
+                                </div>
+                                <p class="price">$150 USD /Per Day</p>
+                                <a href="#" class="carousel-control-next-icon"></a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Car Card 14 -->
+                    <div class="col-md-4 mb-4 car-card-item">
+                        <div class="car-card">
+                            <img src="https://images.pexels.com/photos/385997/pexels-photo-385997.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" class="card-img-top" alt="Nissan Leaf">
+                            <div class="card-body">
+                                <h5>Nissan Leaf</h5>
+                                <p class="car-type">Electric</p>
+                                <div class="car-specs">
+                                    <span><i class="fas fa-users"></i> 05</span>
+                                    <span><i class="fas fa-suitcase"></i> 02</span>
+                                    <span><i class="fas fa-cogs"></i> Automatic</span>
+                                    <span><i class="fas fa-gas-pump"></i> Electric</span>
+                                </div>
+                                <p class="price">$160 USD /Per Day</p>
+                                <a href="#" class="carousel-control-next-icon"></a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Car Card 15 -->
+                    <div class="col-md-4 mb-4 car-card-item">
+                        <div class="car-card">
+                            <img src="https://images.pexels.com/photos/1592384/pexels-photo-1592384.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" class="card-img-top" alt="Honda Civic">
+                            <div class="card-body">
+                                <h5>Honda Civic</h5>
+                                <p class="car-type">Sedan</p>
+                                <div class="car-specs">
+                                    <span><i class="fas fa-users"></i> 05</span>
+                                    <span><i class="fas fa-suitcase"></i> 02</span>
+                                    <span><i class="fas fa-cogs"></i> Automatic</span>
+                                    <span><i class="fas fa-gas-pump"></i> Petrol</span>
+                                </div>
+                                <p class="price">$100 USD /Per Day</p>
+                                <a href="#" class="carousel-control-next-icon"></a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Car Card 16 -->
+                    <div class="col-md-4 mb-4 car-card-item">
+                        <div class="car-card">
+                            <img src="https://images.pexels.com/photos/1402787/pexels-photo-1402787.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" class="card-img-top" alt="BMW Z4">
+                            <div class="card-body">
+                                <h5>BMW Z4</h5>
+                                <p class="car-type">Convertible</p>
+                                <div class="car-specs">
+                                    <span><i class="fas fa-users"></i> 02</span>
+                                    <span><i class="fas fa-suitcase"></i> 01</span>
+                                    <span><i class="fas fa-cogs"></i> Manual</span>
+                                    <span><i class="fas fa-gas-pump"></i> Petrol</span>
+                                </div>
+                                <p class="price">$210 USD /Per Day</p>
+                                <a href="#" class="carousel-control-next-icon"></a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Car Card 17 -->
+                    <div class="col-md-4 mb-4 car-card-item">
+                        <div class="car-card">
+                            <img src="https://images.pexels.com/photos/3729464/pexels-photo-3729464.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" class="card-img-top" alt="Land Rover Defender">
+                            <div class="card-body">
+                                <h5>Land Rover Defender</h5>
+                                <p class="car-type">Luxury SUV</p>
+                                <div class="car-specs">
+                                    <span><i class="fas fa-users"></i> 06</span>
+                                    <span><i class="fas fa-suitcase"></i> 05</span>
+                                    <span><i class="fas fa-cogs"></i> Automatic</span>
+                                    <span><i class="fas fa-gas-pump"></i> Diesel</span>
+                                </div>
+                                <p class="price">$320 USD /Per Day</p>
+                                <a href="#" class="carousel-control-next-icon"></a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Car Card 18 -->
+                    <div class="col-md-4 mb-4 car-card-item">
+                        <div class="car-card">
+                            <img src="https://images.pexels.com/photos/210019/pexels-photo-210019.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" class="card-img-top" alt="Dodge Challenger">
+                            <div class="card-body">
+                                <h5>Dodge Challenger</h5>
+                                <p class="car-type">Sport</p>
+                                <div class="car-specs">
+                                    <span><i class="fas fa-users"></i> 04</span>
+                                    <span><i class="fas fa-suitcase"></i> 02</span>
+                                    <span><i class="fas fa-cogs"></i> Manual</span>
+                                    <span><i class="fas fa-gas-pump"></i> Petrol</span>
+                                </div>
+                                <p class="price">$230 USD /Per Day</p>
+                                <a href="#" class="carousel-control-next-icon"></a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Car Card 19 -->
+                    <div class="col-md-4 mb-4 car-card-item">
+                        <div class="car-card">
+                            <img src="https://images.pexels.com/photos/1592384/pexels-photo-1592384.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" class="card-img-top" alt="Honda Civic">
+                            <div class="card-body">
+                                <h5>Honda Civic</h5>
+                                <p class="car-type">Sedan</p>
+                                <div class="car-specs">
+                                    <span><i class="fas fa-users"></i> 05</span>
+                                    <span><i class="fas fa-suitcase"></i> 02</span>
+                                    <span><i class="fas fa-cogs"></i> Automatic</span>
+                                    <span><i class="fas fa-gas-pump"></i> Petrol</span>
+                                </div>
+                                <p class="price">$100 USD /Per Day</p>
+                                <a href="#" class="carousel-control-next-icon"></a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Car Card 20 -->
+                    <div class="col-md-4 mb-4 car-card-item">
+                        <div class="car-card">
+                            <img src="https://images.pexels.com/photos/385997/pexels-photo-385997.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" class="card-img-top" alt="Hyundai Ioniq 5">
+                            <div class="card-body">
+                                <h5>Hyundai Ioniq 5</h5>
+                                <p class="car-type">Electric SUV</p>
+                                <div class="car-specs">
+                                    <span><i class="fas fa-users"></i> 07</span>
+                                    <span><i class="fas fa-suitcase"></i> 04</span>
+                                    <span><i class="fas fa-cogs"></i> Automatic</span>
+                                    <span><i class="fas fa-gas-pump"></i> Electric</span>
+                                </div>
+                                <p class="price">$200 USD /Per Day</p>
+                                <a href="#" class="carousel-control-next-icon"></a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Car Card 21 -->
+                    <div class="col-md-4 mb-4 car-card-item">
+                        <div class="car-card">
+                            <img src="https://images.pexels.com/photos/170811/pexels-photo-170811.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" class="card-img-top" alt="Volkswagen Passat">
+                            <div class="card-body">
+                                <h5>Volkswagen Passat</h5>
+                                <p class="car-type">Sedan</p>
+                                <div class="car-specs">
+                                    <span><i class="fas fa-users"></i> 05</span>
+                                    <span><i class="fas fa-suitcase"></i> 02</span>
+                                    <span><i class="fas fa-cogs"></i> Automatic</span>
+                                    <span><i class="fas fa-gas-pump"></i> Diesel</span>
+                                </div>
+                                <p class="price">$115 USD /Per Day</p>
+                                <a href="#" class="carousel-control-next-icon"></a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Car Card 22 -->
+                    <div class="col-md-4 mb-4 car-card-item">
+                        <div class="car-card">
+                            <img src="https://images.pexels.com/photos/919073/pexels-photo-919073.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" class="card-img-top" alt="Lamborghini Huracan">
+                            <div class="card-body">
+                                <h5>Lamborghini Huracan</h5>
+                                <p class="car-type">Sport</p>
+                                <div class="car-specs">
+                                    <span><i class="fas fa-users"></i> 02</span>
+                                    <span><i class="fas fa-suitcase"></i> 01</span>
+                                    <span><i class="fas fa-cogs"></i> Automatic</span>
+                                    <span><i class="fas fa-gas-pump"></i> Petrol</span>
+                                </div>
+                                <p class="price">$450 USD /Per Day</p>
+                                <a href="#" class="carousel-control-next-icon"></a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Car Card 23 -->
+                    <div class="col-md-4 mb-4 car-card-item">
+                        <div class="car-card">
+                            <img src="https://images.pexels.com/photos/244206/pexels-photo-244206.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" class="card-img-top" alt="Ford Explorer">
+                            <div class="card-body">
+                                <h5>Ford Explorer</h5>
+                                <p class="car-type">SUV</p>
+                                <div class="car-specs">
+                                    <span><i class="fas fa-users"></i> 07</span>
+                                    <span><i class="fas fa-suitcase"></i> 04</span>
+                                    <span><i class="fas fa-cogs"></i> Automatic</span>
+                                    <span><i class="fas fa-gas-pump"></i> Petrol</span>
+                                </div>
+                                <p class="price">$170 USD /Per Day</p>
+                                <a href="#" class="carousel-control-next-icon"></a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Car Card 24 -->
+                    <div class="col-md-4 mb-4 car-card-item">
+                        <div class="car-card">
+                            <img src="https://images.pexels.com/photos/1687147/pexels-photo-1687147.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" class="card-img-top" alt="Mercedes S-Class">
+                            <div class="card-body">
+                                <h5>Mercedes S-Class</h5>
+                                <p class="car-type">Luxury</p>
+                                <div class="car-specs">
+                                    <span><i class="fas fa-users"></i> 04</span>
+                                    <span><i class="fas fa-suitcase"></i> 03</span>
+                                    <span><i class="fas fa-cogs"></i> Automatic</span>
+                                    <span><i class="fas fa-gas-pump"></i> Petrol</span>
+                                </div>
+                                <p class="price">$300 USD /Per Day</p>
+                                <a href="#" class="carousel-control-next-icon"></a>
+                            </div>
+                        </div>
+                    </div>
+                  
+                    <!-- Car Card 25 -->
+                    <div class="col-md-4 mb-4 car-card-item">
+                        <div class="car-card">
+                            <img src="https://images.pexels.com/photos/210019/pexels-photo-210019.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" class="card-img-top" alt="Ford Mustang">
+                            <div class="card-body">
+                                <h5>Ford Mustang</h5>
+                                <p class="car-type">Sport</p>
+                                <div class="car-specs">
+                                    <span><i class="fas fa-users"></i> 04</span>
+                                    <span><i class="fas fa-suitcase"></i> 02</span>
+                                    <span><i class="fas fa-cogs"></i> Manual</span>
+                                    <span><i class="fas fa-gas-pump"></i> Petrol</span>
+                                </div>
+                                <p class="price">$220 USD /Per Day</p>
+                                <a href="#" class="carousel-control-next-icon"></a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Car Card 26 -->
+                    <div class="col-md-4 mb-4 car-card-item">
+                        <div class="car-card">
+                            <img src="https://images.pexels.com/photos/1402787/pexels-photo-1402787.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" class="card-img-top" alt="Audi TT Roadster">
+                            <div class="card-body">
+                                <h5>Audi TT Roadster</h5>
+                                <p class="car-type">Convertible</p>
+                                <div class="car-specs">
+                                    <span><i class="fas fa-users"></i> 02</span>
+                                    <span><i class="fas fa-suitcase"></i> 01</span>
+                                    <span><i class="fas fa-cogs"></i> Manual</span>
+                                    <span><i class="fas fa-gas-pump"></i> Petrol</span>
+                                </div>
+                                <p class="price">$190 USD /Per Day</p>
+                                <a href="#" class="carousel-control-next-icon"></a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Car Card 27 -->
+                    <div class="col-md-4 mb-4 car-card-item">
+                        <div class="car-card">
+                            <img src="https://images.pexels.com/photos/3729464/pexels-photo-3729464.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" class="card-img-top" alt="Porsche Cayenne">
+                            <div class="card-body">
+                                <h5>Porsche Cayenne</h5>
+                                <p class="car-type">Luxury SUV</p>
+                                <div class="car-specs">
+                                    <span><i class="fas fa-users"></i> 06</span>
+                                    <span><i class="fas fa-suitcase"></i> 05</span>
+                                    <span><i class="fas fa-cogs"></i> Automatic</span>
+                                    <span><i class="fas fa-gas-pump"></i> Hybrid</span>
+                                </div>
+                                <p class="price">$340 USD /Per Day</p>
+                                <a href="#" class="carousel-control-next-icon"></a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Car Card 28 -->
+                    <div class="col-md-4 mb-4 car-card-item">
+                        <div class="car-card">
+                            <img src="https://images.pexels.com/photos/210019/pexels-photo-210019.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" class="card-img-top" alt="Nissan GT-R">
+                            <div class="card-body">
+                                <h5>Nissan GT-R</h5>
+                                <p class="car-type">Sport</p>
+                                <div class="car-specs">
+                                    <span><i class="fas fa-users"></i> 04</span>
+                                    <span><i class="fas fa-suitcase"></i> 02</span>
+                                    <span><i class="fas fa-cogs"></i> Automatic</span>
+                                    <span><i class="fas fa-gas-pump"></i> Petrol</span>
+                                </div>
+                                <p class="price">$280 USD /Per Day</p>
+                                <a href="#" class="carousel-control-next-icon"></a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Car Card 29 -->
+                    <div class="col-md-4 mb-4 car-card-item">
+                        <div class="car-card">
+                            <img src="https://images.pexels.com/photos/1687147/pexels-photo-1687147.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" class="card-img-top" alt="Mercedes S-Class">
+                            <div class="card-body">
+                                <h5>Mercedes S-Class</h5>
+                                <p class="car-type">Luxury</p>
+                                <div class="car-specs">
+                                    <span><i class="fas fa-users"></i> 04</span>
+                                    <span><i class="fas fa-suitcase"></i> 03</span>
+                                    <span><i class="fas fa-cogs"></i> Automatic</span>
+                                    <span><i class="fas fa-gas-pump"></i> Petrol</span>
+                                </div>
+                                <p class="price">$300 USD /Per Day</p>
+                                <a href="#" class="carousel-control-next-icon"></a>
+                            </div>
+                        </div>
+                    </div>        
+                     <!-- Car Card 30 -->
+                    <div class="col-md-4 mb-4 car-card-item">
+                        <div class="car-card">
+                            <img src="https://images.pexels.com/photos/385997/pexels-photo-385997.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" class="card-img-top" alt="Ford Mustang Mach-E">
+                            <div class="card-body">
+                                <h5>Ford Mustang Mach-E</h5>
+                                <p class="car-type">Electric SUV</p>
+                                <div class="car-specs">
+                                    <span><i class="fas fa-users"></i> 07</span>
+                                    <span><i class="fas fa-suitcase"></i> 04</span>
+                                    <span><i class="fas fa-cogs"></i> Automatic</span>
+                                    <span><i class="fas fa-gas-pump"></i> Electric</span>
+                                </div>
+                                <p class="price">$210 USD /Per Day</p>
+                                <a href="#" class="carousel-control-next-icon"></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Pagination -->
+                <nav aria-label="Page navigation">
+                    <ul class="pagination justify-content-center" id="pagination">
+                        <li class="page-item"><a class="page-link" href="#" id="prevPage">Previous</a></li>
+                        <!-- Page numbers will be dynamically generated by JavaScript -->
+                        <li class="page-item"><a class="page-link" href="#" id="nextPage">Next</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Footer -->
+<footer class="footer">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3">
+                <img src="../assets/images/steering wheel logo.png" alt="Carent Logo" class="logo mb-3">
+                <p>123, Near FD Bank Avenue, New York, USA</p>
+                <p><i class="fas fa-envelope"></i> info@carent.com</p>
+                <p><i class="fas fa-phone"></i> +123 456 789</p>
+            </div>
+            <div class="col-md-2">
+                <h5>Resources</h5>
+                <ul class="list-unstyled">
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="#">Gallery</a></li>
+                    <li><a href="#">Our Team</a></li>
+                    <li><a href="#">Pricing</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </div>
+            <div class="col-md-2">
+                <h5>Community</h5>
+                <ul class="list-unstyled">
+                    <li><a href="#">Area Blogs</a></li>
+                    <li><a href="#">FAQS</a></li>
+                    <li><a href="#">Service Areas</a></li>
+                    <li><a href="#">Testimonials</a></li>
+                </ul>
+            </div>
+            <div class="col-md-3">
+                <h5>Subscribe Newsletter</h5>
+                <p>Our Estimated Global Carbon Emissions by Investing in Carent</p>
+                <div class="input-group mb-3">
+                    <input type="email" class="form-control" placeholder="Email Address">
+                    <button class="btn btn-primary" type="button">Subscribe</button>
+                </div>
+            </div>
+            <div class="col-md-2">
+                <h5>Working Hours</h5>
+                <p>Monday To Friday: 8:00 Am - 8:00 Pm</p>
+                <p>Saturday To Sunday: 8:00 Am - 5:00 Pm</p>
+                <h5 class="mt-4">Social Media</h5>
+                <div class="social-icons">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-pinterest-p"></i></a>
+                    <a href="#"><i class="fab fa-times"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="row mt-4">
+            <div class="col-md-6">
+                <p>© 2025 Carent, Inc. All Rights Reserved</p>
+            </div>
+            <div class="col-md-6 text-end">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/5/5e/Visa_Inc._logo.svg" alt="Visa" class="payment-icon">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/2/2a/Mastercard-logo.svg" alt="MasterCard" class="payment-icon">
+                <img src="../assets/images/Apple_Pay-Logo.wine.png" alt="Apple Pay" class="payment-icon apple">
+                <img src="../assets/images/stripe-v2.svg" alt="Stripe" class="payment-icon stripe">
+            </div>
+        </div>
+    </div>
+</footer>
+   
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
+    <script src="../assets/js/carListing.js"></script>
+</body>
+</html>

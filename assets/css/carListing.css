@@ -1,0 +1,406 @@
+ body {
+    font-family: 'Poppins', sans-serif;
+    color: #333;
+    margin: 0;
+}
+
+.header {
+    background: #fff;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    padding: 10px 0;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #333;
+}
+
+.logo img {
+    width: 40px;
+    margin-right: 10px;
+}
+
+.navbar-nav {
+    display: flex;
+    align-items: center;
+}
+
+.navbar-nav .nav-link {
+    color: #000;
+    font-weight: 500;
+    margin: 0 15px;
+    padding: 10px 10px;
+}
+
+.navbar-nav .nav-link:hover,
+.navbar-nav .nav-link.active {
+    color: #4f46e5;
+}
+
+.btn-primary {
+    background-color: #4f46e5;
+    border-color: #4f46e5;
+    border-radius: 25px;
+    padding: 8px 20px;
+}
+
+.btn-primary:hover {
+    background-color: #5c54f7;
+    border-color: #5c54f7;
+}
+
+.hero-section {
+    background: url('https://images.pexels.com/photos/112460/pexels-photo-112460.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1') no-repeat center center/cover;
+    height: 400px;
+    display: flex;
+    align-items: center;
+    color: #fff;
+    position: relative;
+}
+
+.hero-section h1 {
+    font-size: 3.5rem;
+    font-weight: 700;
+    margin-bottom: 30px;
+}
+
+.search-form {
+    background: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.search-form label {
+    color: #000;
+    font-weight: 600;
+    font-size: 0.9rem;
+    margin-bottom: 5px;
+    display: block;
+    text-align: left;
+}
+
+.form-control,
+.form-select {
+    border-radius: 5px;
+    border: 1px solid #ddd;
+    padding: 10px 40px 10px 30px; 
+    font-size: 0.9rem;
+    color: #777;
+}
+
+.input-group {
+    position: relative;
+}
+
+.input-group i {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #777;
+    z-index: 1;
+}
+
+.input-group i.fa-map-marker-alt {
+    left: 10px; 
+}
+
+.input-group i.fa-calendar-alt {
+    right: 10px; 
+}
+
+.form-control::placeholder,
+.form-select option:first-child {
+    color: #777;
+}
+
+.search-form .btn-primary {
+    width: 100%;
+    padding: 10px;
+    font-size: 1rem;
+}
+
+.filter-box {
+    background: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.filter-box h5 {
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 15px;
+}
+
+.form-check-label {
+    font-size: 0.9rem;
+}
+
+.badge {
+    margin-left: 5px;
+}
+
+.see-more {
+    color: #4f46e5;
+    font-size: 0.9rem;
+    text-decoration: none;
+}
+
+.see-more:hover {
+    text-decoration: underline;
+}
+
+.form-range {
+    accent-color: #4f46e5;
+}
+
+.car-card {
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    height: 350px;
+}
+
+.car-card img {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+}
+
+.car-card .card-body {
+    padding: 15px;
+}
+
+.car-card h5 {
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin-bottom: 5px;
+}
+
+.car-type {
+    color: #777;
+    font-size: 0.9rem;
+    margin-bottom: 10px;
+}
+
+.car-specs span {
+    font-size: 0.8rem;
+    color: #777;
+    margin-right: 10px;
+}
+
+.car-specs i {
+    margin-right: 3px;
+}
+
+.price {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #333;
+    margin-top: 10px;
+}
+
+.carousel-control-next-icon {
+    float: right;
+}
+
+.pagination .page-link {
+    color: #4f46e5;
+    border: none;
+}
+
+.pagination li {
+    padding-right: 10px;
+}
+
+.pagination .page-item.active .page-link {
+    background-color: #4f46e5;
+    color: #fff;
+    border-radius: 50%;
+}
+
+.footer {
+    background: #1C2526;
+    color: #fff;
+    padding: 40px 0;
+}
+
+.footer .logo {
+    width: 40px;
+}
+
+.footer h5 {
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 15px;
+}
+
+.footer p {
+    font-size: 0.9rem;
+    margin-bottom: 10px;
+}
+
+.footer ul li a {
+    color: #fff;
+    font-size: 0.9rem;
+    text-decoration: none;
+}
+
+.footer ul li a:hover {
+    text-decoration: underline;
+}
+
+.footer .input-group .form-control {
+    border-radius: 5px 0 0 5px;
+}
+
+.footer .social-icons a {
+    color: #fff;
+    font-size: 1.2rem;
+    margin-right: 15px;
+    background: #4f46e5;
+    width: 30px;
+    height: 30px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+}
+
+.footer .payment-icon {
+    width: 40px;
+    margin-left: 10px;
+}
+
+.footer .apple {
+    background-color: rgb(11, 197, 197);
+    border-radius: 10px;
+}
+
+.footer .stripe {
+    border-radius: 10px;
+}
+
+@media (max-width: 992px) {
+    .hero-section {
+        height: 500px; 
+    }
+
+    .hero-section h1 {
+        font-size: 2.5rem;
+    }
+
+    .search-form .row > div {
+        margin-bottom: 15px;
+    }
+
+    .search-form .btn-primary {
+        margin-top: 10px;
+    }
+
+    .navbar-nav .nav-link {
+        margin: 5px 0;
+    }
+
+    .filter-box {
+        margin-bottom: 20px;
+    }
+
+    .car-card {
+        height: auto;
+    }
+}
+
+@media (max-width: 768px) {
+    .hero-section {
+        height: 600px;
+    }
+
+    .hero-section h1 {
+        font-size: 2rem;
+    }
+
+    .search-form {
+        padding: 15px;
+    }
+
+    .form-control,
+    .form-select {
+        font-size: 0.85rem;
+    }
+
+    .car-card h5 {
+        font-size: 1rem;
+    }
+
+    .car-specs span {
+        font-size: 0.75rem;
+    }
+
+    .price {
+        font-size: 1rem;
+    }
+
+    .footer .row > div {
+        margin-bottom: 20px;
+    }
+
+    .footer .text-end {
+        text-align: left !important;
+    }
+}
+
+@media (max-width: 576px) {
+    .hero-section {
+        height: 700px;
+    }
+
+    .hero-section h1 {
+        font-size: 1.5rem;
+    }
+
+    .search-form {
+        padding: 10px;
+    }
+
+    .form-control,
+    .form-select {
+        font-size: 0.8rem;
+    }
+
+    .search-form label {
+        font-size: 0.8rem;
+    }
+
+    .search-form .btn-primary {
+        font-size: 0.9rem;
+    }
+
+    .logo {
+        font-size: 1.2rem;
+    }
+
+    .logo img {
+        width: 30px;
+    }
+
+    .navbar-nav .nav-link {
+        font-size: 0.9rem;
+    }
+
+    .btn-primary {
+        padding: 6px 15px;
+        font-size: 0.9rem;
+    }
+}
+
+.book {
+    padding-top: 20px;
+}
