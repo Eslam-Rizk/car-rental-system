@@ -2,7 +2,7 @@
   --main-color: #4f46e5;
   --darker-main: #423bc1;
   --lighter-main: #756fe4;
-  --bgcolor: #eeeeee;
+  --bgcolor: #f7f7f7;
   --darkblue: #111828;
   --lightgrey: #9ca2ae;
   --darkgrey: #5f5f5f;
@@ -15,6 +15,16 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+
+}
+
+.darkgrey {
+  color: var(--darkgrey);
+}
+
+section {
+  margin-block: 50px;
+  padding-block: 50px;
 }
 
 /*---------------------------- LANDING PAGE---------------- */
@@ -47,11 +57,13 @@
 
 .logo {
   transition: transform 0.3s ease-in-out;
+  width: 30px
 }
 
 .logo:hover {
   transform: rotate(360deg);
 }
+
 .btn-nav {
   background-color: var(--main-color);
   box-shadow: 0 5px 8px rgba(0, 0, 0, 0.2);
@@ -80,7 +92,7 @@ header h1 {
 }
 
 header {
-  background-image: url(imgs/car-header.jpg);
+  background-image: url(assets/images/homepage/car-header.jpg);
   background-size: cover;
   background-position: center;
 }
@@ -98,6 +110,11 @@ header {
 }
 
 /* ------------MINI CAR LISTINGS------------ */
+
+
+.section-content {
+  margin-block: 20px;
+}
 
 .small-headline {
   color: var(--main-color);
@@ -127,6 +144,17 @@ header {
   height: 100%;
   box-shadow: 0 5px 8px rgba(0, 0, 0, 0.2);
   border-radius: 20px;
+  transition: scale 300ms ease;
+}
+
+.car-faq {
+  transition: scale 300ms ease;
+}
+
+.car-card:hover,
+.car-faq:hover,
+.image-wrapper:hover {
+  scale: 1.05;
 }
 
 .car-type {
@@ -148,7 +176,7 @@ header {
 .car-card img {
   border-radius: 20px;
   width: 100%;
-  height: 200px; /* or whatever height you want for the image */
+  height: 200px;
   object-fit: cover;
 }
 
@@ -156,6 +184,205 @@ header {
   border-bottom: var(--darkgrey) 1px solid;
 }
 
-.per {
-  color: var(--darkgrey);
+
+/*------------------------CHOOSE US----------------------------- */
+
+.choose-us,
+.how-it-works {
+  padding-block: 100px;
+  background-color: var(--bgcolor);
+}
+
+.image-wrapper {
+  position: relative;
+  width: 300px;
+  max-width: 400px;
+  margin: 0 auto;
+  justify-content: center;
+  display: flex;
+  align-items: center;
+  transition: scale 300ms ease;
+
+}
+
+.background-oval {
+  width: 80%;
+  aspect-ratio: 3/6;
+  object-fit: cover;
+  border-radius: 50% / 30%;
+  overflow: hidden;
+  display: block;
+}
+
+.car-image {
+  position: absolute;
+  top: 30%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 120%;
+}
+
+.text-box {
+  margin-bottom: 30px;
+}
+
+.text-box-border {
+  border-bottom: 1px solid var(--lightgrey);
+}
+
+
+
+
+/* --------------------------FAQ------------------- */
+.accordion-button:focus {
+  box-shadow: 0 0 0 1px var(--lighter-main);
+  ;
+}
+
+
+.accordion-button:not(.collapsed) {
+  color: black;
+  background-color: var(--lighter-main);
+  box-shadow: inset 0 calc(-1 * var(--bs-accordion-border-width)) 0 var(--lighter-main);
+}
+
+/*----------------------- HOW IT WORKS ---------------------*/
+.step-card {
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+  transition: transform 0.3s ease;
+  border-left: 4px solid var(--lighter-main);
+}
+
+.step-card:hover {
+  transform: translateY(-5px);
+}
+
+.step-number {
+  width: 40px;
+  height: 40px;
+  background-color: var(--lighter-main);
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 20px;
+}
+
+.testimonials-section {
+  border-top: 1px solid #dee2e6;
+}
+
+/* -----------CLIENT REVIEWS-------- */
+.testimonial-card {
+  background: white;
+  border-radius: 15px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease;
+}
+
+.testimonial-img-wrapper {
+  width: 100px;
+  height: 100px;
+  border: 3px solid var(--main-color);
+  border-radius: 50%;
+  padding: 5px;
+}
+
+.testimonial-img-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+
+.testimonial-btn {
+  background-color: var(--main-color);
+}
+
+.carousel {
+  padding: 20px 0;
+}
+
+.carousel-indicators [data-bs-target] {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  margin: 0 5px;
+  opacity: 0.5;
+  transition: opacity 0.3s ease;
+}
+
+.carousel-indicators .active {
+  opacity: 1;
+}
+
+.carousel-control-prev,
+.carousel-control-next {
+  width: auto;
+  opacity: 1;
+}
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+  background-size: 1.5rem;
+}
+
+.carousel-item {
+  transition: transform 0.6s ease-in-out;
+}
+
+
+/* --------------FOOTER-------- */
+.footer {
+  background-color: #1C2526;
+  color: white;
+  padding: 60px 0 30px;
+}
+
+.footer h4 {
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 20px;
+  letter-spacing: 0.5px;
+}
+
+.footer h6 {
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.footer p,
+.footer address,
+.footer ul li {
+  font-size: 14px;
+  line-height: 1.6;
+  margin-bottom: 8px;
+}
+
+.footer a {
+  color: white;
+  transition: color 0.3s ease;
+}
+
+.footer a:hover {
+  color: #4f46e5;
+  text-decoration: none;
+}
+
+.footer ul {
+  padding-left: 0;
+}
+
+.footer ul li {
+  list-style: none;
+  margin-bottom: 5px;
+}
+
+.border-top {
+  border-top: 1px solid #eaeaea !important;
 }

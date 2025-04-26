@@ -1,219 +1,524 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Car Rentals</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
-      rel="stylesheet"
-    />
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-      integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7"
-      crossorigin="anonymous"
-    />
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
-    />
-    <link rel="stylesheet" href="style.css" />
-    <link rel="stylesheet" href="landingPage.css" />
-  </head>
-  <body>
-    <nav class="navbar navbar-expand-lg navbar-light">
-      <div class="container-fluid">
-        <ul class="navbar-nav me-auto">
-          <li class="nav-item d-flex align-items-center">
-            <img
-              src="imgs/steering wheel logo.png"
-              width="30px"
-              class="d-inline logo"
-              alt="Wheelzy Logo"
-            />
-            <a class="nav-link fs-4 fw-bold nav-main" href="#">Wheelzy</a>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Car Rentals</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+    rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7" crossorigin="anonymous" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
+
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="landingPage.css" />
+</head>
+
+<body>
+
+  <!-----------------------------------navbar------------------------------------------>
+  <nav class="navbar navbar-expand-lg navbar-light">
+    <div class="container-fluid">
+      <ul class="navbar-nav me-auto px-4">
+        <li class="nav-item d-flex align-items-center">
+          <img src="assets/images/steering wheel logo.png" class="d-inline logo" alt="Wheelzy Logo" />
+          <a class="nav-link fs-4 fw-bold nav-main" href="#">Wheelzy</a>
+        </li>
+      </ul>
+
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent"
+        aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse w-100 px-4" id="navbarContent">
+        <!-- left-->
+
+        <!-- center -->
+        <ul class="navbar-nav mx-auto">
+          <li class="nav-item px-2">
+            <a class="nav-link active" aria-current="page" href="#">Home</a>
+          </li>
+          <li class="nav-item px-2">
+            <a class="nav-link" href="pages/listings.html">Car Listings</a>
+          </li>
+          <!-- <li class="nav-item px-2">
+            <a class="nav-link" href="#customer-reviews">Customer Reviews</a>
+          </li>
+          <li class="nav-item px-2">
+            <a class="nav-link" href="#faq">FAQ</a>
+          </li> -->
+          <li class="nav-item px-2">
+            <a class="nav-link" href="pages/contact.html">Contact Us</a>
+          </li>
+          <li class="nav-item px-2">
+            <a class="nav-link" href="#">About Us</a>
           </li>
         </ul>
 
-        <button
-          class="navbar-toggler"
-          type="button"
-          data-bs-toggle="collapse"
-          data-bs-target="#navbarContent"
-          aria-controls="navbarContent"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
-        >
-          <span class="navbar-toggler-icon"></span>
-        </button>
+        <!-- right-->
+        <div class="d-flex ms-auto">
+          <button class="btn btn-nav">
+            <a class="text-white text-decoration-none" href="#">Login</a>
+          </button>
+        </div>
+      </div>
+    </div>
+  </nav>
 
-        <div class="collapse navbar-collapse w-100 px-4" id="navbarContent">
-          <!-- left-->
+  <header class="min-vh-100 position-relative mb-3">
+    <div
+      class="header-overlay position-absolute top-0 start-0 end-0 bottom-0 d-flex align-items-center justify-content-center">
+      <div class="header-content text-white text-center px-3">
+        <h1>Looking For a Car to Rent?</h1>
+        <p>
+          Book your car online in minutes and enjoy the freedom to move and
+          travel on your own terms!
+        </p>
+        <button class="btn btn-nav mt-4 btn-header">Book A Car Now</button>
+      </div>
+    </div>
+  </header>
 
-          <!-- center -->
-          <ul class="navbar-nav mx-auto">
-            <li class="nav-item px-2">
-              <a class="nav-link active" aria-current="page" href="#">Home</a>
-            </li>
-            <li class="nav-item px-2">
-              <a class="nav-link" href="pages/listings.html">Car Listings</a>
-            </li>
-            <li class="nav-item px-2">
-              <a class="nav-link" href="pages/contact.html">Contact Us</a>
-            </li>
-            <li class="nav-item px-2">
-              <a class="nav-link" href="#">About Us</a>
-            </li>
+
+  <!---------------------------------------- car listings preview--------------------------->
+  <section class="mini-car-listings">
+    <div class="container">
+      <div class="section-content">
+        <p class="small-headline m-0">CHOOSE YOUR CAR</p>
+        <div class="d-flex justify-content-between">
+          <h2 class="headline">Our Car Listings</h2>
+          <button class="btn btn-nav">View All</button>
+        </div>
+      </div>
+
+      <div class="cars-section">
+        <div class="row gx-5">
+          <div class="col-lg-4">
+            <div class="car-card p-3">
+              <img src="assets/images/homepage/car1.jpg" />
+              <div class="car-details mt-3">
+                <div class="car-headline d-flex justify-content-between mb-3">
+                  <h3 class="m-0">Jeep Grand Cherokee</h3>
+                  <div class="car-type"><span>SUV</span></div>
+                </div>
+                <div class="car-details-icons mb-2">
+                  <i class="bi bi-person-fill me-4"><span class="ms-1">05</span></i>
+                  <i class="bi bi-suitcase me-4"><span class="ms-1">03</span></i>
+                  <i class="bi bi-car-front-fill me-4"><span class="ms-1">automatic</span></i>
+                </div>
+              </div>
+
+              <div class="car-price mt-3 d-flex align-items-center justify-content-between">
+                <h4 class="fs-5 m-0">
+                  2500 EGP <span class="fs-6 darkgrey">/Per Day</span>
+                </h4>
+                <a href="" class="text-black"><i class="bi bi-arrow-up-right-circle fs-4"></i></a>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-4">
+            <div class="car-card p-3">
+              <img src="assets/images/homepage/car2.jpg" alt="car1" />
+              <div class="car-details mt-3">
+                <div class="car-headline d-flex justify-content-between mb-3">
+                  <h3 class="m-0">BMW 3 Series Gran Turismo</h3>
+                  <div class="car-type"><span>Sedan</span></div>
+                </div>
+                <div class="car-details-icons mb-2">
+                  <i class="bi bi-person-fill me-4"><span class="ms-1">05</span></i>
+                  <i class="bi bi-suitcase me-4"><span class="ms-1">03</span></i>
+                  <i class="bi bi-car-front-fill me-4"><span class="ms-1">automatic</span></i>
+                </div>
+              </div>
+
+              <div class="car-price mt-3 d-flex align-items-center justify-content-between">
+                <h4 class="fs-5 m-0">
+                  2500 EGP <span class="fs-6 darkgrey">/Per Day</span>
+                </h4>
+                <a href="" class="text-black"><i class="bi bi-arrow-up-right-circle fs-4"></i></a>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-4">
+            <div class="car-card p-3">
+              <img src="assets/images/homepage/car3.jpg" alt="car1" />
+              <div class="car-details mt-3">
+                <div class="car-headline d-flex justify-content-between mb-3">
+                  <h3 class="m-0">Range Rover Evoque</h3>
+                  <div class="car-type"><span>SUV</span></div>
+                </div>
+                <div class="car-details-icons mb-2">
+                  <i class="bi bi-person-fill me-4"><span class="ms-1">05</span></i>
+                  <i class="bi bi-suitcase me-4"><span class="ms-1">03</span></i>
+                  <i class="bi bi-car-front-fill me-4"><span class="ms-1">automatic</span></i>
+                </div>
+              </div>
+
+              <div class="car-price mt-3 d-flex align-items-center justify-content-between">
+                <h4 class="fs-5 m-0">
+                  2500 EGP <span class="fs-6 darkgrey">/Per Day</span>
+                </h4>
+                <a href="" class="text-black"><i class="bi bi-arrow-up-right-circle fs-4"></i></a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!------------------------------------------choose us ----------------------------------------->
+  <section class="choose-us">
+    <div class="container">
+      <div class="section-content">
+        <p class="small-headline m-0 text-center">WHY CHOOSE US?</p>
+        <h2 class="headline text-center mt-2">Unmatched Quality & Service <br> For Your Needs</h2>
+      </div>
+
+      <div class="row align-items-center px-5 mt-5">
+        <!-- left -->
+        <div class="col-md-4 text-start">
+          <div class="text-box text-box-border">
+            <h5 class="fw-bold text-black">Extensive Car Options</h5>
+            <p class="darkgrey small mb-4">Lorem Ipsum is simply dummy text of the printing and typesetting
+              industry.
+            </p>
+          </div>
+          <div class="text-box">
+            <h5 class="fw-bold text-black">Exceptional Customer Service</h5>
+            <p class="darkgrey small">Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+            </p>
+          </div>
+        </div>
+
+        <!-- middle / img -->
+        <div class="col-md-4 my-4 my-md-0 d-flex justify-content-center align-items-center">
+          <div class="image-wrapper text-center">
+            <img src="assets/images/homepage/road5.jpg" alt="Background Oval" class="background-oval">
+            <img src="assets/images/homepage/view-3d-car.png" alt="Car" class="car-image ">
+          </div>
+        </div>
+
+        <!-- right -->
+        <div class="col-md-4 text-md-start text-center">
+          <div class="text-box text-box-border">
+            <h5 class="fw-bold text-black">Convenient Location</h5>
+            <p class="darkgrey small mb-4">Lorem Ipsum is simply dummy text of the printing and typesetting
+              industry.
+            </p>
+          </div>
+          <div class="text-box">
+            <h5 class="fw-bold text-black">Reliability & Safety</h5>
+            <p class="darkgrey small">Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+            </p>
+          </div>
+        </div>
+      </div>
+
+
+    </div>
+  </section>
+
+
+
+  <!------------------------------------------------- FAQ ---------------------------------->
+  <section class="pricing-faq" id="faq">
+    <div class="container">
+
+      <div class="row align-items-center">
+        <!-- left -->
+        <div class="col-md-5 mb-4 mb-md-0">
+          <div class="faq-imgs">
+            <img src="assets/images/homepage/car-faq.png" alt="Car Rental" class="img-fluid car-faq ">
+
+          </div>
+        </div>
+
+        <!-- right -->
+        <div class="col-md-7">
+          <div class="section-content">
+            <p class="small-headline m-0 text-uppercase text-start">Frequently Asked Questions</p>
+            <h2 class="headline text-start mt-2">Everything you need to <br>know about our services</h2>
+          </div>
+
+          <!-- Accordion -->
+          <div class="accordion" id="faqAccordion">
+            <!-- FAQ 1 -->
+            <div class="accordion-item mb-3 border-0 shadow-sm">
+              <h2 class="accordion-header">
+                <button class="accordion-button collapsed fw-bold" type="button" data-bs-toggle="collapse"
+                  data-bs-target="#faq1" aria-expanded="false" aria-controls="faq1">
+                  What Do I Need To Rent A Car?
+                </button>
+              </h2>
+              <div id="faq1" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                <div class="accordion-body darkgrey ">
+                  Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the
+                  industry's standard dummy text ever. Lorem Ipsum is simply dummy text of the printing and
+                  typesetting industry...
+                </div>
+              </div>
+            </div>
+
+            <!-- FAQ 2 -->
+            <div class="accordion-item mb-3 border-0 shadow-sm">
+              <h2 class="accordion-header">
+                <button class="accordion-button collapsed fw-bold" type="button" data-bs-toggle="collapse"
+                  data-bs-target="#faq2" aria-expanded="false" aria-controls="faq2">
+                  How Old Do I Need To Be To Rent A Car?
+                </button>
+              </h2>
+              <div id="faq2" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                <div class="accordion-body darkgrey ">
+                  Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the
+                  industry's standard dummy text ever. Lorem Ipsum is simply dummy text of the printing and
+                  typesetting industry...
+                </div>
+              </div>
+            </div>
+
+            <!-- FAQ 3 -->
+            <div class="accordion-item mb-3 border-0 shadow-sm">
+              <h2 class="accordion-header">
+                <button class="accordion-button collapsed fw-bold" type="button" data-bs-toggle="collapse"
+                  data-bs-target="#faq3" aria-expanded="false" aria-controls="faq3">
+                  Can I Cancel My Booking?
+                </button>
+              </h2>
+              <div id="faq3" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                <div class="accordion-body darkgrey">
+                  Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the
+                  industry's standard dummy text ever. Lorem Ipsum is simply dummy text of the printing and
+                  typesetting industry...
+                </div>
+              </div>
+            </div>
+
+            <!-- FAQ 4 -->
+            <div class="accordion-item mb-3 border-0 shadow-sm">
+              <h2 class="accordion-header">
+                <button class="accordion-button collapsed fw-bold" type="button" data-bs-toggle="collapse"
+                  data-bs-target="#faq4" aria-expanded="false" aria-controls="faq4">
+                  Can I Rent A Car With A Debit Card?
+                </button>
+              </h2>
+              <div id="faq4" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                <div class="accordion-body darkgrey">
+                  Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the
+                  industry's standard dummy text ever. Lorem Ipsum is simply dummy text of the printing and
+                  typesetting industry...
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!------------------------------------------------- how it works --------------------------->
+  <section class="how-it-works ">
+    <div class="container">
+      <div class="section-content mb-5 mt-0">
+        <p class="small-headline m-0 text-center">HOW IT WORKS</p>
+        <h2 class="headline text-center mt-2">Presenting Your New Go-To Car<br> Rental Experience</h2>
+      </div>
+
+
+      <div class="row g-4 justify-content-center">
+        <!-- 1 -->
+        <div class="col-md-6 col-lg-3">
+          <div class="step-card p-4 h-100">
+            <div class="step-number mb-3"><i class="bi bi-geo-alt"></i></div>
+            <h3 class="h4 mb-3 ">Choose a Location</h3>
+            <p class="darkgrey">Select The Ideal Destination To Begin Your Journey With Ease</p>
+          </div>
+        </div>
+
+        <!-- 2 -->
+        <div class="col-md-6 col-lg-3">
+          <div class="step-card p-4 h-100">
+            <div class="step-number mb-3"><i class="bi bi-car-front"></i></div>
+            <h3 class="h4 mb-3">Choose Your Vehicle</h3>
+            <p class="darkgrey">Browse Our Car Listings & Find The Perfect Car For Your Needs</p>
+          </div>
+        </div>
+
+        <!-- 3 -->
+        <div class="col-md-6 col-lg-3">
+          <div class="step-card p-4 h-100">
+            <div class="step-number mb-3"><i class="bi bi-person-check"></i></div>
+            <h3 class="h4 mb-3">Verification</h3>
+            <p class="darkgrey">Review Your Information & Confirm Your Booking</p>
+          </div>
+        </div>
+
+        <!-- 4 -->
+        <div class="col-md-6 col-lg-3">
+          <div class="step-card p-4 h-100">
+            <div class="step-number mb-3"><i class="bi bi-flag"></i></div>
+            <h3 class="h4 mb-3">Begin Your Journey</h3>
+            <p class="darkgrey">Start Your Adventure With Confidence & Ease</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- customer reviews -->
+  <section class="customer-reviews px-5" id="customer-reviews">
+    <div class="container">
+      <div class="section-content text-center">
+        <p class="small-headline m-0 text-center">TESTIMONIALS</p>
+        <h2 class="headline text-center mt-2">Customer Reviews</h2>
+      </div>
+
+      <div id="testimonialCarousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="3000"
+        data-bs-pause="false">
+        <div class="carousel-indicators mb-0">
+          <button type="button" data-bs-target="#testimonialCarousel" data-bs-slide-to="0" class="active"
+            style="background-color: var(--main-color);" aria-current="true" aria-label="Slide 1"></button>
+          <button type="button" data-bs-target="#testimonialCarousel" data-bs-slide-to="1"
+            style="background-color: var(--main-color);" aria-label="Slide 2"></button>
+          <button type="button" data-bs-target="#testimonialCarousel" data-bs-slide-to="2"
+            style="background-color: var(--main-color);" aria-label="Slide 3"></button>
+        </div>
+
+        <div class="carousel-inner">
+          <!-- Item 1 -->
+          <div class="carousel-item active">
+            <div class="row justify-content-center align-items-center">
+              <div class="col-md-4 mb-4 mb-md-0">
+                <img src="assets/images/homepage/testimonial-3.jpg" alt="client-1"
+                  class="img-fluid w-100 testimonial-img rounded-4 shadow">
+              </div>
+              <div class="col-md-8">
+                <div class="testimonial-content ps-md-4">
+                  <p class="lead mb-4">"Lorem Ipsum has been the industry's standard dummy text ever since the when an
+                    unknown printer took a galley of type and scrambled it to make a type specimen book."</p>
+                  <h5 class="mb-1">Alex Smith</h5>
+                  <p class="darkgrey small">Regular Customer</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Item 2 -->
+          <div class="carousel-item">
+            <div class="row justify-content-center align-items-center">
+              <div class="col-md-4 mb-4 mb-md-0">
+                <img src="assets/images/homepage/testimonial-2.jpg" alt="client-2"
+                  class="img-fluid w-100 testimonial-img rounded-4 shadow">
+              </div>
+              <div class="col-md-8">
+                <div class="testimonial-content ps-md-4">
+                  <p class="lead mb-4">"Lorem Ipsum has been the industry's standard dummy text ever since the when an
+                    unknown printer took a galley of type and scrambled it to make a type specimen book."</p>
+                  <h5 class="mb-1">Sarah Johnson</h5>
+                  <p class="darkgrey small">Business Client</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Item 3 -->
+          <div class="carousel-item">
+            <div class="row justify-content-center align-items-center">
+              <div class="col-md-4 mb-4 mb-md-0">
+                <img src="assets/images/homepage/testimonial-4.jpg" alt="client-3"
+                  class="img-fluid  w-100 testimonial-img rounded-4 shadow">
+              </div>
+              <div class="col-md-8">
+                <div class="testimonial-content ps-md-4">
+                  <p class="lead mb-4">"Lorem Ipsum has been the industry's standard dummy text ever since the when an
+                    unknown printer took a galley of type and scrambled it to make a type specimen book."</p>
+                  <h5 class="mb-1">Michaela Brown</h5>
+                  <p class="darkgrey small">First-time Customer</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+
+  <!-----------------------Footer-------------------------->
+  <footer class="footer">
+    <div class="container">
+      <div class="row">
+        <!-- RentDrive Column -->
+        <div class="col-md-3 mb-4 mb-md-0">
+          <h4 class="text-uppercase mb-3"><img src="assets/images/steering wheel logo.png" alt="logo" class="logo">
+            Wheelzy
+          </h4>
+          <div class="social-media">
+            <h6 class="text-uppercase mb-2">Social media</h6>
+            <ul class="list-unstyled">
+              <li><a href="#" class="text-decoration-none"><i class="bi bi-twitter me-2"></i>Twitter</a></li>
+              <li><a href="#" class="text-decoration-none"><i class="bi bi-instagram me-2"></i>Instagram</a></li>
+              <li><a href="#" class="text-decoration-none"><i class="bi bi-facebook me-2"></i>Facebook</a></li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Contact Information Column -->
+        <div class="col-md-3 mb-4 mb-md-0">
+          <h4 class="text-uppercase mb-3">Contact Information</h4>
+          <address>
+            <p>5th Settlement,<br>1250-148 Cairo, Egpt</p>
+            <p>+20 1234567</p>
+            <p>info@wheelzy.com</p>
+          </address>
+        </div>
+
+        <!-- Home Column -->
+        <div class="col-md-3 mb-4 mb-md-0">
+          <h4 class="text-uppercase mb-3">Home</h4>
+          <ul class="list-unstyled">
+            <li><a href="#" class="text-decoration-none">About Us</a></li>
+            <li><a href="#" class="text-decoration-none">FAQ</a></li>
+            <li><a href="#" class="text-decoration-none">Contact Us</a></li>
+            <li><a href="#" class="text-decoration-none">Services</a></li>
+            <li><a href="#" class="text-decoration-none">Privacy Policy</a></li>
+            <li><a href="#" class="text-decoration-none">Car Listings</a></li>
           </ul>
+        </div>
 
-          <!-- right-->
-          <div class="d-flex ms-auto mt-2">
-            <button class="btn btn-nav">
-              <a class="text-white text-decoration-none" href="#">Login</a>
-            </button>
+        <!-- Contact Us Column -->
+        <div class="col-md-3">
+          <div class="working-hours mt-4">
+            <h4 class="mb-3 text-uppercase">Working Hours</h4>
+            <p class="small mb-1">Sunday To Thursday: 8:00 AM - 8:00 PM</p>
+            <p class="small mb-3">Friday To Saturday: 8:00 AM - 5:00 PM</p>
           </div>
         </div>
       </div>
-    </nav>
 
-    <header class="min-vh-100 position-relative mb-3">
-      <div
-        class="header-overlay position-absolute top-0 start-0 end-0 bottom-0 d-flex align-items-center justify-content-center"
-      >
-        <div class="header-content text-white text-center px-3">
-          <h1>Looking For a Car to Rent?</h1>
-          <p>
-            Book your car online in minutes and enjoy the freedom to move and
-            travel on your own terms!
-          </p>
-          <button class="btn btn-nav mt-4 btn-header">Book A Car Now</button>
+      <!-- Copyright Row -->
+      <div class="row mt-5 pt-3 border-top">
+        <div class="col-12 text-center">
+          <p class="mb-0">© 2025 Wheelzy. All rights reserved</p>
         </div>
       </div>
-    </header>
+    </div>
+  </footer>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-k6d4wzSIapyDyv1kpU366/PK5hCdSbCRGRCMv+eplOQJWyd1fbcAu9OCUj5zNLiq"
+    crossorigin="anonymous"></script>
+</body>
 
-    <section class="mini-car-listings my-5">
-      <div class="container">
-        <div class="section-content mb-3">
-          <p class="small-headline m-0">CHOOSE YOUR CAR</p>
-          <div class="d-flex justify-content-between">
-            <h2 class="headline">Our Car Listings</h2>
-            <button class="btn btn-nav">View All</button>
-          </div>
-        </div>
-
-        <div class="cars-section">
-          <div class="row gx-5">
-            <div class="col-lg-4">
-              <div class="car-card p-3">
-                <img src="imgs/car1.jpg" alt="car1" />
-                <div class="car-details mt-3">
-                  <div class="car-headline d-flex justify-content-between mb-3">
-                    <h3 class="m-0">Jeep Grand Cherokee</h3>
-                    <div class="car-type"><span>SUV</span></div>
-                  </div>
-                  <div class="car-details-icons mb-2">
-                    <i class="bi bi-person-fill me-4"
-                      ><span class="ms-1">05</span></i
-                    >
-                    <i class="bi bi-suitcase me-4"
-                      ><span class="ms-1">03</span></i
-                    >
-                    <i class="bi bi-car-front-fill me-4"
-                      ><span class="ms-1">automatic</span></i
-                    >
-                  </div>
-                </div>
-
-                <div
-                  class="car-price mt-3 d-flex align-items-center justify-content-between"
-                >
-                  <h4 class="fs-5 m-0">
-                    2500 EGP <span class="fs-6 per">/Per Day</span>
-                  </h4>
-                  <a href="" class="text-black"
-                    ><i class="bi bi-arrow-up-right-circle fs-4"></i
-                  ></a>
-                </div>
-              </div>
-            </div>
-            <div class="col-lg-4">
-              <div class="car-card p-3">
-                <img src="imgs/car2.jpg" alt="car1" />
-                <div class="car-details mt-3">
-                  <div class="car-headline d-flex justify-content-between mb-3">
-                    <h3 class="m-0">BMW 3 Series Gran Turismo</h3>
-                    <div class="car-type"><span>Sedan</span></div>
-                  </div>
-                  <div class="car-details-icons mb-2">
-                    <i class="bi bi-person-fill me-4"
-                      ><span class="ms-1">05</span></i
-                    >
-                    <i class="bi bi-suitcase me-4"
-                      ><span class="ms-1">03</span></i
-                    >
-                    <i class="bi bi-car-front-fill me-4"
-                      ><span class="ms-1">automatic</span></i
-                    >
-                  </div>
-                </div>
-
-                <div
-                  class="car-price mt-3 d-flex align-items-center justify-content-between"
-                >
-                  <h4 class="fs-5 m-0">
-                    2500 EGP <span class="fs-6 per">/Per Day</span>
-                  </h4>
-                  <a href="" class="text-black"
-                    ><i class="bi bi-arrow-up-right-circle fs-4"></i
-                  ></a>
-                </div>
-              </div>
-            </div>
-            <div class="col-lg-4">
-              <div class="car-card p-3">
-                <img src="imgs/car3.jpg" alt="car1" />
-                <div class="car-details mt-3">
-                  <div class="car-headline d-flex justify-content-between mb-3">
-                    <h3 class="m-0">Range Rover Evoque</h3>
-                    <div class="car-type"><span>SUV</span></div>
-                  </div>
-                  <div class="car-details-icons mb-2">
-                    <i class="bi bi-person-fill me-4"
-                      ><span class="ms-1">05</span></i
-                    >
-                    <i class="bi bi-suitcase me-4"
-                      ><span class="ms-1">03</span></i
-                    >
-                    <i class="bi bi-car-front-fill me-4"
-                      ><span class="ms-1">automatic</span></i
-                    >
-                  </div>
-                </div>
-
-                <div
-                  class="car-price mt-3 d-flex align-items-center justify-content-between"
-                >
-                  <h4 class="fs-5 m-0">
-                    2500 EGP <span class="fs-6 per">/Per Day</span>
-                  </h4>
-                  <a href="" class="text-black"
-                    ><i class="bi bi-arrow-up-right-circle fs-4"></i
-                  ></a>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js"
-      integrity="sha384-k6d4wzSIapyDyv1kpU366/PK5hCdSbCRGRCMv+eplOQJWyd1fbcAu9OCUj5zNLiq"
-      crossorigin="anonymous"
-    ></script>
-  </body>
 </html>
