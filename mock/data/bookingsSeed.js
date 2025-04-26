@@ -1,8 +1,8 @@
 export const bookings = [
       {
         bookingId: "bk_1655324",
-        customerName: "John Doe",
-        customerEmail: "johndoe@example.com",
+        carId: "car_001",
+        customerId: "user_002",
         startDate: "2025-05-01",
         endDate: "2025-05-07",
         totalAmount: 210,
@@ -11,7 +11,8 @@ export const bookings = [
       {
         bookingId: "bk_14434324",
         customerName: "Jane Smith",
-        customerEmail: "janesmith@example.com",
+        carId: "car_002",
+        customerId: "user_002",
         startDate: "2025-06-01",
         endDate: "2025-06-05",
         totalAmount: 140,
@@ -20,7 +21,8 @@ export const bookings = [
       {
         bookingId: "bk_1222434324",
         customerName: "Alice Johnson",
-        customerEmail: "alice@example.com",
+        carId: "car_003",
+        customerId: "user_003",
         startDate: "2025-07-01",
         endDate: "2025-07-05",
         totalAmount: 250,

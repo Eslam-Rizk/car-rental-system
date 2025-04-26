@@ -6,8 +6,8 @@ export const customers = [
         phone: "+1234567890",
         address: "123 Main St, City, Country",
         registrationDate: "2025-01-15",
-        role: "admin",
-        password:"2353438"
+        role: "user",
+        password:"123456"
       },
       {
         customerId: "cuk_234355",
@@ -17,7 +17,7 @@ export const customers = [
         address: "456 Elm St, City, Country",
         registrationDate: "2025-03-20",
         role: "user",
-        password:"2353438"
+        password:"123456"
       },
       {
         customerId: "cuk_244343",
@@ -26,7 +26,7 @@ export const customers = [
         phone: "+1122334455",
         address: "789 Oak St, City, Country",
         registrationDate: "2025-04-10",
-        role: "user",
-        password:"2451238"
+        role: "admin",
+        password:"123456"
       },
     ];

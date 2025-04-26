@@ -53,7 +53,7 @@ const carHandler = function ({ carId, saveData, getData, validator }) {
 
     removeCar: function (carId) {
       if (!isNaN(carId)) {
-        console.log("Car not found for removal:", car);
+        console.log("Car not found for removal:", carId);
         return;
       }
 
