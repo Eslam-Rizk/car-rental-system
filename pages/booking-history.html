@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Profile - Carent</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: "Poppins", sans-serif;
+            background-color: #f8f9fa;
+        }
+        
+        .text-main { color: #4f46e5 !important; }
+        .text-darker-main { color: #423bc1 !important; }
+        .text-lighter-main { color: #756fe4 !important; }
+        .text-darkblue { color: #111828 !important; }
+        .text-lightgrey { color: #9ca2ae !important; }
+        .text-darkgrey { color: #5f5f5f !important; }
+        
+        .bg-main { background-color: #4f46e5 !important; }
+        .bg-darker-main { background-color: #423bc1 !important; }
+        .bg-lighter-main { background-color: #756fe4 !important; }
+        .bg-darkblue { background-color: #111828 !important; }
+        .bg-lightgrey { background-color: #9ca2ae !important; }
+        .bg-darkgrey { background-color: #5f5f5f !important; }
+        
+        .btn-main {
+            background-color: #4f46e5;
+            border-color: #4f46e5;
+            color: white;
+        }
+        
+        .btn-main:hover {
+            background-color: #423bc1;
+            border-color: #423bc1;
+            color: white;
+        }
+        
+        .btn-outline-main {
+            color: #4f46e5;
+            border-color: #4f46e5;
+        }
+        
+        .btn-outline-main:hover {
+            background-color: #4f46e5;
+            color: white;
+        }
+        
+        .border-main {
+            border-color: #4f46e5 !important;
+        }
+        
+        /* Custom tab styling */
+        .nav-tabs {
+            border-bottom: 1px solid #dee2e6;
+        }
+        
+        .nav-tabs .nav-link {
+            margin-bottom: -1px;
+            border: none;
+            border-bottom: 2px solid transparent;
+            color: #9ca2ae;
+            font-weight: 500;
+            padding: 10px 16px;
+        }
+        
+        .nav-tabs .nav-link:hover {
+            border-color: transparent;
+            color: #4f46e5;
+        }
+        
+        .nav-tabs .nav-link.active {
+            border-bottom: 2px solid #4f46e5;
+            color: #4f46e5;
+            font-weight: 600;
+        }
+        
+        .tab-content {
+            padding-top: 20px;
+        }
+        
+        .tab-pane {
+            animation: fadeIn 0.3s ease-in;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm">
+        <div class="container">
+            <a class="navbar-brand d-flex align-items-center" href="#">
+                <i class="fa-solid fa-car text-main me-2"></i>
+                <span class="text-darkblue fw-bold">Carent</span>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="../index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">About Us</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">FAQ</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Categories</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Contact Us</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Blog</a>
+                    </li>
+                </ul>
+                <a href="#" class="btn btn-main rounded-pill px-4">Rent a Car</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Breadcrumb -->
+    <div class="container">
+        <nav aria-label="breadcrumb" class="py-3">
+            <ol class="breadcrumb mb-0">
+                <li class="breadcrumb-item"><a href="../index.html" class="text-decoration-none text-darkgrey">Home</a></li>
+                <li class="breadcrumb-item active text-darkgrey" aria-current="page">My Profile</li>
+            </ol>
+        </nav>
+    </div>
+
+    <!-- Main Content -->
+    <div class="container py-4">
+        <div class="bg-white rounded shadow-sm p-4 mb-4">
+            <!-- Profile Header -->
+            <div class="d-flex flex-column flex-md-row align-items-center align-items-md-start mb-4">
+                <img src="../assets/images/1.jpeg" alt="Profile Avatar" class="rounded-circle me-md-4 mb-3 mb-md-0" width="100" height="100">
+                <div class="text-center text-md-start">
+                    <h1 class="fs-3 fw-bold text-darkblue mb-1">John Anderson</h1>
+                    <p class="text-darkgrey mb-1"><i class="fa-solid fa-envelope me-2"></i>john.anderson@example.com</p>
+                    <p class="text-darkgrey mb-2"><i class="fa-solid fa-phone me-2"></i>+1 (555) 123-4567</p>
+                    <span class="badge bg-success rounded-1 px-2 py-1 fw-normal"><i class="fa-solid fa-check me-1"></i>Verified User</span>
+                </div>
+            </div>
+
+            <!-- Tabs Navigation -->
+            <ul class="nav nav-tabs" id="profileTabs" role="tablist">
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link active" id="bookings-tab" data-bs-toggle="tab" data-bs-target="#bookings-tab-pane" type="button" role="tab" aria-controls="bookings-tab-pane" aria-selected="true">My Bookings</button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link" id="favorites-tab" data-bs-toggle="tab" data-bs-target="#favorites-tab-pane" type="button" role="tab" aria-controls="favorites-tab-pane" aria-selected="false">Favorites</button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link" id="reviews-tab" data-bs-toggle="tab" data-bs-target="#reviews-tab-pane" type="button" role="tab" aria-controls="reviews-tab-pane" aria-selected="false">Reviews</button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link" id="settings-tab" data-bs-toggle="tab" data-bs-target="#settings-tab-pane" type="button" role="tab" aria-controls="settings-tab-pane" aria-selected="false">Settings</button>
+                </li>
+            </ul>
+
+            <!-- Tab Content -->
+            <div class="tab-content" id="profileTabsContent">
+                <!-- Bookings Tab -->
+                <div class="tab-pane fade show active" id="bookings-tab-pane" role="tabpanel" aria-labelledby="bookings-tab" tabindex="0">
+                    <div class="row">
+                        <!-- Card 1 -->
+                        <div class="col-md-4 mb-4">
+                            <div class="card border-0 shadow-sm h-100">
+                                <div class="overflow-hidden" style="height: 160px;">
+                                    <img src="../assets/images/3.webp" alt="Hyundai Accent" class="card-img-top">
+                                </div>
+                                <div class="card-body">
+                                    <div class="d-flex justify-content-between align-items-center mb-2">
+                                        <h5 class="card-title mb-0 fw-bold">Hyundai Accent 2025</h5>
+                                        <span class="badge bg-info text-dark fw-normal px-2 py-1">Active</span>
+                                    </div>
+                                    <div class="d-flex mb-3">
+                                        <div class="bg-light rounded-circle d-flex align-items-center justify-content-center me-2" style="width: 32px; height: 32px;">
+                                            <i class="fa-solid fa-calendar text-darkgrey"></i>
+                                        </div>
+                                        <div class="text-darkgrey" style="font-size: 14px;">Apr 25 - Apr 28, 2025</div>
+                                    </div>
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <div class="fw-bold text-main">$203 USD</div>
+                                        <a href="#" class="btn btn-sm btn-outline-main">View Details</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Card 2 -->
+                        <div class="col-md-4 mb-4">
+                            <div class="card border-0 shadow-sm h-100">
+                                <div class="overflow-hidden" style="height: 160px;">
+                                    <img src="../assets/images/6.webp" alt="Toyota Camry" class="card-img-top">
+                                </div>
+                                <div class="card-body">
+                                    <div class="d-flex justify-content-between align-items-center mb-2">
+                                        <h5 class="card-title mb-0 fw-bold">Toyota Camry 2024</h5>
+                                        <span class="badge bg-success text-white fw-normal px-2 py-1">Completed</span>
+                                    </div>
+                                    <div class="d-flex mb-3">
+                                        <div class="bg-light rounded-circle d-flex align-items-center justify-content-center me-2" style="width: 32px; height: 32px;">
+                                            <i class="fa-solid fa-calendar text-darkgrey"></i>
+                                        </div>
+                                        <div class="text-darkgrey" style="font-size: 14px;">Mar 15 - Mar 18, 2025</div>
+                                    </div>
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <div class="fw-bold text-main">$245 USD</div>
+                                        <a href="#" class="btn btn-sm btn-outline-main">View Details</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Card 3 -->
+                        <div class="col-md-4 mb-4">
+                            <div class="card border-0 shadow-sm h-100">
+                                <div class="overflow-hidden" style="height: 160px;">
+                                    <img src="../assets/images/7.webp" alt="Honda Civic" class="card-img-top">
+                                </div>
+                                <div class="card-body">
+                                    <div class="d-flex justify-content-between align-items-center mb-2">
+                                        <h5 class="card-title mb-0 fw-bold">Honda Civic 2025</h5>
+                                        <span class="badge bg-success text-white fw-normal px-2 py-1">Completed</span>
+                                    </div>
+                                    <div class="d-flex mb-3">
+                                        <div class="bg-light rounded-circle d-flex align-items-center justify-content-center me-2" style="width: 32px; height: 32px;">
+                                            <i class="fa-solid fa-calendar text-darkgrey"></i>
+                                        </div>
+                                        <div class="text-darkgrey" style="font-size: 14px;">Feb 5 - Feb 9, 2025</div>
+                                    </div>
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <div class="fw-bold text-main">$187 USD</div>
+                                        <a href="#" class="btn btn-sm btn-outline-main">View Details</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Favorites Tab -->
+                <div class="tab-pane fade" id="favorites-tab-pane" role="tabpanel" aria-labelledby="favorites-tab" tabindex="0">
+                    <div class="row">
+                        <div class="col-md-4 mb-4">
+                            <div class="card border-0 shadow-sm h-100">
+                                <div class="overflow-hidden" style="height: 160px;">
+                                    <img src="../assets/images/9.webp" alt="BMW X5" class="card-img-top">
+                                </div>
+                                <div class="card-body">
+                                    <div class="d-flex justify-content-between align-items-center mb-2">
+                                        <h5 class="card-title mb-0 fw-bold">BMW X5 2025</h5>
+                                        <button class="btn btn-sm p-0 text-danger">
+                                            <i class="fa-solid fa-heart fa-lg"></i>
+                                        </button>
+                                    </div>
+                                    <div class="d-flex mb-3">
+                                        <div class="bg-light rounded-circle d-flex align-items-center justify-content-center me-2" style="width: 32px; height: 32px;">
+                                            <i class="fa-solid fa-car text-darkgrey"></i>
+                                        </div>
+                                        <div class="text-darkgrey" style="font-size: 14px;">Premium SUV</div>
+                                    </div>
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <div class="fw-bold text-main">$320 USD<span class="text-darkgrey fw-normal" style="font-size: 14px;"> / day</span></div>
+                                        <a href="#" class="btn btn-sm btn-main">Book Now</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4 mb-4">
+                            <div class="card border-0 shadow-sm h-100">
+                                <div class="overflow-hidden" style="height: 160px;">
+                                    <img src="../assets/images/2.webp" alt="Mercedes E-Class" class="card-img-top">
+                                </div>
+                                <div class="card-body">
+                                    <div class="d-flex justify-content-between align-items-center mb-2">
+                                        <h5 class="card-title mb-0 fw-bold">Mercedes E-Class</h5>
+                                        <button class="btn btn-sm p-0 text-danger">
+                                            <i class="fa-solid fa-heart fa-lg"></i>
+                                        </button>
+                                    </div>
+                                    <div class="d-flex mb-3">
+                                        <div class="bg-light rounded-circle d-flex align-items-center justify-content-center me-2" style="width: 32px; height: 32px;">
+                                            <i class="fa-solid fa-car text-darkgrey"></i>
+                                        </div>
+                                        <div class="text-darkgrey" style="font-size: 14px;">Luxury Sedan</div>
+                                    </div>
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <div class="fw-bold text-main">$280 USD<span class="text-darkgrey fw-normal" style="font-size: 14px;"> / day</span></div>
+                                        <a href="#" class="btn btn-sm btn-main">Book Now</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Reviews Tab -->
+                <div class="tab-pane fade" id="reviews-tab-pane" role="tabpanel" aria-labelledby="reviews-tab" tabindex="0">
+                    <div class="mb-4">
+                        <h5 class="fw-bold mb-3">Your Reviews</h5>
+                        
+                        <div class="card border-0 shadow-sm mb-3">
+                            <div class="card-body">
+                                <div class="d-flex mb-3">
+                                    <div class="me-3">
+                                        <img src="../assets/images/10.webp" alt="Car" class="rounded" width="48" height="48">
+                                    </div>
+                                    <div>
+                                        <h6 class="mb-1 fw-bold">Tesla Model 3</h6>
+                                        <div class="d-flex align-items-center mb-2">
+                                            <div class="text-warning me-2">
+                                                <i class="fa-solid fa-star"></i>
+                                                <i class="fa-solid fa-star"></i>
+                                                <i class="fa-solid fa-star"></i>
+                                                <i class="fa-solid fa-star"></i>
+                                                <i class="fa-solid fa-star"></i>
+                                            </div>
+                                            <span class="text-darkgrey small">April 10, 2025</span>
+                                        </div>
+                                        <p class="mb-0 text-darkgrey">Amazing electric car! Smooth driving experience and zero emissions. The autopilot feature was impressive. Will definitely rent again.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="card border-0 shadow-sm">
+                            <div class="card-body">
+                                <div class="d-flex mb-3">
+                                    <div class="me-3">
+                                        <img src="../assets/images/2.webp" alt="Car" class="rounded" width="48" height="48">
+                                    </div>
+                                    <div>
+                                        <h6 class="mb-1 fw-bold">Toyota Camry 2024</h6>
+                                        <div class="d-flex align-items-center mb-2">
+                                            <div class="text-warning me-2">
+                                                <i class="fa-solid fa-star"></i>
+                                                <i class="fa-solid fa-star"></i>
+                                                <i class="fa-solid fa-star"></i>
+                                                <i class="fa-solid fa-star"></i>
+                                                <i class="fa-regular fa-star"></i>
+                                            </div>
+                                            <span class="text-darkgrey small">March 18, 2025</span>
+                                        </div>
+                                        <p class="mb-0 text-darkgrey">Reliable and comfortable sedan. Great fuel efficiency and smooth ride. Perfect for my business trip.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Settings Tab -->
+                <div class="tab-pane fade" id="settings-tab-pane" role="tabpanel" aria-labelledby="settings-tab" tabindex="0">
+                    <div class="row">
+                        <div class="col-md-8">
+                            <h5 class="fw-bold mb-4">Account Settings</h5>
+                            
+                            <form>
+                                <div class="mb-3">
+                                    <label for="fullName" class="form-label">Full Name</label>
+                                    <input type="text" class="form-control" id="fullName" value="John Anderson">
+                                </div>
+                                
+                                <div class="mb-3">
+                                    <label for="email" class="form-label">Email Address</label>
+                                    <input type="email" class="form-control" id="email" value="john.anderson@example.com">
+                                </div>
+                                
+                                <div class="mb-3">
+                                    <label for="phone" class="form-label">Phone Number</label>
+                                    <input type="tel" class="form-control" id="phone" value="+1 (555) 123-4567">
+                                </div>
+                                
+                                <div class="mb-3">
+                                    <label for="address" class="form-label">Address</label>
+                                    <textarea class="form-control" id="address" rows="3">123 Main Street, Apt 4B
+New York, NY 10001
+United States</textarea>
+                                </div>
+                                
+                                <div class="mb-4">
+                                    <label for="password" class="form-label">Password</label>
+                                    <input type="password" class="form-control" id="password" value="************">
+                                    <div class="form-text">Leave blank if you don't want to change it.</div>
+                                </div>
+                                
+                                <button type="submit" class="btn btn-main">Save Changes</button>
+                            </form>
+                            
+                            <hr class="my-4">
+                            
+                            <h5 class="fw-bold mb-3">Payment Methods</h5>
+                            <div class="card border-0 shadow-sm mb-3">
+                                <div class="card-body">
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <div class="d-flex align-items-center">
+                                            <i class="fab fa-cc-visa fs-3 me-3 text-primary"></i>
+                                            <div>
+                                                <p class="mb-0 fw-medium">Visa ending in 4242</p>
+                                                <p class="mb-0 small text-darkgrey">Expires 05/26</p>
+                                            </div>
+                                        </div>
+                                        <div class="badge bg-main">Default</div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <a href="#" class="btn btn-outline-main"><i class="fa-solid fa-plus me-2"></i>Add Payment Method</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-darkblue text-white py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-3 mb-4">
+                    <a class="text-white text-decoration-none d-flex align-items-center" href="#">
+                        <i class="fa-solid fa-car me-2"></i>
+                        <span class="fw-bold">Carent</span>
+                    </a>
+                    <p class="mt-3 text-lightgrey small">
+                        The best car rental platform for your transportation needs.
+                    </p>
+                </div>
+                <div class="col-md-2 mb-4">
+                    <h5 class="fs-6 fw-bold mb-3">Resources</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="#" class="text-lightgrey text-decoration-none small">Our Cars</a></li>
+                        <li class="mb-2"><a href="#" class="text-lightgrey text-decoration-none small">Mobile App</a></li>
+                        <li class="mb-2"><a href="#" class="text-lightgrey text-decoration-none small">Sitemap</a></li>
+                        <li class="mb-2"><a href="#" class="text-lightgrey text-decoration-none small">FAQs</a></li>
+                        <li class="mb-2"><a href="#" class="text-lightgrey text-decoration-none small">About Us</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-2 mb-4">
+                    <h5 class="fs-6 fw-bold mb-3">Company</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="#" class="text-lightgrey text-decoration-none small">Our Team</a></li>
+                        <li class="mb-2"><a href="#" class="text-lightgrey text-decoration-none small">Partners</a></li>
+                        <li class="mb-2"><a href="#" class="text-lightgrey text-decoration-none small">Blog</a></li>
+                        <li class="mb-2"><a href="#" class="text-lightgrey text-decoration-none small">Careers</a></li>
+                        <li class="mb-2"><a href="#" class="text-lightgrey text-decoration-none small">Contact Us</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-5 mb-4">
+                    <h5 class="fs-6 fw-bold mb-3">Subscribe Newsletter</h5>
+                    <p class="text-lightgrey small">
+                        Subscribe to our newsletter for the latest updates and offers.
+                    </p>
+                    <div class="input-group mt-3">
+                        <input type="email" class="form-control bg-transparent text-white border-secondary" placeholder="Your Email">
+                        <button class="btn btn-main" type="button">Subscribe</button>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="pt-4 mt-4 border-top border-secondary">
+                <div class="row align-items-center">
+                    <div class="col-md-6 mb-3 mb-md-0">
+                        <p class="mb-0 text-lightgrey small">© 2025 Carent. All Rights Reserved.</p>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="d-flex gap-2 justify-content-md-end">
+                            <a href="#" class="bg-dark bg-opacity-25 rounded-circle d-flex align-items-center justify-content-center text-white" style="width: 32px; height: 32px;">
+                                <i class="fab fa-facebook-f"></i>
+                            </a>
+                            <a href="#" class="bg-dark bg-opacity-25 rounded-circle d-flex align-items-center justify-content-center text-white" style="width: 32px; height: 32px;">
+                                <i class="fab fa-twitter"></i>
+                            </a>
+                            <a href="#" class="bg-dark bg-opacity-25 rounded-circle d-flex align-items-center justify-content-center text-white" style="width: 32px; height: 32px;">
+                                <i class="fab fa-instagram"></i>
+                            </a>
+                            <a href="#" class="bg-dark bg-opacity-25 rounded-circle d-flex align-items-center justify-content-center text-white" style="width: 32px; height: 32px;">
+                                <i class="fab fa-linkedin-in"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

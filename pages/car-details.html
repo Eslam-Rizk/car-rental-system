@@ -9,21 +9,62 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.11.1/font/bootstrap-icons.min.css"
         rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../style.css" />
     <style>
-        .text-violet {
-            color: #4f46e5;
+        :root {
+            --main-color: #4f46e5;
+            --darker-main: #423bc1;
+            --lighter-main: #756fe4;
+            --darkblue: #111828;
+            --lightgrey: #9ca2ae;
+            --darkgrey: #5f5f5f;
+            --main-font: "Poppins";
         }
 
-        .bg-light-violet {
-            background-color: #cbc8ff;
+        body {
+            font-family: var(--main-font), sans-serif;
         }
 
-        .bg-violet {
-            background-color: #7c3aed;
+        .text-primary {
+            color: var(--main-color) !important;
         }
 
-        .bg-violet:hover {
-            background-color: #6d28d9;
+        .bg-light-primary {
+            background-color: #e8e7ff;
+        }
+
+        .bg-primary {
+            background-color: var(--main-color) !important;
+        }
+
+        .btn-primary {
+            background-color: var(--main-color);
+            border-color: var(--main-color);
+        }
+
+        .btn-primary:hover {
+            background-color: var(--darker-main);
+            border-color: var(--darker-main);
+        }
+
+        .btn-outline-primary {
+            color: var(--main-color);
+            border-color: var(--main-color);
+        }
+
+        .btn-outline-primary:hover {
+            background-color: var(--main-color);
+            border-color: var(--main-color);
+        }
+
+        .nav-link.active {
+            color: var(--main-color) !important;
+            border-color: var(--main-color) !important;
+        }
+
+        .text-muted {
+            color: var(--darkgrey) !important;
         }
 
         .car-card {
@@ -35,7 +76,7 @@
         }
 
         footer {
-            background-color: #111;
+            background-color: var(--darkblue);
             color: white;
         }
 
@@ -51,23 +92,85 @@
             text-decoration: none;
         }
 
+        .social-icon:hover {
+            background-color: var(--main-color);
+        }
+
         .payment-icon {
             background-color: white;
             height: 24px;
             width: 38px;
             border-radius: 4px;
         }
+
+        .text-accent {
+            color: var(--main-color);
+        }
     </style>
 </head>
 
 <body>
+        <nav class="navbar navbar-expand-lg navbar-light">
+              <div class="container-fluid">
+                <ul class="navbar-nav me-auto">
+                  <li class="nav-item d-flex align-items-center">
+                    <img
+                      src="imgs/steering wheel logo.png"
+                      width="30px"
+                      class="d-inline logo"
+                      alt="Wheelzy Logo"
+                    />
+                    <a class="nav-link fs-4 fw-bold nav-main" href="#">Wheelzy</a>
+                  </li>
+                </ul>
+        
+                <button
+                  class="navbar-toggler"
+                  type="button"
+                  data-bs-toggle="collapse"
+                  data-bs-target="#navbarContent"
+                  aria-controls="navbarContent"
+                  aria-expanded="false"
+                  aria-label="Toggle navigation"
+                >
+                  <span class="navbar-toggler-icon"></span>
+                </button>
+        
+                <div class="collapse navbar-collapse w-100 px-4" id="navbarContent">
+                  <!-- left-->
+        
+                  <!-- center -->
+                  <ul class="navbar-nav mx-auto">
+                    <li class="nav-item px-2">
+                      <a class="nav-link active" aria-current="page" href="#">Home</a>
+                    </li>
+                    <li class="nav-item px-2">
+                      <a class="nav-link" href="pages/listings.html">Car Listings</a>
+                    </li>
+                    <li class="nav-item px-2">
+                      <a class="nav-link" href="pages/contact.html">Contact Us</a>
+                    </li>
+                    <li class="nav-item px-2">
+                      <a class="nav-link" href="#">About Us</a>
+                    </li>
+                  </ul>
+        
+                  <!-- right-->
+                  <div class="d-flex ms-auto mt-2">
+                    <button class="btn btn-nav">
+                      <a class="text-white text-decoration-none" href="#">Login</a>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </nav>
+        
     <div class="container mt-4">
-
-        <!-- reviews -->
+            <!-- reviews -->
         <div class="row mb-3">
             <div class="col-12">
                 <div class="d-flex align-items-center">
-                    <span class="text-violet"><i class="fas fa-star"></i></span>
+                    <span class="text-primary"><i class="fas fa-star"></i></span>
                     <span class="ms-2">4.7 (852 reviews)</span>
                 </div>
             </div>
@@ -81,10 +184,10 @@
             </div>
             <div class="col-md-4">
                 <div class="d-flex justify-content-md-end mt-2 mt-md-0">
-                    <button class="btn btn-outline-secondary text-violet rounded-pill me-2">
+                    <button class="btn btn-outline-primary rounded-pill me-2">
                         <i class="fas fa-share-alt"></i> Share
                     </button>
-                    <button class="btn btn-outline-secondary text-violet rounded-pill">
+                    <button class="btn btn-outline-primary rounded-pill">
                         <i class="fas fa-heart"></i> Wishlist
                     </button>
                 </div>
@@ -95,7 +198,7 @@
         <div class="row">
             <div class="col-md-8 mb-3">
                 <div class="ratio ratio-16x9 rounded overflow-hidden">
-                    <img src="../assets/images/1.webp" alt="Hyundai Accent 2025 front view in foggy forest"
+                    <img src="/api/placeholder/800/450" alt="Hyundai Accent 2025 front view in foggy forest"
                         class="img-fluid w-100 h-100 object-fit-cover" />
                 </div>
             </div>
@@ -104,19 +207,19 @@
             <div class="col-md-4 mb-3">
                 <div class="row g-2 h-100">
                     <div class="col-6">
-                        <img src="../assets/images/2.webp" alt="Hyundai Accent 2025 rear view"
+                        <img src="/api/placeholder/400/300" alt="Hyundai Accent 2025 rear view"
                             class="img-fluid rounded h-100 w-100 object-fit-cover" />
                     </div>
                     <div class="col-6">
-                        <img src="../assets/images/3.webp" alt="Hyundai Accent 2025 side view"
+                        <img src="/api/placeholder/400/300" alt="Hyundai Accent 2025 side view"
                             class="img-fluid rounded h-100 w-100 object-fit-cover" />
                     </div>
                     <div class="col-6">
-                        <img src="../assets/images/4.webp" alt="Hyundai Accent 2025 interior"
+                        <img src="/api/placeholder/400/300" alt="Hyundai Accent 2025 interior"
                             class="img-fluid rounded h-100 w-100 object-fit-cover" />
                     </div>
                     <div class="col-6">
-                        <img src="../assets/images/5.webp" alt="Hyundai Accent 2025 on road"
+                        <img src="/api/placeholder/400/300" alt="Hyundai Accent 2025 on road"
                             class="img-fluid rounded h-100 w-100 object-fit-cover" />
                     </div>
                 </div>
@@ -133,49 +236,49 @@
                     <div class="card-body">
                         <div class="row gy-3">
                             <div class="col-6 col-md-3">
-                                <div class="bg-light-violet p-3 rounded">
+                                <div class="bg-light-primary p-3 rounded">
                                     <i class="fas fa-tachometer-alt me-2"></i>
                                     <span>62,500</span>
                                 </div>
                             </div>
                             <div class="col-6 col-md-3">
-                                <div class="bg-light-violet p-3 rounded">
+                                <div class="bg-light-primary p-3 rounded">
                                     <i class="fas fa-gas-pump me-2"></i>
                                     <span>Diesel</span>
                                 </div>
                             </div>
                             <div class="col-6 col-md-3">
-                                <div class="bg-light-violet p-3 rounded">
+                                <div class="bg-light-primary p-3 rounded">
                                     <i class="fas fa-cog me-2"></i>
                                     <span>Manual</span>
                                 </div>
                             </div>
                             <div class="col-6 col-md-3">
-                                <div class="bg-light-violet p-3 rounded">
+                                <div class="bg-light-primary p-3 rounded">
                                     <i class="fas fa-chair me-2"></i>
                                     <span>05 Seats</span>
                                 </div>
                             </div>
                             <div class="col-6 col-md-3">
-                                <div class="bg-light-violet p-3 rounded">
+                                <div class="bg-light-primary p-3 rounded">
                                     <i class="fas fa-suitcase me-2"></i>
                                     <span>03 Bags</span>
                                 </div>
                             </div>
                             <div class="col-6 col-md-3">
-                                <div class="bg-light-violet p-3 rounded">
+                                <div class="bg-light-primary p-3 rounded">
                                     <i class="fas fa-car me-2"></i>
                                     <span>Hyundai</span>
                                 </div>
                             </div>
                             <div class="col-6 col-md-3">
-                                <div class="bg-light-violet p-3 rounded">
+                                <div class="bg-light-primary p-3 rounded">
                                     <i class="fas fa-door-open me-2"></i>
                                     <span>Doors</span>
                                 </div>
                             </div>
                             <div class="col-6 col-md-3">
-                                <div class="bg-light-violet p-3 rounded">
+                                <div class="bg-light-primary p-3 rounded">
                                     <i class="fas fa-gas-pump me-2"></i>
                                     <span>3.5 L</span>
                                 </div>
@@ -295,7 +398,7 @@
                         </div>
 
                         <!-- Button sticks to bottom due to flex layout -->
-                        <button class="bg-violet btn text-white w-100 mt-4 py-3 fw-bold">Book Now</button>
+                        <button class="btn btn-primary w-100 mt-4 py-3 fw-bold">Book Now</button>
                     </div>
                 </div>
             </div>
@@ -309,7 +412,7 @@
                 <!-- Car 1 -->
                 <div class="col">
                     <div class="card shadow-sm car-card h-100">
-                        <img src="../assets/images/6.webp" class="card-img-top" alt="Red BMW E30">
+                        <img src="/api/placeholder/400/250" class="card-img-top" alt="Red BMW E30">
                         <div class="card-body">
                             <div class="d-flex justify-content-between align-items-center mb-2">
                                 <h5 class="card-title m-0">E-Tron GT</h5>
@@ -324,7 +427,7 @@
                             <div class="d-flex justify-content-between align-items-center">
                                 <span class="fw-bold">$160 USD <small class="text-muted fw-normal">/Per
                                         Day</small></span>
-                                <a href="#" class="btn btn-outline-dark rounded-circle"><i
+                                <a href="#" class="btn btn-outline-primary rounded-circle"><i
                                         class="bi bi-arrow-right"></i></a>
                             </div>
                         </div>
@@ -334,7 +437,7 @@
                 <!-- Car 2 -->
                 <div class="col">
                     <div class="card shadow-sm car-card h-100">
-                        <img src="../assets/images/7.webp" class="card-img-top" alt="Purple Sports Car">
+                        <img src="/api/placeholder/400/250" class="card-img-top" alt="Purple Sports Car">
                         <div class="card-body">
                             <div class="d-flex justify-content-between align-items-center mb-2">
                                 <h5 class="card-title m-0">E-Tron GT</h5>
@@ -349,7 +452,7 @@
                             <div class="d-flex justify-content-between align-items-center">
                                 <span class="fw-bold">$160 USD <small class="text-muted fw-normal">/Per
                                         Day</small></span>
-                                <a href="#" class="btn btn-outline-dark rounded-circle"><i
+                                <a href="#" class="btn btn-outline-primary rounded-circle"><i
                                         class="bi bi-arrow-right"></i></a>
                             </div>
                         </div>
@@ -359,7 +462,7 @@
                 <!-- Car 3 -->
                 <div class="col">
                     <div class="card shadow-sm car-card h-100">
-                        <img src="../assets/images/8.webp" class="card-img-top" alt="White SUV">
+                        <img src="/api/placeholder/400/250" class="card-img-top" alt="White SUV">
                         <div class="card-body">
                             <div class="d-flex justify-content-between align-items-center mb-2">
                                 <h5 class="card-title m-0">E-Tron GT</h5>
@@ -374,7 +477,7 @@
                             <div class="d-flex justify-content-between align-items-center">
                                 <span class="fw-bold">$160 USD <small class="text-muted fw-normal">/Per
                                         Day</small></span>
-                                <a href="#" class="btn btn-outline-dark rounded-circle"><i
+                                <a href="#" class="btn btn-outline-primary rounded-circle"><i
                                         class="bi bi-arrow-right"></i></a>
                             </div>
                         </div>
@@ -391,7 +494,7 @@
                 <!-- Logo & Contact -->
                 <div class="col-6 col-lg-4 mb-4 d-flex flex-column align-items-center">
                     <a href="#" class="d-flex align-items-center mb-3 text-decoration-none">
-                        <i class="bi bi-circle-fill text-violet me-2"></i>
+                        <i class="bi bi-circle-fill text-accent me-2"></i>
                         <h5 class="m-0 text-white">Wheelzy</h5>
                     </a>
                     <div class="mt-4">
@@ -432,9 +535,9 @@
 
                     <h6 class="mb-3">Social Media</h6>
                     <div class="d-flex gap-2">
-                        <a href="www.facebook.com" class="social-icon"><i class="bi bi-facebook"></i></a>
-                        <a href="www.instagram.com" class="social-icon"><i class="bi bi-instagram"></i></a>
-                        <a href="www.x.com" class="social-icon"><i class="bi bi-twitter-x"></i></a>
+                        <a href="#" class="social-icon"><i class="bi bi-facebook"></i></a>
+                        <a href="#" class="social-icon"><i class="bi bi-instagram"></i></a>
+                        <a href="#" class="social-icon"><i class="bi bi-twitter-x"></i></a>
                     </div>
                 </div>
             </div>
@@ -443,7 +546,7 @@
 
             <!-- Copyright & Payment -->
             <div class="col-12 d-flex flex-column align-items-center">
-                <div class="small mb-3 mb-md-0">Copyright © 2025 <span class="text-violet">Wheelzy</span>, Inc. All
+                <div class="small mb-3 mb-md-0">Copyright © 2025 <span class="text-accent">Wheelzy</span>, Inc. All
                     Rights Reserved</div>
             </div>
         </div>
