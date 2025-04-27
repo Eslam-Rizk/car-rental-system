@@ -33,13 +33,20 @@
             box-sizing: border-box;
             margin: 0;
             padding: 0;
+
         }
 
-        body {
-            background-color: #f8f9fa;
+        .darkgrey {
+            color: var(--darkgrey);
         }
 
-        /*---------------------------- LANDING PAGE---------------- */
+        section {
+            margin-block: 50px;
+            padding-block: 50px;
+        }
+
+        /*----------------------------NAVBAR--------------- */
+
         .navbar {
             background-color: #fff;
             padding: 10px 10px;
@@ -68,6 +75,7 @@
 
         .logo {
             transition: transform 0.3s ease-in-out;
+            width: 30px
         }
 
         .logo:hover {
@@ -87,12 +95,48 @@
             color: white;
         }
 
+        .btn-nav:active {
+            background-color: var(--darker-main) !important;
+            color: white !important;
+            border-color: var(--main-color) !important
+        }
+
         .navbar-toggler {
             border: none !important;
         }
 
         .navbar-toggler:focus {
             box-shadow: 0 0 0 0;
+        }
+
+        /* profile circle for logged in user */
+        #profileDropdown a {
+            padding: 8px 16px;
+            color: var(--main-color);
+            border-radius: 30px;
+        }
+
+        #profileDropdown a:hover .avatar-img {
+            border-color: var(--darker-main);
+        }
+
+        #profileDropdown a:hover span {
+            color: var(--darker-main)
+        }
+
+        .dropdown-item:active {
+            background-color: #fff;
+            color: var(--main-color);
+        }
+
+        .avatar-img {
+            width: 40px;
+            height: 40px;
+            border: 3px solid var(--main-color);
+        }
+
+        #nameDisplay {
+            color: var(--main-color);
         }
 
         /* Car detail page specific styles */
@@ -235,8 +279,21 @@
             transition: opacity 0.3s;
         }
 
-        .modal-thumbnail:hover, .modal-thumbnail.active {
+        .modal-thumbnail:hover,
+        .modal-thumbnail.active {
             opacity: 1;
+        }
+
+        /* Rental form styles */
+        /* Custom Checkbox Styling */
+        .form-check-input:checked {
+            background-color: var(--main-color);
+            border-color: var(--main-color);
+        }
+
+        .form-check-input:focus {
+            box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+            /* Optional: adjust focus ring */
         }
 
         /* --------------FOOTER-------- */
@@ -292,14 +349,13 @@
 </head>
 
 <body>
-    <!-- Navbar with integrated CSS -->
+    <!-----------------------------NAVBAR---------------------->
     <nav class="navbar navbar-expand-lg navbar-light">
         <div class="container-fluid">
-            <ul class="navbar-nav me-auto">
+            <ul class="navbar-nav me-auto px-4">
                 <li class="nav-item d-flex align-items-center">
-                    <img src="assets/images/steering wheel logo.png" width="30px" class="d-inline logo"
-                        alt="Wheelzy Logo" />
-                    <a class="nav-link fs-4 fw-bold nav-main" href="index.html">Wheelzy</a>
+                    <img src="assets/images/steering wheel logo.png" class="d-inline logo" alt="Wheelzy Logo" />
+                    <a class="nav-link fs-4 fw-bold nav-main" href="#">Wheelzy</a>
                 </li>
             </ul>
 
@@ -309,10 +365,12 @@
             </button>
 
             <div class="collapse navbar-collapse w-100 px-4" id="navbarContent">
-                <!-- center nav items -->
+                <!-- left-->
+
+                <!-- center -->
                 <ul class="navbar-nav mx-auto">
                     <li class="nav-item px-2">
-                        <a class="nav-link active" aria-current="page" href="index.html">Home</a>
+                        <a class="nav-link active" aria-current="page" href="#">Home</a>
                     </li>
                     <li class="nav-item px-2">
                         <a class="nav-link" href="listings.html">Car Listings</a>
@@ -321,15 +379,35 @@
                         <a class="nav-link" href="contact.html">Contact Us</a>
                     </li>
                     <li class="nav-item px-2">
-                        <a class="nav-link" href="about.html">About Us</a>
+                        <a class="nav-link" href="about-us.html">About Us</a>
                     </li>
                 </ul>
 
-                <!-- right login button -->
-                <div class="d-flex ms-auto mt-2">
-                    <button class="btn btn-nav">
-                        <a class="text-white" href="login.html">Login</a>
-                    </button>
+                <!-- right-->
+                <div class="d-flex ms-auto" id="login-or-profile">
+                    <!-- login btn - shown by default -->
+                    <div id="loginBtn">
+                        <button class="btn btn-nav">
+                            <a class="text-white text-decoration-none" href="login.html">Login</a>
+                        </button>
+                    </div>
+
+                    <!-- profile circle - hidden by default -->
+                    <div id="profileDropdown" class="dropdown position-relative align-items-center"
+                        style="display: none;">
+                        <a href="#" class="d-flex align-items-center text-decoration-none dropdown-toggle ps-0"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            <img src="assets/images/avatar.jpeg" alt="Profile" class="avatar-img rounded-circle">
+                            <span class="ms-2 fw-bold" id="nameDisplay"></span>
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-end mt-2">
+                            <li><a class="dropdown-item" id="customer-profile" href="#">My Profile</a></li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
+                            <li><a class="dropdown-item" href="#" id="logoutBtn">Logout</a></li>
+                        </ul>
+                    </div>
                 </div>
             </div>
         </div>
@@ -367,7 +445,8 @@
         <div class="row">
             <div class="col-md-8 mb-3">
                 <div class="ratio ratio-16x9 rounded overflow-hidden">
-                    <img src="" alt="" id="car-main-img" class="car-image img-fluid w-100 h-100 object-fit-cover" data-index="0" />
+                    <img src="" alt="" id="car-main-img" class="car-image img-fluid w-100 h-100 object-fit-cover"
+                        data-index="0" />
                 </div>
             </div>
 
@@ -375,16 +454,20 @@
             <div class="col-md-4 mb-3">
                 <div class="row g-2 h-100">
                     <div class="col-6">
-                        <img src="" alt="" id="car-sec-img-1" class="car-image img-fluid rounded h-100 w-100 object-fit-cover" data-index="1" />
+                        <img src="" alt="" id="car-sec-img-1"
+                            class="car-image img-fluid rounded h-100 w-100 object-fit-cover" data-index="1" />
                     </div>
                     <div class="col-6">
-                        <img src="" alt="" id="car-sec-img-2" class="car-image img-fluid rounded h-100 w-100 object-fit-cover" data-index="2" />
+                        <img src="" alt="" id="car-sec-img-2"
+                            class="car-image img-fluid rounded h-100 w-100 object-fit-cover" data-index="2" />
                     </div>
                     <div class="col-6">
-                        <img src="" alt="" id="car-sec-img-3" class="car-image img-fluid rounded h-100 w-100 object-fit-cover" data-index="3" />
+                        <img src="" alt="" id="car-sec-img-3"
+                            class="car-image img-fluid rounded h-100 w-100 object-fit-cover" data-index="3" />
                     </div>
                     <div class="col-6">
-                        <img src="" alt="" id="car-sec-img-4" class="car-image img-fluid rounded h-100 w-100 object-fit-cover" data-index="4" />
+                        <img src="" alt="" id="car-sec-img-4"
+                            class="car-image img-fluid rounded h-100 w-100 object-fit-cover" data-index="4" />
                     </div>
                 </div>
             </div>
@@ -398,19 +481,19 @@
                         <button type="button" class="modal-close" data-bs-dismiss="modal" aria-label="Close">
                             <i class="fas fa-times"></i>
                         </button>
-                        
+
                         <button class="modal-nav modal-prev" id="prevImage">
                             <i class="fas fa-chevron-left"></i>
                         </button>
-                        
+
                         <div class="modal-image-container">
                             <img src="" class="modal-car-image" id="modalImage" alt="Car Image">
                         </div>
-                        
+
                         <button class="modal-nav modal-next" id="nextImage">
                             <i class="fas fa-chevron-right"></i>
                         </button>
-                        
+
                         <div class="modal-thumbnails" id="imageThumbnails">
                             <!-- Thumbnails will be added dynamically -->
                         </div>
@@ -548,52 +631,100 @@
                     </div>
                     <!-- Card Body as flex column -->
                     <div class="card-body d-flex flex-column justify-content-between">
-                        <div class="bg-white p-3 rounded mb-3 d-flex justify-content-between align-items-center border">
-                            <div class="fw-medium">Pick-Up</div>
-                            <input type="date" class="border-0" id="pickup-date" placeholder="Select Date">
+                        <div class="bg-white p-3 rounded mb-3 border">
+                            <div class="row align-items-center">
+                                <div class="col-12 col-md-4 fw-medium mb-2 mb-md-0">
+                                    Pick-Up
+                                </div>
+                                <div class="col-12 col-md-8">
+                                    <input type="date" class="form-control" id="pickup-date" placeholder="Select Date">
+                                </div>
+                            </div>
                         </div>
-                        <div class="bg-white p-3 rounded mb-3 d-flex justify-content-between align-items-center border">
-                            <div class="fw-medium">Drop-off</div>
-                            <input type="date" class="border-0" id="dropoff-date" placeholder="Select Date">
+
+                        <div class="bg-white p-3 rounded mb-3 border">
+                            <div class="row align-items-center">
+                                <div class="col-12 col-md-4 fw-medium mb-2 mb-md-0">
+                                    Drop-off
+                                </div>
+                                <div class="col-12 col-md-8">
+                                    <input type="date" class="form-control" id="dropoff-date" placeholder="Select Date">
+                                </div>
+                            </div>
                         </div>
+
 
                         <div class="mt-4 pt-4 border-top">
                             <h6>Add Extra:</h6>
-                            <div class="d-flex justify-content-between mb-2">
-                                <span>GPS Navigation System</span>
-                                <span>$25.00</span>
-                            </div>
-                            <div class="d-flex justify-content-between mb-2">
-                                <span>Child Seat</span>
-                                <span>$32.00</span>
-                            </div>
-                            <div class="d-flex justify-content-between mb-2">
-                                <span>Additional Driver</span>
-                                <span>$25.00</span>
-                            </div>
-                            <div class="d-flex justify-content-between mb-2">
-                                <span>Insurance Coverage</span>
-                                <span>$55.00</span>
+                            <div id="extrasList">
+                                <div class="form-check d-flex justify-content-between mb-2">
+                                    <label class="form-check-label d-flex align-items-center gap-2">
+                                        <input class="form-check-input extra-checkbox" type="checkbox" data-price="25">
+                                        GPS Navigation System
+                                    </label>
+                                    <span>$25.00</span>
+                                </div>
+                                <div class="form-check d-flex justify-content-between mb-2">
+                                    <label class="form-check-label d-flex align-items-center gap-2">
+                                        <input class="form-check-input extra-checkbox" type="checkbox" data-price="32">
+                                        Child Seat
+                                    </label>
+                                    <span>$32.00</span>
+                                </div>
+                                <div class="form-check d-flex justify-content-between mb-2">
+                                    <label class="form-check-label d-flex align-items-center gap-2">
+                                        <input class="form-check-input extra-checkbox" type="checkbox" data-price="25">
+                                        Additional Driver
+                                    </label>
+                                    <span>$25.00</span>
+                                </div>
+                                <div class="form-check d-flex justify-content-between mb-2">
+                                    <label class="form-check-label d-flex align-items-center gap-2">
+                                        <input class="form-check-input extra-checkbox" type="checkbox" data-price="55">
+                                        Insurance Coverage
+                                    </label>
+                                    <span>$55.00</span>
+                                </div>
                             </div>
                         </div>
 
+                        <!-- Promo Code Section -->
+                        <div class="pt-4 rounded border-top">
+                            <h6 class="text-primary">Have a Promo Code?</h6>
+                            <div class="input-group">
+                                <input type="text" id="promo-code" class="form-control rounded-start"
+                                    placeholder="Enter promo code">
+                                <button id="apply-promo" class="btn btn-primary rounded-end">Apply</button>
+                                <!-- promo message -->
+                                <div id="promo-message" class="text-success mt-2" style="display: none;"></div>
+                            </div>
+                        </div>
+
+                        <!-- <div class="mt-4 pt-4 border-top">
+    <h6>Payment Method:</h6>
+    <select class="form-select" id="paymentMethod">
+        <option value="credit-card">Credit Card</option>
+        <option value="debit-card">Debit Card</option>
+        <option value="paypal">PayPal</option>
+    </select>
+</div> -->
                         <div class="mt-4 pt-4 border-top">
                             <div class="d-flex justify-content-between mb-2">
                                 <span>Sub Total</span>
-                                <span>$137.00</span>
+                                <span id="subTotal">$0.00</span>
                             </div>
                             <div class="d-flex justify-content-between mb-2">
-                                <span>Tax</span>
-                                <span>$13.00</span>
+                                <span>Tax (10%)</span>
+                                <span id="taxAmount">$0.00</span>
                             </div>
                             <div class="d-flex justify-content-between pt-2 fw-bold mt-2">
                                 <span>Total Payable</span>
-                                <span>$150.00</span>
+                                <span id="totalPayable">$0.00</span>
                             </div>
                         </div>
 
                         <!-- Button sticks to bottom due to flex layout -->
-                        <button class="btn btn-primary w-100 mt-4 py-3 fw-bold">Book Now</button>
+                        <button id="book-btn" class="btn btn-primary w-100 mt-4 py-3 fw-bold">Book Now</button>
                     </div>
                 </div>
             </div>
@@ -686,28 +817,26 @@
     <footer class="footer">
         <div class="container">
             <div class="row">
-                <!-- RentDrive Column -->
+                <!-- column 1 -->
                 <div class="col-md-3 mb-4 mb-md-0">
                     <h4 class="text-uppercase mb-3"><img src="assets/images/steering wheel logo.png" alt="logo"
-                            height="40" class="logo">
+                            class="logo">
                         Wheelzy
                     </h4>
                     <div class="social-media">
                         <h6 class="text-uppercase mb-2">Social media</h6>
                         <ul class="list-unstyled">
-                            <li><a href="www.x.com" class="text-decoration-none"><i
-                                        class="bi bi-twitter me-2"></i>Twitter</a>
+                            <li><a href="#" class="text-decoration-none"><i class="bi bi-twitter me-2"></i>Twitter</a>
                             </li>
-                            <li><a href="www.instagram.com" class="text-decoration-none"><i
+                            <li><a href="#" class="text-decoration-none"><i
                                         class="bi bi-instagram me-2"></i>Instagram</a></li>
-                            <li><a href="www.facebook.com" class="text-decoration-none"><i
-                                        class="bi bi-facebook me-2"></i>Facebook</a>
+                            <li><a href="#" class="text-decoration-none"><i class="bi bi-facebook me-2"></i>Facebook</a>
                             </li>
                         </ul>
                     </div>
                 </div>
 
-                <!-- Contact Information Column -->
+                <!-- column 2-->
                 <div class="col-md-3 mb-4 mb-md-0">
                     <h4 class="text-uppercase mb-3">Contact Information</h4>
                     <address>
@@ -717,20 +846,20 @@
                     </address>
                 </div>
 
-                <!-- Home Column -->
+                <!-- column 3 -->
                 <div class="col-md-3 mb-4 mb-md-0">
                     <h4 class="text-uppercase mb-3">Home</h4>
                     <ul class="list-unstyled">
-                        <li><a href="about.html" class="text-decoration-none">About Us</a></li>
+                        <li><a href="#" class="text-decoration-none">About Us</a></li>
                         <li><a href="#" class="text-decoration-none">FAQ</a></li>
-                        <li><a href="contact.html" class="text-decoration-none">Contact Us</a></li>
+                        <li><a href="#" class="text-decoration-none">Contact Us</a></li>
                         <li><a href="#" class="text-decoration-none">Services</a></li>
                         <li><a href="#" class="text-decoration-none">Privacy Policy</a></li>
-                        <li><a href="listings.html" class="text-decoration-none">Car Listings</a></li>
+                        <li><a href="#" class="text-decoration-none">Car Listings</a></li>
                     </ul>
                 </div>
 
-                <!-- Contact Us Column -->
+                <!-- column  4 -->
                 <div class="col-md-3">
                     <div class="working-hours mt-4">
                         <h4 class="mb-3 text-uppercase">Working Hours</h4>
@@ -740,7 +869,7 @@
                 </div>
             </div>
 
-            <!-- Copyright Row -->
+            <!-- copyright row -->
             <div class="row mt-5 pt-3 border-top">
                 <div class="col-12 text-center">
                     <p class="mb-0">© 2025 Wheelzy. All rights reserved</p>
@@ -748,6 +877,7 @@
             </div>
         </div>
     </footer>
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-k6d4wzSIapyDyv1kpU366/PK5hCdSbCRGRCMv+eplOQJWyd1fbcAu9OCUj5zNLiq"
         crossorigin="anonymous"></script>
