@@ -1,0 +1,25 @@
+
+:root {
+    --main-color: #4f46e5;
+    --darker-main: #423bc1;
+    --lighter-main: #756fe4;
+    --bgcolor: #f7f7f7;
+    --darkblue: #111828;
+    --lightgrey: #9ca2ae;
+    --darkgrey: #5f5f5f;
+    --animation-duration: 400ms;
+    --main-font: "Poppins";
+  }
+  
+  * {
+    font-family: var(--main-font);
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+  
+  body {
+    background-color: var(--bgcolor);
+    color: var(--darkgrey);
+  }
+  
