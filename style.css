@@ -27,8 +27,8 @@ section {
   padding-block: 50px;
 }
 
-/*---------------------------- LANDING PAGE---------------- */
 
+/*----------------------------NAVBAR--------------- */
 .navbar {
   background-color: #fff;
   padding: 10px 10px;
@@ -77,12 +77,48 @@ section {
   color: white;
 }
 
+.btn-nav:active {
+  background-color: var(--darker-main) !important;
+  color: white !important;
+  border-color: var(--main-color) !important
+}
+
 .navbar-toggler {
   border: none !important;
 }
 
 .navbar-toggler:focus {
   box-shadow: 0 0 0 0;
+}
+
+/* profile circle for logged in user */
+#profileDropdown a {
+  padding: 8px 16px;
+  color: var(--main-color);
+  border-radius: 30px;
+}
+
+#profileDropdown a:hover .avatar-img {
+  border-color: var(--darker-main);
+}
+
+#profileDropdown a:hover span {
+  color: var(--darker-main)
+}
+
+.dropdown-item:active {
+  background-color: #fff;
+  color: var(--main-color);
+}
+
+.avatar-img {
+  width: 40px;
+  height: 40px;
+  border: 3px solid var(--main-color);
+}
+
+#nameDisplay {
+  color: var(--main-color);
 }
 
 /* ----------------HEADER------------------- */
@@ -110,8 +146,6 @@ header {
 }
 
 /* ------------MINI CAR LISTINGS------------ */
-
-
 .section-content {
   margin-block: 20px;
 }
@@ -183,7 +217,6 @@ header {
 .car-details {
   border-bottom: var(--darkgrey) 1px solid;
 }
-
 
 /*------------------------CHOOSE US----------------------------- */
 
