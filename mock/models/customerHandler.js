@@ -25,7 +25,7 @@ const customerHandler = function ({
       }
     },
     getCustomerById: (customerId) => {
-      const customer = getData("bookings").find((customer) => {
+      const customer = getData("customers").find((customer) => {
         return customer.customerId === customerId;
       });
       return customer ? customer : null;
