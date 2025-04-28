@@ -73,7 +73,7 @@ export function displayTopRatedCars(cars, currentCarId) {
         setElementText(`top${index + 1}-seats`, `${topCar.passengerCapacity || 'N/A'} people`);
         setElementText(`top${index + 1}-luggage`, `${topCar.luggageCapacity || 'N/A'} bags`);
         setElementText(`top${index + 1}-transmission`, topCar.transmission || 'N/A');
-        setElementText(`top${index + 1}-price`, `$${topCar.dailyRate || 'N/A'}/day`);
+        setElementText(`top${index + 1}-price`, `$${topCar.dailyRate || 'N/A'}`);
         setElementHref(`top${index + 1}-id`, topCar.carId ? `car-details.html?id=${topCar.carId}` : '#');
     });
 }

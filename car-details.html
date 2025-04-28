@@ -139,28 +139,42 @@
             color: var(--main-color);
         }
 
-        /* Car detail page specific styles */
-        .car-image {
-            cursor: pointer;
-            transition: opacity 0.3s;
+        .darkgrey {
+            color: var(--darkgrey);
         }
 
-        .car-image:hover {
-            opacity: 0.85;
+
+        .car-img-wrapper {
+            height: 200px;
+            /* Adjust based on your design */
+            background-color: #f8f9fa;
+            /* Light grey fallback background */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            border-radius: 10px;
         }
 
-        .btn-primary {
-            background-color: var(--main-color);
-            border-color: var(--main-color);
+        .car-img-wrapper img {
+            object-fit: cover;
+            width: 100%;
+            height: 100%;
         }
 
-        .btn-primary:hover {
-            background-color: var(--darker-main);
-            border-color: var(--darker-main);
+
+        .car-details-icons,
+        .car-details-icons i {
+            font-style: normal;
+            color: var(--darkgrey);
+            font-size: 15px;
         }
 
-        .bg-primary-light {
-            background-color: var(--bgcolor);
+        .car-headline h3 {
+            font-size: 20px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
         }
 
         .car-card {
@@ -168,22 +182,38 @@
             height: 100%;
             box-shadow: 0 5px 8px rgba(0, 0, 0, 0.2);
             border-radius: 20px;
-            transition: transform 0.3s;
+            transition: scale 300ms ease;
         }
 
         .car-card:hover {
-            transform: translateY(-5px);
+            scale: 1.05;
+        }
+
+        .car-type {
+            background-color: var(--lighter-main);
+            padding: 0px 8px;
+            border-radius: 20px;
+            font-size: 13px;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .car-type span {
+            white-space: nowrap;
+            display: inline-block;
         }
 
         .car-card img {
             border-radius: 20px;
             width: 100%;
             height: 200px;
-            object-fit: cover;
+            object-fit: cover
         }
 
-        .object-fit-cover {
-            object-fit: cover;
+        .car-details {
+            border-bottom: var(--darkgrey) 1px solid;
         }
 
         /* Image modal styles */
@@ -700,14 +730,6 @@
                             </div>
                         </div>
 
-                        <!-- <div class="mt-4 pt-4 border-top">
-    <h6>Payment Method:</h6>
-    <select class="form-select" id="paymentMethod">
-        <option value="credit-card">Credit Card</option>
-        <option value="debit-card">Debit Card</option>
-        <option value="paypal">PayPal</option>
-    </select>
-</div> -->
                         <div class="mt-4 pt-4 border-top">
                             <div class="d-flex justify-content-between mb-2">
                                 <span>Sub Total</span>
@@ -734,83 +756,118 @@
         <div class="container my-5">
             <h2 class="mb-4 fw-bold headline">You May Also Like These</h2>
 
-            <div class="row row-cols-1 row-cols-md-3 g-4">
+            <div class="row">
                 <!-- Car 1 -->
-                <div class="col">
-                    <div class="card car-card">
-                        <img src="" id="top1-img" class="card-img-top" alt="" data-index="5">
-                        <div class="card-body">
-                            <div class="d-flex justify-content-between align-items-center mb-2 car-headline">
-                                <h5 id="top1-name" class="card-title m-0"></h5>
+                <div class="col-lg-4" id="car1">
+                    <div class="car-card p-3">
+                        <div class="car-img-wrapper mb-3">
+                            <img src="" id="top1-img" class="img-fluid w-100" alt="Car Image" data-index="5" />
+                        </div>
+                        <div class="car-details">
+                            <div class="car-headline d-flex justify-content-between mb-3">
+                                <h3 id="top1-name" class="m-0"></h3>
                                 <div class="car-type">
                                     <span id="top1-category"></span>
                                 </div>
                             </div>
-                            <div class="d-flex gap-3 mb-3 car-details-icons">
-                                <div><i id="top1-seats" class="bi bi-people"></i></div>
-                                <div><i id="top1-luggage" class="bi bi-suitcase"></i></div>
-                                <div><i id="top1-transmission" class="bi bi-gear"></i></div>
+                            <div class="car-details-icons mb-2">
+                                <i class="bi bi-person-fill me-4">
+                                    <span id="top1-seats" class="ms-1"></span>
+                                </i>
+                                <i class="bi bi-suitcase me-4">
+                                    <span id="top1-luggage" class="ms-1"></span>
+                                </i>
+                                <i class="bi bi-car-front-fill me-4">
+                                    <span id="top1-transmission" class="ms-1"></span>
+                                </i>
                             </div>
-                            <div class="d-flex justify-content-between align-items-center car-details">
-                                <span id="top1-price" class="fw-bold"></span>
-                                <a id="top1-id" href="#" class="btn btn-outline-primary rounded-circle"><i
-                                        class="bi bi-arrow-right"></i></a>
-                            </div>
+                        </div>
+                        <div class="car-price mt-3 d-flex align-items-center justify-content-between">
+                            <h4 class="fs-5 m-0">
+                                <span id="top1-price"></span> <span class="fs-6 darkgrey">/Per Day</span>
+                            </h4>
+                            <a id="top1-id" href="#" class="text-black">
+                                <i class="bi bi-arrow-up-right-circle fs-4"></i>
+                            </a>
                         </div>
                     </div>
                 </div>
 
                 <!-- Car 2 -->
-                <div class="col">
-                    <div class="card car-card">
-                        <img src="" id="top2-img" class="card-img-top" alt="" data-index="6">
-                        <div class="card-body">
-                            <div class="d-flex justify-content-between align-items-center mb-2 car-headline">
-                                <h5 id="top2-name" class="card-title m-0"></h5>
+                <div class="col-lg-4" id="car2">
+                    <div class="car-card p-3">
+                        <div class="car-img-wrapper mb-3">
+                            <img src="" id="top2-img" class="img-fluid w-100" alt="Car Image" data-index="6" />
+                        </div>
+                        <div class="car-details">
+                            <div class="car-headline d-flex justify-content-between mb-3">
+                                <h3 id="top2-name" class="m-0"></h3>
                                 <div class="car-type">
                                     <span id="top2-category"></span>
                                 </div>
                             </div>
-                            <div class="d-flex gap-3 mb-3 car-details-icons">
-                                <div><i id="top2-seats" class="bi bi-people"></i></div>
-                                <div><i id="top2-luggage" class="bi bi-suitcase"></i></div>
-                                <div><i id="top2-transmission" class="bi bi-gear"></i></div>
+                            <div class="car-details-icons mb-2">
+                                <i class="bi bi-person-fill me-4">
+                                    <span id="top2-seats" class="ms-1"></span>
+                                </i>
+                                <i class="bi bi-suitcase me-4">
+                                    <span id="top2-luggage" class="ms-1"></span>
+                                </i>
+                                <i class="bi bi-car-front-fill me-4">
+                                    <span id="top2-transmission" class="ms-1"></span>
+                                </i>
                             </div>
-                            <div class="d-flex justify-content-between align-items-center car-details">
-                                <span id="top2-price" class="fw-bold"></span>
-                                <a id="top2-id" href="#" class="btn btn-outline-primary rounded-circle"><i
-                                        class="bi bi-arrow-right"></i></a>
-                            </div>
+                        </div>
+                        <div class="car-price mt-3 d-flex align-items-center justify-content-between">
+                            <h4 class="fs-5 m-0">
+                                <span id="top2-price"></span> <span class="fs-6 darkgrey">/Per Day</span>
+                            </h4>
+                            <a id="top2-id" href="#" class="text-black">
+                                <i class="bi bi-arrow-up-right-circle fs-4"></i>
+                            </a>
                         </div>
                     </div>
                 </div>
 
                 <!-- Car 3 -->
-                <div class="col">
-                    <div class="card car-card">
-                        <img src="" id="top3-img" class="card-img-top" alt="" data-index="7">
-                        <div class="card-body">
-                            <div class="d-flex justify-content-between align-items-center mb-2 car-headline">
-                                <h5 id="top3-name" class="card-title m-0"></h5>
+                <div class="col-lg-4" id="car3">
+                    <div class="car-card p-3">
+                        <div class="car-img-wrapper mb-3">
+                            <img src="" id="top3-img" class="img-fluid w-100" alt="Car Image" data-index="7" />
+                        </div>
+                        <div class="car-details">
+                            <div class="car-headline d-flex justify-content-between mb-3">
+                                <h3 id="top3-name" class="m-0"></h3>
                                 <div class="car-type">
                                     <span id="top3-category"></span>
                                 </div>
                             </div>
-                            <div class="d-flex gap-3 mb-3 car-details-icons">
-                                <div><i id="top3-seats" class="bi bi-people"></i></div>
-                                <div><i id="top3-luggage" class="bi bi-suitcase"></i></div>
-                                <div><i id="top3-transmission" class="bi bi-gear"></i></div>
+                            <div class="car-details-icons mb-2">
+                                <i class="bi bi-person-fill me-4">
+                                    <span id="top3-seats" class="ms-1"></span>
+                                </i>
+                                <i class="bi bi-suitcase me-4">
+                                    <span id="top3-luggage" class="ms-1"></span>
+                                </i>
+                                <i class="bi bi-car-front-fill me-4">
+                                    <span id="top3-transmission" class="ms-1"></span>
+                                </i>
                             </div>
-                            <div class="d-flex justify-content-between align-items-center car-details">
-                                <span id="top3-price" class="fw-bold"></span>
-                                <a id="top3-id" href="#" class="btn btn-outline-primary rounded-circle"><i
-                                        class="bi bi-arrow-right"></i></a>
-                            </div>
+                        </div>
+                        <div class="car-price mt-3 d-flex align-items-center justify-content-between">
+                            <h4 class="fs-5 m-0">
+                                <span id="top3-price"></span> <span class="fs-6 darkgrey">/Per Day</span>
+                            </h4>
+                            <a id="top3-id" href="#" class="text-black">
+                                <i class="bi bi-arrow-up-right-circle fs-4"></i>
+                            </a>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
+
+
     </div>
 
     <!-----------------------Footer-------------------------->

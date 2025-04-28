@@ -14,6 +14,7 @@
         integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7" crossorigin="anonymous" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
+    <script type="module" src="js/user-profile.js"></script>
     <style>
         :root {
             --main-color: #4f46e5;
@@ -38,7 +39,8 @@
             background-color: #f8f9fa;
         }
 
-        /*---------------------------- NAVBAR ---------------- */
+        /*----------------------------NAVBAR--------------- */
+
         .navbar {
             background-color: #fff;
             padding: 10px 10px;
@@ -67,6 +69,7 @@
 
         .logo {
             transition: transform 0.3s ease-in-out;
+            width: 30px
         }
 
         .logo:hover {
@@ -86,12 +89,48 @@
             color: white;
         }
 
+        .btn-nav:active {
+            background-color: var(--darker-main) !important;
+            color: white !important;
+            border-color: var(--main-color) !important
+        }
+
         .navbar-toggler {
             border: none !important;
         }
 
         .navbar-toggler:focus {
             box-shadow: 0 0 0 0;
+        }
+
+        /* profile circle for logged in user */
+        #profileDropdown a {
+            padding: 8px 16px;
+            color: var(--main-color);
+            border-radius: 30px;
+        }
+
+        #profileDropdown a:hover .avatar-img {
+            border-color: var(--darker-main);
+        }
+
+        #profileDropdown a:hover span {
+            color: var(--darker-main)
+        }
+
+        .dropdown-item:active {
+            background-color: #fff;
+            color: var(--main-color);
+        }
+
+        .avatar-img {
+            width: 40px;
+            height: 40px;
+            border: 3px solid var(--main-color);
+        }
+
+        #nameDisplay {
+            color: var(--main-color);
         }
 
         /* Text and background colors */
@@ -203,6 +242,64 @@
             animation: fadeIn 0.3s ease-in;
         }
 
+        /* card styles */
+        .darkgrey {
+            color: var(--darkgrey);
+        }
+
+        .car-details-icons,
+        .car-details-icons i {
+            font-style: normal;
+            color: var(--darkgrey);
+            font-size: 15px;
+        }
+
+        .car-headline h3 {
+            font-size: 20px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .car-card {
+            width: 100%;
+            height: 100%;
+            box-shadow: 0 5px 8px rgba(0, 0, 0, 0.2);
+            border-radius: 20px;
+            transition: scale 300ms ease;
+        }
+
+        .car-card:hover {
+            scale: 1.05;
+        }
+
+        .car-type {
+            background-color: var(--lighter-main);
+            padding: 0px 8px;
+            border-radius: 20px;
+            font-size: 13px;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .car-type span {
+            white-space: nowrap;
+            display: inline-block;
+        }
+
+        .car-card img {
+            border-radius: 20px;
+            width: 100%;
+            height: 200px;
+            object-fit: cover
+        }
+
+        .car-details {
+            border-bottom: var(--darkgrey) 1px solid;
+        }
+
         @keyframes fadeIn {
             from {
                 opacity: 0;
@@ -246,7 +343,7 @@
         }
 
         .footer a:hover {
-            color: var(--main-color);
+            color: #4f46e5;
             text-decoration: none;
         }
 
@@ -266,14 +363,13 @@
 </head>
 
 <body>
-    <!-- Navbar with integrated CSS from Hyundai Accent page -->
+    <!-----------------------------NAVBAR---------------------->
     <nav class="navbar navbar-expand-lg navbar-light">
         <div class="container-fluid">
-            <ul class="navbar-nav me-auto">
+            <ul class="navbar-nav me-auto px-4">
                 <li class="nav-item d-flex align-items-center">
-                    <img src="assets/images/steering wheel logo.png" width="30px" class="d-inline logo"
-                        alt="Wheelzy Logo" />
-                    <a class="nav-link fs-4 fw-bold nav-main" href="index.html">Wheelzy</a>
+                    <img src="assets/images/steering wheel logo.png" class="d-inline logo" alt="Wheelzy Logo" />
+                    <a class="nav-link fs-4 fw-bold nav-main" href="#">Wheelzy</a>
                 </li>
             </ul>
 
@@ -283,10 +379,12 @@
             </button>
 
             <div class="collapse navbar-collapse w-100 px-4" id="navbarContent">
-                <!-- center nav items -->
+                <!-- left-->
+
+                <!-- center -->
                 <ul class="navbar-nav mx-auto">
                     <li class="nav-item px-2">
-                        <a class="nav-link active" aria-current="page" href="index.html">Home</a>
+                        <a class="nav-link active" aria-current="page" href="#">Home</a>
                     </li>
                     <li class="nav-item px-2">
                         <a class="nav-link" href="listings.html">Car Listings</a>
@@ -295,15 +393,35 @@
                         <a class="nav-link" href="contact.html">Contact Us</a>
                     </li>
                     <li class="nav-item px-2">
-                        <a class="nav-link" href="about.html">About Us</a>
+                        <a class="nav-link" href="about-us.html">About Us</a>
                     </li>
                 </ul>
 
-                <!-- right login button -->
-                <div class="d-flex ms-auto mt-2">
-                    <button class="btn btn-nav">
-                        <a class="text-white" href="login.html">Login</a>
-                    </button>
+                <!-- right-->
+                <div class="d-flex ms-auto" id="login-or-profile">
+                    <!-- login btn - shown by default -->
+                    <div id="loginBtn">
+                        <button class="btn btn-nav">
+                            <a class="text-white text-decoration-none" href="login.html">Login</a>
+                        </button>
+                    </div>
+
+                    <!-- profile circle - hidden by default -->
+                    <div id="profileDropdown" class="dropdown position-relative align-items-center"
+                        style="display: none;">
+                        <a href="#" class="d-flex align-items-center text-decoration-none dropdown-toggle ps-0"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            <img src="assets/images/avatar.jpeg" alt="Profile" class="avatar-img rounded-circle">
+                            <span class="ms-2 fw-bold" id="nameDisplay"></span>
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-end mt-2">
+                            <li><a class="dropdown-item" id="customer-profile" href="#">My Profile</a></li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
+                            <li><a class="dropdown-item" href="#" id="logoutBtn">Logout</a></li>
+                        </ul>
+                    </div>
                 </div>
             </div>
         </div>
@@ -325,14 +443,13 @@
         <div class="bg-white rounded shadow-sm p-4 mb-4">
             <!-- Profile Header -->
             <div class="d-flex flex-column flex-md-row align-items-center align-items-md-start mb-4">
-                <img src="assets/images/avatar.jpeg" id="user-avatar" alt="Profile Avatar" class="rounded-circle me-md-4 mb-3 mb-md-0"
-                    width="100" height="100">
+                <img src="assets/images/avatar.jpeg" id="user-avatar" alt="Profile Avatar"
+                    class="rounded-circle me-md-4 mb-3 mb-md-0" width="100" height="100">
                 <div class="text-center text-md-start">
-                    <h1 class="fs-3 fw-bold text-darkblue mb-1" id="user-name">John Anderson</h1>
-                    <p class="text-darkgrey mb-1" id="user-email"><i class="fa-solid fa-envelope me-2"></i>john.anderson@example.com</p>
-                    <p class="text-darkgrey mb-2" id="user-number"><i class="fa-solid fa-phone me-2"></i>+1 (555) 123-4567</p>
-                    <span class="badge bg-success rounded-1 px-2 py-1 fw-normal"><i
-                            class="fa-solid fa-check me-1"></i>Verified User</span>
+                    <h1 class="fs-3 fw-bold text-darkblue mb-1" id="user-name"></h1>
+                    <p class="text-darkgrey mb-1" id="user-email"><i
+                            class="fa-solid fa-envelope me-2"></i></p>
+                    <p class="text-darkgrey mb-2" id="user-number"><i class="fa-solid fa-phone me-2"></i></p>
                 </div>
             </div>
 
@@ -342,15 +459,6 @@
                     <button class="nav-link active" id="bookings-tab" data-bs-toggle="tab"
                         data-bs-target="#bookings-tab-pane" type="button" role="tab" aria-controls="bookings-tab-pane"
                         aria-selected="true">My Bookings</button>
-                </li>
-                <li class="nav-item" role="presentation">
-                    <button class="nav-link" id="favorites-tab" data-bs-toggle="tab"
-                        data-bs-target="#favorites-tab-pane" type="button" role="tab" aria-controls="favorites-tab-pane"
-                        aria-selected="false">Favorites</button>
-                </li>
-                <li class="nav-item" role="presentation">
-                    <button class="nav-link" id="reviews-tab" data-bs-toggle="tab" data-bs-target="#reviews-tab-pane"
-                        type="button" role="tab" aria-controls="reviews-tab-pane" aria-selected="false">Reviews</button>
                 </li>
                 <li class="nav-item" role="presentation">
                     <button class="nav-link" id="settings-tab" data-bs-toggle="tab" data-bs-target="#settings-tab-pane"
@@ -364,206 +472,8 @@
                 <!-- Bookings Tab -->
                 <div class="tab-pane fade show active" id="bookings-tab-pane" role="tabpanel"
                     aria-labelledby="bookings-tab" tabindex="0">
-                    <div class="row">
-                        <!-- Card 1 -->
-                        <div class="col-md-4 mb-4">
-                            <div class="card border-0 shadow-sm h-100">
-                                <div class="overflow-hidden" style="height: 160px;">
-                                    <img src="assets/images/3.webp" alt="Hyundai Accent" class="card-img-top">
-                                </div>
-                                <div class="card-body">
-                                    <div class="d-flex justify-content-between align-items-center mb-2">
-                                        <h5 class="card-title mb-0 fw-bold">Hyundai Accent 2025</h5>
-                                        <span class="badge bg-info text-dark fw-normal px-2 py-1">Active</span>
-                                    </div>
-                                    <div class="d-flex mb-3">
-                                        <div class="bg-light rounded-circle d-flex align-items-center justify-content-center me-2"
-                                            style="width: 32px; height: 32px;">
-                                            <i class="fa-solid fa-calendar text-darkgrey"></i>
-                                        </div>
-                                        <div class="text-darkgrey" style="font-size: 14px;">Apr 25 - Apr 28, 2025</div>
-                                    </div>
-                                    <div class="d-flex justify-content-between align-items-center">
-                                        <div class="fw-bold text-main">$203 USD</div>
-                                        <a href="#" class="btn btn-sm btn-outline-main">View Details</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Card 2 -->
-                        <div class="col-md-4 mb-4">
-                            <div class="card border-0 shadow-sm h-100">
-                                <div class="overflow-hidden" style="height: 160px;">
-                                    <img src="assets/images/6.webp" alt="Toyota Camry" class="card-img-top">
-                                </div>
-                                <div class="card-body">
-                                    <div class="d-flex justify-content-between align-items-center mb-2">
-                                        <h5 class="card-title mb-0 fw-bold">Toyota Camry 2024</h5>
-                                        <span class="badge bg-success text-white fw-normal px-2 py-1">Completed</span>
-                                    </div>
-                                    <div class="d-flex mb-3">
-                                        <div class="bg-light rounded-circle d-flex align-items-center justify-content-center me-2"
-                                            style="width: 32px; height: 32px;">
-                                            <i class="fa-solid fa-calendar text-darkgrey"></i>
-                                        </div>
-                                        <div class="text-darkgrey" style="font-size: 14px;">Mar 15 - Mar 18, 2025</div>
-                                    </div>
-                                    <div class="d-flex justify-content-between align-items-center">
-                                        <div class="fw-bold text-main">$245 USD</div>
-                                        <a href="#" class="btn btn-sm btn-outline-main">View Details</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Card 3 -->
-                        <div class="col-md-4 mb-4">
-                            <div class="card border-0 shadow-sm h-100">
-                                <div class="overflow-hidden" style="height: 160px;">
-                                    <img src="assets/images/7.webp" alt="Honda Civic" class="card-img-top">
-                                </div>
-                                <div class="card-body">
-                                    <div class="d-flex justify-content-between align-items-center mb-2">
-                                        <h5 class="card-title mb-0 fw-bold">Honda Civic 2025</h5>
-                                        <span class="badge bg-success text-white fw-normal px-2 py-1">Completed</span>
-                                    </div>
-                                    <div class="d-flex mb-3">
-                                        <div class="bg-light rounded-circle d-flex align-items-center justify-content-center me-2"
-                                            style="width: 32px; height: 32px;">
-                                            <i class="fa-solid fa-calendar text-darkgrey"></i>
-                                        </div>
-                                        <div class="text-darkgrey" style="font-size: 14px;">Feb 5 - Feb 9, 2025</div>
-                                    </div>
-                                    <div class="d-flex justify-content-between align-items-center">
-                                        <div class="fw-bold text-main">$187 USD</div>
-                                        <a href="#" class="btn btn-sm btn-outline-main">View Details</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Favorites Tab -->
-                <div class="tab-pane fade" id="favorites-tab-pane" role="tabpanel" aria-labelledby="favorites-tab"
-                    tabindex="0">
-                    <div class="row">
-                        <div class="col-md-4 mb-4">
-                            <div class="card border-0 shadow-sm h-100">
-                                <div class="overflow-hidden" style="height: 160px;">
-                                    <img src="assets/images/9.webp" alt="BMW X5" class="card-img-top">
-                                </div>
-                                <div class="card-body">
-                                    <div class="d-flex justify-content-between align-items-center mb-2">
-                                        <h5 class="card-title mb-0 fw-bold">BMW X5 2025</h5>
-                                        <button class="btn btn-sm p-0 text-danger">
-                                            <i class="fa-solid fa-heart fa-lg"></i>
-                                        </button>
-                                    </div>
-                                    <div class="d-flex mb-3">
-                                        <div class="bg-light rounded-circle d-flex align-items-center justify-content-center me-2"
-                                            style="width: 32px; height: 32px;">
-                                            <i class="fa-solid fa-car text-darkgrey"></i>
-                                        </div>
-                                        <div class="text-darkgrey" style="font-size: 14px;">Premium SUV</div>
-                                    </div>
-                                    <div class="d-flex justify-content-between align-items-center">
-                                        <div class="fw-bold text-main">$320 USD<span class="text-darkgrey fw-normal"
-                                                style="font-size: 14px;"> / day</span></div>
-                                        <a href="#" class="btn btn-sm btn-main">Book Now</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-4 mb-4">
-                            <div class="card border-0 shadow-sm h-100">
-                                <div class="overflow-hidden" style="height: 160px;">
-                                    <img src="assets/images/2.webp" alt="Mercedes E-Class" class="card-img-top">
-                                </div>
-                                <div class="card-body">
-                                    <div class="d-flex justify-content-between align-items-center mb-2">
-                                        <h5 class="card-title mb-0 fw-bold">Mercedes E-Class</h5>
-                                        <button class="btn btn-sm p-0 text-danger">
-                                            <i class="fa-solid fa-heart fa-lg"></i>
-                                        </button>
-                                    </div>
-                                    <div class="d-flex mb-3">
-                                        <div class="bg-light rounded-circle d-flex align-items-center justify-content-center me-2"
-                                            style="width: 32px; height: 32px;">
-                                            <i class="fa-solid fa-car text-darkgrey"></i>
-                                        </div>
-                                        <div class="text-darkgrey" style="font-size: 14px;">Luxury Sedan</div>
-                                    </div>
-                                    <div class="d-flex justify-content-between align-items-center">
-                                        <div class="fw-bold text-main">$280 USD<span class="text-darkgrey fw-normal"
-                                                style="font-size: 14px;"> / day</span></div>
-                                        <a href="#" class="btn btn-sm btn-main">Book Now</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Reviews Tab -->
-                <div class="tab-pane fade" id="reviews-tab-pane" role="tabpanel" aria-labelledby="reviews-tab"
-                    tabindex="0">
-                    <div class="mb-4">
-                        <h5 class="fw-bold mb-3">Your Reviews</h5>
-
-                        <div class="card border-0 shadow-sm mb-3">
-                            <div class="card-body">
-                                <div class="d-flex mb-3">
-                                    <div class="me-3">
-                                        <img src="assets/images/10.webp" alt="Car" class="rounded" width="48"
-                                            height="48">
-                                    </div>
-                                    <div>
-                                        <h6 class="mb-1 fw-bold">Tesla Model 3</h6>
-                                        <div class="d-flex align-items-center mb-2">
-                                            <div class="text-warning me-2">
-                                                <i class="fa-solid fa-star"></i>
-                                                <i class="fa-solid fa-star"></i>
-                                                <i class="fa-solid fa-star"></i>
-                                                <i class="fa-solid fa-star"></i>
-                                                <i class="fa-solid fa-star"></i>
-                                            </div>
-                                            <span class="text-darkgrey small">April 10, 2025</span>
-                                        </div>
-                                        <p class="mb-0 text-darkgrey">Amazing electric car! Smooth driving experience
-                                            and zero emissions. The autopilot feature was impressive. Will definitely
-                                            rent again.</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="card border-0 shadow-sm">
-                            <div class="card-body">
-                                <div class="d-flex mb-3">
-                                    <div class="me-3">
-                                        <img src="assets/images/2.webp" alt="Car" class="rounded" width="48"
-                                            height="48">
-                                    </div>
-                                    <div>
-                                        <h6 class="mb-1 fw-bold">Toyota Camry 2024</h6>
-                                        <div class="d-flex align-items-center mb-2">
-                                            <div class="text-warning me-2">
-                                                <i class="fa-solid fa-star"></i>
-                                                <i class="fa-solid fa-star"></i>
-                                                <i class="fa-solid fa-star"></i>
-                                                <i class="fa-solid fa-star"></i>
-                                                <i class="fa-regular fa-star"></i>
-                                            </div>
-                                            <span class="text-darkgrey small">March 18, 2025</span>
-                                        </div>
-                                        <p class="mb-0 text-darkgrey">Reliable and comfortable sedan. Great fuel
-                                            efficiency and smooth ride. Perfect for my business trip.</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                    <div class="row" id="bookings-container">
+                        <!-- booking history cards -->
                     </div>
                 </div>
 
@@ -577,56 +487,33 @@
                             <form>
                                 <div class="mb-3">
                                     <label for="fullName" class="form-label">Full Name</label>
-                                    <input type="text" class="form-control" id="fullName" value="John Anderson">
+                                    <input type="text" class="form-control" id="fullName" value="">
                                 </div>
 
                                 <div class="mb-3">
                                     <label for="email" class="form-label">Email Address</label>
-                                    <input type="email" class="form-control" id="email"
-                                        value="john.anderson@example.com">
+                                    <input type="email" class="form-control" id="email" value="">
                                 </div>
 
                                 <div class="mb-3">
                                     <label for="phone" class="form-label">Phone Number</label>
-                                    <input type="tel" class="form-control" id="phone" value="+1 (555) 123-4567">
+                                    <input type="tel" class="form-control" id="phone" value="">
                                 </div>
 
                                 <div class="mb-3">
                                     <label for="address" class="form-label">Address</label>
-                                    <textarea class="form-control" id="address" rows="3">123 Main Street, Apt 4B
-New York, NY 10001
-United States</textarea>
+                                    <textarea class="form-control" id="address" rows="3">
+                                    </textarea>
                                 </div>
 
                                 <div class="mb-4">
                                     <label for="password" class="form-label">Password</label>
-                                    <input type="password" class="form-control" id="password" value="************">
+                                    <input type="password" class="form-control" id="password" value="">
                                     <div class="form-text">Leave blank if you don't want to change it.</div>
                                 </div>
 
                                 <button type="submit" class="btn btn-main">Save Changes</button>
                             </form>
-
-                            <hr class="my-4">
-
-                            <h5 class="fw-bold mb-3">Payment Methods</h5>
-                            <div class="card border-0 shadow-sm mb-3">
-                                <div class="card-body">
-                                    <div class="d-flex justify-content-between align-items-center">
-                                        <div class="d-flex align-items-center">
-                                            <i class="fab fa-cc-visa fs-3 me-3 text-primary"></i>
-                                            <div>
-                                                <p class="mb-0 fw-medium">Visa ending in 4242</p>
-                                                <p class="mb-0 small text-darkgrey">Expires 05/26</p>
-                                            </div>
-                                        </div>
-                                        <div class="badge bg-main">Default</div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <a href="#" class="btn btn-outline-main"><i class="fa-solid fa-plus me-2"></i>Add Payment
-                                Method</a>
                         </div>
                     </div>
                 </div>
@@ -638,26 +525,26 @@ United States</textarea>
     <footer class="footer">
         <div class="container">
             <div class="row">
-                <!-- RentDrive Column -->
+                <!-- column 1 -->
                 <div class="col-md-3 mb-4 mb-md-0">
                     <h4 class="text-uppercase mb-3"><img src="assets/images/steering wheel logo.png" alt="logo"
-                            height="40" class="logo">
+                            class="logo">
                         Wheelzy
                     </h4>
                     <div class="social-media">
                         <h6 class="text-uppercase mb-2">Social media</h6>
                         <ul class="list-unstyled">
-                            <li><a href="www.x.com" class="text-decoration-none"><i class="bi bi-twitter me-2"></i>Twitter</a>
+                            <li><a href="#" class="text-decoration-none"><i class="bi bi-twitter me-2"></i>Twitter</a>
                             </li>
-                            <li><a href="www.instagram.com" class="text-decoration-none"><i
+                            <li><a href="#" class="text-decoration-none"><i
                                         class="bi bi-instagram me-2"></i>Instagram</a></li>
-                            <li><a href="www.facebook.com" class="text-decoration-none"><i class="bi bi-facebook me-2"></i>Facebook</a>
+                            <li><a href="#" class="text-decoration-none"><i class="bi bi-facebook me-2"></i>Facebook</a>
                             </li>
                         </ul>
                     </div>
                 </div>
 
-                <!-- Contact Information Column -->
+                <!-- column 2-->
                 <div class="col-md-3 mb-4 mb-md-0">
                     <h4 class="text-uppercase mb-3">Contact Information</h4>
                     <address>
@@ -667,20 +554,20 @@ United States</textarea>
                     </address>
                 </div>
 
-                <!-- Home Column -->
+                <!-- column 3 -->
                 <div class="col-md-3 mb-4 mb-md-0">
                     <h4 class="text-uppercase mb-3">Home</h4>
                     <ul class="list-unstyled">
-                        <li><a href="about.html" class="text-decoration-none">About Us</a></li>
+                        <li><a href="#" class="text-decoration-none">About Us</a></li>
                         <li><a href="#" class="text-decoration-none">FAQ</a></li>
-                        <li><a href="contact.html" class="text-decoration-none">Contact Us</a></li>
+                        <li><a href="#" class="text-decoration-none">Contact Us</a></li>
                         <li><a href="#" class="text-decoration-none">Services</a></li>
                         <li><a href="#" class="text-decoration-none">Privacy Policy</a></li>
-                        <li><a href="listings.html" class="text-decoration-none">Car Listings</a></li>
+                        <li><a href="#" class="text-decoration-none">Car Listings</a></li>
                     </ul>
                 </div>
 
-                <!-- Contact Us Column -->
+                <!-- column  4 -->
                 <div class="col-md-3">
                     <div class="working-hours mt-4">
                         <h4 class="mb-3 text-uppercase">Working Hours</h4>
@@ -690,7 +577,7 @@ United States</textarea>
                 </div>
             </div>
 
-            <!-- Copyright Row -->
+            <!-- copyright row -->
             <div class="row mt-5 pt-3 border-top">
                 <div class="col-12 text-center">
                     <p class="mb-0">© 2025 Wheelzy. All rights reserved</p>
@@ -698,6 +585,7 @@ United States</textarea>
             </div>
         </div>
     </footer>
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-k6d4wzSIapyDyv1kpU366/PK5hCdSbCRGRCMv+eplOQJWyd1fbcAu9OCUj5zNLiq"
         crossorigin="anonymous"></script>

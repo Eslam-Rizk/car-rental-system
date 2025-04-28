@@ -25,7 +25,7 @@ const customerHandler = function ({
       }
     },
     getCustomerById: (customerId) => {
-      const customer = getData("bookings").find((customer) => {
+      const customer = getData("customers").find((customer) => {
         return customer.customerId === customerId;
       });
       return customer ? customer : null;
@@ -41,9 +41,11 @@ const customerHandler = function ({
         if (index !== -1) {
           const editedCustomer = { ...customers[index], ...obj };
           customers[index] = editedCustomer;
+          console.log("editedCustomer", editedCustomer);
+          console.log("customer: ", customers[index]);
           this.save(customers);
           console.log(
-            `Customer with ID ${customer.customerId} updated for user ${customer.customerName}`,
+            `Customer with ID ${customer.customerId} updated for user ${customer.name}`,
             this.get()
           );
         } else {

@@ -25,7 +25,7 @@ logout();
         const originalPrice = car.dailyRate;
 
         // Initialize price calculation with the car's daily rate
-        const priceCalculator = initializePrice(originalPrice);
+        initializePrice(originalPrice);
 
         // Keep track of extras and dates for recalculation
         const extrasCheckboxes = document.querySelectorAll('.extra-checkbox');
