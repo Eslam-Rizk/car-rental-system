@@ -27,8 +27,8 @@ section {
   padding-block: 50px;
 }
 
-/*---------------------------- LANDING PAGE---------------- */
 
+/*----------------------------NAVBAR--------------- */
 .navbar {
   background-color: #fff;
   padding: 10px 10px;
@@ -77,12 +77,48 @@ section {
   color: white;
 }
 
+.btn-nav:active {
+  background-color: var(--darker-main) !important;
+  color: white !important;
+  border-color: var(--main-color) !important
+}
+
 .navbar-toggler {
   border: none !important;
 }
 
 .navbar-toggler:focus {
   box-shadow: 0 0 0 0;
+}
+
+/* profile circle for logged in user */
+#profileDropdown a {
+  padding: 8px 16px;
+  color: var(--main-color);
+  border-radius: 30px;
+}
+
+#profileDropdown a:hover .avatar-img {
+  border-color: var(--darker-main);
+}
+
+#profileDropdown a:hover span {
+  color: var(--darker-main)
+}
+
+.dropdown-item:active {
+  background-color: #fff;
+  color: var(--main-color);
+}
+
+.avatar-img {
+  width: 40px;
+  height: 40px;
+  border: 3px solid var(--main-color);
+}
+
+#nameDisplay {
+  color: var(--main-color);
 }
 
 /* ----------------HEADER------------------- */
@@ -110,8 +146,6 @@ header {
 }
 
 /* ------------MINI CAR LISTINGS------------ */
-
-
 .section-content {
   margin-block: 20px;
 }
@@ -145,6 +179,22 @@ header {
   box-shadow: 0 5px 8px rgba(0, 0, 0, 0.2);
   border-radius: 20px;
   transition: scale 300ms ease;
+}
+
+.car-img-wrapper {
+  height: 200px;
+  background-color: #f8f9fa;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  border-radius: 10px;
+}
+
+.car-img-wrapper img {
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
 }
 
 .car-faq {
@@ -183,7 +233,6 @@ header {
 .car-details {
   border-bottom: var(--darkgrey) 1px solid;
 }
-
 
 /*------------------------CHOOSE US----------------------------- */
 

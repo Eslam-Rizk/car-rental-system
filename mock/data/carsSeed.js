@@ -148,7 +148,7 @@ export const cars = [
       "assets/images/car_007_5.webp"
     ],
     rating: 4.9,
-    fuelCapacity: 3.5, 
+    fuelCapacity: 3.5,
     passengerCapacity: 5,
     transmission: "Automatic",
     luggageCapacity: 2,
