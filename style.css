@@ -181,6 +181,22 @@ header {
   transition: scale 300ms ease;
 }
 
+.car-img-wrapper {
+  height: 200px;
+  background-color: #f8f9fa;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  border-radius: 10px;
+}
+
+.car-img-wrapper img {
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+}
+
 .car-faq {
   transition: scale 300ms ease;
 }
