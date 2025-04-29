@@ -14,352 +14,12 @@
         integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7" crossorigin="anonymous" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
-    <script type="module" src="js/user-profile.js"></script>
-    <style>
-        :root {
-            --main-color: #4f46e5;
-            --darker-main: #423bc1;
-            --lighter-main: #756fe4;
-            --bgcolor: #f7f7f7;
-            --darkblue: #111828;
-            --lightgrey: #9ca2ae;
-            --darkgrey: #5f5f5f;
-            --animation-duration: 400ms;
-            --main-font: "Poppins";
-        }
+    <script type="module" src="assets/js/user-profile.js"></script>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="assets/css/user-profile.css" />
+    <link rel="stylesheet" href="assets/css/car-listings-overview.css">
+    <link rel="stylesheet" href="assets/css/tabs.css">
 
-        * {
-            font-family: var(--main-font);
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
-
-        body {
-            background-color: #f8f9fa;
-        }
-
-        /*----------------------------NAVBAR--------------- */
-
-        .navbar {
-            background-color: #fff;
-            padding: 10px 10px;
-        }
-
-        .nav-main {
-            color: #000;
-        }
-
-        .navbar-nav .nav-link.active {
-            color: var(--main-color);
-            font-weight: 500;
-        }
-
-        .navbar-nav .nav-link.active:hover {
-            color: var(--darker-main);
-        }
-
-        .navbar-nav .nav-link:hover {
-            color: var(--main-color);
-        }
-
-        .btn-nav a {
-            text-decoration: none;
-        }
-
-        .logo {
-            transition: transform 0.3s ease-in-out;
-            width: 30px
-        }
-
-        .logo:hover {
-            transform: rotate(360deg);
-        }
-
-        .btn-nav {
-            background-color: var(--main-color);
-            box-shadow: 0 5px 8px rgba(0, 0, 0, 0.2);
-            border-radius: 30px;
-            padding: 8px 35px;
-            color: white;
-        }
-
-        .btn-nav:hover {
-            background-color: var(--darker-main);
-            color: white;
-        }
-
-        .btn-nav:active {
-            background-color: var(--darker-main) !important;
-            color: white !important;
-            border-color: var(--main-color) !important
-        }
-
-        .navbar-toggler {
-            border: none !important;
-        }
-
-        .navbar-toggler:focus {
-            box-shadow: 0 0 0 0;
-        }
-
-        /* profile circle for logged in user */
-        #profileDropdown a {
-            padding: 8px 16px;
-            color: var(--main-color);
-            border-radius: 30px;
-        }
-
-        #profileDropdown a:hover .avatar-img {
-            border-color: var(--darker-main);
-        }
-
-        #profileDropdown a:hover span {
-            color: var(--darker-main)
-        }
-
-        .dropdown-item:active {
-            background-color: #fff;
-            color: var(--main-color);
-        }
-
-        .avatar-img {
-            width: 40px;
-            height: 40px;
-            border: 3px solid var(--main-color);
-        }
-
-        #nameDisplay {
-            color: var(--main-color);
-        }
-
-        /* Text and background colors */
-        .text-main {
-            color: var(--main-color) !important;
-        }
-
-        .text-darker-main {
-            color: var(--darker-main) !important;
-        }
-
-        .text-lighter-main {
-            color: var(--lighter-main) !important;
-        }
-
-        .text-darkblue {
-            color: var(--darkblue) !important;
-        }
-
-        .text-lightgrey {
-            color: var(--lightgrey) !important;
-        }
-
-        .text-darkgrey {
-            color: var(--darkgrey) !important;
-        }
-
-        .bg-main {
-            background-color: var(--main-color) !important;
-        }
-
-        .bg-darker-main {
-            background-color: var(--darker-main) !important;
-        }
-
-        .bg-lighter-main {
-            background-color: var(--lighter-main) !important;
-        }
-
-        .bg-darkblue {
-            background-color: var(--darkblue) !important;
-        }
-
-        .bg-lightgrey {
-            background-color: var(--lightgrey) !important;
-        }
-
-        .bg-darkgrey {
-            background-color: var(--darkgrey) !important;
-        }
-
-        /* Button styles */
-        .btn-main {
-            background-color: var(--main-color);
-            border-color: var(--main-color);
-            color: white;
-        }
-
-        .btn-main:hover {
-            background-color: var(--darker-main);
-            border-color: var(--darker-main);
-            color: white;
-        }
-
-        .btn-outline-main {
-            color: var(--main-color);
-            border-color: var(--main-color);
-        }
-
-        .btn-outline-main:hover {
-            background-color: var(--main-color);
-            color: white;
-        }
-
-        .border-main {
-            border-color: var(--main-color) !important;
-        }
-
-        /* Custom tab styling */
-        .nav-tabs {
-            border-bottom: 1px solid #dee2e6;
-        }
-
-        .nav-tabs .nav-link {
-            margin-bottom: -1px;
-            border: none;
-            border-bottom: 2px solid transparent;
-            color: #9ca2ae;
-            font-weight: 500;
-            padding: 10px 16px;
-        }
-
-        .nav-tabs .nav-link:hover {
-            border-color: transparent;
-            color: var(--main-color);
-        }
-
-        .nav-tabs .nav-link.active {
-            border-bottom: 2px solid var(--main-color);
-            color: var(--main-color);
-            font-weight: 600;
-        }
-
-        .tab-content {
-            padding-top: 20px;
-        }
-
-        .tab-pane {
-            animation: fadeIn 0.3s ease-in;
-        }
-
-        /* card styles */
-        .darkgrey {
-            color: var(--darkgrey);
-        }
-
-        .car-details-icons,
-        .car-details-icons i {
-            font-style: normal;
-            color: var(--darkgrey);
-            font-size: 15px;
-        }
-
-        .car-headline h3 {
-            font-size: 20px;
-            white-space: nowrap;
-            overflow: hidden;
-            text-overflow: ellipsis;
-        }
-
-        .car-card {
-            width: 100%;
-            height: 100%;
-            box-shadow: 0 5px 8px rgba(0, 0, 0, 0.2);
-            border-radius: 20px;
-            transition: scale 300ms ease;
-        }
-
-        .car-card:hover {
-            scale: 1.05;
-        }
-
-        .car-type {
-            background-color: var(--lighter-main);
-            padding: 0px 8px;
-            border-radius: 20px;
-            font-size: 13px;
-            font-weight: 500;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .car-type span {
-            white-space: nowrap;
-            display: inline-block;
-        }
-
-        .car-card img {
-            border-radius: 20px;
-            width: 100%;
-            height: 200px;
-            object-fit: cover
-        }
-
-        .car-details {
-            border-bottom: var(--darkgrey) 1px solid;
-        }
-
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-            }
-
-            to {
-                opacity: 1;
-            }
-        }
-
-        /* --------------FOOTER-------- */
-        .footer {
-            background-color: #1C2526;
-            color: white;
-            padding: 60px 0 30px;
-        }
-
-        .footer h4 {
-            font-size: 18px;
-            font-weight: 600;
-            margin-bottom: 20px;
-            letter-spacing: 0.5px;
-        }
-
-        .footer h6 {
-            font-size: 14px;
-            font-weight: 500;
-        }
-
-        .footer p,
-        .footer address,
-        .footer ul li {
-            font-size: 14px;
-            line-height: 1.6;
-            margin-bottom: 8px;
-        }
-
-        .footer a {
-            color: white;
-            transition: color 0.3s ease;
-        }
-
-        .footer a:hover {
-            color: #4f46e5;
-            text-decoration: none;
-        }
-
-        .footer ul {
-            padding-left: 0;
-        }
-
-        .footer ul li {
-            list-style: none;
-            margin-bottom: 5px;
-        }
-
-        .border-top {
-            border-top: 1px solid #eaeaea !important;
-        }
-    </style>
 </head>
 
 <body>
@@ -369,7 +29,7 @@
             <ul class="navbar-nav me-auto px-4">
                 <li class="nav-item d-flex align-items-center">
                     <img src="assets/images/steering wheel logo.png" class="d-inline logo" alt="Wheelzy Logo" />
-                    <a class="nav-link fs-4 fw-bold nav-main" href="#">Wheelzy</a>
+                    <a class="nav-link fs-4 fw-bold nav-main" href="index.html">Wheelzy</a>
                 </li>
             </ul>
 
@@ -384,7 +44,7 @@
                 <!-- center -->
                 <ul class="navbar-nav mx-auto">
                     <li class="nav-item px-2">
-                        <a class="nav-link active" aria-current="page" href="#">Home</a>
+                        <a class="nav-link" aria-current="page" href="index.html">Home</a>
                     </li>
                     <li class="nav-item px-2">
                         <a class="nav-link" href="listings.html">Car Listings</a>
@@ -411,7 +71,7 @@
                         style="display: none;">
                         <a href="#" class="d-flex align-items-center text-decoration-none dropdown-toggle ps-0"
                             data-bs-toggle="dropdown" aria-expanded="false">
-                            <img src="assets/images/avatar.jpeg" alt="Profile" class="avatar-img rounded-circle">
+                            <img src="assets/images/avatar.png" alt="Profile" class="avatar-img rounded-circle">
                             <span class="ms-2 fw-bold" id="nameDisplay"></span>
                         </a>
                         <ul class="dropdown-menu dropdown-menu-end mt-2">
@@ -431,9 +91,9 @@
     <div class="container">
         <nav aria-label="breadcrumb" class="py-3">
             <ol class="breadcrumb mb-0">
-                <li class="breadcrumb-item"><a href="index.html" class="text-decoration-none text-darkgrey">Home</a>
+                <li class="breadcrumb-item"><a href="index.html" class="text-decoration-none text-main">Home</a>
                 </li>
-                <li class="breadcrumb-item active text-darkgrey" aria-current="page">My Profile</li>
+                <li class="breadcrumb-item active" aria-current="page">My Profile</li>
             </ol>
         </nav>
     </div>
@@ -443,25 +103,25 @@
         <div class="bg-white rounded shadow-sm p-4 mb-4">
             <!-- Profile Header -->
             <div class="d-flex flex-column flex-md-row align-items-center align-items-md-start mb-4">
-                <img src="assets/images/avatar.jpeg" id="user-avatar" alt="Profile Avatar"
+                <img src="assets/images/avatar.png" id="user-avatar" alt="Profile Avatar"
                     class="rounded-circle me-md-4 mb-3 mb-md-0" width="100" height="100">
                 <div class="text-center text-md-start">
-                    <h1 class="fs-3 fw-bold text-darkblue mb-1" id="user-name"></h1>
-                    <p class="text-darkgrey mb-1" id="user-email"><i
-                            class="fa-solid fa-envelope me-2"></i></p>
-                    <p class="text-darkgrey mb-2" id="user-number"><i class="fa-solid fa-phone me-2"></i></p>
+                    <h1 class="fs-3 fw-bold  mb-1" id="user-name"></h1>
+                    <p class="mb-1" id="user-email"><i class="fa-solid fa-envelope me-2"></i></p>
+                    <p class="mb-2" id="user-number"><i class="fa-solid fa-phone me-2"></i></p>
+                    <p class="mb-2" id="user-address"><i class="fa-solid fa-location-dot me-2"></i></p>
                 </div>
             </div>
 
             <!-- Tabs Navigation -->
             <ul class="nav nav-tabs" id="profileTabs" role="tablist">
                 <li class="nav-item" role="presentation">
-                    <button class="nav-link active" id="bookings-tab" data-bs-toggle="tab"
+                    <button class="nav-link fw-medium tab-btn active" id="bookings-tab" data-bs-toggle="tab"
                         data-bs-target="#bookings-tab-pane" type="button" role="tab" aria-controls="bookings-tab-pane"
                         aria-selected="true">My Bookings</button>
                 </li>
                 <li class="nav-item" role="presentation">
-                    <button class="nav-link" id="settings-tab" data-bs-toggle="tab" data-bs-target="#settings-tab-pane"
+                    <button class="nav-link fw-medium tab-btn" id="settings-tab" data-bs-toggle="tab" data-bs-target="#settings-tab-pane"
                         type="button" role="tab" aria-controls="settings-tab-pane"
                         aria-selected="false">Settings</button>
                 </li>
@@ -470,7 +130,7 @@
             <!-- Tab Content -->
             <div class="tab-content" id="profileTabsContent">
                 <!-- Bookings Tab -->
-                <div class="tab-pane fade show active" id="bookings-tab-pane" role="tabpanel"
+                <div class="tab-pane fade show mt-4 active" id="bookings-tab-pane" role="tabpanel"
                     aria-labelledby="bookings-tab" tabindex="0">
                     <div class="row" id="bookings-container">
                         <!-- booking history cards -->
@@ -478,12 +138,10 @@
                 </div>
 
                 <!-- Settings Tab -->
-                <div class="tab-pane fade" id="settings-tab-pane" role="tabpanel" aria-labelledby="settings-tab"
+                <div class="tab-pane mt-4 fade" id="settings-tab-pane" role="tabpanel" aria-labelledby="settings-tab"
                     tabindex="0">
                     <div class="row">
                         <div class="col-md-8">
-                            <h5 class="fw-bold mb-4">Account Settings</h5>
-
                             <form>
                                 <div class="mb-3">
                                     <label for="fullName" class="form-label">Full Name</label>
@@ -512,7 +170,7 @@
                                     <div class="form-text">Leave blank if you don't want to change it.</div>
                                 </div>
 
-                                <button type="submit" class="btn btn-main">Save Changes</button>
+                                <button type="submit" class="btn btn-nav">Save Changes</button>
                             </form>
                         </div>
                     </div>

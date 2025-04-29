@@ -1,5 +1,3 @@
-// utils.js
-
 export function getCarIdFromUrl() {
     const params = new URLSearchParams(window.location.search);
     const carId = params.get('id');
@@ -34,7 +32,6 @@ export function setElementHref(id, href) {
 }
 
 export function populateCarDetails(car) {
-    //console.log("Car Data: ", car);
 
     const carname = `${car.make} ${car.model} ${car.year} - Modern ${car.category} in ${car.color} color`;
 
@@ -51,7 +48,7 @@ export function populateCarDetails(car) {
     setElementText('transmission', car.transmission || 'N/A');
     setElementText('passengerCapacity', `${car.passengerCapacity || 'N/A'} people`);
     setElementText('luggageCapacity', `${car.luggageCapacity || 'N/A'} bags`);
-    setElementText('fuelCapacity', `${car.fuelCapacity || 'N/A'} L`);
+    setElementText('fuelCapacity', `${car.fuelCapacity || '0'} L`);
     setElementText('make', car.make || 'N/A');
     setElementText('year', car.year || 'N/A');
     setElementText('dailyRate', `$${car.dailyRate || 'N/A'}`);
@@ -65,7 +62,6 @@ export function displayTopRatedCars(cars, currentCarId) {
 
     topRatedCars.forEach((topCar, index) => {
         const carName = `${topCar.make} ${topCar.model} ${topCar.year}`;
-        //console.log(`Top ${index + 1}: ${carName}, Rating: ${topCar.rating}`);
 
         setImage(`top${index + 1}-img`, topCar.imageUrl[0], carName);
         setElementText(`top${index + 1}-name`, carName);

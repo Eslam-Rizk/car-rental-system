@@ -1,0 +1,7 @@
+.tab-btn{
+    color: var(--main-color);
+}
+.tab-btn:hover{
+    background-color: var(--main-color);
+    color: white;
+}

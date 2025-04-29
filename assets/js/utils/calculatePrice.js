@@ -1,6 +1,6 @@
 // calculatePrice.js
-import { getCarIdFromUrl, findCarById } from "../utils/carUtils.js";
-import { savedCars } from "../mock/storage/seedStorage.js";
+import { getCarIdFromUrl, findCarById } from "./carUtils.js";
+import { savedCars } from "../../../mock/storage/seedStorage.js";
 
 export function initializePrice(carPricePerDay) {
     //console.log('Initializing price calculation with car price per day:', carPricePerDay);

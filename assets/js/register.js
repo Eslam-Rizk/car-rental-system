@@ -1,8 +1,8 @@
 
-import { handleValidation } from './validateInput.js';
-import { getRegistrationDate } from './registrationDate.js';
-import { handlePasswordConfirmation } from './passwordValidation.js';
-import { savedCustomers, customersFilter } from '../storage/seedStorage.js';
+import { handleValidation } from './utils/validateInput.js';
+import { getRegistrationDate } from './utils/registrationDate.js';
+import { handlePasswordConfirmation } from './utils/passwordValidation.js';
+import { savedCustomers, customersFilter } from '../../mock/storage/seedStorage.js';
 
 
 const nameInput = document.querySelector('input[name="name"]');
@@ -57,5 +57,5 @@ signUpForm.addEventListener("submit", function (e) {
   console.log(user);
 
 
-  window.location.href = "http://127.0.0.1:5500/test.html"; 
+  window.location.href = "../login.html"; 
 });

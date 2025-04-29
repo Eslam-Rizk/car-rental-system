@@ -1,4 +1,3 @@
-// 30 unique cars with standardized attribute names
 export const cars = [
   {
     carId: "car_001",
@@ -148,7 +147,7 @@ export const cars = [
       "assets/images/car_007_5.webp"
     ],
     rating: 4.9,
-    fuelCapacity: 3.5,
+    fuelCapacity: 0,
     passengerCapacity: 5,
     transmission: "Automatic",
     luggageCapacity: 2,
