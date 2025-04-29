@@ -1,10 +1,11 @@
 
-import { handleValidation } from './validateInput.js';
+import { handleValidation , validateInputNow } from '../validation/validateInput.js';
 import { getRegistrationDate } from './registrationDate.js';
-import { handlePasswordConfirmation } from './passwordValidation.js';
-import { savedCustomers, customersFilter } from '../storage/seedStorage.js';
+import { handlePasswordConfirmation ,confirmPasswordNow} from '../validation/passwordValidation.js';
+import { savedCustomers, customersFilter , seedStorage} from '../../storage/seedStorage.js';
 
-
+seedStorage()
+console.log(savedCustomers.get()); 
 const nameInput = document.querySelector('input[name="name"]');
 const nameIcon = document.querySelector(".fa-user");
 const namePattern = /^[A-Za-zÀ-ÿ\s]+$/;
@@ -38,8 +39,26 @@ handleValidation(passwordInput, passwordPattern, passwordIcon);
 
 handlePasswordConfirmation(passwordInput, confirmPasswordInput, confirmIcon);
 
+
 signUpForm.addEventListener("submit", function (e) {
   e.preventDefault();
+
+  const isNameValid = validateInputNow(nameInput, namePattern, nameIcon);
+  const isEmailValid = validateInputNow(emailInput, emailPattern, emailIcon);
+  const isMobileValid = validateInputNow(mobileInput, mobilePattern, mobileIcon);
+  const isAddressValid = validateInputNow(addressInput, addressPattern, addressIcon);
+  const isPasswordValid = validateInputNow(passwordInput, passwordPattern, passwordIcon);
+  const isConfirmValid = confirmPasswordNow(passwordInput, confirmPasswordInput, confirmIcon);
+// check if any field value is not in the required format 
+  if (!(isNameValid && isEmailValid && isMobileValid && isAddressValid && isPasswordValid && isConfirmValid)) {
+    console.log("some or all the fields are not valid")
+    return;
+  }
+  // check if user already exists
+  if((customersFilter.checkCustomerExist(emailInput.value))){
+    console.log("customer already exists")
+    return; 
+  }
 
   const user = {
     name: nameInput.value,
@@ -52,10 +71,9 @@ signUpForm.addEventListener("submit", function (e) {
   };
 
   savedCustomers.addCustomer(user, customersFilter.checkCustomerExist);
-
+// log the users and the added user 
   console.log(savedCustomers.get());
   console.log(user);
 
-
-  window.location.href = "http://127.0.0.1:5500/test.html"; 
+  window.location.href = "../login/login.html"; 
 });
