@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wheelzy - Car Listing</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap">
+    <link rel="stylesheet" href="./assets/css/carListing.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <nav class="navbar navbar-expand-lg navbar-light">
+            <div class="container">
+                <a class="navbar-brand logo" href="#">
+                    <img src="./assets/images/steering wheel logo.png" alt="steering logo"> Wheelzy
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav mx-auto">
+                        <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                        <li class="nav-item"><a class="nav-link active" href="listings.html">Car Listing</a></li>
+                        <li class="nav-item"><a class="nav-link" href="contact.html">Contact Us</a></li>
+                        <li class="nav-item"><a class="nav-link" href="about.html">About Us</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="container text-center">
+            <h1>Car Listing</h1>
+            <div class="search-form">
+                <div class="row">
+                    <div class="col-md-3">
+                        <label for="destination" class="form-label">Destination</label>
+                        <select class="form-select" aria-label="Destination">
+                            <option selected>Add your location</option>
+                            <option value="Cairo">Cairo</option>
+                            <option value="London">London</option>
+                            <option value="Mansoura">Mansoura</option>
+                            <option value="Menofia">Menofia</option>
+                            <option value="Alexandria">Alexandria</option>
+                            <option value="Paris">Paris</option>
+                            <option value="Dubai">Dubai</option>
+                            <option value="Tokyo">Tokyo</option>
+                        </select>
+                    </div>
+                    <div class="col-md-3">
+                        <label for="pickup-date" class="form-label">Pick-up Date</label>
+                        <div class="input-group">
+                            <input type="date" class="form-control" id="pickup-date" placeholder="MM/DD/YYYY">
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <label for="dropoff-date" class="form-label">Drop-off Date</label>
+                        <div class="input-group">
+                            <input type="date" class="form-control" id="dropoff-date" placeholder="MM/DD/YYYY">
+                        </div>
+                    </div>
+                    <div class="col-md-3 book">
+                        <button class="btn btn-primary w-100" id="bookCarBtn">Search</button>
+                        <div id="searchError" class="text-danger mt-2" style="display: none;"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <section class="main-content py-5">
+        <div class="container">
+            <div class="row">
+                <!-- Sidebar (Filters) -->
+                <div class="col-md-3">
+                    <!-- Car Type Filter -->
+                    <div class="filter-box mb-4">
+                        <h5>Car Type</h5>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" id="all-cars">
+                            <label class="form-check-label" for="all-cars">All <span class="badge bg-light text-dark">60</span></label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" id="sedans">
+                            <label class="form-check-label" for="sedans">Sedans <span class="badge bg-light text-dark">20</span></label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" id="suvs">
+                            <label class="form-check-label" for="suvs">SUVs <span class="badge bg-light text-dark">36</span></label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" id="coupes">
+                            <label class="form-check-label" for="coupes">Coupes <span class="badge bg-light text-dark">0</span></label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" id="electric">
+                            <label class="form-check-label" for="electric">Electric Cars <span class="badge bg-light text-dark">2</span></label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" id="luxury">
+                            <label class="form-check-label" for="luxury">Luxury <span class="badge bg-light text-dark">0</span></label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" id="sport">
+                            <label class="form-check-label" for="sport">Sport Cars <span class="badge bg-light text-dark">2</span></label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" id="convertible">
+                            <label class="form-check-label" for="convertible">Convertibles <span class="badge bg-light text-dark">0</span></label>
+                        </div>
+                        <a href="#" class="see-more">SEE MORE <i class="fas fa-chevron-down"></i></a>
+                    </div>
+
+                    <!-- Filter Price -->
+                    <div class="filter-box mb-4">
+                        <h5>Filter Price</h5>
+                        <input type="range" class="form-range" min="0" max="500" value="280">
+                        <div class="d-flex justify-content-between">
+                            <span>$0</span>
+                            <span>$280</span>
+                            <span>$500</span>
+                        </div>
+                        <button class="btn btn-primary w-100 mt-3">Apply</button>
+                    </div>
+
+<!-- Fuel Type Filter -->
+<div class="filter-box mb-4">
+    <h5>Fuel Type</h5>
+    <div class="form-check">
+        <input class="form-check-input" type="checkbox" id="all-fuel">
+        <label class="form-check-label" for="all-fuel">All <span class="badge bg-light text-dark">60</span></label>
+    </div>
+    <div class="form-check">
+        <input class="form-check-input" type="checkbox" id="gasoline">
+        <label class="form-check-label" for="gasoline">Gasoline <span class="badge bg-light text-dark" id="count-gasoline">48</span></label>
+    </div>
+    <div class="form-check">
+        <input class="form-check-input" type="checkbox" id="diesel">
+        <label class="form-check-label" for="diesel">Diesel <span class="badge bg-light text-dark" id="count-diesel">10</span></label>
+    </div>
+    <div class="form-check">
+        <input class="form-check-input" type="checkbox" id="electric-fuel">
+        <label class="form-check-label" for="electric-fuel">Electric <span class="badge bg-light text-dark" id="count-electric">2</span></label>
+    </div>
+    <div class="form-check">
+        <input class="form-check-input" type="checkbox" id="hydrogen">
+        <label class="form-check-label" for="hydrogen">Hydrogen <span class="badge bg-light text-dark" id="count-hydrogen">0</span></label>
+    </div>
+    <div class="form-check">
+        <input class="form-check-input" type="checkbox" id="hybrid">
+        <label class="form-check-label" for="hybrid">Hybrid <span class="badge bg-light text-dark" id="count-hybrid">0</span></label>
+    </div>
+</div>
+
+                    <!-- Pick-up Location Filter -->
+                    <div class="filter-box mb-4">
+                        <h5>Pick-up Location</h5>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" id="pickup-cairo">
+                            <label class="form-check-label" for="pickup-cairo">Cairo <span class="badge bg-light text-dark" id="count-cairo">0</span></label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" id="pickup-london">
+                            <label class="form-check-label" for="pickup-london">London <span class="badge bg-light text-dark" id="count-london">0</span></label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" id="pickup-mansoura">
+                            <label class="form-check-label" for="pickup-mansoura">Mansoura <span class="badge bg-light text-dark" id="count-mansoura">0</span></label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" id="pickup-menofia">
+                            <label class="form-check-label" for="pickup-menofia">Menofia <span class="badge bg-light text-dark" id="count-menofia">0</span></label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" id="pickup-alexandria">
+                            <label class="form-check-label" for="pickup-alexandria">Alexandria <span class="badge bg-light text-dark" id="count-alexandria">0</span></label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" id="pickup-paris">
+                            <label class="form-check-label" for="pickup-paris">Paris <span class="badge bg-light text-dark" id="count-paris">0</span></label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" id="pickup-dubai">
+                            <label class="form-check-label" for="pickup-dubai">Dubai <span class="badge bg-light text-dark" id="count-dubai">0</span></label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" id="pickup-tokyo">
+                            <label class="form-check-label" for="pickup-tokyo">Tokyo <span class="badge bg-light text-dark" id="count-tokyo">0</span></label>
+                        </div>
+                    </div>
+
+                    <!-- Transmission Filter -->
+                    <div class="filter-box mb-4">
+                        <h5>Transmission Type</h5>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" id="all-transmission">
+                            <label class="form-check-label" for="all-transmission">All <span class="badge bg-light text-dark">60</span></label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" id="manual">
+                            <label class="form-check-label" for="manual">Manual <span class="badge bg-light text-dark">14</span></label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" id="automatic">
+                            <label class="form-check-label" for="automatic">Automatic <span class="badge bg-light text-dark">46</span></label>
+                        </div>
+                    </div>
+
+                    <!-- Year Filter -->
+                    <div class="filter-box mb-4">
+                        <h5>Filter by Year</h5>
+                        <input type="range" class="form-range" id="year-range" min="2019" max="2023" value="2019">
+                        <div class="d-flex justify-content-between">
+                            <span>2019</span>
+                            <span id="year-range-display">2019</span>
+                            <span>2023</span>
+                        </div>
+                        <button id="year-apply-btn" class="btn btn-primary w-100 mt-3">Apply</button>
+                    </div>
+                </div>
+
+                <!-- Car Listings -->
+                <div class="col-md-9">
+                    <!-- Sorting Dropdown -->
+                    <div class="mb-4">
+                        <select id="sortOptions" class="form-select w-auto d-inline-block">
+                            <option value="default">Sort By</option>
+                            <option value="price-asc">Price: Low to High</option>
+                            <option value="price-desc">Price: High to Low</option>
+                        </select>
+                    </div>
+
+                    <div class="row" id="carListings"></div>
+
+                    <!-- Pagination -->
+                    <nav aria-label="Page navigation">
+                        <ul class="pagination justify-content-center" id="pagination">
+                            <li class="page-item"><a class="page-link" href="#" id="prevPage">Previous</a></li>
+                            <li class="page-item"><a class="page-link" href="#" id="nextPage">Next</a></li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-3">
+                    <img src="./assets/images/steering wheel logo.png" alt="Carent Logo" class="logo mb-3">
+                    <p>123, Near FD Bank Avenue, New York, USA</p>
+                    <p><i class="fas fa-envelope"></i> info@carent.com</p>
+                    <p><i class="fas fa-phone"></i> +123 456 789</p>
+                </div>
+                <div class="col-md-2">
+                    <h5>Resources</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="#">Gallery</a></li>
+                        <li><a href="#">Our Team</a></li>
+                        <li><a href="#">Pricing</a></li>
+                        <li><a href="#">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-2">
+                    <h5>Community</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="#">Area Blogs</a></li>
+                        <li><a href="#">FAQS</a></li>
+                        <li><a href="#">Service Areas</a></li>
+                        <li><a href="#">Testimonials</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-3">
+                    <h5>Subscribe Newsletter</h5>
+                    <p>Our Estimated Global Carbon Emissions by Investing in Carent</p>
+                    <div class="input-group mb-3">
+                        <input type="email" class="form-control" placeholder="Email Address">
+                        <button class="btn btn-primary" type="button">Subscribe</button>
+                    </div>
+                </div>
+                <div class="col-md-2">
+                    <h5>Working Hours</h5>
+                    <p>Monday To Friday: 8:00 Am - 8:00 Pm</p>
+                    <p>Saturday To Sunday: 8:00 Am - 5:00 Pm</p>
+                    <h5 class="mt-4">Social Media</h5>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-pinterest-p"></i></a>
+                        <a href="#"><i class="fab fa-times"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="row mt-4">
+                <div class="col-md-6">
+                    <p>© 2025 Wheelzy, Inc. All Rights Reserved</p>
+                </div>
+                <div class="col-md-6 text-end">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/5/5e/Visa_Inc._logo.svg" alt="Visa" class="payment-icon">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/2/2a/Mastercard-logo.svg" alt="MasterCard" class="payment-icon">
+                    <img src="./assets/images/Apple_Pay-Logo.wine.png" alt="Apple Pay" class="payment-icon apple">
+                    <img src="./assets/images/stripe-v2.svg" alt="Stripe" class="payment-icon stripe">
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
+    <script src="./assets/js/carListing.js"></script>
+</body>
+</html>

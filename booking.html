@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Booking Page</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap">
+    <link rel="stylesheet" href="./assets/css/booking.css">
+</head>
+<body>
+
+    <div id="successMessage" class="success-message" style="display: none;">
+        <!-- dynamic content -->
+    </div>
+
+    <!-- Header -->
+    <header class="header">
+        <nav class="navbar navbar-expand-lg navbar-light">
+            <div class="container">
+                <a class="navbar-brand logo" href="#">
+                    <img src="./assets/images/steering wheel logo.png" alt="steering logo"> Wheelzy
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav mx-auto">
+                        <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                        <li class="nav-item"><a class="nav-link" href="listings.html">Car Listing</a></li>
+                        <li class="nav-item"><a class="nav-link" href="contact.html">Contact Us</a></li>
+                        <li class="nav-item"><a class="nav-link" href="about.html">About Us</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Booking Form Section -->
+    <div class="container">
+        <div class="booking-section">
+            <!-- Progress Bar -->
+            <div class="progress-container">
+                <div class="progress-step">
+                    <div class="progress-fill" id="progressFill"></div>
+                    <div class="step active" id="step1">1</div>
+                    <div class="step" id="step2">2</div>
+                    <div class="step" id="step3">3</div>
+                    <div class="step" id="step4">4</div>
+                    <div class="step" id="step5">5</div>
+                    <div class="step" id="step6">6</div>
+                    <div class="step" id="step7">7</div>
+                    <div class="step-label" style="left: 0%;">Car Details</div>
+                    <div class="step-label" style="left: 16.66%;">Dates</div>
+                    <div class="step-label" style="left: 33.33%;">Personal Info</div>
+                    <div class="step-label" style="left: 50%;">Add-ons</div>
+                    <div class="step-label" style="left: 66.66%;">Promo Code</div>
+                    <div class="step-label" style="left: 83.33%;">Payment Method</div>
+                    <div class="step-label" style="left: 100%;">Submit</div>
+                </div>
+            </div>
+
+            <h2>Book Your Car</h2>
+            <form id="bookingForm">
+                <div class="row">
+                    <div class="col-md-6 mb-3">
+                        <label for="carType" class="form-label">Car Type
+                            <i class="fas fa-info-circle tooltip-icon"></i>
+                            <span class="tooltip-text">Select the type of car you want to rent or buy.</span>
+                        </label>
+                        <select class="form-select" id="carType" required>
+                            <option value="" disabled selected>Select a car type</option>
+                            <option value="compact">Compact</option>
+                            <option value="sedan">Sedan</option>
+                            <option value="suv">SUV</option>
+                            <option value="luxury">Luxury</option>
+                            <option value="minivan">Minivan</option>
+                            <option value="pickup">Pickup</option>
+                            <option value="van">Van</option>
+                            <option value="truck">Truck</option>
+                            <option value="motorcycle">Motorcycle</option>
+                            <option value="cruiser">Cruiser</option>
+                            <option value="offroad">Offroad</option>
+                            <option value="convertible">Convertible</option>
+                            <option value="coupe">Coupe</option>
+                            <option value="hatchback">Hatchback</option>
+                            <option value="super">Super</option>
+                            <option value="micro">Micro</option>
+                            <option value="mini">Mini</option>
+                            <option value="subcompact">Subcompact</option>
+                        </select>
+                        <div class="invalid-feedback">Please select a car type.</div>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <label for="rentalType" class="form-label">Rental Type
+                            <i class="fas fa-info-circle tooltip-icon"></i>
+                            <span class="tooltip-text">Choose if you want to rent or buy the car.</span>
+                        </label>
+                        <select class="form-select" id="rentalType" required>
+                            <option value="" disabled selected>Select rental type</option>
+                            <option value="sale">Sale</option>
+                            <option value="sharing">Sharing</option>
+                        </select>
+                        <div class="invalid-feedback">Please select a rental type.</div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6 mb-3">
+                        <label for="startDate" class="form-label">Start Date
+                            <i class="fas fa-info-circle tooltip-icon"></i>
+                            <span class="tooltip-text">Choose the date you want to start your rental.</span>
+                        </label>
+                        <input type="date" class="form-control" id="startDate" required>
+                        <div class="invalid-feedback">Please select a valid start date.</div>
+                    </div>
+                    <div class="col-md-6 mb-3" id="endDateField">
+                        <label for="endDate" class="form-label">End Date
+                            <i class="fas fa-info-circle tooltip-icon"></i>
+                            <span class="tooltip-text">Choose the date you want to end your rental.</span>
+                        </label>
+                        <input type="date" class="form-control" id="endDate">
+                        <div class="invalid-feedback">Please select a valid end date after the start date.</div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6 mb-3">
+                        <label for="fullName" class="form-label">Full Name
+                            <i class="fas fa-info-circle tooltip-icon"></i>
+                            <span class="tooltip-text">Enter your full name as it appears on your ID.</span>
+                        </label>
+                        <input type="text" class="form-control" id="fullName" placeholder="Enter your full name" required>
+                        <div class="invalid-feedback">Please enter your full name.</div>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <label for="email" class="form-label">Email
+                            <i class="fas fa-info-circle tooltip-icon"></i>
+                            <span class="tooltip-text">Enter a valid email address for confirmation.</span>
+                        </label>
+                        <input type="email" class="form-control" id="email" placeholder="Enter your email" required>
+                        <div class="invalid-feedback">Please enter a valid email address.</div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6 mb-3">
+                        <label for="phone" class="form-label">Phone Number
+                            <i class="fas fa-info-circle tooltip-icon"></i>
+                            <span class="tooltip-text">Enter your phone number for contact.</span>
+                        </label>
+                        <input type="tel" class="form-control" id="phone" placeholder="Enter your phone number" required>
+                        <div class="invalid-feedback">Please enter a valid phone number.</div>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <label for="address" class="form-label">Address
+                            <i class="fas fa-info-circle tooltip-icon"></i>
+                            <span class="tooltip-text">Enter your address for billing purposes.</span>
+                        </label>
+                        <input type="text" class="form-control" id="address" placeholder="Enter your address" required>
+                        <div class="invalid-feedback">Please enter your address.</div>
+                    </div>
+                </div>
+
+                <!-- Recommended Add-ons Section -->
+                <div class="addons-section">
+                    <h5>Recommended Add-ons</h5>
+                    <div class="addon-item">
+                        <input type="checkbox" id="gps" value="10" class="addon-checkbox">
+                        <label for="gps"><i class="fas fa-map-marker-alt"></i> GPS Navigation</label>
+                        <span>$10</span>
+                    </div>
+                    <div class="addon-item">
+                        <input type="checkbox" id="childSeat" value="15" class="addon-checkbox">
+                        <label for="childSeat"><i class="fas fa-baby-carriage"></i> Child Seat</label>
+                        <span>$15</span>
+                    </div>
+                    <div class="addon-item">
+                        <input type="checkbox" id="insurance" value="25" class="addon-checkbox">
+                        <label for="insurance"><i class="fas fa-shield-alt"></i> Full Insurance</label>
+                        <span>$25</span>
+                    </div>
+                </div>
+
+                <!-- Promo Code Section -->
+                <div class="promo-section">
+                    <h5>Have a Promo Code?</h5>
+                    <div class="input-group">
+                        <input type="text" class="form-control" id="promoCode" placeholder="Enter promo code">
+                        <button type="button" class="btn-apply" id="applyPromo">Apply</button>
+                    </div>
+                    <small id="promoMessage" class="text-success d-none">Promo applied successfully!</small>
+                </div>
+
+                <!-- Payment Method Section -->
+<div class="payment-section">
+    <h5>Select Payment Method</h5>
+    <div class="mb-3">
+        <select class="form-select" id="paymentMethod" required>
+            <option value="" disabled selected>Select a payment method</option>
+            <option value="creditCard">Credit Card</option>
+            <option value="paypal">PayPal</option>
+            <option value="bankTransfer">Bank Transfer</option>
+            <option value="cashOnDelivery">Cash on Delivery</option>
+        </select>
+        <div class="invalid-feedback">Please select a payment method.</div>
+    </div>
+</div>
+
+                <div class="text-center">
+                    <button type="submit" class="btn-submit">Submit Booking</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Loading Overlay -->
+    <div class="loading-overlay" id="loadingOverlay">
+        <div class="spinner"></div>
+    </div>
+
+    <!-- Footer -->
+<footer class="footer">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3">
+                <img src="./assets/images/steering wheel logo.png" alt="Carent Logo" class="logo mb-3">
+                <p>123, Near FD Bank Avenue, New York, USA</p>
+                <p><i class="fas fa-envelope"></i> info@carent.com</p>
+                <p><i class="fas fa-phone"></i> +123 456 789</p>
+            </div>
+            <div class="col-md-2">
+                <h5>Resources</h5>
+                <ul class="list-unstyled">
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="#">Gallery</a></li>
+                    <li><a href="#">Our Team</a></li>
+                    <li><a href="#">Pricing</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </div>
+            <div class="col-md-2">
+                <h5>Community</h5>
+                <ul class="list-unstyled">
+                    <li><a href="#">Area Blogs</a></li>
+                    <li><a href="#">FAQS</a></li>
+                    <li><a href="#">Service Areas</a></li>
+                    <li><a href="#">Testimonials</a></li>
+                </ul>
+            </div>
+            <div class="col-md-3">
+                <h5>Subscribe Newsletter</h5>
+                <p>Our Estimated Global Carbon Emissions by Investing in Carent</p>
+                <div class="input-group mb-3">
+                    <input type="email" class="form-control" placeholder="Email Address">
+                    <button class="btn btn-primary" type="button">Subscribe</button>
+                </div>
+            </div>
+            <div class="col-md-2">
+                <h5>Working Hours</h5>
+                <p>Monday To Friday: 8:00 Am - 8:00 Pm</p>
+                <p>Saturday To Sunday: 8:00 Am - 5:00 Pm</p>
+                <h5 class="mt-4">Social Media</h5>
+                <div class="social-icons">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-pinterest-p"></i></a>
+                    <a href="#"><i class="fab fa-times"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="row mt-4">
+            <div class="col-md-6">
+                <p>© 2025 Wheelzy, Inc. All Rights Reserved</p>
+            </div>
+            <div class="col-md-6 text-end">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/5/5e/Visa_Inc._logo.svg" alt="Visa" class="payment-icon">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/2/2a/Mastercard-logo.svg" alt="MasterCard" class="payment-icon">
+                <img src="./assets/images/Apple_Pay-Logo.wine.png" alt="Apple Pay" class="payment-icon apple">
+                <img src="./assets/images/stripe-v2.svg" alt="Stripe" class="payment-icon stripe">
+            </div>
+        </div>
+    </div>
+</footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="./assets/js/booking.js"></script>
+</body>
+</html>
