@@ -1083,7 +1083,7 @@ function isCarAvailable(car, pickupDate, dropoffDate) {
     return true;
 }
 
-// Function to update the car counts in the Pick-up Location filter
+// Function to update the car counts in the Pick-up Location filter and Car Type filter
 function updateLocationCounts(pickupDate, dropoffDate) {
     const locationCounts = {
         cairo: 0,
@@ -1096,6 +1096,17 @@ function updateLocationCounts(pickupDate, dropoffDate) {
         tokyo: 0
     };
 
+    const carTypeCounts = {
+        'all-cars': 0,
+        sedans: 0,
+        suvs: 0,
+        coupes: 0,
+        'electric-cars': 0,
+        luxury: 0,
+        'sport-cars': 0,
+        convertibles: 0
+    };
+
     carsData.forEach(car => {
         if (isCarAvailable(car, pickupDate, dropoffDate)) {
             car.availableLocations.forEach(loc => {
@@ -1104,12 +1115,26 @@ function updateLocationCounts(pickupDate, dropoffDate) {
                     locationCounts[locationKey]++;
                 }
             });
+
+            const carTypeKey = car.category.toLowerCase() === 'sports' ? 'sport-cars' :
+                              car.category.toLowerCase() === 'electric' ? 'electric-cars' :
+                              car.category.toLowerCase() + 's';
+            if (carTypeCounts.hasOwnProperty(carTypeKey)) {
+                carTypeCounts[carTypeKey]++;
+            }
+            carTypeCounts['all-cars']++;
         }
     });
 
-    // Update the counts in the UI
     for (const [location, count] of Object.entries(locationCounts)) {
         const countElement = document.getElementById(`count-${location}`);
+        if (countElement) {
+            countElement.textContent = count;
+        }
+    }
+
+    for (const [carType, count] of Object.entries(carTypeCounts)) {
+        const countElement = document.getElementById(`count-${carType}`);
         if (countElement) {
             countElement.textContent = count;
         }
@@ -1119,7 +1144,17 @@ function updateLocationCounts(pickupDate, dropoffDate) {
 // Function to filter cars based on all selected filters
 function filterCars(pickupDate, dropoffDate) {
     const carTypeFilters = Array.from(document.querySelectorAll('.filter-box:nth-child(1) .form-check-input:checked'))
-        .map(input => input.id.replace('all-cars', '').replace('-', ''));
+        .map(input => {
+            if (input.id === 'all-cars') return '';
+            if (input.id === 'sedans') return 'sedan';
+            if (input.id === 'suvs') return 'suv';
+            if (input.id === 'sport') return 'sports';
+            if (input.id === 'electric') return 'electric';
+            if (input.id === 'coupes') return 'coupes';
+            if (input.id === 'luxury') return 'luxury';
+            if (input.id === 'convertible') return 'convertibles';
+            return input.id;
+        });
     const priceFilter = document.querySelector('.form-range').value;
     const fuelTypeFilters = Array.from(document.querySelectorAll('.filter-box:nth-child(3) .form-check-input:checked'))
         .map(input => input.id.replace('all-fuel', '').replace('fuel-', '').replace('-fuel', ''));
@@ -1147,7 +1182,7 @@ function filterCars(pickupDate, dropoffDate) {
         return matchesCarType && matchesPrice && matchesFuelType && matchesLocation && matchesTransmission && matchesYear && matchesAvailability;
     });
 
-    currentPage = 1; // Reset to first page after filtering
+    currentPage = 1;
     renderCarListings();
     renderPagination();
 }
@@ -1176,25 +1211,36 @@ function renderCarListings() {
         carListings.innerHTML = '<p>No cars available for the selected filters.</p>';
         return;
     }
-    // added navigation to car details page
+    
     carsToDisplay.forEach(car => {
         const carCard = `
             <div class="col-md-4 mb-4 car-card-item">
-                <div class="car-card" onclick="window.location.href='car-details.html?carId=${car.carId}'" style="cursor: pointer;">
-                    <img src="${car.imageUrl[0]}" class="card-img-top" alt="${car.make} ${car.model}">
-                    <div class="card-body">
-                        <h5 class="card-title">${car.make} ${car.model}</h5>
-                        <p class="car-type">${car.category}</p>
-                        <div class="car-specs">
-                            <span><i class="fas fa-users"></i> ${car.passengerCapacity}</span>
-                            <span><i class="fas fa-suitcase"></i> ${car.luggageCapacity}</span>
-                            <span><i class="fas fa-cogs"></i> ${car.transmission}</span>
-                            <span><i class="fas fa-gas-pump"></i> ${car.fuelType}</span>
+                <div class="car-card p-3">
+                    <div class="image-wrapper position-relative">
+                        <img src="${car.imageUrl[0]}" alt="${car.make} ${car.model}" />
+                        <div class="rating-overlay position-absolute top-0 end-0 m-2">
+                            <i class="bi bi-star-fill" style="color: #FFD700;"></i>
+                            <span class="ms-1">${car.rating}</span>
                         </div>
-                        <p class="price">$${car.dailyRate} USD /Per Day</p>
-                        <div class="rating">
-                            <span>${car.rating} <i class="fas fa-star" style="color: #FFD700;"></i></span>
+                    </div>
+                    <div class="car-details mt-2">
+                        <div class="car-headline d-flex justify-content-between align-items-center mb-2">
+                            <h3 class="m-0">${car.make} ${car.model} ${car.year}</h3>
+                            <div class="car-type"><span>${car.category}</span></div>
                         </div>
+                        <div class="car-details-icons d-flex gap-3">
+                            <div class="icon-item"><i class="bi bi-person-fill"></i><span class="ms-1">${car.passengerCapacity}</span></div>
+                            <div class="icon-item"><i class="bi bi-suitcase"></i><span class="ms-1">${car.luggageCapacity}</span></div>
+                            <div class="icon-item"><i class="bi bi-car-front-fill"></i><span class="ms-1">${car.transmission.toLowerCase()}</span></div>
+                            <div class="icon-item"><i class="bi bi-fuel-pump"></i><span class="ms-1">${car.fuelType.toLowerCase()}</span></div>
+                        </div>
+                    </div>
+                    <div class="car-price d-flex align-items-center justify-content-between">
+                        <div class="d-flex align-items-baseline">
+                            <h4 class="fs-5 m-0">$${car.dailyRate}</h4>
+                            <span class="fs-6 darkgrey ms-1">/Per Day</span>
+                        </div>
+                        <a href="car-details.html?carId=${car.carId}" class="btn text-white details-btn">Details</a>
                     </div>
                 </div>
             </div>
@@ -1202,7 +1248,6 @@ function renderCarListings() {
         carListings.innerHTML += carCard;
     });
 
-    // Re-attach event listeners to the new "Book Now" buttons
     attachBookNowListeners();
 }
 
@@ -1265,7 +1310,6 @@ function renderPagination() {
         </li>
     `;
 
-    // Add event listeners for pagination links
     document.querySelectorAll('.page-link').forEach(link => {
         link.addEventListener('click', (e) => {
             e.preventDefault();
@@ -1312,13 +1356,11 @@ function validateSearchForm() {
 
 // Event listeners
 document.addEventListener('DOMContentLoaded', () => {
-    // Initial render (without date filtering)
     filteredCars = [...carsData];
     renderCarListings();
     renderPagination();
-    updateLocationCounts(null, null); // Initial counts without date filtering
+    updateLocationCounts(null, null);
 
-    // Car Type Filter
     document.querySelectorAll('.filter-box:nth-child(1) .form-check-input').forEach(input => {
         input.addEventListener('change', () => {
             const pickupDate = document.getElementById('pickup-date').value;
@@ -1328,7 +1370,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // Price Filter
     document.querySelector('.form-range').addEventListener('input', (e) => {
         document.querySelector('.d-flex span:nth-child(2)').textContent = `$${e.target.value}`;
         const pickupDate = document.getElementById('pickup-date').value;
@@ -1337,7 +1378,6 @@ document.addEventListener('DOMContentLoaded', () => {
         updateLocationCounts(pickupDate, dropoffDate);
     });
 
-    // Fuel Type Filter
     document.querySelectorAll('.filter-box:nth-child(3) .form-check-input').forEach(input => {
         input.addEventListener('change', () => {
             const pickupDate = document.getElementById('pickup-date').value;
@@ -1347,7 +1387,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // Pick-up Location Filter
     document.querySelectorAll('.filter-box:nth-child(4) .form-check-input').forEach(input => {
         input.addEventListener('change', () => {
             const pickupDate = document.getElementById('pickup-date').value;
@@ -1357,7 +1396,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // Transmission Filter
     document.querySelectorAll('.filter-box:nth-child(5) .form-check-input').forEach(input => {
         input.addEventListener('change', () => {
             const pickupDate = document.getElementById('pickup-date').value;
@@ -1367,7 +1405,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // Year Filter
     const yearRange = document.getElementById('year-range');
     const yearDisplay = document.getElementById('year-range-display');
     yearRange.addEventListener('input', () => {
@@ -1380,10 +1417,8 @@ document.addEventListener('DOMContentLoaded', () => {
         updateLocationCounts(pickupDate, dropoffDate);
     });
 
-    // Sorting
     document.getElementById('sortOptions').addEventListener('change', sortCars);
 
-    // Book Car Button
     document.getElementById('bookCarBtn').addEventListener('click', (e) => {
         e.preventDefault();
         if (validateSearchForm()) {
