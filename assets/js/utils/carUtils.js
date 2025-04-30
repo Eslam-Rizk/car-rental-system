@@ -1,6 +1,6 @@
 export function getCarIdFromUrl() {
     const params = new URLSearchParams(window.location.search);
-    const carId = params.get('id');
+    const carId = params.get('carId');
     //console.log("Car ID from URL: ", carId);
     return carId;
 }
@@ -70,7 +70,7 @@ export function displayTopRatedCars(cars, currentCarId) {
         setElementText(`top${index + 1}-luggage`, `${topCar.luggageCapacity || 'N/A'} bags`);
         setElementText(`top${index + 1}-transmission`, topCar.transmission || 'N/A');
         setElementText(`top${index + 1}-price`, `$${topCar.dailyRate || 'N/A'}`);
-        setElementHref(`top${index + 1}-id`, topCar.carId ? `car-details.html?id=${topCar.carId}` : '#');
+        setElementHref(`top${index + 1}-id`, topCar.carId ? `car-details.html?carId=${topCar.carId}` : '#');
     });
 }
 

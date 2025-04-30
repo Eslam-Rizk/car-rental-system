@@ -20,6 +20,7 @@ export const cars = [
     transmission: "Manual",
     luggageCapacity: 2,
     fuelType: "Gasoline",
+    availableLocations: ["Cairo", "Mansoura", "Tokyo"],
   },
   {
     carId: "car_002",

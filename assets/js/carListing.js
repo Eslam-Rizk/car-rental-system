@@ -111,7 +111,7 @@ const carsData = [
         color: "White",
         imageUrl: ["./assets/images/car7.png"],
         rating: 4.9,
-        fuelCapacity: 3.5,
+        fuelCapacity: 0,
         passengerCapacity: 5,
         transmission: "Automatic",
         luggageCapacity: 2,
@@ -621,7 +621,7 @@ const carsData = [
         color: "White",
         imageUrl: ["./assets/images/car7.png"],
         rating: 4.9,
-        fuelCapacity: 3.5,
+        fuelCapacity: 0,
         passengerCapacity: 5,
         transmission: "Automatic",
         luggageCapacity: 2,
@@ -1021,17 +1021,15 @@ const carsData = [
     }
 ];
 
-// تحديث availableLocations لكل السيارات
 const newLocations = ["Cairo", "London", "Mansoura", "Menofia", "Alexandria", "Paris", "Dubai", "Tokyo"];
 carsData.forEach(car => {
     car.availableLocations = [
         newLocations[Math.floor(Math.random() * newLocations.length)],
         newLocations[Math.floor(Math.random() * newLocations.length)],
         newLocations[Math.floor(Math.random() * newLocations.length)],
-    ].filter((loc, index, self) => self.indexOf(loc) === index); // التأكد من عدم التكرار
+    ].filter((loc, index, self) => self.indexOf(loc) === index); 
 });
 
-// تحميل الحجوزات من localStorage (لو موجودة)
 if (localStorage.getItem('carsData')) {
     const storedCarsData = JSON.parse(localStorage.getItem('carsData'));
     storedCarsData.forEach((storedCar, index) => {
@@ -1074,12 +1072,10 @@ function isCarAvailable(car, pickupDate, dropoffDate) {
 
     if (!car.bookedPeriods || car.bookedPeriods.length === 0) return true;
 
-    // تحقق من التداخل مع الفترات المحجوزة
     for (let period of car.bookedPeriods) {
         const bookedStart = new Date(period.startDate);
         const bookedEnd = new Date(period.endDate);
 
-        // إذا كان فيه تداخل بين الفترة المطلوبة والفترة المحجوزة، السيارة مش متاحة
         if (pickup <= bookedEnd && dropoff >= bookedStart) {
             return false;
         }
@@ -1180,11 +1176,11 @@ function renderCarListings() {
         carListings.innerHTML = '<p>No cars available for the selected filters.</p>';
         return;
     }
-
+    // added navigation to car details page
     carsToDisplay.forEach(car => {
         const carCard = `
             <div class="col-md-4 mb-4 car-card-item">
-                <div class="car-card">
+                <div class="car-card" onclick="window.location.href='car-details.html?carId=${car.carId}'" style="cursor: pointer;">
                     <img src="${car.imageUrl[0]}" class="card-img-top" alt="${car.make} ${car.model}">
                     <div class="card-body">
                         <h5 class="card-title">${car.make} ${car.model}</h5>

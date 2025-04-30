@@ -1,4 +1,4 @@
-// Car data for pricing
+// Car data for pricing                        //use carSeed
 const cars = {
     compact: {
         name: 'Toyota Yaris',
