@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Page</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
+    <link rel="stylesheet" href="./assets/css/contact.css">
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-light">
+        <div class="container-fluid">
+          <ul class="navbar-nav me-auto px-4">
+            <li class="nav-item d-flex align-items-center">
+              <img src="./assets/images/steering wheel logo.png" class="d-inline logo" alt="Wheelzy Logo" />
+              <a class="nav-link fs-4 fw-bold nav-main" href="#">Wheelzy</a>
+            </li>
+          </ul>
+    
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent"
+            aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+    
+          <div class="collapse navbar-collapse w-100 px-4" id="navbarContent">
+            <!-- center -->
+            <ul class="navbar-nav mx-auto">
+              <li class="nav-item px-2">
+                <a class="nav-link" href="index.html">Home</a>
+              </li>
+              <li class="nav-item px-2">
+                <a class="nav-link" href="listings.html">Car Listings</a>
+              </li>
+              <li class="nav-item px-2">
+                <a class="nav-link active" href="contact.html">Contact Us</a>
+              </li>
+              <li class="nav-item px-2">
+                <a class="nav-link" href="about.html">About Us</a>
+              </li>
+            </ul>
+    
+            <!-- right-->
+            <div class="d-flex ms-auto" id="login-or-profile">
+              <!-- login btn - shown by default -->
+              <div id="loginBtn">
+                <button class="btn btn-nav">
+                  <a class="text-white text-decoration-none" href="login.html">Login</a>
+                </button>
+              </div>
+    
+              <!-- profile circle - hidden by default -->
+              <div id="profileDropdown" class="dropdown position-relative align-items-center" style="display: none;">
+                <a href="#" class="d-flex align-items-center text-decoration-none dropdown-toggle ps-0"
+                  data-bs-toggle="dropdown" aria-expanded="false">
+                  <img src="./assets/images/avatar.png" alt="Profile" class="avatar-img rounded-circle">
+                  <span class="ms-2 fw-bold" id="nameDisplay"></span>
+                </a>
+                <ul class="dropdown-menu dropdown-menu-end mt-2">
+                  <li><a class="dropdown-item" href="profile.html" id="customer-profile">My Profile</a></li>
+                  <li>
+                    <hr class="dropdown-divider">
+                  </li>
+                  <li><a class="dropdown-item" href="index.html" id="logoutBtn">Logout</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </nav>
+    
+   <!-- Hero Section -->
+   <section class="hero-section">
+    <div class="hero-content">
+        <h1>Let’s Connect!</h1>
+        <p>We’re just a message away from helping you.</p>
+    </div>
+</section>
+
+ <!-- Success Message -->
+ <div id="successMessage" class="success-message">
+    <i class="fas fa-check-circle"></i>
+    <span>Your message has been sent successfully! We’ll get back to you soon.</span>
+</div>
+
+<!-- Contact Section -->
+<div class="contact-container">
+    <div class="row">
+        <!-- Contact Form -->
+        <div class="col-md-6 mb-5">
+            <div class="contact-form-card">
+                <form id="contactForm">
+                    <div class="form-group">
+                        <input type="text" id="name" placeholder=" " required>
+                        <label for="name">Name</label>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" id="email" placeholder=" " required>
+                        <label for="email">Email</label>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" id="subject" placeholder=" " required>
+                        <label for="subject">Subject</label>
+                    </div>
+                    <div class="form-group">
+                        <textarea id="message" placeholder=" " required></textarea>
+                        <label for="message">Message</label>
+                    </div>
+                    <button type="submit" class="btn-submit">Send Message</button>
+                </form>
+            </div>
+        </div>
+
+        <!-- Contact Info -->
+        <div class="col-md-6 mb-5">
+            <div class="contact-info">
+                <div class="info-card">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <p>123, Near FD Bank Avenue, New York, USA</p>
+                </div>
+                <div class="info-card">
+                    <i class="fas fa-envelope"></i>
+                    <p>info@wheelzy.com</p>
+                </div>
+               
+            </div>
+            <div class="info-card phone">
+                <i class="fas fa-phone"></i>
+                <p>+123 456 789</p>
+            </div>
+            <div class="working-hours-u">
+                <h5>Working Hours</h5>
+                <p>Mon-Fri: 8:00 AM - 8:00 PM</p>
+                <p>Sat-Sun: 8:00 AM - 5:00 PM</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Map and Why Choose Section -->
+    <div class="map-and-features">
+        <!-- Google Maps -->
+        <div class="map-container">
+            <div class="map-wrapper">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3022.241266875887!2d-73.98661468459399!3d40.74844097932847!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c259a9b3117469%3A0xd134e199a4051f!2sEmpire%20State%20Building!5e0!3m2!1sen!2sus!4v1697041234567!5m2!1sen!2sus" allowfullscreen="" loading="lazy"></iframe>
+            </div>
+        </div>
+
+        <!-- Why Choose Wheelzy -->
+        <div class="why-choose">
+            <h5>Why Choose Wheelzy?</h5>
+            <div class="feature-card">
+                <i class="fas fa-headset"></i>
+                <div>
+                    <h6>24/7 Support</h6>
+                    <p>We’re always here to help you, anytime, anywhere.</p>
+                </div>
+            </div>
+            <div class="feature-card">
+                <i class="fas fa-bolt"></i>
+                <div>
+                    <h6>Fast Response</h6>
+                    <p>Get quick replies to your inquiries within hours.</p>
+                </div>
+            </div>
+            <div class="feature-card">
+                <i class="fas fa-shield-alt"></i>
+                <div>
+                    <h6>Trusted Service</h6>
+                    <p>Rely on us for a seamless and secure experience.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Social Media Links -->
+    <div class="social-links">
+        <a href="#"><i class="fab fa-facebook-f"></i></a>
+        <a href="#"><i class="fab fa-twitter"></i></a>
+        <a href="#"><i class="fab fa-pinterest-p"></i></a>
+        <a href="#"><i class="fab fa-times"></i></a>
+    </div>
+</div>
+
+  
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <!-- Wheelzy Column -->
+                <div class="col-md-3 mb-4 mb-md-0">
+                    <h4 class="text-uppercase mb-3">
+                        <img src="./assets/images/steering wheel logo.png" alt="logo" class="logo"> Wheelzy
+                    </h4>
+                    <div class="social-media">
+                        <h6 class="text-uppercase mb-2">Social media</h6>
+                        <ul class="list-unstyled">
+                            <li><a href="#" class="text-decoration-none"><i class="bi bi-twitter me-2"></i>Twitter</a></li>
+                            <li><a href="#" class="text-decoration-none"><i class="bi bi-instagram me-2"></i>Instagram</a></li>
+                            <li><a href="#" class="text-decoration-none"><i class="bi bi-facebook me-2"></i>Facebook</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Contact Information Column -->
+                <div class="col-md-3 mb-4 mb-md-0">
+                    <h4 class="text-uppercase mb-3">Contact Information</h4>
+                    <address>
+                        <p>5th Settlement,<br>1250-148 Cairo, Egpt</p>
+                        <p>+20 1234567</p>
+                        <p>info@wheelzy.com</p>
+                    </address>
+                </div>
+
+                <!-- Home Column -->
+                <div class="col-md-3 mb-4 mb-md-0">
+                    <h4 class="text-uppercase mb-3">Home</h4>
+                    <ul class="list-unstyled">
+                        <li><a href="#" class="text-decoration-none">About Us</a></li>
+                        <li><a href="#" class="text-decoration-none">FAQ</a></li>
+                        <li><a href="#" class="text-decoration-none">Contact Us</a></li>
+                        <li><a href="#" class="text-decoration-none">Services</a></li>
+                        <li><a href="#" class="text-decoration-none">Privacy Policy</a></li>
+                        <li><a href="#" class="text-decoration-none">Car Listings</a></li>
+                    </ul>
+                </div>
+
+                <!-- Working Hours Column -->
+                <div class="col-md-3">
+                    <div class="working-hours mt-4">
+                        <h4 class="mb-3 text-uppercase">Working Hours</h4>
+                        <p class="small mb-1">Sunday To Thursday: 8:00 AM - 8:00 PM</p>
+                        <p class="small mb-3">Friday To Saturday: 8:00 AM - 5:00 PM</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Copyright Row -->
+            <div class="row mt-5 pt-3 border-top">
+                <div class="col-12 text-center">
+                    <p class="mb-0">© 2025 Wheelzy. All rights reserved</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="./assets/js/contact.js"></script>
+</body>
+</html>
