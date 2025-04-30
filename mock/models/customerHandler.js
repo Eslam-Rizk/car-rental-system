@@ -7,13 +7,16 @@ const customerHandler = function ({
   return {
     save: (customers) => saveData("customers", customers),
     get: () => getData("customers"),
-
-    addCustomer: function (customer, checkCustomerExist) {
+    addCustomer: function (customer, checkCustomerExist = null) {
       console.log(validator.checkCustomerFields(customer));
       if (!validator.checkCustomerFields(customer)) {
         return;
       }
-      if (!checkCustomerExist(customer.email)) {
+      const AlreadyExists =
+        typeof checkCustomerExist === "function"
+          ? checkCustomerExist(customer.email)
+          : false;
+      if (!AlreadyExists) {
         const customerObj = { ...customer, customerId: customerId() };
         const customers = this.get();
         this.save([...customers, customerObj]);
@@ -81,4 +84,4 @@ const customerHandler = function ({
   };
 };
 
-export default customerHandler; 
+export default customerHandler;
