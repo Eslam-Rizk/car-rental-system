@@ -1,0 +1,120 @@
+/* Show sidebar above content on mobile */
+:root {
+    /* for the sidebar */
+    --sidebar-width: 250px;
+}
+
+.sidebar {
+    width: var(--sidebar-width);
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    background-color: #1C2526;
+    transition: transform 0.3s ease;
+    z-index: 1000;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+}
+
+.sidebar.collapsed {
+    transform: translateX(-100%);
+}
+
+/* toggle button - only visible when sidebar is collapsed */
+.toggle-sidebar {
+    display: none;
+    position: fixed;
+    top: 10px;
+    left: 10px;
+    z-index: 900;
+    /* Below sidebar when open */
+    background-color: var(--main-color);
+    color: white;
+    border: none;
+    font-size: 24px;
+    padding: 25px;
+    cursor: pointer;
+}
+
+
+/* close button  - only visible in sidebar on mobile */
+.close-sidebar {
+    display: none;
+    position: absolute;
+    top: 14px;
+    right: 20px;
+    background: none;
+    border: none;
+    color: white;
+    font-size: 20px;
+    cursor: pointer;
+    z-index: 1001;
+}
+
+
+.sidebar-top {
+    display: flex;
+    flex-direction: column;
+}
+
+.btn-logout-dashboard {
+    align-self: flex-start;
+
+}
+
+
+.dashboard-tabs {
+    display: flex;
+    flex-direction: column;
+}
+
+.dashboard-tabs a {
+    color: #adb5bd;
+    text-decoration: none;
+    font-size: 16px;
+    padding: 8px 16px;
+    border-radius: 4px;
+    transition: background-color 0.2s ease;
+}
+
+.dashboard-tabs a:hover {
+    background-color: #2e3a3b;
+    color: white;
+}
+
+.main-content {
+    margin-left: var(--sidebar-width);
+    transition: margin-left 0.3s ease-in-out;
+}
+
+.main-content.shifted {
+    margin-left: 0;
+}
+
+
+
+@media (max-width: 991.98px) {
+
+    /* Show toggle button only when sidebar is collapsed */
+    .sidebar.collapsed+.toggle-sidebar {
+        display: block;
+    }
+
+    /* Show close button inside sidebar */
+    .sidebar:not(.collapsed) .close-sidebar {
+        display: block;
+    }
+
+    /* Make sidebar appear above content */
+    .sidebar:not(.collapsed) {
+        box-shadow: 5px 0 15px rgba(0, 0, 0, 0.2);
+    }
+
+    .main-content {
+        margin-left: 0 !important;
+    }
+}

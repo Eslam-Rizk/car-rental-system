@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Settings</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="assets/css/sidebar.css">
+
+</head>
+
+<body>
+    <!-- toggle sidebar -->
+    <button
+        class="icon text-white d-lg-none toggle-sidebar d-flex align-items-center justify-content-center flex-shrink-0 rounded-circle">
+        <i class="bi bi-list"></i>
+    </button>
+
+    <!-- sidebar -->
+    <aside class="sidebar">
+        <button class="close-sidebar">✖</button>
+        <div class="sidebar-top mt-3">
+            <h4 class="text-white mb-4 ms-3">
+                <img src="./assets/images/steering wheel logo.png" alt="logo" width="23px" class="me-2">Dashboard
+            </h4>
+            <div class="dashboard-tabs mt-4">
+                <a href="dashboard.html" class="text-white">Analytics</a>
+                <a href="#" class="text-white">Manage</a>
+                <a href="dashboardSettings.html" class="text-white" id="settings-link">Settings</a>
+            </div>
+        </div>
+        <button class="btn btn-nav btn-logout-dashboard mb-4 ms-3">
+            <a class="text-white text-decoration-none p-0" href="login.html" id="logoutBtn">Logout</a>
+        </button>
+    </aside>
+
+
+    <div class="main-content px-4">
+        <div class="container mt-4">
+
+            <!-- SETTINGS HERE -->
+        </div>
+    </div>
+
+
+    <script src="assets/js/sidebar.js"></script>
+    <script src="assets/js/dashboardSettings.js" type="module"></script>
+</body>
+
+</html>

@@ -1,0 +1,113 @@
+* {
+    font-family: var(--main-font);
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+.darkgrey {
+    color: var(--darkgrey);
+}
+
+body {
+    background-color: var(--bgcolor);
+}
+
+.cancelled {
+    background-color: #fc7272;
+}
+
+.pending {
+    background-color: #fcfc95;
+}
+
+.confirmed {
+    background-color: rgb(125, 197, 125);
+}
+
+canvas {
+    /* height: 300px !important; */
+    height: 100% !important;
+    width: 100% !important;
+}
+
+#bookingsChart {
+    height: 100% !important;
+}
+
+/* .chart-container canvas {
+    width: 100% !important;
+    height: 100% !important;
+} */
+
+.card,
+.chart-container {
+    box-shadow: 0 5px 8px rgba(0, 0, 0, 0.2);
+}
+
+.chart-container {
+    /* height: 100%; */
+    overflow: hidden;
+    /* overflow-y: auto;  */
+}
+
+
+/* .card-body {
+    margin-left: 24px;
+} */
+
+.total-analytics-card {
+    border: 0;
+}
+
+.icon {
+    width: 64px;
+    height: 64px;
+}
+
+
+.status-card {
+    padding-block: 8px;
+}
+
+.dashboard-tabs {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    /* Distributes space evenly */
+    height: 100px;
+}
+
+
+
+
+@media (max-width: 1414px) {
+    .status-card {
+        padding-block: 0px;
+    }
+}
+
+
+@media (max-width: 1078px) {
+    .card-content h6 {
+        font-size: 0.75rem;
+        white-space: normal;
+    }
+
+    .icon {
+        width: 40px;
+        height: 40px;
+    }
+
+    .card-body {
+        margin: 0
+    }
+}
+
+@media (min-width:992px) and (max-width: 1500px) {
+    #bookingsChart {
+        height: 350px !important
+    }
+}
+
+@media (max-width: 343px) {}
