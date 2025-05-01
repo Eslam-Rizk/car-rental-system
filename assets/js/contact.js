@@ -1,4 +1,5 @@
-
+import { attachNavAndFooter } from "./utils/navUtils.js";
+attachNavAndFooter();
     const contactForm = document.getElementById('contactForm');
     const successMessage = document.getElementById('successMessage');
 

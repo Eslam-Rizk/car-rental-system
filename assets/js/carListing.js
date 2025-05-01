@@ -1,3 +1,6 @@
+import { attachNavAndFooter } from "./utils/navUtils.js";
+attachNavAndFooter();
+
 const carsData = [
     {
         carId: "car_001",
@@ -1312,6 +1315,7 @@ function validateSearchForm() {
 
 // Event listeners
 document.addEventListener('DOMContentLoaded', () => {
+
     // Initial render (without date filtering)
     filteredCars = [...carsData];
     renderCarListings();

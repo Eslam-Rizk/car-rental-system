@@ -1,16 +1,15 @@
 
-<<<<<<<< HEAD:assets/js/register.js
-import { handleValidation } from './utils/validateInput.js';
-import { getRegistrationDate } from './utils/registrationDate.js';
-import { handlePasswordConfirmation } from './utils/passwordValidation.js';
-import { savedCustomers, customersFilter } from '../../mock/storage/seedStorage.js';
+// <<<<<<<< HEAD:assets/js/register.js
+// import { handleValidation } from './utils/validateInput.js';
+// import { getRegistrationDate } from './utils/registrationDate.js';
+// import { handlePasswordConfirmation } from './utils/passwordValidation.js';
+// import { savedCustomers, customersFilter } from '../../mock/storage/seedStorage.js';
 
-========
+// ========
 import { handleValidation , validateInputNow } from '../validation/validateInput.js';
 import { getRegistrationDate } from './registrationDate.js';
 import { handlePasswordConfirmation ,confirmPasswordNow} from '../validation/passwordValidation.js';
-import { savedCustomers, customersFilter , seedStorage} from '../../storage/seedStorage.js';
->>>>>>>> origin/bassem:auth/register/register.js
+import { savedCustomers, customersFilter , seedStorage} from '../../mock/storage/seedStorage.js';
 
 seedStorage()
 console.log(savedCustomers.get()); 
@@ -83,10 +82,10 @@ signUpForm.addEventListener("submit", function (e) {
   console.log(savedCustomers.get());
   console.log(user);
 
-<<<<<<<< HEAD:assets/js/register.js
+// <<<<<<<< HEAD:assets/js/register.js
 
-  window.location.href = "../login.html"; 
-========
+//   window.location.href = "../login.html"; 
+// ========
   window.location.href = "../login/login.html"; 
->>>>>>>> origin/bassem:auth/register/register.js
+// >>>>>>>> origin/bassem:auth/register/register.js
 });

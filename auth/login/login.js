@@ -3,7 +3,7 @@ import {
   validateInputNow,
 } from "../validation/validateInput.js";
 import { handlePasswordMatching } from "../validation/passwordValidation.js";
-import { savedCustomers, customersFilter } from "../../storage/seedStorage.js";
+import { savedCustomers, customersFilter } from "../../mock/storage/seedStorage.js";
 
 // localStorage.removeItem("cars");
 // localStorage.removeItem("bookings");

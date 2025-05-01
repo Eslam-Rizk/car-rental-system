@@ -1,4 +1,4 @@
-import { checkLogin, logout } from "./utils/navUtils.js";
+import { attachNavAndFooter } from "./utils/navUtils.js";
 import { cars } from "../../mock/data/carsSeed.js";
 import { displayTopRatedCars } from "./utils/carUtils.js";
 import { seedStorage } from "../../mock/storage/seedStorage.js";
@@ -6,8 +6,7 @@ import { seedStorage } from "../../mock/storage/seedStorage.js";
 seedStorage();
 
 //nav bar functionality
-checkLogin();
-logout();
+attachNavAndFooter();
 
 document.querySelectorAll(".car-listings-btn").forEach(button => {
   button.addEventListener("click", () => {

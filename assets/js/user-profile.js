@@ -1,4 +1,4 @@
-import { checkLogin, logout } from "./utils/navUtils.js";
+import { attachNavAndFooter } from "./utils/navUtils.js";
 import { getLoggedInCustomerId, getCustomerIdFromUrl } from "./utils/userUtils.js";
 import { SettingsFormHandler } from "./utils/userSettings/userFormHadnler.js";
 import { generateBookingCards, handleBookingDetailsClick,  } from "./utils/profileBookingHistoryUtils.js";
@@ -14,8 +14,7 @@ function initializeUser() {
   }
 
   //set nav login btn or user profile 
-  checkLogin();
-  logout();
+  attachNavAndFooter();
 
   updateUserProfileDisplay(loggedInCustomerId);
   initializeBookings(loggedInCustomerId);
