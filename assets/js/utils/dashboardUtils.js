@@ -1,5 +1,5 @@
-import { getLoggedInCustomerId, getCustomerIdFromUrl } from '../../utils/userUtils.js';
-import { savedCustomers } from '../../mock/storage/seedStorage.js';
+import { getLoggedInCustomerId, getCustomerIdFromUrl } from '../utils/userUtils.js';
+import { savedCustomers } from '../../../mock/storage/seedStorage.js';
 
 // ================= AUTHENTICATION =================
 export function authDashboard() {
@@ -39,7 +39,7 @@ export function dashboardSettingsAuth() {
     const loggedInCustomerId = getLoggedInCustomerId();
 
     if (customerIdFromUrl !== loggedInCustomerId) {
-        alert("You are not authorized to view this settings page.");
+        // alert("You are not authorized to view this settings page.");
         window.location.href = "dashboard.html";
         throw new Error("Unauthorized settings access");
     }

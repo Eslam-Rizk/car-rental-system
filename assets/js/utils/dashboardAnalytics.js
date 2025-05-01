@@ -1,6 +1,6 @@
-import { savedCars } from "../mock/storage/seedStorage.js";
-import { savedBookings } from "../mock/storage/seedStorage.js";
-import { savedCustomers, seedStorage } from "../mock/storage/seedStorage.js";
+import { savedCars } from "../../../mock/storage/seedStorage.js";
+import { savedBookings } from "../../../mock/storage/seedStorage.js";
+import { savedCustomers, seedStorage } from "../../../mock/storage/seedStorage.js";
 
 // Initialize storage
 seedStorage();

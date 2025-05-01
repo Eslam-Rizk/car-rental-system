@@ -1,4 +1,4 @@
-import { savedCustomers } from "../mock/storage/seedStorage.js";
+import { savedCustomers } from "../../../mock/storage/seedStorage.js";
 
 export function checkLogin() {
     if (localStorage.getItem('loggedInCustomer')) {

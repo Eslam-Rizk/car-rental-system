@@ -7,10 +7,10 @@ import {
     getBookingStatusCounts,
     getTotalAnalytics
 
-} from '../../utils/dashboardAnalytics.js';
-import { authDashboard } from '../../utils/dashboardUtils.js';
-import { getAdminSettings } from '../../utils/dashboardUtils.js';
-import { logout } from "../../utils/navUtils.js";
+} from './utils/dashboardAnalytics.js';
+import { authDashboard } from './utils/dashboardUtils.js';
+import { getAdminSettings } from './utils/dashboardUtils.js';
+import { logout } from "./utils/navUtils.js";
 
 // auth
 authDashboard()
