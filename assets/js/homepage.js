@@ -60,7 +60,9 @@
 import { checkLogin, logout } from "../../utils/navUtils.js";
 import { cars } from "../../mock/data/carsSeed.js";
 import { setElementText, setImage, setElementHref } from "../../utils/carUtils.js"
-
+import { seedStorage } from "../../mock/storage/seedStorage.js";
+// Initialize storage
+seedStorage();
 
 //nav bar functionality
 checkLogin();

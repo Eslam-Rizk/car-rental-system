@@ -1,0 +1,88 @@
+/* ------------MINI CAR LISTINGS------------ */
+.section-content {
+    margin-block: 20px;
+}
+
+.small-headline {
+    color: var(--main-color);
+}
+
+.headline {
+    font-weight: 600;
+    color: #000;
+}
+
+.car-img-wrapper {
+    height: 200px;
+    background-color: #f8f9fa;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    border-radius: 10px;
+}
+
+.car-img-wrapper img {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+}
+
+.car-details-icons,
+.car-details-icons i {
+    font-style: normal;
+    color: var(--darkgrey);
+    font-size: 15px;
+}
+
+.car-headline h3 {
+    font-size: 20px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.car-card {
+    width: 100%;
+    height: 100%;
+    box-shadow: 0 5px 8px rgba(0, 0, 0, 0.2);
+    border-radius: 20px;
+    transition: scale 300ms ease;
+}
+
+.car-faq {
+    transition: scale 300ms ease;
+}
+
+.car-card:hover,
+.car-faq:hover,
+.image-wrapper:hover {
+    scale: 1.05;
+}
+
+.car-type {
+    background-color: var(--lighter-main);
+    padding: 0px 8px;
+    border-radius: 20px;
+    font-size: 13px;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.car-type span {
+    white-space: nowrap;
+    display: inline-block;
+}
+
+.car-card img {
+    border-radius: 20px;
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.car-details {
+    border-bottom: var(--darkgrey) 1px solid;
+}

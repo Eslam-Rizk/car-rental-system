@@ -13,10 +13,12 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7" crossorigin="anonymous" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
 
+  <link rel="icon" href="./favicon.ico" type="image/x-icon" />
   <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="assets/css/home.css" />
+  <link rel="stylesheet" href="assets/css/car-listings-overview.css">
 </head>
 
 <body>
@@ -86,7 +88,7 @@
 
 
   <!----------------------------------------------- header------------------------------------------------------->
-  <header class="min-vh-100 position-relative mb-3">
+  <header class="min-vh-100 position-relative mb-3 header-home">
     <div
       class="header-overlay position-absolute top-0 start-0 end-0 bottom-0 d-flex align-items-center justify-content-center">
       <div class="header-content text-white text-center px-3">
@@ -95,7 +97,7 @@
           Book your car online in minutes and enjoy the freedom to move and
           travel on your own terms!
         </p>
-        <button class="btn btn-nav mt-4 btn-header">Book A Car Now</button>
+        <button class="btn btn-nav mt-4 btn-header car-listings-btn">Book A Car Now</button>
       </div>
     </div>
   </header>
@@ -108,7 +110,7 @@
         <p class="small-headline m-0">CHOOSE YOUR CAR</p>
         <div class="d-flex justify-content-between">
           <h2 class="headline">Our Car Listings</h2>
-          <button class="btn btn-nav">View All</button>
+          <button class="btn btn-nav car-listings-btn">View All</button>
         </div>
       </div>
 
@@ -123,28 +125,28 @@
               <div class="car-details">
                 <div class="car-headline d-flex justify-content-between mb-3">
                   <h3 id="top1-name" class="m-0"></h3>
-                  <div class="car-type">
+                  <div class="car-type text-white">
                     <span id="top1-category"></span>
                   </div>
                 </div>
                 <div class="car-details-icons mb-2">
-                  <i class="bi bi-person-fill me-4">
+                  <i class="bi bi-person-fill me-3">
                     <span id="top1-seats" class="ms-1"></span>
                   </i>
-                  <i class="bi bi-suitcase me-4">
+                  <i class="bi bi-suitcase me-3">
                     <span id="top1-luggage" class="ms-1"></span>
                   </i>
-                  <i class="bi bi-car-front-fill me-4">
+                  <i class="bi bi-car-front-fill me-3">
                     <span id="top1-transmission" class="ms-1"></span>
                   </i>
                 </div>
               </div>
               <div class="car-price mt-3 d-flex align-items-center justify-content-between">
                 <h4 class="fs-5 m-0">
-                  <span id="top1-price"></span> <span class="fs-6 darkgrey">/Per Day</span>
+                  <span class="text-main" id="top1-price"></span> <span class="fs-6 darkgrey">/Per Day</span>
                 </h4>
                 <a id="top1-id" href="#" class="text-black">
-                  <i class="bi bi-arrow-up-right-circle fs-4"></i>
+                  <button class="btn btn-nav">Details</button>
                 </a>
               </div>
             </div>
@@ -159,28 +161,28 @@
               <div class="car-details">
                 <div class="car-headline d-flex justify-content-between mb-3">
                   <h3 id="top2-name" class="m-0"></h3>
-                  <div class="car-type">
+                  <div class="car-type text-white">
                     <span id="top2-category"></span>
                   </div>
                 </div>
                 <div class="car-details-icons mb-2">
-                  <i class="bi bi-person-fill me-4">
+                  <i class="bi bi-person-fill me-3">
                     <span id="top2-seats" class="ms-1"></span>
                   </i>
-                  <i class="bi bi-suitcase me-4">
+                  <i class="bi bi-suitcase me-3">
                     <span id="top2-luggage" class="ms-1"></span>
                   </i>
-                  <i class="bi bi-car-front-fill me-4">
+                  <i class="bi bi-car-front-fill me-3">
                     <span id="top2-transmission" class="ms-1"></span>
                   </i>
                 </div>
               </div>
               <div class="car-price mt-3 d-flex align-items-center justify-content-between">
                 <h4 class="fs-5 m-0">
-                  <span id="top2-price"></span> <span class="fs-6 darkgrey">/Per Day</span>
+                  <span class="text-main" id="top2-price"></span> <span class="fs-6 darkgrey">/Per Day</span>
                 </h4>
                 <a id="top2-id" href="#" class="text-black">
-                  <i class="bi bi-arrow-up-right-circle fs-4"></i>
+                  <button class="btn btn-nav">Details</button>
                 </a>
               </div>
             </div>
@@ -195,28 +197,28 @@
               <div class="car-details">
                 <div class="car-headline d-flex justify-content-between mb-3">
                   <h3 id="top3-name" class="m-0"></h3>
-                  <div class="car-type">
+                  <div class="car-type text-white">
                     <span id="top3-category"></span>
                   </div>
                 </div>
                 <div class="car-details-icons mb-2">
-                  <i class="bi bi-person-fill me-4">
+                  <i class="bi bi-person-fill me-3">
                     <span id="top3-seats" class="ms-1"></span>
                   </i>
-                  <i class="bi bi-suitcase me-4">
+                  <i class="bi bi-suitcase me-3">
                     <span id="top3-luggage" class="ms-1"></span>
                   </i>
-                  <i class="bi bi-car-front-fill me-4">
+                  <i class="bi bi-car-front-fill me-3">
                     <span id="top3-transmission" class="ms-1"></span>
                   </i>
                 </div>
               </div>
               <div class="car-price mt-3 d-flex align-items-center justify-content-between">
                 <h4 class="fs-5 m-0">
-                  <span id="top3-price"></span> <span class="fs-6 darkgrey">/Per Day</span>
+                  <span class="text-main" id="top3-price"></span> <span class="fs-6 darkgrey">/Per Day</span>
                 </h4>
                 <a id="top3-id" href="#" class="text-black">
-                  <i class="bi bi-arrow-up-right-circle fs-4"></i>
+                  <button class="btn btn-nav">Details</button>
                 </a>
               </div>
             </div>
@@ -572,9 +574,6 @@
     integrity="sha384-k6d4wzSIapyDyv1kpU366/PK5hCdSbCRGRCMv+eplOQJWyd1fbcAu9OCUj5zNLiq"
     crossorigin="anonymous"></script>
 
-
-  <!-- local storage db functionality -->
-  <script src="./mock/index.js" type="module" defer></script>
   <script src="assets/js/homepage.js" type="module"></script>
 </body>
 

@@ -11,9 +11,15 @@ document.addEventListener("DOMContentLoaded", function () {
 
         if (foundCustomer) {
             localStorage.setItem("loggedInCustomer", JSON.stringify(foundCustomer));
-
-            window.location.href = "index.html";
             document.getElementById("errorMessage").textContent = "";
+
+            if (foundCustomer.role === "admin") {
+                window.location.href = "dashboard.html";
+            } else if (foundCustomer.role === "user") {
+                window.location.href = "index.html";
+            } else {
+                document.getElementById("errorMessage").textContent = "Unknown role.";
+            }
         } else {
             document.getElementById("errorMessage").textContent = "Invalid email or password.";
         }

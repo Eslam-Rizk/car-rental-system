@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>sidebar</title>
+</head>
+
+<body>
+
+    <!-- toggle sidebar -->
+    <button
+        class="icon text-white d-lg-none toggle-sidebar d-flex align-items-center justify-content-center flex-shrink-0 rounded-circle">
+        <i class="bi bi-list"></i>
+    </button>
+
+    <!-- sidebar (left) -->
+    <aside class="sidebar">
+        <button class="close-sidebar">✖</button>
+        <div class="sidebar-top mt-3">
+            <h4 class="text-white mb-4 ms-3">
+                <img src="./assets/images/steering wheel logo.png" alt="logo" width="23px" class="me-2">Dashboard
+            </h4>
+            <div class="dashboard-tabs mt-4">
+                <a href="dashboard.html" class="text-white">Analytics</a>
+                <a href="#" class="text-white">Manage</a>
+                <a href="#" class="text-white" id="settings-link">Settings</a>
+            </div>
+        </div>
+        <button class="btn btn-nav btn-logout-dashboard mb-4 ms-3">
+            <a class="text-white text-decoration-none p-0" href="login.html" id="logoutBtn">Logout</a>
+        </button>
+    </aside>
+
+
+    <!-- the rest of the page (on the right) -->
+    <div class="main-content px-4">
+        <div class="container mt-4">
+        </div>
+    </div>
+</body>
+
+</html>
