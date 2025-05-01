@@ -46,7 +46,7 @@ signInForm.addEventListener("submit", function (e) {
     }
 
     const loggedInCustomer = {
-        customerId: customer.id,
+        customerId: customer.customerId,
     };
     localStorage.setItem("loggedInCustomer", JSON.stringify(loggedInCustomer)); //save id only for security
     console.log("loggedddd: ", loggedInCustomer);

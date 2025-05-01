@@ -1,3 +1,5 @@
+import { attachNavAndFooter } from "./utils/navUtils.js";
+attachNavAndFooter();
 // Car data for pricing                        //use carSeed
 const cars = {
     compact: {
