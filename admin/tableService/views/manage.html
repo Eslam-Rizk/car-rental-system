@@ -96,7 +96,9 @@
       </aside>
 
       <!-- Main Content -->
+       <!-- alert in the main -->
       <main id="mainCont" class="col-12 col-md-8 col-lg-9 ">
+        <div id="alertPlaceHolder" class="position-fixed top-0 start-50 translate-middle-x mt-3" style="z-index: 999;width: 1005;max-width: 500px;;"></div>
         <!-- Tabs -->
         <div class="w-100 bg-white border-bottom">
           <ul class="nav nav-pills mb-3 shadow-sm container py-2" id="pills-tab" role="tablist">
@@ -239,6 +241,8 @@ tabindex="-1"
 aria-labelledby="customerEditModalLabel"
 aria-hidden="true"
 >
+<div id="alertCustomer" class="position-fixed top-0 start-50 translate-middle-x mt-3" style="z-index: 999;width: 1005;max-width: 500px;;"></div>
+
 <div class="modal-dialog modal-lg">
   <div class="modal-content">
     <div class="modal-header">
@@ -376,6 +380,8 @@ aria-hidden="true"
     aria-labelledby="carEditModalLabel"
     aria-hidden="true"
   >
+  <div id="alertCar" class="position-fixed top-0 start-50 translate-middle-x mt-3" style="z-index: 999;width: 1005;max-width: 500px;;"></div>
+
     <div class="modal-dialog modal-lg">
       <div class="modal-content">
         <div class="modal-header">
@@ -425,10 +431,6 @@ aria-hidden="true"
                   class="form-text text-danger d-none"
                 ></div>
               </div>
-            </div>
-
-            <!-- Second Row -->
-            <div class="row mb-3">
               <!-- Year -->
               <div class="col-md-4">
                 <label for="year" class="col-form-label">Year:</label>
@@ -443,6 +445,10 @@ aria-hidden="true"
                   class="form-text text-danger d-none"
                 ></div>
               </div>
+            </div>
+
+            <!-- Second Row -->
+            <div class="row mb-3">
 
               <!-- Daily Rate -->
               <div class="col-md-4">
@@ -478,10 +484,6 @@ aria-hidden="true"
                   class="form-text text-danger d-none"
                 ></div>
               </div>
-            </div>
-
-            <!-- Third Row -->
-            <div class="row mb-3">
               <!-- Color -->
               <div class="col-md-4">
                 <label for="color" class="col-form-label">Color:</label>
@@ -491,6 +493,10 @@ aria-hidden="true"
                   class="form-text text-danger d-none"
                 ></div>
               </div>
+            </div>
+
+            <!-- Third Row -->
+            <div class="row mb-3">
 
               <!-- Fuel Type -->
               <div class="col-md-4 col-12">
@@ -522,10 +528,6 @@ aria-hidden="true"
                   class="form-text text-danger d-none"
                 ></div>
               </div>
-            </div>
-
-            <!-- Fourth Row -->
-            <div class="row mb-3">
               <!-- Rating -->
               <div class="col-md-4">
                 <label for="rating" class="col-form-label"
@@ -544,6 +546,10 @@ aria-hidden="true"
                   class="form-text text-danger d-none"
                 ></div>
               </div>
+            </div>
+
+            <!-- Fourth Row -->
+            <div class="row mb-3">
 
               <!-- Fuel Capacity -->
               <div class="col-md-4">
@@ -579,14 +585,10 @@ aria-hidden="true"
                   class="form-text text-danger d-none"
                 ></div>
               </div>
-            </div>
-
-            <!-- Fifth Row -->
-            <div class="row mb-3">
               <!-- Luggage Capacity -->
               <div class="col-md-4">
                 <label for="luggageCapacity" class="col-form-label"
-                  >Luggage Capacity (kg):</label
+                  >Luggage (kg):</label
                 >
                 <input
                   type="number"
@@ -600,6 +602,10 @@ aria-hidden="true"
                   class="form-text text-danger d-none"
                 ></div>
               </div>
+            </div>
+
+            <!-- Fifth Row -->
+            <div class="row mb-3">
 
               <!-- Image URLs -->
               <div class="col-md-8">
@@ -648,6 +654,8 @@ tabindex="-1"
 aria-labelledby="bookingEditModalLabel"
 aria-hidden="true"
 >
+<div id="alertBooking" class="position-fixed top-0 start-50 translate-middle-x mt-3" style="z-index: 999;width: 1005;max-width: 500px;;"></div>
+
 <div class="modal-dialog modal-sm">
   <div class="modal-content">
     <div class="modal-header">

@@ -54,26 +54,7 @@ export function validateNow(formElements) {
   return allValid;
 }
 
-
-export function validateOnSubmit(formElements, formEl) {
-
-  console.log(formEl);
-  return new Promise((resolve) => {
-    formEl.addEventListener("submit", (e) => {
-      e.preventDefault(); 
-
-      // Call validateNow to check if the form is valid
-      const valid = validateNow(formElements);
-
-      if (valid) {
-        console.log("Form is valid. Submitting...");
-        resolve(true); 
-      } else {
-        console.log("Form is invalid.");
-        resolve(false); 
-      }
-    });
-  });
+export function validateOnSubmit(formElements) {
+  return validateNow(formElements); 
 }
 
-// function attach(formElements) {
