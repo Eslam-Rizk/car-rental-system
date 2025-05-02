@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Settings</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="assets/css/sidebar.css">
+    <link rel="stylesheet" href="assets/css/user-profile.css" />
+    <link rel="stylesheet" href="assets/css/tabs.css">
+    <link rel="stylesheet" href="assets/css/dashboard.css">
+    <link rel="stylesheet" href="admin/tableService/views/style.css">
+
+
+</head>
+
+<body>
+    <!-- toggle sidebar -->
+    <button
+        class="icon text-white d-lg-none toggle-sidebar d-flex align-items-center justify-content-center flex-shrink-0 rounded-circle">
+        <i class="bi bi-list"></i>
+    </button>
+
+    <!-- sidebar -->
+    <aside class="sidebar">
+        <button class="close-sidebar">✖</button>
+        <div class="sidebar-top mt-3">
+            <h4 class="text-white mb-4 ms-3">
+                <img src="./assets/images/steering wheel logo.png" alt="logo" width="23px" class="me-2">Dashboard
+            </h4>
+            <div class="dashboard-tabs mt-4">
+                <a href="dashboard.html" class="text-white">Analytics</a>
+                <a href="#" class="text-white">Manage</a>
+                <a href="dashboardSettings.html" class="text-white" id="settings-link">Settings</a>
+            </div>
+        </div>
+        <button class="btn btn-nav btn-logout-dashboard mb-4 ms-3">
+            <a class="text-white text-decoration-none p-0" href="login.html" id="logoutBtn">Logout</a>
+        </button>
+    </aside>
+
+
+    <div class="main-content px-4">
+        <div class="container mt-4">
+
+            <!-- manage HERE -->
+            <main id="mainCont" class="col-12 col-md-8 col-lg-9 ">
+                <!-- Tabs -->
+                <div class="w-100 bg-white border-bottom">
+                    <ul class="nav nav-pills mb-3 shadow-sm container py-2" id="pills-tab" role="tablist">
+                        <li class="nav-item col-12 col-md-4 text-center" role="presentation">
+                            <button class="nav-link active w-100" id="pills-home-tab" data-bs-toggle="pill"
+                                data-bs-target="#pills-home" type="button" role="tab">Customers</button>
+                        </li>
+                        <li class="nav-item col-12 col-md-4 text-center" role="presentation">
+                            <button class="nav-link w-100" id="pills-profile-tab" data-bs-toggle="pill"
+                                data-bs-target="#pills-profile" type="button" role="tab">Cars</button>
+                        </li>
+                        <li class="nav-item col-12 col-md-4 text-center" role="presentation">
+                            <button class="nav-link w-100" id="pills-contact-tab" data-bs-toggle="pill"
+                                data-bs-target="#pills-contact" type="button" role="tab">Bookings</button>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Tab Contents -->
+                <div class="tab-content" id="pills-tabContent" style="min-height: 80vh; position: relative;">
+                    <!-- Customers -->
+                    <div class="tab-pane fade show active" id="pills-home" role="tabpanel">
+                        <div class="table-responsive px-3 pt-3">
+                            <table class="table caption-top table-bordered">
+                                <caption>Customers Table</caption>
+                                <thead class="table-light">
+                                    <tr>
+                                        <th>#</th>
+                                        <th>Name</th>
+                                        <th>Email</th>
+                                        <th>Phone</th>
+                                        <th>Options</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="customersTableBody">
+                                    <tr id="customerTableRow" style="display: none">
+                                        <th scope="row">1</th>
+                                        <td>Mark</td>
+                                        <td>Otto</td>
+                                        <td>@mdo</td>
+                                        <td>
+                                            <i class="fa-solid fa-pen-to-square edit-icon me-2 text-success"
+                                                data-bs-toggle="modal" data-bs-target="#customerEditModal"></i>
+                                            <i class="fa-solid fa-trash delete-icon text-danger"></i>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <div
+                            class="position-absolute bottom-0 start-0 w-100 d-flex justify-content-between align-items-center px-3 pb-3">
+                            <button type="button" id="addCustomerButton" class="btn btn-primary" data-bs-toggle="modal"
+                                data-bs-target="#customerEditModal">
+                                <i class="fa fa-plus me-2"></i>Add A Customer
+                            </button>
+                            <div id="pagination-controls-customers" class="d-flex gap-2"></div>
+                        </div>
+                    </div>
+
+                    <!-- Cars -->
+                    <div class="tab-pane fade" id="pills-profile" role="tabpanel">
+                        <div class="table-responsive px-3 pt-3">
+                            <table class="table caption-top table-bordered">
+                                <caption>Cars Table</caption>
+                                <thead class="table-light">
+                                    <tr>
+                                        <th>#</th>
+                                        <th>Car Id</th>
+                                        <th>Company</th>
+                                        <th>Model</th>
+                                        <th>Options</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="carsTableBody">
+                                    <tr id="carTableRow" style="display: none">
+                                        <th scope="row">1</th>
+                                        <td>123</td>
+                                        <td>Toyota</td>
+                                        <td>Corolla</td>
+                                        <td>
+                                            <i class="fa-solid fa-pen-to-square edit-icon me-2 text-success"
+                                                data-bs-toggle="modal" data-bs-target="#carEditModal"></i>
+                                            <i class="fa-solid fa-trash delete-icon text-danger"></i>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <div
+                            class="position-absolute bottom-0 start-0 w-100 d-flex justify-content-between align-items-center px-3 pb-3">
+                            <button type="button" id="addCarButton" class="btn btn-primary" data-bs-toggle="modal"
+                                data-bs-target="#carEditModal">
+                                <i class="fa fa-plus me-2"></i>Add A Car
+                            </button>
+                            <div id="pagination-controls-cars" class="d-flex gap-2"></div>
+                        </div>
+                    </div>
+
+                    <!-- Bookings -->
+                    <div class="tab-pane fade" id="pills-contact" role="tabpanel">
+                        <div class="table-responsive px-3 pt-3">
+                            <table class="table caption-top table-bordered">
+                                <caption>Bookings Table</caption>
+                                <thead class="table-light">
+                                    <tr>
+                                        <th>#</th>
+                                        <th>Booking Id</th>
+                                        <th>Customer Name</th>
+                                        <th>Phone</th>
+                                        <th>Options</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="bookingsTableBody">
+                                    <tr id="bookingTableRow" style="display: none">
+                                        <th scope="row">1</th>
+                                        <td>B001</td>
+                                        <td>Ali</td>
+                                        <td>0123456789</td>
+                                        <td>
+                                            <i class="fa-solid fa-pen-to-square edit-icon me-2 text-success"
+                                                data-bs-toggle="modal" data-bs-target="#bookingEditModal"></i>
+                                            <i class="fa-solid fa-trash delete-icon text-danger"></i>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <div class="position-absolute bottom-0 start-0 w-100 d-flex justify-content-center mb-3">
+                            <div id="pagination-controls-bookings" class="d-flex gap-2"></div>
+                        </div>
+                    </div>
+                </div>
+            </main>
+
+        </div>
+    </div>
+
+    <!-- Modals -->
+    <!---=-=-==-=-=-=-====-=-=-=-=-=-=-=-=-= customer edit modal -- start -->
+    <div class="modal fade" id="customerEditModal" tabindex="-1" aria-labelledby="customerEditModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="customerEditModalLabel">
+                        Edit Customer
+                    </h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <!-- ------------------------------------------------------------modal body -->
+
+                <div class="modal-body">
+                    <form id="customersEditForm">
+                        <!-- First Row (Customer ID - readonly, Name, Email) -->
+                        <div class="row mb-3">
+                            <!-- Customer ID -->
+                            <div class="col-md-4" id="customerIdDiv">
+                                <label for="customerId" class="col-form-label">Customer ID:</label>
+                                <input type="text" class="form-control" id="customerId" readonly />
+                            </div>
+
+                            <!-- Name -->
+                            <div class="col-md-4">
+                                <label for="name" class="col-form-label">Name:</label>
+                                <input type="text" class="form-control" id="name" />
+                                <div id="name-feedback" class="form-text text-danger d-none"></div>
+                            </div>
+
+                            <!-- Email -->
+                            <div class="col-md-4">
+                                <label for="email" class="col-form-label">Email:</label>
+                                <input type="email" class="form-control" id="email" />
+                                <div id="email-feedback" class="form-text text-danger d-none"></div>
+                            </div>
+                        </div>
+
+                        <!-- Second Row (Phone, Address, Role) -->
+                        <div class="row mb-3">
+                            <!-- Phone -->
+                            <div class="col-md-4">
+                                <label for="phone" class="col-form-label">Phone:</label>
+                                <input type="text" class="form-control" id="phone" />
+                                <div id="phone-feedback" class="form-text text-danger d-none"></div>
+                            </div>
+
+                            <!-- Address -->
+                            <div class="col-md-4">
+                                <label for="address" class="col-form-label">Address:</label>
+                                <input type="text" class="form-control" id="address" />
+                                <div id="address-feedback" class="form-text text-danger d-none"></div>
+                            </div>
+
+                            <!-- Role -->
+                            <div class="col-md-4">
+                                <label for="role" class="col-form-label">Role:</label>
+                                <select class="form-control" id="role">
+                                    <option value="">Select role</option>
+                                    <option value="admin">Admin</option>
+                                    <option value="customer">Customer</option>
+                                </select>
+                                <div id="role-feedback" class="form-text text-danger d-none"></div>
+                            </div>
+                        </div>
+
+                        <!-- Registration Date (Readonly) -->
+                        <div class="row mb-3" id="customerRegistrationDiv">
+                            <div class="col-md-4">
+                                <label for="registrationDate" class="col-form-label">Registration Date:</label>
+                                <input type="date" class="form-control" id="registrationDate" readonly />
+                            </div>
+                        </div>
+                    </form>
+                </div>
+
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+                        Cancel
+                    </button>
+                    <!-- <button type="button" class="btn btn-primary">
+      Edit Customer
+    </button> -->
+                    <button id="confirmBtn" type="button" class="btn btn-primary"
+                        onclick="document.getElementById('customersEditForm').requestSubmit();">
+                        Edit User
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!---=-=-==-=-=-=-====-=-=-=-=-=-=-=-=-= customer edit modal  -- end  -->
+
+    <!-- modal car -->
+    <div class="modal fade" id="carEditModal" tabindex="-1" aria-labelledby="carEditModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="carEditModalLabel">Edit car</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <!-- modal body -->
+
+                <div class="modal-body">
+                    <form id="carsEditForm">
+                        <!-- First Row (Car ID, Make, Model) -->
+                        <div class="row mb-3">
+                            <!-- Car ID -->
+                            <!-- <div class="col-md-4">
+              <label for="carId" class="col-form-label"
+                >Car ID:</label
+              >
+              <input
+                type="text"
+                class="form-control"
+                id="carId"
+                readonly
+              />
+            </div> -->
+
+                            <!-- Make -->
+                            <div class="col-md-4">
+                                <label for="make" class="col-form-label">Make:</label>
+                                <input type="text" class="form-control" id="make" />
+                                <div id="make-feedback" class="form-text text-danger d-none"></div>
+                            </div>
+
+                            <!-- Model -->
+                            <div class="col-md-4">
+                                <label for="model" class="col-form-label">Model:</label>
+                                <input type="text" class="form-control" id="model" />
+                                <div id="model-feedback" class="form-text text-danger d-none"></div>
+                            </div>
+                        </div>
+
+                        <!-- Second Row -->
+                        <div class="row mb-3">
+                            <!-- Year -->
+                            <div class="col-md-4">
+                                <label for="year" class="col-form-label">Year:</label>
+                                <input type="number" class="form-control" id="year" min="1886" />
+                                <div id="year-feedback" class="form-text text-danger d-none"></div>
+                            </div>
+
+                            <!-- Daily Rate -->
+                            <div class="col-md-4">
+                                <label for="dailyRate" class="col-form-label">Daily Rate ($):</label>
+                                <input type="number" class="form-control" id="dailyRate" step="0.01" min="0" />
+                                <div id="dailyRate-feedback" class="form-text text-danger d-none"></div>
+                            </div>
+
+                            <!-- Category -->
+                            <div class="col-md-4">
+                                <label for="category" class="col-form-label">Category:</label>
+                                <select class="form-control" id="category">
+                                    <option value="Sedan">Sedan</option>
+                                    <option value="SUV">SUV</option>
+                                    <option value="Truck">Truck</option>
+                                    <option value="Hatchback">Hatchback</option>
+                                </select>
+                                <div id="category-feedback" class="form-text text-danger d-none"></div>
+                            </div>
+                        </div>
+
+                        <!-- Third Row -->
+                        <div class="row mb-3">
+                            <!-- Color -->
+                            <div class="col-md-4">
+                                <label for="color" class="col-form-label">Color:</label>
+                                <input type="text" class="form-control" id="color" />
+                                <div id="color-feedback" class="form-text text-danger d-none"></div>
+                            </div>
+
+                            <!-- Fuel Type -->
+                            <div class="col-md-4 col-12">
+                                <label for="fuelType" class="col-form-label">Fuel Type:</label>
+                                <select class="form-control" id="fuelType">
+                                    <option value="Gasoline">Gasoline</option>
+                                    <option value="Diesel">Diesel</option>
+                                    <option value="Electric">Electric</option>
+                                </select>
+                                <div id="fuelType-feedback" class="form-text text-danger d-none"></div>
+                            </div>
+
+                            <!-- Transmission -->
+                            <div class="col-md-4">
+                                <label for="transmission" class="col-form-label">Transmission:</label>
+                                <select class="form-control" id="transmission">
+                                    <option value="Manual">Manual</option>
+                                    <option value="Automatic">Automatic</option>
+                                </select>
+                                <div id="transmission-feedback" class="form-text text-danger d-none"></div>
+                            </div>
+                        </div>
+
+                        <!-- Fourth Row -->
+                        <div class="row mb-3">
+                            <!-- Rating -->
+                            <div class="col-md-4">
+                                <label for="rating" class="col-form-label">Rating (0-5):</label>
+                                <input type="number" class="form-control" id="rating" min="0" max="5" step="0.1" />
+                                <div id="rating-feedback" class="form-text text-danger d-none"></div>
+                            </div>
+
+                            <!-- Fuel Capacity -->
+                            <div class="col-md-4">
+                                <label for="fuelCapacity" class="col-form-label">Fuel Capacity (L):</label>
+                                <input type="number" class="form-control" id="fuelCapacity" step="0.1" min="0" />
+                                <div id="fuelCapacity-feedback" class="form-text text-danger d-none"></div>
+                            </div>
+
+                            <!-- Passenger Capacity -->
+                            <div class="col-md-4">
+                                <label for="passengerCapacity" class="col-form-label">Passenger Capacity:</label>
+                                <input type="number" class="form-control" id="passengerCapacity" min="1" />
+                                <div id="passengerCapacity-feedback" class="form-text text-danger d-none"></div>
+                            </div>
+                        </div>
+
+                        <!-- Fifth Row -->
+                        <div class="row mb-3">
+                            <!-- Luggage Capacity -->
+                            <div class="col-md-4">
+                                <label for="luggageCapacity" class="col-form-label">Luggage Capacity (kg):</label>
+                                <input type="number" class="form-control" id="luggageCapacity" step="0.1" min="0" />
+                                <div id="luggageCapacity-feedback" class="form-text text-danger d-none"></div>
+                            </div>
+
+                            <!-- Image URLs -->
+                            <div class="col-md-8">
+                                <label for="imageUrls" class="col-form-label">
+                                    Image URLs:</label>
+                                <textarea class="form-control pt-3 pl-3" id="imageUrls" rows="3"></textarea>
+                                <small>Enter each URL on a new line.</small>
+                                <div id="imageUrls-feedback" class="form-text text-danger d-none"></div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+                        Close
+                    </button>
+                    <button id="confirmCarBtn" type="button" class="btn btn-primary"
+                        onclick="document.getElementById('carsEditForm').requestSubmit();">
+                        Edit Car
+                    </button>
+                    <!-- <button type="button" class="btn btn-primary">
+          Edit Car
+        </button> -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!---=-=-==-=-=-=-====-=-=-=-=-=-=-=-=-= booking edit modal -- start -->
+    <div class="modal fade" id="bookingEditModal" tabindex="-1" aria-labelledby="bookingEditModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog modal-sm">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="bookingEditModalLabel">
+                        Edit booking
+                    </h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <!-- ------------------------------------------------------------modal body -->
+
+                <div class="modal-body col-md-11">
+
+                    <!-- <form id="bookingsEditForm"> -->
+                    <!-- First Row (booking ID - readonly, Name, Email) -->
+                    <!-- <div class="row mb-3"> -->
+                    <!-- Booking  Payment Status -->
+                    <!-- <div class="col-md-4">
+        <label for="paymentStatus" class="col-form-label">Payment Status:</label>
+        <select class="form-control" id="paymentStatus">
+          <option value="">Select status</option>
+          <option value="Paid">Paid</option>
+          <option value="Pending">Pending</option>
+          <option value="Unpaid">Unpaid</option>
+        </select>
+       
+        <div id="paymentStatus-feedback" class="form-text text-danger d-none"></div>
+     
+      </div>
+      </div> -->
+
+                    <!-- </form> -->
+                    <form id="bookingsEditForm">
+                        <!-- First Row (booking ID - readonly, Name, Email) -->
+                        <div class="row mb-3 ">
+                            <!-- Booking Payment Status -->
+                            <div class="col">
+                                <label for="paymentStatus" class="col-form-label">Payment Status:</label>
+                                <select class="form-control" id="paymentStatus">
+                                    <option value="">Select status</option>
+                                    <option value="Paid">Paid</option>
+                                    <option value="Pending">Pending</option>
+                                    <option value="Unpaid">Unpaid</option>
+                                </select>
+                                <div id="paymentStatus-feedback" class="form-text text-danger d-none"></div>
+                            </div>
+                        </div>
+
+                        <!-- ✅ Submit Button -->
+                        <!-- <button type="submit" class="btn btn-primary">Submit</button> -->
+                    </form>
+
+                </div>
+
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+                        Cancel
+                    </button>
+                    <!-- <button type="submit" class="btn btn-primary">
+      Edit Booking
+    </button> -->
+                    <button type="button" class="btn btn-primary"
+                        onclick="document.getElementById('bookingsEditForm').requestSubmit();">
+                        Edit Booking
+                    </button>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <!---=-=-==-=-=-=-====-=-=-=-=-=-=-=-=-= Booking edit modal  -- end  -->
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="./assets/js/sidebar.js"></script>
+    <script src="assets/js/dashboardManage.js" type="module"></script>
+    <script src="./admin/tableService/views/manage.js" type="module"></script>
+</body>
+
+</html>

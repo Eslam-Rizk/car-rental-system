@@ -7,7 +7,7 @@ export const cars = [
     dailyRate: 30,
     category: "Sedan",
     color: "Red",
-    imageUrl: [
+    imageUrls: [
       "assets/images/car_001_1.webp",
       "assets/images/car_001_2.webp",
       "assets/images/car_001_3.webp",
@@ -30,7 +30,7 @@ export const cars = [
     dailyRate: 35,
     category: "Sedan",
     color: "Blue",
-    imageUrl: [
+    imageUrls: [
       "assets/images/car_002_1.webp",
       "assets/images/car_002_2.webp",
       "assets/images/car_002_3.webp",
@@ -52,7 +52,7 @@ export const cars = [
     dailyRate: 50,
     category: "SUV",
     color: "Black",
-    imageUrl: [
+    imageUrls: [
       "assets/images/car_003_1.webp",
       "assets/images/car_003_2.webp",
       "assets/images/car_003_3.webp",
@@ -74,7 +74,7 @@ export const cars = [
     dailyRate: 28,
     category: "Sedan",
     color: "White",
-    imageUrl: [
+    imageUrls: [
       "assets/images/car_004_1.webp",
       "assets/images/car_004_2.webp",
       "assets/images/car_004_3.webp",
@@ -96,7 +96,7 @@ export const cars = [
     dailyRate: 32,
     category: "Sedan",
     color: "Gray",
-    imageUrl: [
+    imageUrls: [
       "assets/images/car_005_1.webp",
       "assets/images/car_005_2.webp",
       "assets/images/car_005_3.webp",
@@ -118,7 +118,7 @@ export const cars = [
     dailyRate: 34,
     category: "Sedan",
     color: "Silver",
-    imageUrl: [
+    imageUrls: [
       "assets/images/car_006_1.webp",
       "assets/images/car_006_2.webp",
       "assets/images/car_006_3.webp",
@@ -140,7 +140,7 @@ export const cars = [
     dailyRate: 70,
     category: "Electric",
     color: "White",
-    imageUrl: [
+    imageUrls: [
       "assets/images/car_007_1.webp",
       "assets/images/car_007_2.webp",
       "assets/images/car_007_3.webp",
@@ -162,7 +162,7 @@ export const cars = [
     dailyRate: 29,
     category: "Sedan",
     color: "Red",
-    imageUrl: [
+    imageUrls: [
       "assets/images/car_008_1.webp",
       "assets/images/car_008_2.webp",
       "assets/images/car_008_3.webp",
@@ -184,7 +184,7 @@ export const cars = [
     dailyRate: 45,
     category: "SUV",
     color: "Black",
-    imageUrl: [
+    imageUrls: [
       "assets/images/car_009_1.webp",
       "assets/images/car_009_2.webp",
       "assets/images/car_009_3.webp",
@@ -206,7 +206,7 @@ export const cars = [
     dailyRate: 55,
     category: "Sedan",
     color: "Blue",
-    imageUrl: [
+    imageUrls: [
       "assets/images/car_010_1.webp",
       "assets/images/car_010_2.webp",
       "assets/images/car_010_3.webp",
@@ -228,7 +228,7 @@ export const cars = [
     dailyRate: 60,
     category: "Sedan",
     color: "Silver",
-    imageUrl: [
+    imageUrls: [
       "assets/images/car_011_1.webp",
       "assets/images/car_011_2.webp",
       "assets/images/car_011_3.webp",
@@ -250,7 +250,7 @@ export const cars = [
     dailyRate: 33,
     category: "Sedan",
     color: "Gray",
-    imageUrl: [
+    imageUrls: [
       "assets/images/car_012_1.webp",
       "assets/images/car_012_2.webp",
       "assets/images/car_012_3.webp",
@@ -272,7 +272,7 @@ export const cars = [
     dailyRate: 40,
     category: "SUV",
     color: "Green",
-    imageUrl: [
+    imageUrls: [
       "assets/images/car_013_1.webp",
       "assets/images/car_013_2.webp",
       "assets/images/car_013_3.webp",
@@ -294,7 +294,7 @@ export const cars = [
     dailyRate: 42,
     category: "SUV",
     color: "Red",
-    imageUrl: [
+    imageUrls: [
       "assets/images/car_014_1.webp",
       "assets/images/car_014_2.webp",
       "assets/images/car_014_3.webp",
@@ -316,7 +316,7 @@ export const cars = [
     dailyRate: 65,
     category: "SUV",
     color: "Yellow",
-    imageUrl: [
+    imageUrls: [
       "assets/images/car_015_1.webp",
       "assets/images/car_015_2.webp",
       "assets/images/car_015_3.webp",
@@ -338,7 +338,7 @@ export const cars = [
     dailyRate: 58,
     category: "SUV",
     color: "Blue",
-    imageUrl: [
+    imageUrls: [
       "assets/images/car_016_1.webp",
       "assets/images/car_016_2.webp",
       "assets/images/car_016_3.webp",
@@ -360,7 +360,7 @@ export const cars = [
     dailyRate: 95,
     category: "SUV",
     color: "Black",
-    imageUrl: [
+    imageUrls: [
       "assets/images/car_017_1.webp",
       "assets/images/car_017_2.webp",
       "assets/images/car_017_3.webp",
@@ -382,7 +382,7 @@ export const cars = [
     dailyRate: 75,
     category: "SUV",
     color: "White",
-    imageUrl: [
+    imageUrls: [
       "assets/images/car_018_1.webp",
       "assets/images/car_018_2.webp",
       "assets/images/car_018_3.webp",
@@ -404,7 +404,7 @@ export const cars = [
     dailyRate: 55,
     category: "SUV",
     color: "Gray",
-    imageUrl: [
+    imageUrls: [
       "assets/images/car_019_1.webp",
       "assets/images/car_019_2.webp",
       "assets/images/car_019_3.webp",
@@ -426,7 +426,7 @@ export const cars = [
     dailyRate: 57,
     category: "SUV",
     color: "Silver",
-    imageUrl: [
+    imageUrls: [
       "assets/images/car_020_1.webp",
       "assets/images/car_020_2.webp",
       "assets/images/car_020_3.webp",
@@ -448,7 +448,7 @@ export const cars = [
     dailyRate: 38,
     category: "SUV",
     color: "Red",
-    imageUrl: [
+    imageUrls: [
       "assets/images/car_021_1.webp",
       "assets/images/car_021_2.webp",
       "assets/images/car_021_3.webp",
@@ -470,7 +470,7 @@ export const cars = [
     dailyRate: 39,
     category: "SUV",
     color: "Green",
-    imageUrl: [
+    imageUrls: [
       "assets/images/car_022_1.webp",
       "assets/images/car_022_2.webp",
       "assets/images/car_022_3.webp",
@@ -492,7 +492,7 @@ export const cars = [
     dailyRate: 36,
     category: "SUV",
     color: "Blue",
-    imageUrl: [
+    imageUrls: [
       "assets/images/car_023_1.webp",
       "assets/images/car_023_2.webp",
       "assets/images/car_023_3.webp",
@@ -514,7 +514,7 @@ export const cars = [
     dailyRate: 37,
     category: "SUV",
     color: "White",
-    imageUrl: [
+    imageUrls: [
       "assets/images/car_024_1.webp",
       "assets/images/car_024_2.webp",
       "assets/images/car_024_3.webp",
@@ -536,7 +536,7 @@ export const cars = [
     dailyRate: 35,
     category: "SUV",
     color: "Black",
-    imageUrl: [
+    imageUrls: [
       "assets/images/car_025_1.webp",
       "assets/images/car_025_2.webp",
       "assets/images/car_025_3.webp",
@@ -558,7 +558,7 @@ export const cars = [
     dailyRate: 36,
     category: "SUV",
     color: "Gray",
-    imageUrl: [
+    imageUrls: [
       "assets/images/car_026_1.webp",
       "assets/images/car_026_2.webp",
       "assets/images/car_026_3.webp",
@@ -580,7 +580,7 @@ export const cars = [
     dailyRate: 34,
     category: "SUV",
     color: "Red",
-    imageUrl: [
+    imageUrls: [
       "assets/images/car_027_1.webp",
       "assets/images/car_027_2.webp",
       "assets/images/car_027_3.webp",
@@ -602,7 +602,7 @@ export const cars = [
     dailyRate: 37,
     category: "Sedan",
     color: "Silver",
-    imageUrl: [
+    imageUrls: [
       "assets/images/car_028_1.webp",
       "assets/images/car_028_2.webp",
       "assets/images/car_028_3.webp",
@@ -624,7 +624,7 @@ export const cars = [
     dailyRate: 39,
     category: "SUV",
     color: "Orange",
-    imageUrl: [
+    imageUrls: [
       "assets/images/car_029_1.webp",
       "assets/images/car_029_2.webp",
       "assets/images/car_029_3.webp",
@@ -646,7 +646,7 @@ export const cars = [
     dailyRate: 65,
     category: "Sports",
     color: "Yellow",
-    imageUrl: [
+    imageUrls: [
       "assets/images/car_030_1.webp",
       "assets/images/car_030_2.webp",
       "assets/images/car_030_3.webp",

@@ -36,25 +36,38 @@ export function setElementHref(id, href) {
 
 export function populateCarDetails(car) {
 
-    const carname = `${car.make} ${car.model} ${car.year} - Modern ${car.category} in ${car.color} color`;
+    const isValidString = str => typeof str === 'string' && str.trim() !== '';
+    const isValidNumber = num => typeof num === 'number' && !isNaN(num);
 
-    setElementText('car-rating', car.rating || 'N/A');
+    // Construct car name
+    const carname = `${car.make || 'Unknown'} ${car.model || ''} ${car.year || ''} - Modern ${car.category || ''} in ${car.color || ''} color`;
+
+    // Set rating
+    setElementText('car-rating', (car.rating) ? car.rating : 'N/A');
+
+    // Set car name
     setElementText('car-name', carname);
 
-    setImage('car-main-img', car.imageUrl[0], carname);
-    setImage('car-sec-img-1', car.imageUrl[1], carname);
-    setImage('car-sec-img-2', car.imageUrl[2], carname);
-    setImage('car-sec-img-3', car.imageUrl[3], carname);
-    setImage('car-sec-img-4', car.imageUrl[4], carname);
+    // Set images
+    const imageUrls = Array.isArray(car.imageUrls) ? car.imageUrls : [];
 
-    setElementText('fuelType', car.fuelType || 'N/A');
-    setElementText('transmission', car.transmission || 'N/A');
-    setElementText('passengerCapacity', `${car.passengerCapacity || 'N/A'}`);
-    setElementText('luggageCapacity', `${car.luggageCapacity || 'N/A'}`);
-    setElementText('fuelCapacity', `${car.fuelCapacity || '0'} L`);
-    setElementText('make', car.make || 'N/A');
-    setElementText('year', car.year || 'N/A');
-    setElementText('dailyRate', `$${car.dailyRate || 'N/A'}`);
+    for (let i = 0; i < 5; i++) {
+        const imageId = i === 0 ? 'car-main-img' : `car-sec-img-${i}`;
+        setImage(imageId, imageUrls[i] || 'placeholder.jpg', carname);
+    }
+
+    // Set other fields
+    setElementText('fuelType', isValidString(car.fuelType) ? car.fuelType : 'N/A');
+    setElementText('transmission', isValidString(car.transmission) ? car.transmission : 'N/A');
+
+    setElementText('passengerCapacity', (car.passengerCapacity) ? car.passengerCapacity : 'N/A');
+    setElementText('luggageCapacity', (car.luggageCapacity) ? car.luggageCapacity : 'N/A');
+    setElementText('fuelCapacity', (car.fuelCapacity) ? `${car.fuelCapacity} L` : '0 L');
+
+    setElementText('make', isValidString(car.make) ? car.make : 'N/A');
+    setElementText('year', (car.year) ? car.year : 'N/A');
+    setElementText('dailyRate', (car.dailyRate) ? `$${car.dailyRate}` : 'N/A');
+
 }
 
 export function displayTopRatedCars(cars, currentCarId) {
@@ -66,7 +79,7 @@ export function displayTopRatedCars(cars, currentCarId) {
     topRatedCars.forEach((topCar, index) => {
         const carName = `${topCar.make} ${topCar.model} ${topCar.year}`;
 
-        setImage(`top${index + 1}-img`, topCar.imageUrl[0], carName);
+        setImage(`top${index + 1}-img`, topCar.imageUrls[0], carName);
         setElementText(`top${index + 1}-name`, carName);
         setElementText(`top${index + 1}-category`, topCar.category || 'N/A');
         setElementText(`top${index + 1}-seats`, `${topCar.passengerCapacity || 'N/A'}`);
@@ -228,7 +241,7 @@ function updateBookingButtonState(carId, bookNowButton) {
     bookNowButton.innerHTML = 'Book Now';
     bookNowButton.classList.remove('disabled');
 
-    
+
     // If either date is missing, we can't check availability yet
     if (!pickupDate || !dropoffDate) {
         return true;

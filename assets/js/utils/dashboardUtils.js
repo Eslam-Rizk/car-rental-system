@@ -7,19 +7,19 @@ export function authDashboard() {
     const customerId = getLoggedInCustomerId();
     // console.log(customerId)
     if (!customerId) {
+        console.error("Unauthorized access");
         window.location.href = "login.html";
         // alert("You need to login first!");
 
-        throw new Error("Unauthorized access");
     }
 
     // then check if user is admin --> only allow access to admins
     const customer = savedCustomers.getCustomerById(customerId);
     if (!customer || customer.role !== "admin") {
+        console.error("Admin access required");
         window.location.href = "index.html";
         // alert("You don't have admin access!");
 
-        throw new Error("Admin access required");
     }
 
 }

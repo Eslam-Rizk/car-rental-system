@@ -200,7 +200,7 @@ function renderCarListings() {
             <div class="col-lg-4 col-md-6 col-sm-12 mb-4 car-card-item">
                 <div class="car-card m-0">
                     <div class="image-wrapper position-relative">
-                        <img src="${car.imageUrl[0]}" alt="${car.make} ${car.model}" />
+                        <img src="${car.imageUrls[0]}" alt="${car.make} ${car.model}" />
                         <div class="rating-overlay position-absolute top-0 end-0 m-2">
                             <i class="bi bi-star-fill" style="color: #FFD700;"></i>
                             <span class="ms-1">${car.rating}</span>
@@ -232,7 +232,7 @@ function renderCarListings() {
         //     <div class="col-lg-4" id="car-${car.carId}">
         //         <div class="car-card p-3">
         //             <div class="car-img-wrapper mb-3">
-        //                 <img src="${car.imageUrl[0]}" class="img-fluid w-100" alt="${car.make} ${car.model}" />
+        //                 <img src="${car.imageUrls[0]}" class="img-fluid w-100" alt="${car.make} ${car.model}" />
         //             </div>
         //             <div class="car-details">
         //                 <div class="car-headline d-flex justify-content-between mb-3">

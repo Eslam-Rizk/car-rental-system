@@ -62,7 +62,7 @@ function createBookingCardHTML(booking, car) {
     return `  
       <div class="col-lg-4 mb-4">
         <div class="car-card p-3">
-          <img src="${car.imageUrl[0]}" alt="${car.make} ${car.model}" />
+          <img src="${car.imageUrls[0]}" alt="${car.make} ${car.model}" />
           <div class="car-details mt-3">
             <div class="d-flex justify-content-between align-items-center mb-2">
               <h5 class="card-title mb-0 fw-bold">${car.make} ${car.model} ${car.year}</h5>
@@ -124,7 +124,7 @@ function createBookingModalHTML(booking, car, days) {
             <div class="modal-body">
               <div class="row">
                 <div class="col-md-6">
-                  <img src="${car.imageUrl[0]}" alt="${car.make} ${car.model}" class="img-fluid rounded mb-3">
+                  <img src="${car.imageUrls[0]}" alt="${car.make} ${car.model}" class="img-fluid rounded mb-3">
                   <h4>${car.make} ${car.model} ${car.year}</h4>
                   <div class="row mb-3">
                     <div class="col-6">
