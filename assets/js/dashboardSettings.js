@@ -11,7 +11,3 @@ dashboardSettingsAuth()
 // sidebar
 logout();
 getAdminSettings();
-
-document.addEventListener("DOMContentLoaded", () => {
-    // Your DOM-dependent code here
-});

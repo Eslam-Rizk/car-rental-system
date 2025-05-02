@@ -9,7 +9,7 @@ export function getLoggedInCustomerId() {
     const loggedInCustomer = localStorage.getItem('loggedInCustomer');
     if (loggedInCustomer) {
         const customer = JSON.parse(loggedInCustomer);
-        // console.log("Logged in customerId: ", customer.customerId);
+        console.log("Logged in customerId: ", customer.customerId);
         return customer.customerId || null;
     }
     return null;

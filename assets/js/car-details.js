@@ -14,7 +14,6 @@ attachNavAndFooter();
 
     if (car) {
         populateCarDetails(car);
-        displayTopRatedCars(cars, carId);
 
         const originalPrice = car.dailyRate;
         initializePrice(originalPrice);
@@ -37,6 +36,7 @@ attachNavAndFooter();
     } else {
         console.error('Car not found');
     }
+    displayTopRatedCars(cars, carId);
 
     initializeImageModal('.car-image');
 })();
