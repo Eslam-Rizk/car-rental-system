@@ -1,10 +1,10 @@
 export const carFields = {
       make: "string",
       model: "string",
-      year: "number",
-      pricePerDay: "number",
-      bookedDates: "object", 
-      imageUrl: "string",
+      year: "string",
+      dailyRate: "string",
+      // bookedDates: "object", 
+      // imageUrls: "string",
     };
     
 export const bookingFields = {

@@ -23,7 +23,8 @@ export function seedStorage() {
 export const savedCars = storageHandler.cars;
 export const savedBookings = storageHandler.bookings;
 export const savedCustomers = storageHandler.customers;
-
+console.log(savedCars.get())
+console.log(savedCustomers.get())
 // ================================ Apply filters ===
 export const { carsFilter, customersFilter, bookingsFilter } = filtersHandler({
   savedCars,
