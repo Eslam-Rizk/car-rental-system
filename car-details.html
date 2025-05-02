@@ -1,11 +1,579 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Car Details</title>
-</head>
-<body>
+    <title>Hyundai Accent 2025</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
     
+    <link rel="icon" href="./favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="./assets/css/car-details.css">
+    <link rel="stylesheet" href="./assets/css/car-listings-overview.css">
+    <link rel="stylesheet" href="./assets/css/tabs.css">
+
+</head>
+
+<body>
+    <!-----------------------------NAVBAR---------------------->
+    <nav class="navbar navbar-expand-lg navbar-light">
+        <div class="container-fluid">
+            <ul class="navbar-nav me-auto px-4">
+                <li class="nav-item d-flex align-items-center">
+                    <img src="assets/images/steering wheel logo.png" class="d-inline logo" alt="Wheelzy Logo" />
+                    <a class="nav-link fs-4 fw-bold nav-main" href="index.html">Wheelzy</a>
+                </li>
+            </ul>
+
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent"
+                aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse w-100 px-4" id="navbarContent">
+                <!-- left-->
+
+                <!-- center -->
+                <ul class="navbar-nav mx-auto">
+                    <li class="nav-item px-2">
+                        <a class="nav-link" aria-current="page" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item px-2">
+                        <a class="nav-link" href="listings.html">Car Listings</a>
+                    </li>
+                    <li class="nav-item px-2">
+                        <a class="nav-link" href="contact.html">Contact Us</a>
+                    </li>
+                    <li class="nav-item px-2">
+                        <a class="nav-link" href="about-us.html">About Us</a>
+                    </li>
+                </ul>
+
+                <!-- right-->
+                <div class="d-flex ms-auto" id="login-or-profile">
+                    <!-- login btn - shown by default -->
+                    <div id="loginBtn">
+                        <button class="btn btn-nav">
+                            <a class="text-white text-decoration-none" href="login.html">Login</a>
+                        </button>
+                    </div>
+
+                    <!-- profile circle - hidden by default -->
+                    <div id="profileDropdown" class="dropdown position-relative align-items-center"
+                        style="display: none;">
+                        <a href="#" class="d-flex align-items-center text-decoration-none dropdown-toggle ps-0"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            <img src="assets/images/avatar.png" alt="Profile" class="user-avatar avatar-img rounded-circle">
+                            <span class="ms-2 fw-bold" id="nameDisplay"></span>
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-end mt-2">
+                            <li><a class="dropdown-item" id="customer-profile" href="#">My Profile</a></li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
+                            <li><a class="dropdown-item" href="#" id="logoutBtn">Logout</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container mt-4">
+        
+        <!-- car name and rating -->
+        <div class="row mb-3">
+            <div class="col-md-8 mt-4">
+                <h1 class="fs-3 fw-bold" id="car-name"></h1>
+            </div>
+            <div class="col-md-4 mt-4">
+                <div class="d-flex align-items-edge justify-content-start">
+                    <span class="text-primary"><i class="fas fa-star car-rating"></i></span>
+                    <span class="ms-2" id="car-rating"></span>
+                </div>
+            </div>
+        </div>
+
+        <!-- car main image -->
+        <div class="row gallery">
+            <div class="col-md-8 mb-3">
+                <div class="ratio ratio-16x9 rounded overflow-hidden">
+                    <img src="" alt="" id="car-main-img" class="car-image img-fluid w-100 h-100 object-fit-cover"
+                        data-index="0" />
+                </div>
+            </div>
+
+            <!-- car secondary images -->
+            <div class="col-md-4 mb-3">
+                <div class="row g-2 h-100">
+                    <div class="col-6">
+                        <img src="" alt="" id="car-sec-img-1"
+                            class="car-image img-fluid rounded h-100 w-100 object-fit-cover" data-index="1" />
+                    </div>
+                    <div class="col-6">
+                        <img src="" alt="" id="car-sec-img-2"
+                            class="car-image img-fluid rounded h-100 w-100 object-fit-cover" data-index="2" />
+                    </div>
+                    <div class="col-6">
+                        <img src="" alt="" id="car-sec-img-3"
+                            class="car-image img-fluid rounded h-100 w-100 object-fit-cover" data-index="3" />
+                    </div>
+                    <div class="col-6">
+                        <img src="" alt="" id="car-sec-img-4"
+                            class="car-image img-fluid rounded h-100 w-100 object-fit-cover" data-index="4" />
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Image Modal -->
+        <div class="modal fade" id="imageModal" tabindex="-1" aria-labelledby="imageModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-fullscreen">
+                <div class="modal-content bg-dark">
+                    <div class="modal-body position-relative p-0">
+                        <button type="button" class="modal-close" data-bs-dismiss="modal" aria-label="Close">
+                            <i class="fas fa-times"></i>
+                        </button>
+
+                        <button class="modal-nav modal-prev" id="prevImage">
+                            <i class="fas fa-chevron-left"></i>
+                        </button>
+
+                        <div class="modal-image-container">
+                            <img src="" class="modal-car-image" id="modalImage" alt="Car Image">
+                        </div>
+
+                        <button class="modal-nav modal-next" id="nextImage">
+                            <i class="fas fa-chevron-right"></i>
+                        </button>
+
+                        <div class="modal-thumbnails" id="imageThumbnails">
+                            <!-- Thumbnails will be added dynamically -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- car details -->
+        <div class="row">
+            <!-- description -->
+            <div class="col-lg-8 mb-4">
+                <div class="card shadow-sm mb-4">
+                    <div class="card-body">
+                        <div class="row gy-3">
+                            <div class="col-6 col-md-3 ">
+                                <div class="bg-primary-light p-3 rounded lightgrey-bg">
+                                    <i class="fas fa-gas-pump me-2"></i>
+                                    <span id="fuelType"></span>
+                                </div>
+                            </div>
+                            <div class="col-6 col-md-3">
+                                <div class="bg-primary-light p-3 rounded lightgrey-bg">
+                                    <i class="fas fa-cog me-2"></i>
+                                    <span id="transmission"></span>
+                                </div>
+                            </div>
+                            <div class="col-6 col-md-3">
+                                <div class="bg-primary-light p-3 rounded lightgrey-bg">
+                                    <i class="fas fa-users me-2"></i>
+                                    <span id="passengerCapacity"></span>
+                                </div>
+                            </div>
+                            <div class="col-6 col-md-3">
+                                <div class="bg-primary-light p-3 rounded lightgrey-bg">
+                                    <i class="fas fa-suitcase me-2"></i>
+                                    <span id="luggageCapacity"></span>
+                                </div>
+                            </div>
+                            <div class="col-6 col-md-3">
+                                <div class="bg-primary-light p-3 rounded lightgrey-bg">
+                                    <i class="fas fa-gas-pump me-2"></i>
+                                    <span id="fuelCapacity"></span>
+                                </div>
+                            </div>
+                            <div class="col-6 col-md-3">
+                                <div class="bg-primary-light p-3 rounded lightgrey-bg">
+                                    <i class="fas fa-car me-2"></i>
+                                    <span id="make"></span>
+                                </div>
+                            </div>
+                            <div class="col-6 col-md-3">
+                                <div class="bg-primary-light p-3 rounded lightgrey-bg">
+                                    <i class="fas fa-calendar me-2"></i>
+                                    <span id="year"></span>
+                                </div>
+                            </div>
+                            <div class="col-6 col-md-3">
+                                <div class="bg-primary-light p-3 rounded lightgrey-bg">
+                                    <i class="fas fa-coins me-2"></i>
+                                    <span id="dailyRate"></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tabs Section -->
+                <div class="card shadow-sm">
+                    <div class="card-body">
+                        <ul class="nav nav-tabs" id="vehicleTabs" role="tablist">
+                            <li class="nav-item" role="presentation">
+                                <button class="nav-link active fw-medium tab-btn" id="description-tab" data-bs-toggle="tab"
+                                    data-bs-target="#description" type="button" role="tab">Description</button>
+                            </li>
+                            <li class="nav-item" role="presentation">
+                                <button class="nav-link fw-medium tab-btn" id="specifications-tab" data-bs-toggle="tab"
+                                    data-bs-target="#specifications" type="button" role="tab">Specifications</button>
+                            </li>
+                            <li class="nav-item" role="presentation">
+                                <button class="nav-link fw-medium tab-btn" id="gallery-tab" data-bs-toggle="tab"
+                                    data-bs-target="#gallery" type="button" role="tab">Image Gallery</button>
+                            </li>
+                            <li class="nav-item" role="presentation">
+                                <button class="nav-link fw-medium tab-btn" id="reviews-tab" data-bs-toggle="tab"
+                                    data-bs-target="#reviews" type="button" role="tab">Reviews</button>
+                            </li>
+                        </ul>
+                        <div class="tab-content pt-4" id="vehicleTabsContent">
+                            <div class="tab-pane fade show active" id="description" role="tabpanel">
+                                <p class="text-darkgrey">Lorem Ipsum is simply dummy text of the printing and
+                                    typesetting
+                                    industry. Lorem Ipsum has been the industry's standard dummy text ever since the
+                                    1500s, when an unknown printer took a galley of type and scrambled it to make a type
+                                    specimen book. It has survived not only five centuries, but also the leap into
+                                    electronic typesetting, remaining essentially unchanged. It was popularised in the
+                                    1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more
+                                    recently with desktop publishing software like Aldus PageMaker including versions of
+                                    Lorem Ipsum.</p>
+
+                                <h5 class="mt-4">Overview</h5>
+                                <p class="text-darkgrey">Lorem Ipsum is simply dummy text of the printing and
+                                    typesetting
+                                    industry. Lorem Ipsum has been the industry's standard dummy text ever since the
+                                    1500s, when an unknown printer took a galley of type and scrambled it to make a type
+                                    specimen book. It has survived not only five centuries, but also the leap into
+                                    electronic typesetting, remaining essentially unchanged. It was popularised in the
+                                    1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more
+                                    recently with desktop publishing software like Aldus PageMaker including versions of
+                                    Lorem Ipsum. Lorem Ipsum is simply dummy text of the printing and typesetting
+                                    industry. Lorem Ipsum has been the industry's standard dummy text ever since the
+                                    1500s.</p>
+                            </div>
+                            <div class="tab-pane fade" id="specifications" role="tabpanel">
+                                <p class="text-darkgrey">Detailed specifications will appear here.</p>
+                            </div>
+                            <div class="tab-pane fade gallery" id="gallery" role="tabpanel">
+                                <div class="row g-3" id="galleryImages">
+                                    <!-- Gallery images will be populated by JavaScript -->
+                                </div>
+                            </div>
+                            <div class="tab-pane fade" id="reviews" role="tabpanel">
+                                <p class="text-darkgrey">Customer reviews will appear here.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Rental Form Section -->
+            <div class="col-lg-4 d-flex flex-column mb-4">
+                <div class="card shadow-sm rounded-3 h-100 d-flex flex-column">
+                    <div class="card-header lightgrey-bg text-center py-3">
+                        <h5 class="mb-0">Rent This Vehicle</h5>
+                    </div>
+                    <!-- Card Body as flex column -->
+                    <div class="card-body d-flex flex-column justify-content-between">
+                        <div class="bg-white p-3 rounded mb-3 border">
+                            <div class="row align-items-center">
+                                <div class="col-12 col-md-4 fw-medium mb-2 mb-md-0">
+                                    Pick-Up
+                                </div>
+                                <div class="col-12 col-md-8">
+                                    <input type="date" class="form-control" id="pickup-date" placeholder="Select Date">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="bg-white p-3 rounded mb-3 border">
+                            <div class="row align-items-center">
+                                <div class="col-12 col-md-4 fw-medium mb-2 mb-md-0">
+                                    Drop-off
+                                </div>
+                                <div class="col-12 col-md-8">
+                                    <input type="date" class="form-control" id="dropoff-date" placeholder="Select Date">
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div class="mt-4 pt-4 border-top">
+                            <h6>Add Extra:</h6>
+                            <div id="extrasList">
+                                <div class="form-check d-flex justify-content-between mb-2">
+                                    <label class="form-check-label d-flex align-items-center gap-2">
+                                        <input class="form-check-input extra-checkbox" type="checkbox" data-price="25">
+                                        GPS Navigation System
+                                    </label>
+                                    <span>$25.00</span>
+                                </div>
+                                <div class="form-check d-flex justify-content-between mb-2">
+                                    <label class="form-check-label d-flex align-items-center gap-2">
+                                        <input class="form-check-input extra-checkbox" type="checkbox" data-price="32">
+                                        Child Seat
+                                    </label>
+                                    <span>$32.00</span>
+                                </div>
+                                <div class="form-check d-flex justify-content-between mb-2">
+                                    <label class="form-check-label d-flex align-items-center gap-2">
+                                        <input class="form-check-input extra-checkbox" type="checkbox" data-price="25">
+                                        Additional Driver
+                                    </label>
+                                    <span>$25.00</span>
+                                </div>
+                                <div class="form-check d-flex justify-content-between mb-2">
+                                    <label class="form-check-label d-flex align-items-center gap-2">
+                                        <input class="form-check-input extra-checkbox" type="checkbox" data-price="55">
+                                        Insurance Coverage
+                                    </label>
+                                    <span>$55.00</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Promo Code Section -->
+                        <div class="pt-4 rounded border-top">
+                            <h6 class="text-main">Have a Promo Code?</h6>
+                            <div class="input-group">
+                                <input type="text" id="promo-code" class="form-control rounded-start"
+                                    placeholder="Enter promo code">
+                                <button id="apply-promo" class="btn lighter-bg text-white rounded-end">Apply</button>
+                                <!-- promo message -->
+                                <div id="promo-message" class="text-success mt-2" style="display: none;"></div>
+                            </div>
+                        </div>
+
+                        <div class="mt-4 pt-4 border-top">
+                            <div class="d-flex justify-content-between mb-2">
+                                <span>Sub Total</span>
+                                <span id="subTotal">$0.00</span>
+                            </div>
+                            <div class="d-flex justify-content-between mb-2">
+                                <span>Tax (10%)</span>
+                                <span id="taxAmount">$0.00</span>
+                            </div>
+                            <div class="d-flex justify-content-between pt-2 fw-bold mt-2">
+                                <span>Total Payable</span>
+                                <span id="totalPayable">$0.00</span>
+                            </div>
+                        </div>
+
+                        <!-- Button sticks to bottom due to flex layout -->
+                        <button id="book-btn" class="btn lighter-bg text-white  py-3 fw-bold">Book Now</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Recommended Cars Section -->
+        <div class="container my-5">
+            <h2 class="mb-4 fw-bold headline">You May Also Like These</h2>
+
+            <div class="row">
+                <!-- Car 1 -->
+                <div class="col-lg-4" id="car1">
+                    <div class="car-card p-3">
+                        <div class="car-img-wrapper mb-3">
+                            <img src="" id="top1-img" class="img-fluid w-100" alt="Car Image" data-index="5" />
+                        </div>
+                        <div class="car-details">
+                            <div class="car-headline d-flex justify-content-between mb-3">
+                                <h3 id="top1-name" class="m-0"></h3>
+                                <div class="car-type text-white">
+                                    <span id="top1-category"></span>
+                                </div>
+                            </div>
+                            <div class="car-details-icons mb-2">
+                                <i class="bi bi-person-fill me-3">
+                                    <span id="top1-seats" class="ms-1"></span>
+                                </i>
+                                <i class="bi bi-suitcase me-3">
+                                    <span id="top1-luggage" class="ms-1"></span>
+                                </i>
+                                <i class="bi bi-car-front-fill me-3">
+                                    <span id="top1-transmission" class="ms-1"></span>
+                                </i>
+                            </div>
+                        </div>
+                        <div class="car-price mt-3 d-flex align-items-center justify-content-between">
+                            <h4 class="fs-5 m-0">
+                                <span class="text-main" id="top1-price"></span> <span class="fs-6 darkgrey">/Per Day</span>
+                            </h4>
+                            <a id="top1-id" href="#" class="text-black">
+                                <button class="btn btn-nav">Details</button>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Car 2 -->
+                <div class="col-lg-4" id="car2">
+                    <div class="car-card p-3">
+                        <div class="car-img-wrapper mb-3">
+                            <img src="" id="top2-img" class="img-fluid w-100" alt="Car Image" data-index="6" />
+                        </div>
+                        <div class="car-details">
+                            <div class="car-headline d-flex justify-content-between mb-3">
+                                <h3 id="top2-name" class="m-0"></h3>
+                                <div class="car-type text-white">
+                                    <span id="top2-category"></span>
+                                </div>
+                            </div>
+                            <div class="car-details-icons mb-2">
+                                <i class="bi bi-person-fill me-3">
+                                    <span id="top2-seats" class="ms-1"></span>
+                                </i>
+                                <i class="bi bi-suitcase me-3">
+                                    <span id="top2-luggage" class="ms-1"></span>
+                                </i>
+                                <i class="bi bi-car-front-fill me-3">
+                                    <span id="top2-transmission" class="ms-1"></span>
+                                </i>
+                            </div>
+                        </div>
+                        <div class="car-price mt-3 d-flex align-items-center justify-content-between">
+                            <h4 class="fs-5 m-0">
+                                <span class="text-main" id="top2-price"></span> <span class="fs-6 darkgrey">/Per Day</span>
+                            </h4>
+                            <a id="top2-id" href="#" class="text-black">
+                                <button class="btn btn-nav">Details</button>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Car 3 -->
+                <div class="col-lg-4" id="car3">
+                    <div class="car-card p-3">
+                        <div class="car-img-wrapper mb-3">
+                            <img src="" id="top3-img" class="img-fluid w-100" alt="Car Image" data-index="7" />
+                        </div>
+                        <div class="car-details">
+                            <div class="car-headline d-flex justify-content-between mb-3">
+                                <h3 id="top3-name" class="m-0"></h3>
+                                <div class="car-type text-white">
+                                    <span id="top3-category"></span>
+                                </div>
+                            </div>
+                            <div class="car-details-icons mb-2">
+                                <i class="bi bi-person-fill me-3">
+                                    <span id="top3-seats" class="ms-1"></span>
+                                </i>
+                                <i class="bi bi-suitcase me-3">
+                                    <span id="top3-luggage" class="ms-1"></span>
+                                </i>
+                                <i class="bi bi-car-front-fill me-3">
+                                    <span id="top3-transmission" class="ms-1"></span>
+                                </i>
+                            </div>
+                        </div>
+                        <div class="car-price mt-3 d-flex align-items-center justify-content-between">
+                            <h4 class="fs-5 m-0">
+                                <span class="text-main" id="top3-price"></span> <span class="fs-6 darkgrey">/Per Day</span>
+                            </h4>
+                            <a id="top3-id" href="#" class="text-black">
+                                <button class="btn btn-nav">Details</button>
+                                <!-- <i class="bi bi-arrow-up-right-circle fs-4"></i> -->
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+
+    <!-----------------------Footer-------------------------->
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <!-- column 1 -->
+                <div class="col-md-3 mb-4 mb-md-0">
+                    <h4 class="text-uppercase mb-3"><img src="assets/images/steering wheel logo.png" alt="logo"
+                            class="logo">
+                        Wheelzy
+                    </h4>
+                    <div class="social-media">
+                        <h6 class="text-uppercase mb-2">Social media</h6>
+                        <ul class="list-unstyled">
+                            <li><a href="#" class="text-decoration-none"><i class="bi bi-twitter me-2"></i>Twitter</a>
+                            </li>
+                            <li><a href="#" class="text-decoration-none"><i
+                                        class="bi bi-instagram me-2"></i>Instagram</a></li>
+                            <li><a href="#" class="text-decoration-none"><i class="bi bi-facebook me-2"></i>Facebook</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- column 2-->
+                <div class="col-md-3 mb-4 mb-md-0">
+                    <h4 class="text-uppercase mb-3">Contact Information</h4>
+                    <address>
+                        <p>5th Settlement,<br>1250-148 Cairo, Egpt</p>
+                        <p>+20 1234567</p>
+                        <p>info@wheelzy.com</p>
+                    </address>
+                </div>
+
+                <!-- column 3 -->
+                <div class="col-md-3 mb-4 mb-md-0">
+                    <h4 class="text-uppercase mb-3">Home</h4>
+                    <ul class="list-unstyled">
+                        <li><a href="#" class="text-decoration-none">About Us</a></li>
+                        <li><a href="#" class="text-decoration-none">FAQ</a></li>
+                        <li><a href="#" class="text-decoration-none">Contact Us</a></li>
+                        <li><a href="#" class="text-decoration-none">Services</a></li>
+                        <li><a href="#" class="text-decoration-none">Privacy Policy</a></li>
+                        <li><a href="#" class="text-decoration-none">Car Listings</a></li>
+                    </ul>
+                </div>
+
+                <!-- column  4 -->
+                <div class="col-md-3">
+                    <div class="working-hours mt-4">
+                        <h4 class="mb-3 text-uppercase">Working Hours</h4>
+                        <p class="small mb-1">Sunday To Thursday: 8:00 AM - 8:00 PM</p>
+                        <p class="small mb-3">Friday To Saturday: 8:00 AM - 5:00 PM</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- copyright row -->
+            <div class="row mt-5 pt-3 border-top">
+                <div class="col-12 text-center">
+                    <p class="mb-0">© 2025 Wheelzy. All rights reserved</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-k6d4wzSIapyDyv1kpU366/PK5hCdSbCRGRCMv+eplOQJWyd1fbcAu9OCUj5zNLiq"
+        crossorigin="anonymous"></script>
+    
+   <script type="module" src="./assets/js/car-details.js"></script>
+
 </body>
+
 </html>
