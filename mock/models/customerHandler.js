@@ -13,7 +13,7 @@ const customerHandler = function ({
       if (!validator.checkCustomerFields(customer)) {
         return;
       }
-      const AlreadyExists = typeof checkCustomerExist === "function"? checkCustomerExist(customer.email):false; 
+      const AlreadyExists = typeof checkCustomerExist === "function" ? checkCustomerExist(customer.email) : false;
       if (!AlreadyExists) {
         const customerObj = { ...customer, customerId: customerId() };
         const customers = this.get();
@@ -26,7 +26,7 @@ const customerHandler = function ({
       }
     },
     getCustomerById: (customerId) => {
-      const customer = getData("bookings").find((customer) => {
+      const customer = getData("customers").find((customer) => {
         return customer.customerId === customerId;
       });
       return customer ? customer : null;
@@ -58,7 +58,7 @@ const customerHandler = function ({
         console.log(`Customer with ID ${customer.customerId} does not exist.`);
       }
     },
-    remove: function (customer, checKCustomerExist = ()=>true) {
+    remove: function (customer, checKCustomerExist = () => true) {
       if (checKCustomerExist(customer.email)) {
         const customers = this.get();
         const index = customers.findIndex(
@@ -72,7 +72,7 @@ const customerHandler = function ({
           ];
           this.save(customersAfterDelete);
           console.log(`Customer with email ${customer.email} removed.`);
-          return true; 
+          return true;
         }
       } else {
         console.log(
