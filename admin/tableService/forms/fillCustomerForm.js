@@ -12,6 +12,8 @@ import {
 } from "../../../mock/storage/seedStorage.js";
 import { editEntity } from "../core/editedEntity.js";
 import { render } from "../core/render.js";
+import { showMessage } from "../core/alerts.js";
+
 const { createEditedCustomer } = editEntity();
 
 export async function fillCustomerForm(customer, index, customerFormElements) {
@@ -47,7 +49,7 @@ export async function fillCustomerForm(customer, index, customerFormElements) {
     );
     console.log("lets see what will happened", savedCustomers.get());
     const customers = savedCustomers.get();
-
+    showMessage(`The Customer is edited successfully!`, 'success'); 
     customersTableBody.innerHTML = "";
     render(customers, "customer");
   } else {

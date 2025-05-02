@@ -16,6 +16,7 @@ import { attachValidationEvents } from "./fillCustomerForm.js";
 import { carsTableBody, carsEditModal } from "../selectors/tableSelectors.js";
 
 import { savedCars, carsFilter } from "../../../mock/storage/seedStorage.js";
+import { showMessage } from "../core/alerts.js";
 
 export async function addCarForm(carFormElements) {
   carFormElements.inputs.confirmCarBtn.textContent = "Add A Car";
@@ -44,6 +45,7 @@ export async function addCarForm(carFormElements) {
     const modalInstance = bootstrap.Modal.getInstance(carsEditModal);
     modalInstance.hide();
     savedCars.addCar(carCreated, carsFilter.checkCarExist);
+    showMessage(`The Car was Added successfully!`, 'success'); 
     console.log("lets see what will happened", savedCars.get());
     const cars = savedCars.get();
 

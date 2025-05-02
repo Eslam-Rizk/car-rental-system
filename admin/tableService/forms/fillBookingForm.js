@@ -13,6 +13,8 @@ import {
 } from "../../../mock/storage/seedStorage.js";
 import { editEntity } from "../core/editedEntity.js";
 import { render } from "../core/render.js";
+import { showMessage } from "../core/alerts.js";
+
 const { createEditedBooking } = editEntity();
 
 export async function fillBookingForm(booking, index, bookingFormElements) {
@@ -42,7 +44,7 @@ export async function fillBookingForm(booking, index, bookingFormElements) {
     );
     console.log("let's see what will happen!", savedBookings.get());
     const bookings = savedBookings.get();
-
+    showMessage(`The Booking is edited successfully!`, 'success'); 
     bookingsTableBody.innerHTML = "";
     render(bookings, "booking");
   } else {

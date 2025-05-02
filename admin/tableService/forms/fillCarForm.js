@@ -5,6 +5,8 @@ import { validateOnSubmit } from "../validation/validationOnSubmit.js";
 import { savedCars, carsFilter } from "../../../mock/storage/seedStorage.js";
 import { editEntity } from "../core/editedEntity.js";
 import { render } from "../core/render.js";
+import { showMessage } from "../core/alerts.js";
+
 const { createEditedCar } = editEntity();
 
 export async function fillCarForm(car, index, carFormElements) {
@@ -49,7 +51,7 @@ export async function fillCarForm(car, index, carFormElements) {
     savedCars.editCar(editedCar, car, carsFilter.checkCarExist);
     console.log("lets see what will happened", savedCars.get());
     const cars = savedCars.get();
-
+    showMessage(`The Car is edited successfully!`, 'success'); 
     carsTableBody.innerHTML = "";
     render(cars, "car");
   } else {

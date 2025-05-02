@@ -13,8 +13,9 @@ import {
 } from "../../../mock/storage/seedStorage.js";
 import { makeEntity } from "../core/makeEntity.js";
 import { render } from "../core/render.js";
+import { showMessage } from "../core/alerts.js";
 const { createdCustomer } = makeEntity();
-// import { formPatterns } from "./patterns.js"; // adjust path if needed
+
 
 export async function addCustomerForm(customerFormElements) {
   customerFormElements.inputs.customerId.style = "display:none";
@@ -48,7 +49,7 @@ export async function addCustomerForm(customerFormElements) {
     );
     console.log("lets see what will happened", savedCustomers.get());
     const customers = savedCustomers.get();
-
+    showMessage(`The Customer is Added successfully!`, 'success'); 
     customersTableBody.innerHTML = "";
     render(customers, "customer");
   } else {
