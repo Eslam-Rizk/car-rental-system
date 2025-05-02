@@ -49,7 +49,7 @@ const bookingHandler = function({bookingId , saveData, getData, validator}){
       }
     },
 
-    removeBooking: function (booking, checKBookingExist) {
+    remove: function (booking, checKBookingExist = ()=>true) {
       if (checKBookingExist(booking.bookingId)) {
         const bookings = this.get();
         const index = bookings.findIndex(
@@ -63,9 +63,11 @@ const bookingHandler = function({bookingId , saveData, getData, validator}){
           ];
           this.save(bookingsAfterDelete);
           console.log(`Booking with ID ${booking.bookingId} removed.`);
+          return true; 
         }
       } else {
         console.log(`Booking with ID ${booking.bookingId} does not exist.`);
+        return false; 
       }
     },
   };

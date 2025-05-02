@@ -51,21 +51,24 @@ const carHandler = function ({ carId, saveData, getData, validator }) {
       }
     },
 
-    removeCar: function (carId) {
-      if (!isNaN(carId)) {
+    remove: function (car) {
+      
+      if(!(car)) {
         console.log("Car not found for removal:", car);
         return;
       }
 
       const cars = this.get();
-      const index = cars.findIndex((c) => c.carId === carId);
+      const index = cars.findIndex((c) => c.carId === car.carId);
 
       if (index !== -1) {
         const afterDeletion = cars.filter((_, idx) => idx !== index);
         this.save(afterDeletion);
         console.log("Car removed:", afterDeletion);
+        return true; 
       } else {
         console.log("Car not found for removal:", carId);
+        return false; 
       }
     },
   };
