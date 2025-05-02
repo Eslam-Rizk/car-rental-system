@@ -21,5 +21,5 @@ export function showMessage(message, type = "success", context = "success") {
       container.firstElementChild
     );
     alert.close();
-  }, 3000);
+  }, 1000);
 }

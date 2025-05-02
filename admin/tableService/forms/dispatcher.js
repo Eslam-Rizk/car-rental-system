@@ -52,6 +52,6 @@ export function dispatcher(entity, index, formElements, context) {
     } else {
       showMessage(`The form inputs are not correct.`, "danger", context);
     }
-  });
+  },  { once: true });
   
 }
