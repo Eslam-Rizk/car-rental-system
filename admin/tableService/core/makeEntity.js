@@ -29,7 +29,8 @@ export function makeEntity() {
     fuelCapacity,
     luggageCapacity,
     passengerCapacity,
-    rating
+    rating,
+    imageUrls
   ) {
     return {
       make,
@@ -44,6 +45,7 @@ export function makeEntity() {
       luggageCapacity,
       passengerCapacity,
       rating,
+      imageUrls
     };
   }
 

@@ -12,6 +12,7 @@ const { createEditedCar } = editEntity();
 export async function fillCarForm(car, index, carFormElements) {
   // Populate all relevant car inputs
   //   carFormElements.inputs.carId.value = car.carId || "";
+  carFormElements.inputs.confirmCarBtn.textContent = "Add A Car";
   carFormElements.inputs.make.value = car.make || "";
   carFormElements.inputs.model.value = car.model || "";
   carFormElements.inputs.year.value = car.year || "";

@@ -58,6 +58,8 @@ export function addCar(entity, index, formElements) {
     showMessage(`The Car is already in the local storage`, "warning", "car");
     return;
   }
+  const imageUrls = formElements.inputs.imageUrls.value.split('\n').map(url => url.trim()).filter(url=> url); 
+
   const carCreated = createdCar(
     formElements.inputs.make.value,
     formElements.inputs.model.value,
@@ -71,7 +73,8 @@ export function addCar(entity, index, formElements) {
     formElements.inputs.luggageCapacity.value,
     formElements.inputs.passengerCapacity.value,
     formElements.inputs.rating.value,
-    formElements.inputs.imageUrls.value
+    formElements.inputs.imageUrls.value,
+    imageUrls 
   );
   console.log("valid or not", carCreated);
 
