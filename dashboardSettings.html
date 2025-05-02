@@ -15,6 +15,11 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="assets/css/sidebar.css">
+    <link rel="stylesheet" href="assets/css/user-profile.css" />
+    <link rel="stylesheet" href="assets/css/tabs.css">
+    <script type="module" src="assets/js/user-profile.js"></script>
+    <link rel="stylesheet" href="assets/css/dashboard.css">
+
 
 </head>
 
@@ -48,6 +53,85 @@
         <div class="container mt-4">
 
             <!-- SETTINGS HERE -->
+            <div class="container py-4">
+                <div class="card rounded shadow-sm p-4 mb-4">
+                    <!-- Profile Header -->
+                    <div class="d-flex flex-column flex-md-row align-items-center align-items-md-start mb-4">
+                        <img src="assets/images/avatar.png" id="user-avatar" alt="Profile Avatar"
+                            class="user-avatar rounded-circle me-md-4 mb-3 mb-md-0" width="100" height="100">
+                        <div class="text-center text-md-start">
+                            <h1 class="fs-3 fw-bold  mb-1" id="user-name"></h1>
+                            <p class="mb-1" id="user-email"><i class="fa-solid fa-envelope me-2"></i></p>
+                            <p class="mb-2" id="user-number"><i class="fa-solid fa-phone me-2"></i></p>
+                            <p class="mb-2" id="user-address"><i class="fa-solid fa-location-dot me-2"></i></p>
+                        </div>
+                    </div>
+        
+                    <!-- Tabs Navigation -->
+                    <ul class="nav nav-tabs" id="profileTabs" role="tablist">
+                        <li class="nav-item" role="presentation" id="bookings-tab-li">
+                            <button class="nav-link fw-medium tab-btn active" id="bookings-tab" data-bs-toggle="tab"
+                                data-bs-target="#bookings-tab-pane" type="button" role="tab" aria-controls="bookings-tab-pane"
+                                aria-selected="true">My Bookings</button>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link fw-medium tab-btn" id="settings-tab" data-bs-toggle="tab" data-bs-target="#settings-tab-pane"
+                                type="button" role="tab" aria-controls="settings-tab-pane"
+                                aria-selected="false">Settings</button>
+                        </li>
+                    </ul>
+        
+                    <!-- Tab Content -->
+                    <div class="tab-content" id="profileTabsContent">
+                        <!-- Bookings Tab -->
+                        <div class="tab-pane fade show mt-4 active" id="bookings-tab-pane" role="tabpanel"
+                            aria-labelledby="bookings-tab" tabindex="0">
+                            <div class="row" id="bookings-container">
+                                <!-- booking history cards -->
+                            </div>
+                        </div>
+        
+                        <!-- Settings Tab -->
+                        <div class="tab-pane mt-4 fade" id="settings-tab-pane" role="tabpanel" aria-labelledby="settings-tab"
+                            tabindex="0">
+                            <div class="row">
+                                <div class="col-md-8">
+                                    <form>
+                                        <div class="mb-3">
+                                            <label for="fullName" class="form-label">Full Name</label>
+                                            <input type="text" class="form-control" id="fullName" value="">
+                                        </div>
+        
+                                        <div class="mb-3">
+                                            <label for="email" class="form-label">Email Address</label>
+                                            <input type="email" class="form-control" id="email" value="">
+                                        </div>
+        
+                                        <div class="mb-3">
+                                            <label for="phone" class="form-label">Phone Number</label>
+                                            <input type="tel" class="form-control" id="phone" value="">
+                                        </div>
+        
+                                        <div class="mb-3">
+                                            <label for="address" class="form-label">Address</label>
+                                            <textarea class="form-control" id="address" rows="3">
+                                            </textarea>
+                                        </div>
+        
+                                        <div class="mb-4">
+                                            <label for="password" class="form-label">Password</label>
+                                            <input type="password" class="form-control" id="password" value="">
+                                            <div class="form-text">Leave blank if you don't want to change it.</div>
+                                        </div>
+        
+                                        <button type="submit" class="btn btn-nav">Save Changes</button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 

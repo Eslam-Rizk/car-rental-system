@@ -1,8 +1,9 @@
 import { attachNavAndFooter } from "./utils/navUtils.js";
 import { getLoggedInCustomerId, getCustomerIdFromUrl } from "./utils/userUtils.js";
 import { SettingsFormHandler } from "./utils/userSettings/userFormHadnler.js";
-import { generateBookingCards, handleBookingDetailsClick,  } from "./utils/profileBookingHistoryUtils.js";
+import { generateBookingCards, handleBookingDetailsClick, } from "./utils/profileBookingHistoryUtils.js";
 import { updateUserProfileDisplay } from "./utils/profileBookingHistoryUtils.js";
+import { savedCustomers } from "../../mock/storage/seedStorage.js";
 
 initializeUser();
 
@@ -13,8 +14,11 @@ function initializeUser() {
     return;
   }
 
-  //set nav login btn or user profile 
-  attachNavAndFooter();
+  const user = savedCustomers.getCustomerById(loggedInCustomerId);
+  if (user && user.role === "user") {
+    //set nav login btn or user profile 
+    attachNavAndFooter();
+  }
 
   updateUserProfileDisplay(loggedInCustomerId);
   initializeBookings(loggedInCustomerId);
@@ -26,6 +30,26 @@ function initializeUser() {
 
 //booking history
 function initializeBookings(userId) {
+  const user = savedCustomers.getCustomerById(userId);
+  if (user && user.role === "admin") {
+    const bookingHistoryTab = document.getElementById('bookings-tab-li');
+    const bookingHistorySection = document.getElementById('bookings-tab-pane');
+    const settingsTab = document.getElementById('settings-tab');
+    const settingsTabPane = document.getElementById('settings-tab-pane');
+    if (bookingHistoryTab) {
+      bookingHistoryTab.style.display = 'none';
+    }
+    if (bookingHistorySection) {
+      bookingHistorySection.style.display = `none`;
+    }
+    if (settingsTab) {
+      settingsTab.classList.add('active');
+    }
+    if (settingsTabPane) {
+      settingsTabPane.classList.add('show', 'active');
+    }
+    return;
+  }
   generateBookingCards(userId);
   document.addEventListener('click', handleBookingDetailsClick);
 }

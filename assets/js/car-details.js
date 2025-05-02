@@ -1,12 +1,11 @@
-import { checkLogin, logout } from "./utils/navUtils.js";
+import { attachNavAndFooter, checkLogin, logout } from "./utils/navUtils.js";
 import { getCarIdFromUrl, findCarById, populateCarDetails, displayTopRatedCars, setupBookingButton } from "./utils/carUtils.js";
 import { initializeImageModal } from "./utils/imageModalUtils.js";
 import { initializePrice, initializePromoCode, calculatePrice } from "./utils/calculatePrice.js";
 import { seedStorage, savedCars } from "../../mock/storage/seedStorage.js";
 
 seedStorage();
-checkLogin();
-logout();
+attachNavAndFooter();
 
 (function populatePageDetails() {
     const carId = getCarIdFromUrl();

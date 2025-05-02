@@ -246,6 +246,3 @@ function checkLoginStatus() {
         }
     }
 }
-
-// Execute the function when the DOM is fully loaded
-// document.addEventListener('DOMContentLoaded', attachNavAndFooter);

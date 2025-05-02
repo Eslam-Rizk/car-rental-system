@@ -1,1028 +1,8 @@
+import { savedCars } from "../../mock/storage/seedStorage.js";
 import { attachNavAndFooter } from "./utils/navUtils.js";
 attachNavAndFooter();
 
-const carsData = [
-    {
-        carId: "car_001",
-        make: "Toyota",
-        model: "Corolla",
-        year: 2020,
-        dailyRate: 30,
-        category: "Sedan",
-        color: "Red",
-        imageUrl: ["./assets/images/car1.png"],
-        rating: 4.5,
-        fuelCapacity: 2.5,
-        passengerCapacity: 5,
-        transmission: "Manual",
-        luggageCapacity: 2,
-        fuelType: "Gasoline",
-        availableLocations: ["Cairo", "Mansoura", "Tokyo"],
-    },
-    {
-        carId: "car_002",
-        make: "Honda",
-        model: "Civic",
-        year: 2021,
-        dailyRate: 35,
-        category: "Sedan",
-        color: "Blue",
-        imageUrl: ["./assets/images/car2.png"],
-        rating: 4.3,
-        fuelCapacity: 3.4,
-        passengerCapacity: 5,
-        transmission: "Manual",
-        luggageCapacity: 2,
-        fuelType: "Gasoline",
-        availableLocations: ["Alexandria", "Dubai", "London"],
-    },
-    {
-        carId: "car_003",
-        make: "BMW",
-        model: "X5",
-        year: 2022,
-        dailyRate: 50,
-        category: "SUV",
-        color: "Black",
-        imageUrl: ["./assets/images/car3.png"],
-        rating: 4.7,
-        fuelCapacity: 3.9,
-        passengerCapacity: 5,
-        transmission: "Automatic",
-        luggageCapacity: 4,
-        fuelType: "Diesel",
-        availableLocations: ["Menofia", "Paris", "Tokyo"],
-    },
-    {
-        carId: "car_004",
-        make: "Ford",
-        model: "Focus",
-        year: 2019,
-        dailyRate: 28,
-        category: "Sedan",
-        color: "White",
-        imageUrl: ["./assets/images/car4.png"],
-        rating: 4.0,
-        fuelCapacity: 3.4,
-        passengerCapacity: 5,
-        transmission: "Manual",
-        luggageCapacity: 3,
-        fuelType: "Gasoline",
-        availableLocations: ["Cairo", "Alexandria", "Paris"],
-    },
-    {
-        carId: "car_005",
-        make: "Chevrolet",
-        model: "Malibu",
-        year: 2020,
-        dailyRate: 32,
-        category: "Sedan",
-        color: "Gray",
-        imageUrl: ["./assets/images/car5.png"],
-        rating: 4.2,
-        fuelCapacity: 3.8,
-        passengerCapacity: 5,
-        transmission: "Automatic",
-        luggageCapacity: 3,
-        fuelType: "Gasoline",
-        availableLocations: ["Dubai", "London", "Menofia"],
-    },
-    {
-        carId: "car_006",
-        make: "Nissan",
-        model: "Altima",
-        year: 2021,
-        dailyRate: 34,
-        category: "Sedan",
-        color: "Silver",
-        imageUrl: ["./assets/images/car6.png"],
-        rating: 4.1,
-        fuelCapacity: 3.2,
-        passengerCapacity: 5,
-        transmission: "Automatic",
-        luggageCapacity: 2,
-        fuelType: "Gasoline",
-        availableLocations: ["Mansoura", "Tokyo", "Cairo"],
-    },
-    {
-        carId: "car_007",
-        make: "Tesla",
-        model: "Model 3",
-        year: 2023,
-        dailyRate: 70,
-        category: "Electric",
-        color: "White",
-        imageUrl: ["./assets/images/car7.png"],
-        rating: 4.9,
-        fuelCapacity: 0,
-        passengerCapacity: 5,
-        transmission: "Automatic",
-        luggageCapacity: 2,
-        fuelType: "Electric",
-        availableLocations: ["Paris", "Alexandria", "Dubai"],
-    },
-    {
-        carId: "car_008",
-        make: "Hyundai",
-        model: "Elantra",
-        year: 2022,
-        dailyRate: 29,
-        category: "Sedan",
-        color: "Red",
-        imageUrl: ["./assets/images/car8.png"],
-        rating: 4.2,
-        fuelCapacity: 3.0,
-        passengerCapacity: 5,
-        transmission: "Manual",
-        luggageCapacity: 2,
-        fuelType: "Gasoline",
-        availableLocations: ["London", "Menofia", "Mansoura"],
-    },
-    {
-        carId: "car_009",
-        make: "Kia",
-        model: "Sorento",
-        year: 2021,
-        dailyRate: 45,
-        category: "SUV",
-        color: "Black",
-        imageUrl: ["./assets/images/car9.png"],
-        rating: 4.4,
-        fuelCapacity: 3.7,
-        passengerCapacity: 7,
-        transmission: "Automatic",
-        luggageCapacity: 4,
-        fuelType: "Diesel",
-        availableLocations: ["Tokyo", "Cairo", "Paris"],
-    },
-    {
-        carId: "car_010",
-        make: "Audi",
-        model: "A4",
-        year: 2020,
-        dailyRate: 55,
-        category: "Sedan",
-        color: "Blue",
-        imageUrl: ["./assets/images/car10.png"],
-        rating: 4.6,
-        fuelCapacity: 3.3,
-        passengerCapacity: 5,
-        transmission: "Automatic",
-        luggageCapacity: 3,
-        fuelType: "Gasoline",
-        availableLocations: ["Alexandria", "Dubai", "London"],
-    },
-    {
-        carId: "car_011",
-        make: "Mercedes",
-        model: "C-Class",
-        year: 2022,
-        dailyRate: 60,
-        category: "Sedan",
-        color: "Silver",
-        imageUrl: ["./assets/images/car11.png"],
-        rating: 4.8,
-        fuelCapacity: 3.4,
-        passengerCapacity: 5,
-        transmission: "Automatic",
-        luggageCapacity: 3,
-        fuelType: "Diesel",
-        availableLocations: ["Menofia commission", "Mansoura", "Tokyo"],
-    },
-    {
-        carId: "car_012",
-        make: "Volkswagen",
-        model: "Passat",
-        year: 2021,
-        dailyRate: 33,
-        category: "Sedan",
-        color: "Gray",
-        imageUrl: ["./assets/images/car12.png"],
-        rating: 4.3,
-        fuelCapacity: 3.5,
-        passengerCapacity: 5,
-        transmission: "Manual",
-        luggageCapacity: 3,
-        fuelType: "Diesel",
-        availableLocations: ["Cairo", "Paris", "Alexandria"],
-    },
-    {
-        carId: "car_013",
-        make: "Subaru",
-        model: "Outback",
-        year: 2020,
-        dailyRate: 40,
-        category: "SUV",
-        color: "Green",
-        imageUrl: ["./assets/images/car13.png"],
-        rating: 4.5,
-        fuelCapacity: 3.5,
-        passengerCapacity: 5,
-        transmission: "Automatic",
-        luggageCapacity: 4,
-        fuelType: "Gasoline",
-        availableLocations: ["Dubai", "London", "Menofia"],
-    },
-    {
-        carId: "car_014",
-        make: "Mazda",
-        model: "CX-5",
-        year: 2022,
-        dailyRate: 42,
-        category: "SUV",
-        color: "Red",
-        imageUrl: ["./assets/images/car14.png"],
-        rating: 4.6,
-        fuelCapacity: 3.3,
-        passengerCapacity: 5,
-        transmission: "Automatic",
-        luggageCapacity: 3,
-        fuelType: "Gasoline",
-        availableLocations: ["Mansoura", "Tokyo", "Cairo"],
-    },
-    {
-        carId: "car_015",
-        make: "Jeep",
-        model: "Wrangler",
-        year: 2021,
-        dailyRate: 65,
-        category: "SUV",
-        color: "Yellow",
-        imageUrl: ["./assets/images/car15.png"],
-        rating: 4.7,
-        fuelCapacity: 3.5,
-        passengerCapacity: 5,
-        transmission: "Manual",
-        luggageCapacity: 3,
-        fuelType: "Gasoline",
-        availableLocations: ["Paris", "Alexandria", "Dubai"],
-    },
-    {
-        carId: "car_016",
-        make: "Volvo",
-        model: "XC90",
-        year: 2022,
-        dailyRate: 58,
-        category: "SUV",
-        color: "Blue",
-        imageUrl: ["./assets/images/car16.png"],
-        rating: 4.8,
-        fuelCapacity: 3.8,
-        passengerCapacity: 7,
-        transmission: "Automatic",
-        luggageCapacity: 4,
-        fuelType: "Diesel",
-        availableLocations: ["London", "Menofia", "Mansoura"],
-    },
-    {
-        carId: "car_017",
-        make: "Porsche",
-        model: "Macan",
-        year: 2023,
-        dailyRate: 95,
-        category: "SUV",
-        color: "Black",
-        imageUrl: ["./assets/images/car17.png"],
-        rating: 4.9,
-        fuelCapacity: 3.8,
-        passengerCapacity: 5,
-        transmission: "Automatic",
-        luggageCapacity: 3,
-        fuelType: "Gasoline",
-        availableLocations: ["Tokyo", "Cairo", "Paris"],
-    },
-    {
-        carId: "car_018",
-        make: "Lexus",
-        model: "RX 350",
-        year: 2021,
-        dailyRate: 75,
-        category: "SUV",
-        color: "White",
-        imageUrl: ["./assets/images/car18.png"],
-        rating: 4.7,
-        fuelCapacity: 3.2,
-        passengerCapacity: 5,
-        transmission: "Automatic",
-        luggageCapacity: 3,
-        fuelType: "Gasoline",
-        availableLocations: ["Alexandria", "Dubai", "London"],
-    },
-    {
-        carId: "car_019",
-        make: "Acura",
-        model: "MDX",
-        year: 2020,
-        dailyRate: 55,
-        category: "SUV",
-        color: "Gray",
-        imageUrl: ["./assets/images/car19.png"],
-        rating: 4.5,
-        fuelCapacity: 3.5,
-        passengerCapacity: 7,
-        transmission: "Automatic",
-        luggageCapacity: 4,
-        fuelType: "Gasoline",
-        availableLocations: ["Menofia", "Mansoura", "Tokyo"],
-    },
-    {
-        carId: "car_020",
-        make: "Infiniti",
-        model: "QX60",
-        year: 2021,
-        dailyRate: 57,
-        category: "SUV",
-        color: "Silver",
-        imageUrl: ["./assets/images/car20.png"],
-        rating: 4.4,
-        fuelCapacity: 3.5,
-        passengerCapacity: 7,
-        transmission: "Automatic",
-        luggageCapacity: 4,
-        fuelType: "Gasoline",
-        availableLocations: ["Cairo", "Paris", "Alexandria"],
-    },
-    {
-        carId: "car_021",
-        make: "Toyota",
-        model: "RAV4",
-        year: 2022,
-        dailyRate: 38,
-        category: "SUV",
-        color: "Red",
-        imageUrl: ["./assets/images/car21.png"],
-        rating: 4.4,
-        fuelCapacity: 3.5,
-        passengerCapacity: 5,
-        transmission: "Automatic",
-        luggageCapacity: 3,
-        fuelType: "Gasoline",
-        availableLocations: ["Dubai", "London", "Menofia"],
-    },
-    {
-        carId: "car_022",
-        make: "Honda",
-        model: "CR-V",
-        year: 2023,
-        dailyRate: 39,
-        category: "SUV",
-        color: "Green",
-        imageUrl: ["./assets/images/car22.png"],
-        rating: 4.5,
-        fuelCapacity: 3.0,
-        passengerCapacity: 5,
-        transmission: "Automatic",
-        luggageCapacity: 3,
-        fuelType: "Gasoline",
-        availableLocations: ["Mansoura", "Tokyo", "Cairo"],
-    },
-    {
-        carId: "car_023",
-        make: "Ford",
-        model: "Escape",
-        year: 2021,
-        dailyRate: 36,
-        category: "SUV",
-        color: "Blue",
-        imageUrl: ["./assets/images/car23.png"],
-        rating: 4.2,
-        fuelCapacity: 3.7,
-        passengerCapacity: 5,
-        transmission: "Automatic",
-        luggageCapacity: 3,
-        fuelType: "Gasoline",
-        availableLocations: ["Paris", "Alexandria", "Dubai"],
-    },
-    {
-        carId: "car_024",
-        make: "Chevrolet",
-        model: "Equinox",
-        year: 2022,
-        dailyRate: 37,
-        category: "SUV",
-        color: "White",
-        imageUrl: ["./assets/images/car24.png"],
-        rating: 4.1,
-        fuelCapacity: 3.6,
-        passengerCapacity: 5,
-        transmission: "Automatic",
-        luggageCapacity: 3,
-        fuelType: "Gasoline",
-        availableLocations: ["London", "Menofia", "Mansoura"],
-    },
-    {
-        carId: "car_025",
-        make: "Hyundai",
-        model: "Tucson",
-        year: 2022,
-        dailyRate: 35,
-        category: "SUV",
-        color: "Black",
-        imageUrl: ["./assets/images/car25.png"],
-        rating: 4.3,
-        fuelCapacity: 3.3,
-        passengerCapacity: 5,
-        transmission: "Automatic",
-        luggageCapacity: 3,
-        fuelType: "Gasoline",
-        availableLocations: ["Tokyo", "Cairo", "Paris"],
-    },
-    {
-        carId: "car_026",
-        make: "Kia",
-        model: "Sportage",
-        year: 2023,
-        dailyRate: 36,
-        category: "SUV",
-        color: "Gray",
-        imageUrl: ["./assets/images/car26.png"],
-        rating: 4.3,
-        fuelCapacity: 3.5,
-        passengerCapacity: 5,
-        transmission: "Automatic",
-        luggageCapacity: 3,
-        fuelType: "Gasoline",
-        availableLocations: ["Alexandria", "Dubai", "London"],
-    },
-    {
-        carId: "car_027",
-        make: "Mazda",
-        model: "CX-30",
-        year: 2021,
-        dailyRate: 34,
-        category: "SUV",
-        color: "Red",
-        imageUrl: ["./assets/images/car27.png"],
-        rating: 4.2,
-        fuelCapacity: 3.5,
-        passengerCapacity: 5,
-        transmission: "Automatic",
-        luggageCapacity: 2,
-        fuelType: "Gasoline",
-        availableLocations: ["Menofia", "Mansoura", "Tokyo"],
-    },
-    {
-        carId: "car_028",
-        make: "Toyota",
-        model: "Camry",
-        year: 2022,
-        dailyRate: 37,
-        category: "Sedan",
-        color: "Silver",
-        imageUrl: ["./assets/images/car28.png"],
-        rating: 4.5,
-        fuelCapacity: 3.0,
-        passengerCapacity: 5,
-        transmission: "Automatic",
-        luggageCapacity: 3,
-        fuelType: "Gasoline",
-        availableLocations: ["Cairo", "Paris", "Alexandria"],
-    },
-    {
-        carId: "car_029",
-        make: "Nissan",
-        model: "Rogue",
-        year: 2023,
-        dailyRate: 39,
-        category: "SUV",
-        color: "Orange",
-        imageUrl: ["./assets/images/car29.png"],
-        rating: 4.3,
-        fuelCapacity: 3.5,
-        passengerCapacity: 5,
-        transmission: "Automatic",
-        luggageCapacity: 3,
-        fuelType: "Gasoline",
-        availableLocations: ["Dubai", "London", "Menofia"],
-    },
-    {
-        carId: "car_030",
-        make: "Ford",
-        model: "Mustang",
-        year: 2021,
-        dailyRate: 65,
-        category: "Sports",
-        color: "Yellow",
-        imageUrl: ["./assets/images/car30.png"],
-        rating: 4.8,
-        fuelCapacity: 3.0,
-        passengerCapacity: 4,
-        transmission: "Manual",
-        luggageCapacity: 2,
-        fuelType: "Gasoline",
-        availableLocations: ["Mansoura", "Tokyo", "Cairo"],
-    },
-    {
-        carId: "car_031",
-        make: "Toyota",
-        model: "Corolla",
-        year: 2020,
-        dailyRate: 30,
-        category: "Sedan",
-        color: "Red",
-        imageUrl: ["./assets/images/car1.png"],
-        rating: 4.5,
-        fuelCapacity: 2.5,
-        passengerCapacity: 5,
-        transmission: "Manual",
-        luggageCapacity: 2,
-        fuelType: "Gasoline",
-        availableLocations: ["Cairo", "Mansoura", "Tokyo"],
-    },
-    {
-        carId: "car_032",
-        make: "Honda",
-        model: "Civic",
-        year: 2021,
-        dailyRate: 35,
-        category: "Sedan",
-        color: "Blue",
-        imageUrl: ["./assets/images/car2.png"],
-        rating: 4.3,
-        fuelCapacity: 3.4,
-        passengerCapacity: 5,
-        transmission: "Manual",
-        luggageCapacity: 2,
-        fuelType: "Gasoline",
-        availableLocations: ["Alexandria", "Dubai", "London"],
-    },
-    {
-        carId: "car_033",
-        make: "BMW",
-        model: "X5",
-        year: 2022,
-        dailyRate: 50,
-        category: "SUV",
-        color: "Black",
-        imageUrl: ["./assets/images/car3.png"],
-        rating: 4.7,
-        fuelCapacity: 3.9,
-        passengerCapacity: 5,
-        transmission: "Automatic",
-        luggageCapacity: 4,
-        fuelType: "Diesel",
-        availableLocations: ["Menofia", "Paris", "Tokyo"],
-    },
-    {
-        carId: "car_034",
-        make: "Ford",
-        model: "Focus",
-        year: 2019,
-        dailyRate: 28,
-        category: "Sedan",
-        color: "White",
-        imageUrl: ["./assets/images/car4.png"],
-        rating: 4.0,
-        fuelCapacity: 3.4,
-        passengerCapacity: 5,
-        transmission: "Manual",
-        luggageCapacity: 3,
-        fuelType: "Gasoline",
-        availableLocations: ["Cairo", "Alexandria", "Paris"],
-    },
-    {
-        carId: "car_035",
-        make: "Chevrolet",
-        model: "Malibu",
-        year: 2020,
-        dailyRate: 32,
-        category: "Sedan",
-        color: "Gray",
-        imageUrl: ["./assets/images/car5.png"],
-        rating: 4.2,
-        fuelCapacity: 3.8,
-        passengerCapacity: 5,
-        transmission: "Automatic",
-        luggageCapacity: 3,
-        fuelType: "Gasoline",
-        availableLocations: ["Dubai", "London", "Menofia"],
-    },
-    {
-        carId: "car_036",
-        make: "Nissan",
-        model: "Altima",
-        year: 2021,
-        dailyRate: 34,
-        category: "Sedan",
-        color: "Silver",
-        imageUrl: ["./assets/images/car6.png"],
-        rating: 4.1,
-        fuelCapacity: 3.2,
-        passengerCapacity: 5,
-        transmission: "Automatic",
-        luggageCapacity: 2,
-        fuelType: "Gasoline",
-        availableLocations: ["Mansoura", "Tokyo", "Cairo"],
-    },
-    {
-        carId: "car_037",
-        make: "Tesla",
-        model: "Model 3",
-        year: 2023,
-        dailyRate: 70,
-        category: "Electric",
-        color: "White",
-        imageUrl: ["./assets/images/car7.png"],
-        rating: 4.9,
-        fuelCapacity: 0,
-        passengerCapacity: 5,
-        transmission: "Automatic",
-        luggageCapacity: 2,
-        fuelType: "Electric",
-        availableLocations: ["Paris", "Alexandria", "Dubai"],
-    },
-    {
-        carId: "car_038",
-        make: "Hyundai",
-        model: "Elantra",
-        year: 2022,
-        dailyRate: 29,
-        category: "Sedan",
-        color: "Red",
-        imageUrl: ["./assets/images/car8.png"],
-        rating: 4.2,
-        fuelCapacity: 3.0,
-        passengerCapacity: 5,
-        transmission: "Manual",
-        luggageCapacity: 2,
-        fuelType: "Gasoline",
-        availableLocations: ["London", "Menofia", "Mansoura"],
-    },
-    {
-        carId: "car_039",
-        make: "Kia",
-        model: "Sorento",
-        year: 2021,
-        dailyRate: 45,
-        category: "SUV",
-        color: "Black",
-        imageUrl: ["./assets/images/car9.png"],
-        rating: 4.4,
-        fuelCapacity: 3.7,
-        passengerCapacity: 7,
-        transmission: "Automatic",
-        luggageCapacity: 4,
-        fuelType: "Diesel",
-        availableLocations: ["Tokyo", "Cairo", "Paris"],
-    },
-    {
-        carId: "car_040",
-        make: "Audi",
-        model: "A4",
-        year: 2020,
-        dailyRate: 55,
-        category: "Sedan",
-        color: "Blue",
-        imageUrl: ["./assets/images/car10.png"],
-        rating: 4.6,
-        fuelCapacity: 3.3,
-        passengerCapacity: 5,
-        transmission: "Automatic",
-        luggageCapacity: 3,
-        fuelType: "Gasoline",
-        availableLocations: ["Alexandria", "Dubai", "London"],
-    },
-    {
-        carId: "car_041",
-        make: "Mercedes",
-        model: "C-Class",
-        year: 2022,
-        dailyRate: 60,
-        category: "Sedan",
-        color: "Silver",
-        imageUrl: ["./assets/images/car11.png"],
-        rating: 4.8,
-        fuelCapacity: 3.4,
-        passengerCapacity: 5,
-        transmission: "Automatic",
-        luggageCapacity: 3,
-        fuelType: "Diesel",
-        availableLocations: ["Menofia", "Mansoura", "Tokyo"],
-    },
-    {
-        carId: "car_042",
-        make: "Volkswagen",
-        model: "Passat",
-        year: 2021,
-        dailyRate: 33,
-        category: "Sedan",
-        color: "Gray",
-        imageUrl: ["./assets/images/car12.png"],
-        rating: 4.3,
-        fuelCapacity: 3.5,
-        passengerCapacity: 5,
-        transmission: "Manual",
-        luggageCapacity: 3,
-        fuelType: "Diesel",
-        availableLocations: ["Cairo", "Paris", "Alexandria"],
-    },
-    {
-        carId: "car_043",
-        make: "Subaru",
-        model: "Outback",
-        year: 2020,
-        dailyRate: 40,
-        category: "SUV",
-        color: "Green",
-        imageUrl: ["./assets/images/car13.png"],
-        rating: 4.5,
-        fuelCapacity: 3.5,
-        passengerCapacity: 5,
-        transmission: "Automatic",
-        luggageCapacity: 4,
-        fuelType: "Gasoline",
-        availableLocations: ["Dubai", "London", "Menofia"],
-    },
-    {
-        carId: "car_044",
-        make: "Mazda",
-        model: "CX-5",
-        year: 2022,
-        dailyRate: 42,
-        category: "SUV",
-        color: "Red",
-        imageUrl: ["./assets/images/car14.png"],
-        rating: 4.6,
-        fuelCapacity: 3.3,
-        passengerCapacity: 5,
-        transmission: "Automatic",
-        luggageCapacity: 3,
-        fuelType: "Gasoline",
-        availableLocations: ["Mansoura", "Tokyo", "Cairo"],
-    },
-    {
-        carId: "car_045",
-        make: "Jeep",
-        model: "Wrangler",
-        year: 2021,
-        dailyRate: 65,
-        category: "SUV",
-        color: "Yellow",
-        imageUrl: ["./assets/images/car15.png"],
-        rating: 4.7,
-        fuelCapacity: 3.5,
-        passengerCapacity: 5,
-        transmission: "Manual",
-        luggageCapacity: 3,
-        fuelType: "Gasoline",
-        availableLocations: ["Paris", "Alexandria", "Dubai"],
-    },
-    {
-        carId: "car_046",
-        make: "Volvo",
-        model: "XC90",
-        year: 2022,
-        dailyRate: 58,
-        category: "SUV",
-        color: "Blue",
-        imageUrl: ["./assets/images/car16.png"],
-        rating: 4.8,
-        fuelCapacity: 3.8,
-        passengerCapacity: 7,
-        transmission: "Automatic",
-        luggageCapacity: 4,
-        fuelType: "Diesel",
-        availableLocations: ["London", "Menofia", "Mansoura"],
-    },
-    {
-        carId: "car_047",
-        make: "Porsche",
-        model: "Macan",
-        year: 2023,
-        dailyRate: 95,
-        category: "SUV",
-        color: "Black",
-        imageUrl: ["./assets/images/car17.png"],
-        rating: 4.9,
-        fuelCapacity: 3.8,
-        passengerCapacity: 5,
-        transmission: "Automatic",
-        luggageCapacity: 3,
-        fuelType: "Gasoline",
-        availableLocations: ["Tokyo", "Cairo", "Paris"],
-    },
-    {
-        carId: "car_048",
-        make: "Lexus",
-        model: "RX 350",
-        year: 2021,
-        dailyRate: 75,
-        category: "SUV",
-        color: "White",
-        imageUrl: ["./assets/images/car18.png"],
-        rating: 4.7,
-        fuelCapacity: 3.2,
-        passengerCapacity: 5,
-        transmission: "Automatic",
-        luggageCapacity: 3,
-        fuelType: "Gasoline",
-        availableLocations: ["Alexandria", "Dubai", "London"],
-    },
-    {
-        carId: "car_049",
-        make: "Acura",
-        model: "MDX",
-        year: 2020,
-        dailyRate: 55,
-        category: "SUV",
-        color: "Gray",
-        imageUrl: ["./assets/images/car19.png"],
-        rating: 4.5,
-        fuelCapacity: 3.5,
-        passengerCapacity: 7,
-        transmission: "Automatic",
-        luggageCapacity: 4,
-        fuelType: "Gasoline",
-        availableLocations: ["Menofia", "Mansoura", "Tokyo"],
-    },
-    {
-        carId: "car_050",
-        make: "Infiniti",
-        model: "QX60",
-        year: 2021,
-        dailyRate: 57,
-        category: "SUV",
-        color: "Silver",
-        imageUrl: ["./assets/images/car20.png"],
-        rating: 4.4,
-        fuelCapacity: 3.5,
-        passengerCapacity: 7,
-        transmission: "Automatic",
-        luggageCapacity: 4,
-        fuelType: "Gasoline",
-        availableLocations: ["Cairo", "Paris", "Alexandria"],
-    },
-    {
-        carId: "car_051",
-        make: "Toyota",
-        model: "RAV4",
-        year: 2022,
-        dailyRate: 38,
-        category: "SUV",
-        color: "Red",
-        imageUrl: ["./assets/images/car21.png"],
-        rating: 4.4,
-        fuelCapacity: 3.5,
-        passengerCapacity: 5,
-        transmission: "Automatic",
-        luggageCapacity: 3,
-        fuelType: "Gasoline",
-        availableLocations: ["Dubai", "London", "Menofia"],
-    },
-    {
-        carId: "car_052",
-        make: "Honda",
-        model: "CR-V",
-        year: 2023,
-        dailyRate: 39,
-        category: "SUV",
-        color: "Green",
-        imageUrl: ["./assets/images/car22.png"],
-        rating: 4.5,
-        fuelCapacity: 3.0,
-        passengerCapacity: 5,
-        transmission: "Automatic",
-        luggageCapacity: 3,
-        fuelType: "Gasoline",
-        availableLocations: ["Mansoura", "Tokyo", "Cairo"],
-    },
-    {
-        carId: "car_053",
-        make: "Ford",
-        model: "Escape",
-        year: 2021,
-        dailyRate: 36,
-        category: "SUV",
-        color: "Blue",
-        imageUrl: ["./assets/images/car23.png"],
-        rating: 4.2,
-        fuelCapacity: 3.7,
-        passengerCapacity: 5,
-        transmission: "Automatic",
-        luggageCapacity: 3,
-        fuelType: "Gasoline",
-        availableLocations: ["Paris", "Alexandria", "Dubai"],
-    },
-    {
-        carId: "car_054",
-        make: "Chevrolet",
-        model: "Equinox",
-        year: 2022,
-        dailyRate: 37,
-        category: "SUV",
-        color: "White",
-        imageUrl: ["./assets/images/car24.png"],
-        rating: 4.1,
-        fuelCapacity: 3.6,
-        passengerCapacity: 5,
-        transmission: "Automatic",
-        luggageCapacity: 3,
-        fuelType: "Gasoline",
-        availableLocations: ["London", "Menofia", "Mansoura"],
-    },
-    {
-        carId: "car_055",
-        make: "Hyundai",
-        model: "Tucson",
-        year: 2022,
-        dailyRate: 35,
-        category: "SUV",
-        color: "Black",
-        imageUrl: ["./assets/images/car25.png"],
-        rating: 4.3,
-        fuelCapacity: 3.3,
-        passengerCapacity: 5,
-        transmission: "Automatic",
-        luggageCapacity: 3,
-        fuelType: "Gasoline",
-        availableLocations: ["Tokyo", "Cairo", "Paris"],
-    },
-    {
-        carId: "car_056",
-        make: "Kia",
-        model: "Sportage",
-        year: 2023,
-        dailyRate: 36,
-        category: "SUV",
-        color: "Gray",
-        imageUrl: ["./assets/images/car26.png"],
-        rating: 4.3,
-        fuelCapacity: 3.5,
-        passengerCapacity: 5,
-        transmission: "Automatic",
-        luggageCapacity: 3,
-        fuelType: "Gasoline",
-        availableLocations: ["Alexandria", "Dubai", "London"],
-    },
-    {
-        carId: "car_057",
-        make: "Mazda",
-        model: "CX-30",
-        year: 2021,
-        dailyRate: 34,
-        category: "SUV",
-        color: "Red",
-        imageUrl: ["./assets/images/car27.png"],
-        rating: 4.2,
-        fuelCapacity: 3.5,
-        passengerCapacity: 5,
-        transmission: "Automatic",
-        luggageCapacity: 2,
-        fuelType: "Gasoline",
-        availableLocations: ["Menofia", "Mansoura", "Tokyo"],
-    },
-    {
-        carId: "car_058",
-        make: "Toyota",
-        model: "Camry",
-        year: 2022,
-        dailyRate: 37,
-        category: "Sedan",
-        color: "Silver",
-        imageUrl: ["./assets/images/car28.png"],
-        rating: 4.5,
-        fuelCapacity: 3.0,
-        passengerCapacity: 5,
-        transmission: "Automatic",
-        luggageCapacity: 3,
-        fuelType: "Gasoline",
-        availableLocations: ["Cairo", "Paris", "Alexandria"],
-    },
-    {
-        carId: "car_059",
-        make: "Nissan",
-        model: "Rogue",
-        year: 2023,
-        dailyRate: 39,
-        category: "SUV",
-        color: "Orange",
-        imageUrl: ["./assets/images/car29.png"],
-        rating: 4.3,
-        fuelCapacity: 3.5,
-        passengerCapacity: 5,
-        transmission: "Automatic",
-        luggageCapacity: 3,
-        fuelType: "Gasoline",
-        availableLocations: ["Dubai", "London", "Menofia"],
-    },
-    {
-        carId: "car_060",
-        make: "Ford",
-        model: "Mustang",
-        year: 2021,
-        dailyRate: 65,
-        category: "Sports",
-        color: "Yellow",
-        imageUrl: ["./assets/images/car30.png"],
-        rating: 4.8,
-        fuelCapacity: 3.0,
-        passengerCapacity: 4,
-        transmission: "Manual",
-        luggageCapacity: 2,
-        fuelType: "Gasoline",
-        availableLocations: ["Mansoura", "Tokyo", "Cairo"],
-    }
-];
+const carsData = savedCars.get();
 
 const newLocations = ["Cairo", "London", "Mansoura", "Menofia", "Alexandria", "Paris", "Dubai", "Tokyo"];
 carsData.forEach(car => {
@@ -1086,7 +66,7 @@ function isCarAvailable(car, pickupDate, dropoffDate) {
     return true;
 }
 
-// Function to update the car counts in the Pick-up Location filter
+// Function to update the car counts in the Pick-up Location filter and Car Type filter
 function updateLocationCounts(pickupDate, dropoffDate) {
     const locationCounts = {
         cairo: 0,
@@ -1099,6 +79,17 @@ function updateLocationCounts(pickupDate, dropoffDate) {
         tokyo: 0
     };
 
+    const carTypeCounts = {
+        'all-cars': 0,
+        sedans: 0,
+        suvs: 0,
+        coupes: 0,
+        'electric-cars': 0,
+        luxury: 0,
+        'sport-cars': 0,
+        convertibles: 0
+    };
+
     carsData.forEach(car => {
         if (isCarAvailable(car, pickupDate, dropoffDate)) {
             car.availableLocations.forEach(loc => {
@@ -1107,12 +98,26 @@ function updateLocationCounts(pickupDate, dropoffDate) {
                     locationCounts[locationKey]++;
                 }
             });
+
+            const carTypeKey = car.category.toLowerCase() === 'sports' ? 'sport-cars' :
+                              car.category.toLowerCase() === 'electric' ? 'electric-cars' :
+                              car.category.toLowerCase() + 's';
+            if (carTypeCounts.hasOwnProperty(carTypeKey)) {
+                carTypeCounts[carTypeKey]++;
+            }
+            carTypeCounts['all-cars']++;
         }
     });
 
-    // Update the counts in the UI
     for (const [location, count] of Object.entries(locationCounts)) {
         const countElement = document.getElementById(`count-${location}`);
+        if (countElement) {
+            countElement.textContent = count;
+        }
+    }
+
+    for (const [carType, count] of Object.entries(carTypeCounts)) {
+        const countElement = document.getElementById(`count-${carType}`);
         if (countElement) {
             countElement.textContent = count;
         }
@@ -1122,7 +127,17 @@ function updateLocationCounts(pickupDate, dropoffDate) {
 // Function to filter cars based on all selected filters
 function filterCars(pickupDate, dropoffDate) {
     const carTypeFilters = Array.from(document.querySelectorAll('.filter-box:nth-child(1) .form-check-input:checked'))
-        .map(input => input.id.replace('all-cars', '').replace('-', ''));
+        .map(input => {
+            if (input.id === 'all-cars') return '';
+            if (input.id === 'sedans') return 'sedan';
+            if (input.id === 'suvs') return 'suv';
+            if (input.id === 'sport') return 'sports';
+            if (input.id === 'electric') return 'electric';
+            if (input.id === 'coupes') return 'coupes';
+            if (input.id === 'luxury') return 'luxury';
+            if (input.id === 'convertible') return 'convertibles';
+            return input.id;
+        });
     const priceFilter = document.querySelector('.form-range').value;
     const fuelTypeFilters = Array.from(document.querySelectorAll('.filter-box:nth-child(3) .form-check-input:checked'))
         .map(input => input.id.replace('all-fuel', '').replace('fuel-', '').replace('-fuel', ''));
@@ -1150,7 +165,7 @@ function filterCars(pickupDate, dropoffDate) {
         return matchesCarType && matchesPrice && matchesFuelType && matchesLocation && matchesTransmission && matchesYear && matchesAvailability;
     });
 
-    currentPage = 1; // Reset to first page after filtering
+    currentPage = 1;
     renderCarListings();
     renderPagination();
 }
@@ -1179,33 +194,82 @@ function renderCarListings() {
         carListings.innerHTML = '<p>No cars available for the selected filters.</p>';
         return;
     }
-    // added navigation to car details page
+    
     carsToDisplay.forEach(car => {
         const carCard = `
-            <div class="col-md-4 mb-4 car-card-item">
-                <div class="car-card" onclick="window.location.href='car-details.html?carId=${car.carId}'" style="cursor: pointer;">
-                    <img src="${car.imageUrl[0]}" class="card-img-top" alt="${car.make} ${car.model}">
-                    <div class="card-body">
-                        <h5 class="card-title">${car.make} ${car.model}</h5>
-                        <p class="car-type">${car.category}</p>
-                        <div class="car-specs">
-                            <span><i class="fas fa-users"></i> ${car.passengerCapacity}</span>
-                            <span><i class="fas fa-suitcase"></i> ${car.luggageCapacity}</span>
-                            <span><i class="fas fa-cogs"></i> ${car.transmission}</span>
-                            <span><i class="fas fa-gas-pump"></i> ${car.fuelType}</span>
+            <div class="col-lg-4 col-md-6 col-sm-12 mb-4 car-card-item">
+                <div class="car-card m-0">
+                    <div class="image-wrapper position-relative">
+                        <img src="${car.imageUrl[0]}" alt="${car.make} ${car.model}" />
+                        <div class="rating-overlay position-absolute top-0 end-0 m-2">
+                            <i class="bi bi-star-fill" style="color: #FFD700;"></i>
+                            <span class="ms-1">${car.rating}</span>
                         </div>
-                        <p class="price">$${car.dailyRate} USD /Per Day</p>
-                        <div class="rating">
-                            <span>${car.rating} <i class="fas fa-star" style="color: #FFD700;"></i></span>
+                    </div>
+                    <div class="car-details mt-2">
+                        <div class="car-headline d-flex justify-content-between align-items-center mb-2">
+                            <h3 class="m-0">${car.make} ${car.model} ${car.year}</h3>
+                            <div class="car-type"><span>${car.category}</span></div>
                         </div>
+                        <div class="car-details-icons d-flex gap-3">
+                            <div class="icon-item"><i class="bi bi-person-fill"></i><span class="ms-1">${car.passengerCapacity}</span></div>
+                            <div class="icon-item"><i class="bi bi-suitcase"></i><span class="ms-1">${car.luggageCapacity}</span></div>
+                            <div class="icon-item"><i class="bi bi-car-front-fill"></i><span class="ms-1">${car.transmission.toLowerCase()}</span></div>
+                            <div class="icon-item"><i class="bi bi-fuel-pump"></i><span class="ms-1">${car.fuelType.toLowerCase()}</span></div>
+                        </div>
+                    </div>
+                    <div class="car-price d-flex align-items-center justify-content-between">
+                        <div class="d-flex align-items-baseline">
+                            <h4 class="fs-5 m-0">$${car.dailyRate}</h4>
+                            <span class="fs-6 darkgrey ms-1">/Per Day</span>
+                        </div>
+                        <a href="car-details.html?carId=${car.carId}" class="btn text-white details-btn">Details</a>
                     </div>
                 </div>
             </div>
         `;
+        // const carCard = `
+        //     <div class="col-lg-4" id="car-${car.carId}">
+        //         <div class="car-card p-3">
+        //             <div class="car-img-wrapper mb-3">
+        //                 <img src="${car.imageUrl[0]}" class="img-fluid w-100" alt="${car.make} ${car.model}" />
+        //             </div>
+        //             <div class="car-details">
+        //                 <div class="car-headline d-flex justify-content-between mb-3">
+        //                     <h3 class="m-0">${car.make} ${car.model} ${car.year}</h3>
+        //                     <div class="car-type text-white">
+        //                         <span>${car.category}</span>
+        //                     </div>
+        //                 </div>
+        //                 <div class="car-details-icons mb-2">
+        //                     <i class="bi bi-person-fill me-2">
+        //                         <span class="ms-1">${car.passengerCapacity}</span>
+        //                     </i>
+        //                     <i class="bi bi-suitcase me-2">
+        //                         <span class="ms-1">${car.luggageCapacity}</span>
+        //                     </i>
+        //                     <i class="bi bi-car-front-fill me-2">
+        //                         <span class="ms-1">${car.transmission.toLowerCase()}</span>
+        //                     </i>
+        //                     <i class="bi bi-fuel-pump-fill me-2">
+        //                         <span class="ms-1">${car.fuelType.toLowerCase()}</span>
+        //                     </i>
+        //                 </div>
+        //             </div>
+        //             <div class="car-price mt-3 d-flex align-items-center justify-content-between">
+        //                 <h4 class="fs-5 m-0">
+        //                     <span class="text-main">$${car.dailyRate}</span> <span class="fs-6 darkgrey">/Per Day</span>
+        //                 </h4>
+        //                 <a href="car-details.html?carId=${car.carId}" class="text-black">
+        //                     <button class="btn btn-nav">Details</button>
+        //                 </a>
+        //             </div>
+        //         </div>
+        //     </div>
+        // `;
         carListings.innerHTML += carCard;
     });
 
-    // Re-attach event listeners to the new "Book Now" buttons
     attachBookNowListeners();
 }
 
@@ -1268,7 +332,6 @@ function renderPagination() {
         </li>
     `;
 
-    // Add event listeners for pagination links
     document.querySelectorAll('.page-link').forEach(link => {
         link.addEventListener('click', (e) => {
             e.preventDefault();
@@ -1315,14 +378,11 @@ function validateSearchForm() {
 
 // Event listeners
 document.addEventListener('DOMContentLoaded', () => {
-
-    // Initial render (without date filtering)
     filteredCars = [...carsData];
     renderCarListings();
     renderPagination();
-    updateLocationCounts(null, null); // Initial counts without date filtering
+    updateLocationCounts(null, null);
 
-    // Car Type Filter
     document.querySelectorAll('.filter-box:nth-child(1) .form-check-input').forEach(input => {
         input.addEventListener('change', () => {
             const pickupDate = document.getElementById('pickup-date').value;
@@ -1332,7 +392,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // Price Filter
     document.querySelector('.form-range').addEventListener('input', (e) => {
         document.querySelector('.d-flex span:nth-child(2)').textContent = `$${e.target.value}`;
         const pickupDate = document.getElementById('pickup-date').value;
@@ -1341,7 +400,6 @@ document.addEventListener('DOMContentLoaded', () => {
         updateLocationCounts(pickupDate, dropoffDate);
     });
 
-    // Fuel Type Filter
     document.querySelectorAll('.filter-box:nth-child(3) .form-check-input').forEach(input => {
         input.addEventListener('change', () => {
             const pickupDate = document.getElementById('pickup-date').value;
@@ -1351,7 +409,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // Pick-up Location Filter
     document.querySelectorAll('.filter-box:nth-child(4) .form-check-input').forEach(input => {
         input.addEventListener('change', () => {
             const pickupDate = document.getElementById('pickup-date').value;
@@ -1361,7 +418,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // Transmission Filter
     document.querySelectorAll('.filter-box:nth-child(5) .form-check-input').forEach(input => {
         input.addEventListener('change', () => {
             const pickupDate = document.getElementById('pickup-date').value;
@@ -1371,7 +427,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // Year Filter
     const yearRange = document.getElementById('year-range');
     const yearDisplay = document.getElementById('year-range-display');
     yearRange.addEventListener('input', () => {
@@ -1384,10 +439,8 @@ document.addEventListener('DOMContentLoaded', () => {
         updateLocationCounts(pickupDate, dropoffDate);
     });
 
-    // Sorting
     document.getElementById('sortOptions').addEventListener('change', sortCars);
 
-    // Book Car Button
     document.getElementById('bookCarBtn').addEventListener('click', (e) => {
         e.preventDefault();
         if (validateSearchForm()) {
