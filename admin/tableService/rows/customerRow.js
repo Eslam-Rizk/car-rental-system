@@ -14,7 +14,8 @@ export function customerRow(customer, index, offset = 0) {
   cells[1].textContent = customer.name;
   cells[2].textContent = customer.email;
   cells[3].textContent = customer.phone;
-  const actionCell = cells[4];
+  cells[4].textContent = customer.role;
+  const actionCell = cells[5];
 
   const editIcon = actionCell.querySelector(".edit-icon");
   const deleteIcon = actionCell.querySelector(".delete-icon");

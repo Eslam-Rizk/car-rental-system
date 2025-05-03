@@ -43,21 +43,6 @@ header h1 {
 
 }
 
-.rating-overlay {
-  background-color: white;
-  border-radius: 20px;
-  padding: 4px 10px;
-  display: flex;
-  align-items: center;
-  font-size: 14px;
-  color: var(--darkgrey);
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-
-.rating-overlay i {
-  font-size: 14px;
-}
-
 .background-oval {
   width: 80%;
   aspect-ratio: 3/6;

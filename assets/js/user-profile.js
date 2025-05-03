@@ -15,7 +15,7 @@ function initializeUser() {
   }
 
   const user = savedCustomers.getCustomerById(loggedInCustomerId);
-  if (user && user.role === "user") {
+  if (user && user.role === "customer") {
     //set nav login btn or user profile 
     attachNavAndFooter();
   }

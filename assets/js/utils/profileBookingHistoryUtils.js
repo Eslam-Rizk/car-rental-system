@@ -1,41 +1,41 @@
-import { savedBookings, savedCustomers, savedCars, bookingsFilter} from '../../../mock/storage/seedStorage.js';
+import { savedBookings, savedCustomers, savedCars, bookingsFilter } from '../../../mock/storage/seedStorage.js';
 import { getLoggedInCustomerId } from './userUtils.js';
 import { formatDate, calculateDays } from './dateUtils.js';
 
 export function handleBookingDetailsClick(event) {
-    const button = event.target.closest('.view-details-btn');
-    if (button) {
-        const bookingId = button.getAttribute('data-booking-id');
-        showBookingDetails(bookingId);
-    }
+  const button = event.target.closest('.view-details-btn');
+  if (button) {
+    const bookingId = button.getAttribute('data-booking-id');
+    showBookingDetails(bookingId);
+  }
 }
 
 export function generateBookingCards(userId) {
-    const container = document.getElementById('bookings-container');
-    if (!container) return;
+  const container = document.getElementById('bookings-container');
+  if (!container) return;
 
-    container.innerHTML = '';
+  container.innerHTML = '';
 
-    // Get all bookings
-    const bookings = savedBookings.get();
+  // Get all bookings
+  const bookings = savedBookings.get();
 
-    // Filter bookings for current user
-    const userBookings = bookings.filter(booking => booking.customerId === userId);
+  // Filter bookings for current user
+  const userBookings = bookings.filter(booking => booking.customerId === userId);
 
-    if (userBookings.length === 0) {
-        container.innerHTML = '<div class="col-12"><p class="text-center">No bookings found.</p></div>';
-        return;
-    }
+  if (userBookings.length === 0) {
+    container.innerHTML = '<div class="col-12"><p class="text-center">No bookings found.</p></div>';
+    return;
+  }
 
-    // Generate HTML for each booking
-    const bookingsHTML = userBookings.map(booking => {
-        const car = savedCars.getCarById(booking.carId);
-        if (!car) return ''; // Skip if car details not found
+  // Generate HTML for each booking
+  const bookingsHTML = userBookings.map(booking => {
+    const car = savedCars.getCarById(booking.carId);
+    if (!car) return ''; // Skip if car details not found
 
-        return createBookingCardHTML(booking, car);
-    }).join('');
+    return createBookingCardHTML(booking, car);
+  }).join('');
 
-    container.innerHTML = bookingsHTML;
+  container.innerHTML = bookingsHTML;
 }
 export function updateUserProfileDisplay(userId) {
   const nameElement = document.getElementById('user-name');
@@ -59,61 +59,67 @@ export function updateUserProfileDisplay(userId) {
   address.innerHTML = `<i class="fa-solid fa-location-dot me-2 text-main"></i>${customer.address || 'No address provided'}`;
 }
 function createBookingCardHTML(booking, car) {
-    return `  
+  return `  
       <div class="col-lg-4 mb-4">
         <div class="car-card p-3">
-          <img src="${car.imageUrls[0]}" alt="${car.make} ${car.model}" />
+          <div class="car-img-wrapper position-relative">
+            <img src="${car.imageUrls[0]}" alt="${car.make} ${car.model}" />
+            <div class="rating-overlay position-absolute top-0 end-0 m-2">
+              <i class="bi bi-star-fill" style="color: #FFD700;"></i>
+              <span class="ms-1">${car.rating || '4.5'}</span>
+            </div>
+          </div> 
           <div class="car-details mt-3">
             <div class="d-flex justify-content-between align-items-center mb-2">
               <h5 class="card-title mb-0 fw-bold">${car.make} ${car.model} ${car.year}</h5>
               <span class="badge bg-${getStatusBadgeClass(booking.paymentStatus)} ${booking.paymentStatus === 'Pending' ? 'text-dark' : ''} fw-normal px-2 py-1">${booking.paymentStatus}</span>
             </div>
-            <div class="car-details-icons mb-2">
-              <i class="bi bi-person-fill me-4"><span class="ms-1">${car.seats ? car.seats.toString().padStart(2, '0') : '05'}</span></i>
-              <i class="bi bi-suitcase me-4"><span class="ms-1">${car.luggage ? car.luggage.toString().padStart(2, '0') : '03'}</span></i>
-              <i class="bi bi-car-front-fill me-4"><span class="ms-1">${car.transmission || 'automatic'}</span></i>
-            </div>
+          <div class="car-details-icons mb-2 d-flex justify-content-between">
+            <i class="bi bi-person-fill"><span class="ms-1">${car.seats ? car.seats.toString().padStart(2, '0') : '05'}</span></i>
+            <i class="bi bi-suitcase"><span class="ms-1">${car.luggage ? car.luggage.toString().padStart(2, '0') : '03'}</span></i>
+            <i class="bi bi-car-front-fill"><span class="ms-1">${car.transmission || 'automatic'}</span></i>
+            <i class="bi bi-fuel-pump-fill"><span class="ms-1">${car.fuel || 'Petrol'}</span></i>
           </div>
-          <div class="car-price mt-3 d-flex align-items-center justify-content-between">
-            <h4 class="fs-5 m-0 text-main">${booking.totalAmount} $ <span class="fs-6 darkgrey"></span>
-            </h4>
-            <button class="btn btn-nav view-details-btn text-white" data-booking-id="${booking.bookingId}">Details</button>
+        </div>
+        <div class="car-price mt-3 d-flex align-items-center justify-content-between">
+          <h4 class="fs-5 m-0 text-main">${booking.totalAmount} $ <span class="fs-6 darkgrey"></span></h4>
+          <button class="btn btn-nav view-details-btn text-white" data-booking-id="${booking.bookingId}">Details</button>
           </div>
         </div>
       </div>
-    `;
+  `;
 }
 
 function showBookingDetails(bookingId) {
-    const bookings = savedBookings.get();
-    const booking = bookings.find(b => b.bookingId === bookingId);
-    if (!booking) return;
+  const bookings = savedBookings.get();
+  const booking = bookings.find(b => b.bookingId === bookingId);
+  if (!booking) return;
 
-    const car = savedCars.getCarById(booking.carId);
-    if (!car) return;
+  const car = savedCars.getCarById(booking.carId);
+  if (!car) return;
 
-    const days = calculateDays(booking.startDate, booking.endDate);
+  const days = calculateDays(booking.startDate, booking.endDate);
 
-    // Create and show modal
-    const modalHTML = createBookingModalHTML(booking, car, days);
-    showModal(modalHTML);
-    const cancelButton = document.getElementById('cancelBookingBtn');
-    if (cancelButton) {
-        cancelButton.addEventListener('click', () => {
-            cancelBooking(bookingId);
-            // Close the modal
-            const modal = bootstrap.Modal.getInstance(document.getElementById('bookingDetailsModal'));
-            if (modal) {
-                modal.hide();
-            }
-            // Refresh the bookings display
-            generateBookingCards(getLoggedInCustomerId());
-        });
-    }
+  // Create and show modal
+  const modalHTML = createBookingModalHTML(booking, car, days);
+  showModal(modalHTML);
+  const cancelButton = document.getElementById('cancelBookingBtn');
+  if (cancelButton) {
+    cancelButton.addEventListener('click', () => {
+      cancelBooking(bookingId);
+      // Close the modal
+      const modal = bootstrap.Modal.getInstance(document.getElementById('bookingDetailsModal'));
+      if (modal) {
+        modal.hide();
+      }
+      // Refresh the bookings display
+      generateBookingCards(getLoggedInCustomerId());
+    });
+  }
 }
 
 function createBookingModalHTML(booking, car, days) {
-    return `
+  return `
       <div class="modal fade" id="bookingDetailsModal" tabindex="-1" aria-labelledby="bookingDetailsModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-lg">
           <div class="modal-content">
@@ -175,33 +181,33 @@ function createBookingModalHTML(booking, car, days) {
 }
 
 function getStatusBadgeClass(status) {
-    switch (status) {
-        case 'Pending': return 'warning'; 
-        case 'Completed': return 'success';
-        default: return 'danger';
-    }
+  switch (status) {
+    case 'Pending': return 'warning';
+    case 'Completed': return 'success';
+    default: return 'danger';
+  }
 }
 function showModal(modalHTML) {
-    const existingModal = document.getElementById('bookingDetailsModal');
-    if (existingModal) {
-        existingModal.remove();
-    }
+  const existingModal = document.getElementById('bookingDetailsModal');
+  if (existingModal) {
+    existingModal.remove();
+  }
 
-    document.body.insertAdjacentHTML('beforeend', modalHTML);
+  document.body.insertAdjacentHTML('beforeend', modalHTML);
 
-    const modal = new bootstrap.Modal(document.getElementById('bookingDetailsModal'));
-    modal.show();
+  const modal = new bootstrap.Modal(document.getElementById('bookingDetailsModal'));
+  modal.show();
 }
 
 function cancelBooking(bookingId) {
-    const bookings = savedBookings.get();
-    const booking = bookings.find(b => b.bookingId === bookingId);
-    if (!booking) return;
+  const bookings = savedBookings.get();
+  const booking = bookings.find(b => b.bookingId === bookingId);
+  if (!booking) return;
 
-    const editedBooking = booking;
-    editedBooking.paymentStatus = 'Cancelled';
-    savedBookings.editBooking(editedBooking, booking, bookingsFilter.checkBookingExist);
+  const editedBooking = booking;
+  editedBooking.paymentStatus = 'Cancelled';
+  savedBookings.editBooking(editedBooking, booking, bookingsFilter.checkBookingExist);
 
-    // Refresh the bookings display
-    generateBookingCards(getLoggedInCustomerId());
+  // Refresh the bookings display
+  generateBookingCards(getLoggedInCustomerId());
 }

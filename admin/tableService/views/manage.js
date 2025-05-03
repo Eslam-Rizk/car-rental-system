@@ -25,11 +25,6 @@ import { dispatcher } from "../forms/dispatcher.js";
 // initialize the local storage 
 seedStorage();
 
-
-//  uncomment ⬇⬇⬇⬇⬆⬆⬆⬆ in case a need to reset the local storage
-// localStorage.removeItem('customers')
-// localStorage.removeItem('bookings')
-// localStorage.removeItem('cars')
 const customers = savedCustomers.get();
 const cars = savedCars.get();
 const bookings = savedBookings.get();
