@@ -10,7 +10,7 @@ carsData.forEach(car => {
         newLocations[Math.floor(Math.random() * newLocations.length)],
         newLocations[Math.floor(Math.random() * newLocations.length)],
         newLocations[Math.floor(Math.random() * newLocations.length)],
-    ].filter((loc, index, self) => self.indexOf(loc) === index); 
+    ].filter((loc, index, self) => self.indexOf(loc) === index);
 });
 
 if (localStorage.getItem('carsData')) {
@@ -29,8 +29,8 @@ if (localStorage.getItem('carsData')) {
                     { startDate: "2025-05-10", endDate: "2025-05-15" },
                 ]
                 : index % 3 === 1
-                ? [{ startDate: "2025-05-03", endDate: "2025-05-07" }]
-                : [];
+                    ? [{ startDate: "2025-05-03", endDate: "2025-05-07" }]
+                    : [];
         }
     });
     localStorage.setItem('carsData', JSON.stringify(carsData));
@@ -100,8 +100,8 @@ function updateLocationCounts(pickupDate, dropoffDate) {
             });
 
             const carTypeKey = car.category.toLowerCase() === 'sports' ? 'sport-cars' :
-                              car.category.toLowerCase() === 'electric' ? 'electric-cars' :
-                              car.category.toLowerCase() + 's';
+                car.category.toLowerCase() === 'electric' ? 'electric-cars' :
+                    car.category.toLowerCase() + 's';
             if (carTypeCounts.hasOwnProperty(carTypeKey)) {
                 carTypeCounts[carTypeKey]++;
             }
@@ -156,7 +156,7 @@ function filterCars(pickupDate, dropoffDate) {
             car.availableLocations.some(loc => {
                 const locKey = loc.toLowerCase();
                 return (destination !== 'Add your location' && locKey === destination.toLowerCase()) ||
-                       locationFilters.includes(locKey);
+                    locationFilters.includes(locKey);
             });
         const matchesTransmission = transmissionFilters.length === 0 || transmissionFilters.includes('') || transmissionFilters.includes(car.transmission.toLowerCase());
         const matchesYear = car.year >= yearFilter;
@@ -194,7 +194,7 @@ function renderCarListings() {
         carListings.innerHTML = '<p>No cars available for the selected filters.</p>';
         return;
     }
-    
+
     carsToDisplay.forEach(car => {
         const carCard = `
             <div class="col-xl-4 col-lg-6 col-md-12 col-sm-12 mb-4">
@@ -215,7 +215,7 @@ function renderCarListings() {
                             <div class="icon-item"><i class="bi bi-person-fill"></i><span class="ms-1">${car.passengerCapacity}</span></div>
                             <div class="icon-item"><i class="bi bi-suitcase"></i><span class="ms-1">${car.luggageCapacity}</span></div>
                             <div class="icon-item"><i class="bi bi-car-front-fill"></i><span class="ms-1">${car.transmission.toLowerCase()}</span></div>
-                            <div class="icon-item"><i class="bi bi-fuel-pump"></i><span class="ms-1">${car.fuelType.toLowerCase()}</span></div>
+                            <div class="icon-item"><i class="bi bi-fuel-pump-fill"></i><span class="ms-1">${car.fuelType.toLowerCase()}</span></div>
                         </div>
                     </div>
                     <div class="car-price d-flex align-items-center justify-content-between">
@@ -296,9 +296,9 @@ function attachBookNowListeners() {
                     startDate: pickupDate,
                     endDate: dropoffDate,
                 });
-               
+
                 saveBookingsToLocalStorage();
-              
+
                 filterCars(pickupDate, dropoffDate);
                 updateLocationCounts(pickupDate, dropoffDate);
 

@@ -172,7 +172,7 @@ export function attachNavAndFooter() {
 
     // Set active navigation link based on current page
     setActiveNavLink();
-    
+
     // Check if user is logged in and update UI accordingly
     checkLogin();
 
@@ -186,20 +186,20 @@ export function attachNavAndFooter() {
 function setActiveNavLink() {
     // Get the current page filename from the URL
     const currentPage = window.location.pathname.split('/').pop() || 'index.html';
-    
+
     // Find all navigation links
     const navLinks = document.querySelectorAll('.navbar-nav .nav-link');
-    
+
     // Remove active class from all links
     navLinks.forEach(link => {
         link.classList.remove('active');
         link.removeAttribute('aria-current');
     });
-    
+
     // Add active class to the link that matches the current page
     navLinks.forEach(link => {
         const href = link.getAttribute('href');
-        if (href === currentPage || 
+        if (href === currentPage ||
             (currentPage === 'index.html' && (href === '#' || href === '/' || href === ''))) {
             link.classList.add('active');
             link.setAttribute('aria-current', 'page');

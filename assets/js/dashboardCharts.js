@@ -26,7 +26,6 @@ getAdminSettings()
 // *insert functions here*
 
 // ================= CHART RENDERING =================
-// initialize all charts when DOM loads
 document.addEventListener('DOMContentLoaded', () => {
     renderBookingsChart();
     renderRevenueChart();
@@ -99,21 +98,21 @@ function renderBookingsChart() {
                         }
                     },
                     grid: {
-                        color: 'rgba(0, 0, 0, 0.1)' // Optional: grid line color
+                        color: 'rgba(0, 0, 0, 0.1)'
                     }
                 },
                 x: {
                     title: {
                         display: true,
                         text: 'Months',
-                        color: '#4f46e5', // Primary way
+                        color: '#4f46e5',
                         font: {
                             weight: 'bold',
                             size: 12
                         }
                     },
                     ticks: {
-                        color: '#5f5f5f' // Color for X-axis labels
+                        color: '#5f5f5f'
                     }
                 }
             }
