@@ -2,11 +2,12 @@ import {
   customerRowC,
   customersTableBody,
 } from "../selectors/tableSelectors.js";
-import { fillCustomerForm } from "../forms/fillCustomerForm.js";
+import { fillCustomerForm } from "../forms/editCustomerForm.js";
 import { customerFormElements } from "../selectors/customerSelectors.js";
 import { deleteRow } from "../core/deleteRow.js";
-export function customerRow(customer, index, offset = 0) {
+import { dispatcher } from "../forms/dispatcher.js";
 
+export function customerRow(customer, index, offset = 0) {
   const rowClone = customerRowC.cloneNode(true);
   const cells = rowClone.children;
   cells[0].textContent = offset + index + 1;
@@ -20,8 +21,7 @@ export function customerRow(customer, index, offset = 0) {
 
   if (editIcon) {
     editIcon.addEventListener("click", () => {
-
-      fillCustomerForm(customer, index, customerFormElements);
+      dispatcher(customer, index, customerFormElements, "customer");
     });
   }
 

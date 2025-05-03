@@ -101,7 +101,9 @@
       </aside>
 
       <!-- Main Content -->
+       <!-- alert in the main -->
       <main id="mainCont" class="col-12 col-md-8 col-lg-9 ">
+        <div id="alertPlaceHolder" class="position-fixed top-0 start-50 translate-middle-x mt-3" style="z-index: 999;width: 1005;max-width: 500px;;"></div>
         <!-- Tabs -->
         <div class="w-100 bg-white border-bottom">
           <ul class="nav nav-pills mb-3 shadow-sm container py-2" id="pills-tab" role="tablist">
@@ -240,28 +242,47 @@
       </main>
     </div>
   </div>
-  <!---=-=-==-=-=-=-====-=-=-=-=-=-=-=-=-= customer edit modal -- start -->
-  <div class="modal fade" id="customerEditModal" tabindex="-1" aria-labelledby="customerEditModalLabel"
-    aria-hidden="true">
-    <div class="modal-dialog modal-lg">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="customerEditModalLabel">
-            Edit Customer
-          </h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <!-- ------------------------------------------------------------modal body -->
+<!---=-=-==-=-=-=-====-=-=-=-=-=-=-=-=-= customer edit modal -- start -->
+<div
+class="modal fade"
+id="customerEditModal"
+tabindex="-1"
+aria-labelledby="customerEditModalLabel"
+aria-hidden="true"
+>
+<div id="alertCustomer" class="position-fixed top-0 start-50 translate-middle-x mt-3" style="z-index: 999;width: 1005;max-width: 500px;;"></div>
 
-        <div class="modal-body">
-          <form id="customersEditForm">
-            <!-- First Row (Customer ID - readonly, Name, Email) -->
-            <div class="row mb-3">
-              <!-- Customer ID -->
-              <div class="col-md-4" id="customerIdDiv">
-                <label for="customerId" class="col-form-label">Customer ID:</label>
-                <input type="text" class="form-control" id="customerId" readonly />
-              </div>
+<div class="modal-dialog modal-lg">
+  <div class="modal-content">
+    <div class="modal-header">
+      <h5 class="modal-title" id="customerEditModalLabel">
+        Edit Customer
+      </h5>
+      <button
+        type="button"
+        class="btn-close"
+        data-bs-dismiss="modal"
+        aria-label="Close"
+      ></button>
+    </div>
+    <!-- ------------------------------------------------------------modal body -->
+ 
+    <div class="modal-body">
+      <form id="customersEditForm">
+        <!-- First Row (Customer ID - readonly, Name, Email) -->
+        <div class="row mb-3">
+          <!-- Customer ID -->
+          <div class="col-md-4" id="customerIdDiv">
+            <label for="customerId" class="col-form-label"
+              >Customer ID:</label
+            >
+            <input
+              type="text"
+              class="form-control"
+              id="customerId"
+              readonly
+            />
+          </div>
 
               <!-- Name -->
               <div class="col-md-4">
@@ -333,8 +354,16 @@
   </div>
   <!---=-=-==-=-=-=-====-=-=-=-=-=-=-=-=-= customer edit modal  -- end  -->
 
-  <!-- modal car -->
-  <div class="modal fade" id="carEditModal" tabindex="-1" aria-labelledby="carEditModalLabel" aria-hidden="true">
+    <!-- modal car -->
+    <div
+    class="modal fade"
+    id="carEditModal"
+    tabindex="-1"
+    aria-labelledby="carEditModalLabel"
+    aria-hidden="true"
+  >
+  <div id="alertCar" class="position-fixed top-0 start-50 translate-middle-x mt-3" style="z-index: 999;width: 1005;max-width: 500px;;"></div>
+
     <div class="modal-dialog modal-lg">
       <div class="modal-content">
         <div class="modal-header">
@@ -371,18 +400,29 @@
               <div class="col-md-4">
                 <label for="model" class="col-form-label">Model:</label>
                 <input type="text" class="form-control" id="model" />
-                <div id="model-feedback" class="form-text text-danger d-none"></div>
+                <div
+                  id="model-feedback"
+                  class="form-text text-danger d-none"
+                ></div>
+              </div>
+              <!-- Year -->
+              <div class="col-md-4">
+                <label for="year" class="col-form-label">Year:</label>
+                <input
+                  type="number"
+                  class="form-control"
+                  id="year"
+                  min="1886"
+                />
+                <div
+                  id="year-feedback"
+                  class="form-text text-danger d-none"
+                ></div>
               </div>
             </div>
 
             <!-- Second Row -->
             <div class="row mb-3">
-              <!-- Year -->
-              <div class="col-md-4">
-                <label for="year" class="col-form-label">Year:</label>
-                <input type="number" class="form-control" id="year" min="1886" />
-                <div id="year-feedback" class="form-text text-danger d-none"></div>
-              </div>
 
               <!-- Daily Rate -->
               <div class="col-md-4">
@@ -402,16 +442,16 @@
                 </select>
                 <div id="category-feedback" class="form-text text-danger d-none"></div>
               </div>
-            </div>
-
-            <!-- Third Row -->
-            <div class="row mb-3">
               <!-- Color -->
               <div class="col-md-4">
                 <label for="color" class="col-form-label">Color:</label>
                 <input type="text" class="form-control" id="color" />
                 <div id="color-feedback" class="form-text text-danger d-none"></div>
               </div>
+            </div>
+
+            <!-- Third Row -->
+            <div class="row mb-3">
 
               <!-- Fuel Type -->
               <div class="col-md-4 col-12">
@@ -431,18 +471,33 @@
                   <option value="Manual">Manual</option>
                   <option value="Automatic">Automatic</option>
                 </select>
-                <div id="transmission-feedback" class="form-text text-danger d-none"></div>
+                <div
+                  id="transmission-feedback"
+                  class="form-text text-danger d-none"
+                ></div>
+              </div>
+              <!-- Rating -->
+              <div class="col-md-4">
+                <label for="rating" class="col-form-label"
+                  >Rating (0-5):</label
+                >
+                <input
+                  type="number"
+                  class="form-control"
+                  id="rating"
+                  min="0"
+                  max="5"
+                  step="0.1"
+                />
+                <div
+                  id="rating-feedback"
+                  class="form-text text-danger d-none"
+                ></div>
               </div>
             </div>
 
             <!-- Fourth Row -->
             <div class="row mb-3">
-              <!-- Rating -->
-              <div class="col-md-4">
-                <label for="rating" class="col-form-label">Rating (0-5):</label>
-                <input type="number" class="form-control" id="rating" min="0" max="5" step="0.1" />
-                <div id="rating-feedback" class="form-text text-danger d-none"></div>
-              </div>
 
               <!-- Fuel Capacity -->
               <div class="col-md-4">
@@ -457,16 +512,27 @@
                 <input type="number" class="form-control" id="passengerCapacity" min="1" />
                 <div id="passengerCapacity-feedback" class="form-text text-danger d-none"></div>
               </div>
+              <!-- Luggage Capacity -->
+              <div class="col-md-4">
+                <label for="luggageCapacity" class="col-form-label"
+                  >Luggage (kg):</label
+                >
+                <input
+                  type="number"
+                  class="form-control"
+                  id="luggageCapacity"
+                  step="0.1"
+                  min="0"
+                />
+                <div
+                  id="luggageCapacity-feedback"
+                  class="form-text text-danger d-none"
+                ></div>
+              </div>
             </div>
 
             <!-- Fifth Row -->
             <div class="row mb-3">
-              <!-- Luggage Capacity -->
-              <div class="col-md-4">
-                <label for="luggageCapacity" class="col-form-label">Luggage Capacity (kg):</label>
-                <input type="number" class="form-control" id="luggageCapacity" step="0.1" min="0" />
-                <div id="luggageCapacity-feedback" class="form-text text-danger d-none"></div>
-              </div>
 
               <!-- Image URLs -->
               <div class="col-md-8">
@@ -497,20 +563,32 @@
   </div>
 
 
-  <!---=-=-==-=-=-=-====-=-=-=-=-=-=-=-=-= booking edit modal -- start -->
-  <div class="modal fade" id="bookingEditModal" tabindex="-1" aria-labelledby="bookingEditModalLabel"
-    aria-hidden="true">
-    <div class="modal-dialog modal-sm">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="bookingEditModalLabel">
-            Edit booking
-          </h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <!-- ------------------------------------------------------------modal body -->
+<!---=-=-==-=-=-=-====-=-=-=-=-=-=-=-=-= booking edit modal -- start -->
+<div
+class="modal fade"
+id="bookingEditModal"
+tabindex="-1"
+aria-labelledby="bookingEditModalLabel"
+aria-hidden="true"
+>
+<div id="alertBooking" class="position-fixed top-0 start-50 translate-middle-x mt-3" style="z-index: 999;width: 1005;max-width: 500px;;"></div>
 
-        <div class="modal-body col-md-11">
+<div class="modal-dialog modal-sm">
+  <div class="modal-content">
+    <div class="modal-header">
+      <h5 class="modal-title" id="bookingEditModalLabel">
+        Edit booking
+      </h5>
+      <button
+        type="button"
+        class="btn-close"
+        data-bs-dismiss="modal"
+        aria-label="Close"
+      ></button>
+    </div>
+    <!-- ------------------------------------------------------------modal body -->
+ 
+    <div class="modal-body col-md-11">
 
           <!-- <form id="bookingsEditForm"> -->
           <!-- First Row (booking ID - readonly, Name, Email) -->

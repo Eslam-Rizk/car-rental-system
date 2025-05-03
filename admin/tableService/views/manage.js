@@ -20,6 +20,7 @@ import { addCustomerForm } from "../forms/addCustomer.js";
 import { addCarForm } from "../forms/AddCar.js";
 import { customerFormElements } from "../selectors/customerSelectors.js";
 import { carFormElements } from "../selectors/carSelectors.js";
+import { dispatcher } from "../forms/dispatcher.js";
 
 // initialize the local storage 
 seedStorage();
@@ -40,10 +41,10 @@ render(bookings, "booking");
 
 // attach event listeners for the add buttons
 addCustomerButton.addEventListener("click", (e) => {
-  addCustomerForm(customerFormElements);
+  dispatcher(null , null ,customerFormElements, 'addCustomer' ); 
 });
 
 addCarButton.addEventListener("click", (e) => {
-  addCarForm(carFormElements);
+  dispatcher(null, null, carFormElements, 'addCar'); 
 });
 

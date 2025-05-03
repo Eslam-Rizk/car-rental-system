@@ -1,8 +1,8 @@
-
 import { carRowC, carsTableBody } from "../selectors/tableSelectors.js";
 import { carFormElements } from "../selectors/carSelectors.js";
-import { fillCarForm } from "../forms/fillCarForm.js";
+import { fillCarForm } from "../forms/editCarform.js";
 import { deleteRow } from "../core/deleteRow.js";
+import { dispatcher } from "../forms/dispatcher.js";
 
 export function carRow(car, index, offset = 0) {
   const rowClone = carRowC.cloneNode(true);
@@ -18,8 +18,7 @@ export function carRow(car, index, offset = 0) {
 
   if (editIcon) {
     editIcon.addEventListener("click", () => {
-
-      fillCarForm(car, index, carFormElements);
+      dispatcher(car, index, carFormElements, "car");
     });
   }
 

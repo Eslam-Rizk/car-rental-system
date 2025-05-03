@@ -1,8 +1,9 @@
-
 import { bookingRowC, bookingsTableBody } from "../selectors/tableSelectors.js";
 import { bookingFormElements } from "../selectors/bookingSelectors.js";
-import { fillBookingForm } from "../forms/fillBookingForm.js";
+import { fillBookingForm } from "../forms/editBookingForm.js";
 import { deleteRow } from "../core/deleteRow.js";
+import { dispatcher } from "../forms/dispatcher.js";
+
 export function bookingRow(booking, index, offset = 0) {
   const rowClone = bookingRowC.cloneNode(true);
   const cells = rowClone.children;
@@ -17,9 +18,7 @@ export function bookingRow(booking, index, offset = 0) {
 
   if (editIcon) {
     editIcon.addEventListener("click", () => {
-
-      fillBookingForm(booking, index, bookingFormElements);
-
+      dispatcher(booking, index, bookingFormElements, "booking");
     });
   }
 
