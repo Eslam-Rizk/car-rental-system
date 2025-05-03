@@ -116,69 +116,103 @@ function showBookingDetails(bookingId) {
       generateBookingCards(getLoggedInCustomerId());
     });
   }
+  const bookAgainButton = document.getElementById('book-again-btn');
+  if (bookAgainButton) {
+    bookAgainButton.addEventListener('click', () => {
+      window.location.href = `car-details.html?carId=${car.carId}`;
+    });
+  }
 }
 
 function createBookingModalHTML(booking, car, days) {
   return `
-      <div class="modal fade" id="bookingDetailsModal" tabindex="-1" aria-labelledby="bookingDetailsModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-lg">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title" id="bookingDetailsModalLabel">Booking Details</h5>
-              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-              <div class="row">
-                <div class="col-md-6">
-                  <img src="${car.imageUrls[0]}" alt="${car.make} ${car.model}" class="img-fluid rounded mb-3">
-                  <h4>${car.make} ${car.model} ${car.year}</h4>
-                  <div class="row mb-3">
-                    <div class="col-6">
-                      <p><strong>Color:</strong> ${car.color}</p>
-                      <p><strong>Category:</strong> ${car.category}</p>
-                      <p><strong>Transmission:</strong> ${car.transmission}</p>
-                    </div>
-                    <div class="col-6">
-                      <p><strong>Fuel Type:</strong> ${car.fuelType}</p>
-                      <p><strong>Passenger Capacity:</strong> ${car.passengerCapacity}</p>
-                      <p><strong>Luggage Capacity:</strong> ${car.luggageCapacity}</p>
-                    </div>
+    <div class="modal fade" id="bookingDetailsModal" tabindex="-1" aria-labelledby="bookingDetailsModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="bookingDetailsModalLabel">Booking Details</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+
+          <div class="modal-body">
+            <div class="row g-4">
+              <!-- Car Info Section -->
+              <div class="col-md-6">
+                <img src="${car.imageUrls[0]}" alt="${car.make} ${car.model}" class="img-fluid rounded mb-3">
+                <h5 class="mb-3">${car.make} ${car.model} ${car.year}</h5>
+                <div class="row">
+                  <div class="col-6">
+                    <dl class="mb-0">
+                      <dt>Color</dt>
+                      <dd>${car.color}</dd>
+                      <dt>Category</dt>
+                      <dd>${car.category}</dd>
+                      <dt>Transmission</dt>
+                      <dd>${car.transmission}</dd>
+                    </dl>
+                  </div>
+                  <div class="col-6">
+                    <dl class="mb-0">
+                      <dt>Fuel Type</dt>
+                      <dd>${car.fuelType}</dd>
+                      <dt>Passenger Capacity</dt>
+                      <dd>${car.passengerCapacity}</dd>
+                      <dt>Luggage Capacity</dt>
+                      <dd>${car.luggageCapacity}</dd>
+                    </dl>
                   </div>
                 </div>
-                <div class="col-md-6">
-                  <div class="card mb-3">
-                    <div class="card-header bg-light">
-                      <h5 class="mb-0">Reservation Details</h5>
-                    </div>
-                    <div class="card-body">
-                      <p><strong>Booking ID:</strong> ${booking.bookingId}</p>
-                      <p><strong>Start Date:</strong> ${formatDate(booking.startDate)}</p>
-                      <p><strong>End Date:</strong> ${formatDate(booking.endDate)}</p>
-                      <p><strong>Duration:</strong> ${days} day${days > 1 ? 's' : ''}</p>
-                      <p><strong>Daily Rate:</strong> ${car.dailyRate} $</p>
-                      <p><strong>Total Amount:</strong> ${booking.totalAmount} $</p>
-                      <p><strong>Status:</strong> ${booking.paymentStatus}</p>
-                    </div>
+              </div>
+
+              <!-- Booking Info Section -->
+              <div class="col-md-6">
+                <div class="card h-100">
+                  <div class="card-header">
+                    <h5 class="mb-0">Reservation Details</h5>
                   </div>
-                  <div class="d-grid">
-                    <button class="btn btn-danger rounded-pill"
-                    style="display: ${booking.paymentStatus === 'Pending' ? 'block' : 'none'}"
-                    id="cancelBookingBtn"
-                    >
-                      ${booking.paymentStatus === 'Pending' ? 'Cancel Reservation' : ''}
-                    </button>
+                  <div class="card-body">
+                    <dl class="row mb-0">
+                      <dt class="col-sm-5">Booking ID</dt>
+                      <dd class="col-sm-7">${booking.bookingId}</dd>
+
+                      <dt class="col-sm-5">Start Date</dt>
+                      <dd class="col-sm-7">${formatDate(booking.startDate)}</dd>
+
+                      <dt class="col-sm-5">End Date</dt>
+                      <dd class="col-sm-7">${formatDate(booking.endDate)}</dd>
+
+                      <dt class="col-sm-5">Duration</dt>
+                      <dd class="col-sm-7">${days} day${days > 1 ? 's' : ''}</dd>
+
+                      <dt class="col-sm-5">Daily Rate</dt>
+                      <dd class="col-sm-7">${car.dailyRate} $</dd>
+
+                      <dt class="col-sm-5">Total Amount</dt>
+                      <dd class="col-sm-7">${booking.totalAmount} $</dd>
+
+                      <dt class="col-sm-5">Status</dt>
+                      <dd class="col-sm-7">${booking.paymentStatus}</dd>
+                    </dl>
                   </div>
                 </div>
               </div>
             </div>
-            <div class="modal-footer">
-              <button type="button" class="btn rounded-pill btn-secondary" data-bs-dismiss="modal">Close</button>
-            </div>
+          </div>
+
+          <div class="modal-footer d-flex justify-content-center">
+          <div class="d-flex justify-content-between">
+            <button type="button" class="btn btn-nav" id="book-again-btn">Book Again</button>
+            <button class="btn btn-danger rounded-pill ms-5"
+              style="display: ${booking.paymentStatus === 'Pending' ? 'block' : 'none'}" id="cancelBookingBtn">
+                    Cancel Reservation </button>
           </div>
         </div>
       </div>
-    `;
+    </div>
+  `;
 }
+
+
 
 function getStatusBadgeClass(status) {
   switch (status) {

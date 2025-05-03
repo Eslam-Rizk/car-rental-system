@@ -1,7 +1,7 @@
   /* Hero Section */
   .hero-section {
       background: url('https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?q=80&w=2083&auto=format&fit=crop') no-repeat center center/cover;
-      height: 500px;
+      height: calc(100vh - 50px);
       display: flex;
       align-items: center;
       justify-content: center;
@@ -91,119 +91,6 @@
       }
   }
 
-
-  @media (max-width: 992px) {
-      .hero-section {
-          height: 500px;
-      }
-
-      .hero-section h1 {
-          font-size: 2.5rem;
-      }
-
-      .search-form .row>div {
-          margin-bottom: 15px;
-      }
-
-      .search-form .btn-primary {
-          margin-top: 10px;
-      }
-
-      .navbar-nav .nav-link {
-          margin: 5px 0;
-      }
-
-      .filter-box {
-          margin-bottom: 20px;
-      }
-
-      .car-card {
-          height: auto;
-      }
-  }
-
-  @media (max-width: 768px) {
-      .hero-section {
-          height: 600px;
-      }
-
-      .hero-section h1 {
-          font-size: 2rem;
-      }
-
-      .search-form {
-          padding: 15px;
-      }
-
-      .form-control,
-      .form-select {
-          font-size: 0.85rem;
-      }
-
-      .car-card h5 {
-          font-size: 1rem;
-      }
-
-      .car-specs span {
-          font-size: 0.75rem;
-      }
-
-      .price {
-          font-size: 1rem;
-      }
-
-      .footer .row>div {
-          margin-bottom: 20px;
-      }
-
-      .footer .text-end {
-          text-align: left !important;
-      }
-  }
-
-  @media (max-width: 576px) {
-      .hero-section {
-          height: 700px;
-      }
-
-      .hero-section h1 {
-          font-size: 1.5rem;
-      }
-
-      .search-form {
-          padding: 10px;
-      }
-
-      .form-control,
-      .form-select {
-          font-size: 0.8rem;
-      }
-
-      .search-form label {
-          font-size: 0.8rem;
-      }
-
-      .search-form .btn-primary {
-          font-size: 0.9rem;
-      }
-
-      .logo {
-          font-size: 1.2rem;
-      }
-
-      .logo img {
-          width: 30px;
-      }
-
-      .navbar-nav .nav-link {
-          font-size: 0.9rem;
-      }
-
-      .btn-primary {
-          padding: 6px 15px;
-          font-size: 0.9rem;
-      }
-  }
 
   .book {
       padding-top: 20px;
@@ -532,88 +419,6 @@
       border-radius: 10px;
   }
 
-  /* Media Queries */
-  @media (max-width: 768px) {
-      .hero-section {
-          height: 250px;
-      }
-
-      .hero-content h1 {
-          font-size: 2rem;
-      }
-
-      .hero-content p {
-          font-size: 1rem;
-      }
-
-      .info-card {
-          flex: 100%;
-      }
-
-      .map-wrapper {
-          max-width: 100%;
-          height: 300px;
-      }
-  }
-
-  @media (max-width: 576px) {
-      .logo {
-          font-size: 1.2rem;
-      }
-
-      .logo img {
-          width: 30px;
-      }
-
-      .hero-content h1 {
-          font-size: 1.6rem;
-      }
-
-      .hero-content p {
-          font-size: 0.9rem;
-      }
-
-      .contact-form-card {
-          padding: 20px;
-      }
-
-      .form-group input,
-      .form-group textarea {
-          font-size: 0.85rem;
-      }
-
-      .form-group label {
-          font-size: 0.9rem;
-      }
-
-      .btn-submit {
-          padding: 10px 30px;
-          font-size: 0.9rem;
-      }
-
-      .info-card p {
-          font-size: 0.85rem;
-      }
-
-      .working-hours h5 {
-          font-size: 1rem;
-      }
-
-      .working-hours p {
-          font-size: 0.85rem;
-      }
-
-      .map-wrapper {
-          height: 250px;
-      }
-
-      .social-links a {
-          width: 40px;
-          height: 40px;
-          font-size: 1.2rem;
-          margin: 0 10px;
-      }
-  }
 
   /* Animations */
   @keyframes slideIn {

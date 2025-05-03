@@ -198,75 +198,43 @@ function renderCarListings() {
     carsToDisplay.forEach(car => {
         const carCard = `
             <div class="col-xl-4 col-lg-6 col-md-12 col-sm-12 mb-4">
-                <div class="car-card shadow-sm rounded m-0 overflow-hidden">
-                    <div class="image-wrapper position-relative">
-                        <img src="${car.imageUrls[0]}" alt="${car.make} ${car.model}" class="img-fluid"/>
+                <div class="car-card p-3 m-0">
+                    <div class="car-img-wrapper position-relative mb-3">
+                        <img src="${car.imageUrls[0]}" alt="${car.make} ${car.model}" class="img-fluid w-100"/>
                         <div class="rating-overlay position-absolute top-0 end-0 m-2">
                             <i class="bi bi-star-fill" style="color: #FFD700;"></i>
                             <span class="ms-1">${car.rating}</span>
                         </div>
                     </div>
-                    <div class="car-details mt-2">
-                        <div class="car-headline d-flex justify-content-between align-items-center mb-2">
+                    <div class="car-details">
+                        <div class="car-headline d-flex justify-content-between mb-3">
                             <h3 class="m-0">${car.make} ${car.model} ${car.year}</h3>
-                            <div class="car-type"><span>${car.category}</span></div>
+                            <div class="car-type text-white"><span>${car.category}</span></div>
                         </div>
-                        <div class="car-details-icons d-flex gap-3">
-                            <div class="icon-item"><i class="bi bi-person-fill"></i><span class="ms-1">${car.passengerCapacity}</span></div>
-                            <div class="icon-item"><i class="bi bi-suitcase"></i><span class="ms-1">${car.luggageCapacity}</span></div>
-                            <div class="icon-item"><i class="bi bi-car-front-fill"></i><span class="ms-1">${car.transmission.toLowerCase()}</span></div>
-                            <div class="icon-item"><i class="bi bi-fuel-pump-fill"></i><span class="ms-1">${car.fuelType.toLowerCase()}</span></div>
+                        <div class="car-details-icons d-flex justify-content-between mb-2">
+                            <i class="bi bi-person-fill">
+                                <span class="ms-1">${car.passengerCapacity}</span>
+                            </i>
+                            <i class="bi bi-suitcase">
+                                <span class="ms-1">${car.luggageCapacity}</span>
+                            </i>
+                            <i class="bi bi-car-front-fill">
+                                <span class="ms-1">${car.transmission.toLowerCase()}</span>
+                            </i>
+                            <i class="bi bi-fuel-pump-fill">
+                                <span class="ms-1">${car.fuelType.toLowerCase()}</span>
+                            </i>
                         </div>
                     </div>
-                    <div class="car-price d-flex align-items-center justify-content-between">
-                        <div class="d-flex align-items-baseline">
-                            <h4 class="fs-5 m-0">$${car.dailyRate}</h4>
-                            <span class="fs-6 darkgrey ms-1">/Per Day</span>
-                        </div>
-                        <a href="car-details.html?carId=${car.carId}" class="btn text-white details-btn">Details</a>
+                    <div class="car-price mt-3 d-flex align-items-center justify-content-between">
+                        <h4 class="fs-5 m-0">
+                            <span class="text-main">$${car.dailyRate}</span><span class="fs-6 darkgrey ms-1">/Per Day</span>
+                        </h4>
+                        <a href="car-details.html?carId=${car.carId}" class="btn btn-nav">Details</a>
                     </div>
                 </div>
             </div>
         `;
-        // const carCard = `
-        //     <div class="col-lg-4" id="car-${car.carId}">
-        //         <div class="car-card p-3">
-        //             <div class="car-img-wrapper mb-3">
-        //                 <img src="${car.imageUrls[0]}" class="img-fluid w-100" alt="${car.make} ${car.model}" />
-        //             </div>
-        //             <div class="car-details">
-        //                 <div class="car-headline d-flex justify-content-between mb-3">
-        //                     <h3 class="m-0">${car.make} ${car.model} ${car.year}</h3>
-        //                     <div class="car-type text-white">
-        //                         <span>${car.category}</span>
-        //                     </div>
-        //                 </div>
-        //                 <div class="car-details-icons mb-2">
-        //                     <i class="bi bi-person-fill me-2">
-        //                         <span class="ms-1">${car.passengerCapacity}</span>
-        //                     </i>
-        //                     <i class="bi bi-suitcase me-2">
-        //                         <span class="ms-1">${car.luggageCapacity}</span>
-        //                     </i>
-        //                     <i class="bi bi-car-front-fill me-2">
-        //                         <span class="ms-1">${car.transmission.toLowerCase()}</span>
-        //                     </i>
-        //                     <i class="bi bi-fuel-pump-fill me-2">
-        //                         <span class="ms-1">${car.fuelType.toLowerCase()}</span>
-        //                     </i>
-        //                 </div>
-        //             </div>
-        //             <div class="car-price mt-3 d-flex align-items-center justify-content-between">
-        //                 <h4 class="fs-5 m-0">
-        //                     <span class="text-main">$${car.dailyRate}</span> <span class="fs-6 darkgrey">/Per Day</span>
-        //                 </h4>
-        //                 <a href="car-details.html?carId=${car.carId}" class="text-black">
-        //                     <button class="btn btn-nav">Details</button>
-        //                 </a>
-        //             </div>
-        //         </div>
-        //     </div>
-        // `;
         carListings.innerHTML += carCard;
     });
 

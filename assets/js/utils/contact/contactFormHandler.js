@@ -14,8 +14,11 @@ function clearInvalidClasses() {
 export function initializeContactForm() {
     const contactForm = document.getElementById('contactForm');
     const successMessage = document.getElementById('successMessage');
-
     successMessage.style.display = 'none';
+    successMessage.classList.add('success-message', 'text-center');
+    successMessage.innerHTML += `<i class="fas fa-check-circle"></i>
+        <span>Your message has been sent successfully! We'll get back to you soon.</span>`;
+
 
     let messages = JSON.parse(localStorage.getItem('contactMessages')) || [];
 
@@ -29,7 +32,7 @@ export function initializeContactForm() {
 
         let isValid = true;
 
-       
+
         clearInvalidClasses();
 
         if (!name) {
@@ -49,7 +52,7 @@ export function initializeContactForm() {
             isValid = false;
         }
         if (!isValid) return;
-      
+
         const formData = {
             name: name,
             email: email,
@@ -64,7 +67,7 @@ export function initializeContactForm() {
         successMessage.style.display = 'flex';
         setTimeout(() => {
             successMessage.style.display = 'none';
-        }, 5000); 
+        }, 5000);
 
         contactForm.reset();
     });
