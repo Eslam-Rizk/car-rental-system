@@ -23,10 +23,8 @@
     <div id="nav-container"></div>
 
 
-    <!-- Booking Form Section -->
     <div class="container">
         <div class="booking-section">
-            <!-- Progress Bar -->
             <div class="progress-container">
                 <div class="progress-step">
                     <div class="progress-fill" id="progressFill"></div>
@@ -37,12 +35,12 @@
                     <div class="step" id="step5">5</div>
                     <div class="step" id="step6">6</div>
                     <div class="step" id="step7">7</div>
-                    <div class="step-label" style="left: 0%;">Car Details</div>
+                    <div class="step-label" style="left: 0%;">Car</div>
                     <div class="step-label" style="left: 16.66%;">Dates</div>
                     <div class="step-label" style="left: 33.33%;">Personal Info</div>
                     <div class="step-label" style="left: 50%;">Add-ons</div>
                     <div class="step-label" style="left: 66.66%;">Promo Code</div>
-                    <div class="step-label" style="left: 83.33%;">Payment Method</div>
+                    <div class="step-label" style="left: 83.33%;">Payment</div>
                     <div class="step-label" style="left: 100%;">Submit</div>
                 </div>
             </div>
@@ -50,45 +48,13 @@
             <h2>Book Your Car</h2>
             <form id="bookingForm">
                 <div class="row">
-                    <div class="col-md-6 mb-3">
-                        <label for="carType" class="form-label">Car Type
+                    <div class="col-md-6 mb-3 w-100">
+                        <label for="car" class="form-label">Car
                             <i class="fas fa-info-circle tooltip-icon"></i>
-                            <span class="tooltip-text">Select the type of car you want to rent or buy.</span>
+                            <span class="tooltip-text">Selected car details.</span>
                         </label>
-                        <select class="form-select" id="carType" required>
-                            <option value="" disabled selected>Select a car type</option>
-                            <option value="compact">Compact</option>
-                            <option value="sedan">Sedan</option>
-                            <option value="suv">SUV</option>
-                            <option value="luxury">Luxury</option>
-                            <option value="minivan">Minivan</option>
-                            <option value="pickup">Pickup</option>
-                            <option value="van">Van</option>
-                            <option value="truck">Truck</option>
-                            <option value="motorcycle">Motorcycle</option>
-                            <option value="cruiser">Cruiser</option>
-                            <option value="offroad">Offroad</option>
-                            <option value="convertible">Convertible</option>
-                            <option value="coupe">Coupe</option>
-                            <option value="hatchback">Hatchback</option>
-                            <option value="super">Super</option>
-                            <option value="micro">Micro</option>
-                            <option value="mini">Mini</option>
-                            <option value="subcompact">Subcompact</option>
-                        </select>
-                        <div class="invalid-feedback">Please select a car type.</div>
-                    </div>
-                    <div class="col-md-6 mb-3">
-                        <label for="rentalType" class="form-label">Rental Type
-                            <i class="fas fa-info-circle tooltip-icon"></i>
-                            <span class="tooltip-text">Choose if you want to rent or buy the car.</span>
-                        </label>
-                        <select class="form-select" id="rentalType" required>
-                            <option value="" disabled selected>Select rental type</option>
-                            <option value="sale">Sale</option>
-                            <option value="sharing">Sharing</option>
-                        </select>
-                        <div class="invalid-feedback">Please select a rental type.</div>
+                        <input type="text" class="form-control" id="car" readonly>
+                        <div class="invalid-feedback">No car selected.</div>
                     </div>
                 </div>
                 <div class="row">
@@ -105,18 +71,17 @@
                             <i class="fas fa-info-circle tooltip-icon"></i>
                             <span class="tooltip-text">Choose the date you want to end your rental.</span>
                         </label>
-                        <input type="date" class="form-control" id="endDate">
+                        <input type="date" class="form-control" id="endDate" required>
                         <div class="invalid-feedback">Please select a valid end date after the start date.</div>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-md-6 mb-3">
-                        <label for="fullName" class="form-label">Full Name
+                        <label for="name" class="form-label"> Full Name
                             <i class="fas fa-info-circle tooltip-icon"></i>
                             <span class="tooltip-text">Enter your full name as it appears on your ID.</span>
                         </label>
-                        <input type="text" class="form-control" id="fullName" placeholder="Enter your full name"
-                            required>
+                        <input type="text" class="form-control" id="name" placeholder="Enter your full name" required>
                         <div class="invalid-feedback">Please enter your full name.</div>
                     </div>
                     <div class="col-md-6 mb-3">
@@ -147,28 +112,24 @@
                         <div class="invalid-feedback">Please enter your address.</div>
                     </div>
                 </div>
-
-                <!-- Recommended Add-ons Section -->
                 <div class="addons-section">
                     <h5>Recommended Add-ons</h5>
                     <div class="addon-item">
                         <input type="checkbox" id="gps" value="10" class="addon-checkbox">
-                        <label for="gps"><i class="fas fa-map-marker-alt"></i> GPS Navigation</label>
+                        <label for="gps"><i class="fas fa-map-marker-alt"></i>GPS Navigation System</label>
                         <span>$10</span>
                     </div>
                     <div class="addon-item">
                         <input type="checkbox" id="childSeat" value="15" class="addon-checkbox">
-                        <label for="childSeat"><i class="fas fa-baby-carriage"></i> Child Seat</label>
+                        <label for="childSeat"><i class="fas fa-baby-carriage"></i>Child Seat</label>
                         <span>$15</span>
                     </div>
                     <div class="addon-item">
                         <input type="checkbox" id="insurance" value="25" class="addon-checkbox">
-                        <label for="insurance"><i class="fas fa-shield-alt"></i> Full Insurance</label>
+                        <label for="insurance"><i class="fas fa-shield-alt"></i>Insurance Coverage</label>
                         <span>$25</span>
                     </div>
                 </div>
-
-                <!-- Promo Code Section -->
                 <div class="promo-section">
                     <h5>Have a Promo Code?</h5>
                     <div class="input-group">
@@ -177,8 +138,6 @@
                     </div>
                     <small id="promoMessage" class="text-success d-none">Promo applied successfully!</small>
                 </div>
-
-                <!-- Payment Method Section -->
                 <div class="payment-section">
                     <h5>Select Payment Method</h5>
                     <div class="mb-3">
@@ -192,15 +151,36 @@
                         <div class="invalid-feedback">Please select a payment method.</div>
                     </div>
                 </div>
-
-                <div class="text-center">
-                    <button type="submit" class="btn-submit">Submit Booking</button>
+                <div class="summary-section">
+                    <h5>Booking Summary</h5>
+                    <div class="summary-item">
+                        <span>Base Price:</span>
+                        <span id="basePrice">$0.00</span>
+                    </div>
+                    <div class="summary-item">
+                        <span>Add-ons:</span>
+                        <span id="addonsCost">$0.00</span>
+                    </div>
+                    <div class="summary-item">
+                        <span>Tax (10%):</span>
+                        <span id="taxAmount">$0.00</span>
+                    </div>
+                    <div class="summary-item">
+                        <span>Promo Discount:</span>
+                        <span id="discount">$0.00</span>
+                    </div>
+                    <div class="summary-item total">
+                        <strong>Total Amount:</strong>
+                        <strong id="totalAmount">$0.00</strong>
+                    </div>
+                    <div class="text-center">
+                        <button type="submit" class="btn-submit">Submit Booking</button>
+                    </div>
                 </div>
             </form>
         </div>
     </div>
 
-    <!-- Loading Overlay -->
     <div class="loading-overlay" id="loadingOverlay">
         <div class="spinner"></div>
     </div>

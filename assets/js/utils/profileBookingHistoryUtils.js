@@ -176,9 +176,9 @@ function createBookingModalHTML(booking, car, days) {
 
 function getStatusBadgeClass(status) {
     switch (status) {
-        case 'Pending': return 'info';
+        case 'Pending': return 'warning'; 
         case 'Completed': return 'success';
-        default: return 'secondary';
+        default: return 'danger';
     }
 }
 function showModal(modalHTML) {

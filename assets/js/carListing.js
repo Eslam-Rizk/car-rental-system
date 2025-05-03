@@ -197,10 +197,10 @@ function renderCarListings() {
     
     carsToDisplay.forEach(car => {
         const carCard = `
-            <div class="col-lg-4 col-md-6 col-sm-12 mb-4 car-card-item">
-                <div class="car-card m-0">
+            <div class="col-xl-4 col-lg-6 col-md-12 col-sm-12 mb-4">
+                <div class="car-card shadow-sm rounded m-0 overflow-hidden">
                     <div class="image-wrapper position-relative">
-                        <img src="${car.imageUrls[0]}" alt="${car.make} ${car.model}" />
+                        <img src="${car.imageUrls[0]}" alt="${car.make} ${car.model}" class="img-fluid"/>
                         <div class="rating-overlay position-absolute top-0 end-0 m-2">
                             <i class="bi bi-star-fill" style="color: #FFD700;"></i>
                             <span class="ms-1">${car.rating}</span>

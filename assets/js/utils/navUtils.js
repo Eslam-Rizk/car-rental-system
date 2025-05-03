@@ -42,9 +42,9 @@ export function attachNavAndFooter() {
     const navHTML = `
     <nav class="navbar navbar-expand-lg navbar-light">
         <div class="container-fluid">
-            <ul class="navbar-nav me-auto px-4">
-                <li class="nav-item d-flex align-items-center">
-                    <img src="assets/images/steering wheel logo.png" class="d-inline logo" alt="Wheelzy Logo" />
+            <ul class="m-0 px-4">
+                <li class="d-flex align-items-center">
+                    <img src="assets/images/steering wheel logo.png" class="d-inline logo me-2" alt="Wheelzy Logo" />
                     <a class="nav-link fs-4 fw-bold nav-main" href="index.html">Wheelzy</a>
                 </li>
             </ul>
@@ -205,44 +205,4 @@ function setActiveNavLink() {
             link.setAttribute('aria-current', 'page');
         }
     });
-}
-
-/**
- * Checks if the user is logged in and updates UI elements accordingly
- */
-function checkLoginStatus() {
-    // Check if user data exists in local storage
-    const userData = localStorage.getItem('userData');
-    
-    if (userData) {
-        // User is logged in
-        const user = JSON.parse(userData);
-        
-        // Show profile dropdown and hide login button
-        const loginBtn = document.getElementById('loginBtn');
-        const profileDropdown = document.getElementById('profileDropdown');
-        
-        if (loginBtn && profileDropdown) {
-            loginBtn.style.display = 'none';
-            profileDropdown.style.display = 'flex';
-            
-            // Set user name in the dropdown
-            const nameDisplay = document.getElementById('nameDisplay');
-            if (nameDisplay && user.name) {
-                nameDisplay.textContent = user.name;
-            }
-        }
-        
-        // Set up logout button event listener
-        const logoutBtn = document.getElementById('logoutBtn');
-        if (logoutBtn) {
-            logoutBtn.addEventListener('click', function(e) {
-                e.preventDefault();
-                // Clear user data from storage
-                localStorage.removeItem('userData');
-                // Redirect to home page
-                window.location.href = 'index.html';
-            });
-        }
-    }
 }
