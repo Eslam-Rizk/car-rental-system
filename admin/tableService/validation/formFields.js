@@ -111,5 +111,5 @@ export const formPatterns = {
 
   rolePattern: /^(admin|customer)$/,
   // Example values — adjust depending on your allowed roles
-  paymentStatusPattern: /^(Paid|Unpaid|Pending)$/,
+  paymentStatusPattern: /^(Completed|Pending|Cancelled)$/,
 };
