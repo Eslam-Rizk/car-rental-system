@@ -63,18 +63,17 @@ export function addCar(entity, index, formElements) {
   const carCreated = createdCar(
     formElements.inputs.make.value,
     formElements.inputs.model.value,
-    formElements.inputs.year.value,
-    formElements.inputs.dailyRate.value,
+    Number(formElements.inputs.year.value),
+    Number(formElements.inputs.dailyRate.value),
     formElements.inputs.category.value,
     formElements.inputs.color.value,
     formElements.inputs.transmission.value,
     formElements.inputs.fuelType.value,
-    formElements.inputs.fuelCapacity.value,
-    formElements.inputs.luggageCapacity.value,
-    formElements.inputs.passengerCapacity.value,
-    formElements.inputs.rating.value,
-    formElements.inputs.imageUrls.value,
-    imageUrls 
+    Number(formElements.inputs.fuelCapacity.value),
+    Number(formElements.inputs.luggageCapacity.value),
+    Number(formElements.inputs.passengerCapacity.value),
+    Number(formElements.inputs.rating.value),
+    imageUrls
   );
   console.log("valid or not", carCreated);
 

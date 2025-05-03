@@ -34,19 +34,21 @@ export async function fillCarForm(car, index, carFormElements) {
 }
 
 export function editCar(entity, index, formElements) {
+  const imageUrls = formElements.inputs.imageUrls.value.split('\n').map(url => url.trim()).filter(url=> url); 
   const editedCar = createEditedCar(
     formElements.inputs.make.value,
     formElements.inputs.model.value,
-    formElements.inputs.year.value,
-    formElements.inputs.dailyRate.value,
+    Number(formElements.inputs.year.value),
+    Number(formElements.inputs.dailyRate.value),
     formElements.inputs.category.value,
     formElements.inputs.color.value,
     formElements.inputs.transmission.value,
     formElements.inputs.fuelType.value,
-    formElements.inputs.fuelCapacity.value,
-    formElements.inputs.luggageCapacity.value,
-    formElements.inputs.passengerCapacity.value,
-    formElements.inputs.rating.value
+    Number(formElements.inputs.fuelCapacity.value),
+    Number(formElements.inputs.luggageCapacity.value),
+    Number(formElements.inputs.passengerCapacity.value),
+    Number(formElements.inputs.rating.value),
+    imageUrls
   );
   console.log("valid or not", editedCar);
   if (editedCar) {
