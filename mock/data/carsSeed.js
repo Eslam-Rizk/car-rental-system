@@ -42,7 +42,8 @@ export const cars = [
     passengerCapacity: 5,
     transmission: "Manual",
     luggageCapacity: 2,
-    fuelType: "Gasoline"
+    fuelType: "Gasoline",
+    availableLocations: ["London", "Paris", "Tokyo"],
   },
   {
     carId: "car_003",
@@ -64,7 +65,8 @@ export const cars = [
     passengerCapacity: 5,
     transmission: "Automatic",
     luggageCapacity: 4,
-    fuelType: "Diesel"
+    fuelType: "Diesel",
+    availableLocations: ["Cairo", "London", "Alexandria"],
   },
   {
     carId: "car_004",
@@ -86,7 +88,8 @@ export const cars = [
     passengerCapacity: 5,
     transmission: "Manual",
     luggageCapacity: 3,
-    fuelType: "Gasoline"
+    fuelType: "Gasoline",
+    availableLocations: ["Dubai", "Menofia", "Mansoura"],
   },
   {
     carId: "car_005",
@@ -108,7 +111,8 @@ export const cars = [
     passengerCapacity: 5,
     transmission: "Automatic",
     luggageCapacity: 3,
-    fuelType: "Gasoline"
+    fuelType: "Gasoline",
+    availableLocations: ["Mansoura", "Alexandria", "Paris"],
   },
   {
     carId: "car_006",
@@ -130,7 +134,8 @@ export const cars = [
     passengerCapacity: 5,
     transmission: "Automatic",
     luggageCapacity: 2,
-    fuelType: "Gasoline"
+    fuelType: "Gasoline",
+    availableLocations: ["Cairo", "Dubai", "Menofia"],
   },
   {
     carId: "car_007",
@@ -152,7 +157,8 @@ export const cars = [
     passengerCapacity: 5,
     transmission: "Automatic",
     luggageCapacity: 2,
-    fuelType: "Electric"
+    fuelType: "Electric",
+    availableLocations: ["Tokyo", "Menofia", "Alexandria"],
   },
   {
     carId: "car_008",
@@ -174,7 +180,8 @@ export const cars = [
     passengerCapacity: 5,
     transmission: "Manual",
     luggageCapacity: 2,
-    fuelType: "Gasoline"
+    fuelType: "Gasoline",
+    availableLocations: ["Cairo", "Dubai", "Tokyo"],
   },
   {
     carId: "car_009",
@@ -196,7 +203,8 @@ export const cars = [
     passengerCapacity: 7,
     transmission: "Automatic",
     luggageCapacity: 4,
-    fuelType: "Diesel"
+    fuelType: "Diesel",
+    availableLocations: ["Cairo", "Mansoura", "Dubai"],
   },
   {
     carId: "car_010",
@@ -218,7 +226,8 @@ export const cars = [
     passengerCapacity: 5,
     transmission: "Automatic",
     luggageCapacity: 3,
-    fuelType: "Gasoline"
+    fuelType: "Gasoline",
+    availableLocations: ["Paris", "Mansoura", "London"],
   },
   {
     carId: "car_011",
@@ -240,7 +249,8 @@ export const cars = [
     passengerCapacity: 5,
     transmission: "Automatic",
     luggageCapacity: 3,
-    fuelType: "Diesel"
+    fuelType: "Diesel",
+    availableLocations: ["Alexandria", "Cairo", "Mansoura"],
   },
   {
     carId: "car_012",
@@ -262,7 +272,8 @@ export const cars = [
     passengerCapacity: 5,
     transmission: "Manual",
     luggageCapacity: 3,
-    fuelType: "Diesel"
+    fuelType: "Diesel",
+    availableLocations: ["London", "Dubai", "Menofia"],
   },
   {
     carId: "car_013",
@@ -284,7 +295,8 @@ export const cars = [
     passengerCapacity: 5,
     transmission: "Automatic",
     luggageCapacity: 4,
-    fuelType: "Gasoline"
+    fuelType: "Gasoline",
+    availableLocations: ["Paris", "Dubai", "Mansoura"],
   },
   {
     carId: "car_014",
@@ -306,7 +318,8 @@ export const cars = [
     passengerCapacity: 5,
     transmission: "Automatic",
     luggageCapacity: 3,
-    fuelType: "Gasoline"
+    fuelType: "Gasoline",
+    availableLocations: ["Tokyo", "Cairo", "Menofia"],
   },
   {
     carId: "car_015",
@@ -328,7 +341,8 @@ export const cars = [
     passengerCapacity: 5,
     transmission: "Manual",
     luggageCapacity: 3,
-    fuelType: "Gasoline"
+    fuelType: "Gasoline",
+    availableLocations: ["London", "Alexandria", "Menofia"],
   },
   {
     carId: "car_016",
@@ -350,7 +364,8 @@ export const cars = [
     passengerCapacity: 7,
     transmission: "Automatic",
     luggageCapacity: 4,
-    fuelType: "Diesel"
+    fuelType: "Diesel",
+    availableLocations: ["Mansoura", "Cairo", "Dubai"],
   },
   {
     carId: "car_017",
@@ -372,7 +387,8 @@ export const cars = [
     passengerCapacity: 5,
     transmission: "Automatic",
     luggageCapacity: 3,
-    fuelType: "Gasoline"
+    fuelType: "Gasoline",
+    availableLocations: ["Tokyo", "Cairo", "Mansoura"],
   },
   {
     carId: "car_018",
@@ -394,7 +410,8 @@ export const cars = [
     passengerCapacity: 5,
     transmission: "Automatic",
     luggageCapacity: 3,
-    fuelType: "Gasoline"
+    fuelType: "Gasoline",
+    availableLocations: ["Cairo", "Dubai", "Menofia"],
   },
   {
     carId: "car_019",
@@ -416,7 +433,8 @@ export const cars = [
     passengerCapacity: 7,
     transmission: "Automatic",
     luggageCapacity: 4,
-    fuelType: "Gasoline"
+    fuelType: "Gasoline",
+    availableLocations: ["Tokyo", "Cairo", "Mansoura"],
   },
   {
     carId: "car_020",
@@ -438,7 +456,8 @@ export const cars = [
     passengerCapacity: 7,
     transmission: "Automatic",
     luggageCapacity: 4,
-    fuelType: "Gasoline"
+    fuelType: "Gasoline",
+    availableLocations: ["Mansoura", "Cairo", "Dubai"],
   },
   {
     carId: "car_021",
@@ -460,7 +479,8 @@ export const cars = [
     passengerCapacity: 5,
     transmission: "Automatic",
     luggageCapacity: 3,
-    fuelType: "Gasoline"
+    fuelType: "Gasoline",
+    availableLocations: ["Tokyo", "Cairo", "Mansoura"],
   },
   {
     carId: "car_022",
@@ -482,7 +502,8 @@ export const cars = [
     passengerCapacity: 5,
     transmission: "Automatic",
     luggageCapacity: 3,
-    fuelType: "Gasoline"
+    fuelType: "Gasoline",
+    availableLocations: ["Paris", "Alexandria", "Dubai"],
   },
   {
     carId: "car_023",
@@ -504,7 +525,8 @@ export const cars = [
     passengerCapacity: 5,
     transmission: "Automatic",
     luggageCapacity: 3,
-    fuelType: "Gasoline"
+    fuelType: "Gasoline",
+    availableLocations: ["Cairo", "Mansoura", "Tokyo"],
   },
   {
     carId: "car_024",
@@ -526,7 +548,8 @@ export const cars = [
     passengerCapacity: 5,
     transmission: "Automatic",
     luggageCapacity: 3,
-    fuelType: "Gasoline"
+    fuelType: "Gasoline",
+    availableLocations: ["Menofia", "Mansoura", "Tokyo"]
   },
   {
     carId: "car_025",
@@ -548,7 +571,8 @@ export const cars = [
     passengerCapacity: 5,
     transmission: "Automatic",
     luggageCapacity: 3,
-    fuelType: "Gasoline"
+    fuelType: "Gasoline",
+    availableLocations: ["Cairo", "Dubai", "Menofia"],
   },
   {
     carId: "car_026",
@@ -570,7 +594,8 @@ export const cars = [
     passengerCapacity: 5,
     transmission: "Automatic",
     luggageCapacity: 3,
-    fuelType: "Gasoline"
+    fuelType: "Gasoline",
+    availableLocations: ["London", "Paris", "Tokyo"],
   },
   {
     carId: "car_027",
@@ -592,7 +617,8 @@ export const cars = [
     passengerCapacity: 5,
     transmission: "Automatic",
     luggageCapacity: 2,
-    fuelType: "Gasoline"
+    fuelType: "Gasoline",
+    availableLocations: ["Alexandria", "Cairo", "Mansoura"],
   },
   {
     carId: "car_028",
@@ -614,7 +640,8 @@ export const cars = [
     passengerCapacity: 5,
     transmission: "Automatic",
     luggageCapacity: 3,
-    fuelType: "Gasoline"
+    fuelType: "Gasoline",
+    availableLocations: ["London", "Alexandria", "Menofia"],
   },
   {
     carId: "car_029",
@@ -636,7 +663,8 @@ export const cars = [
     passengerCapacity: 5,
     transmission: "Automatic",
     luggageCapacity: 3,
-    fuelType: "Gasoline"
+    fuelType: "Gasoline",
+    availableLocations: ["Paris", "Alexandria", "Dubai"],
   },
   {
     carId: "car_030",
@@ -658,6 +686,7 @@ export const cars = [
     passengerCapacity: 4,
     transmission: "Manual",
     luggageCapacity: 2,
-    fuelType: "Gasoline"
+    fuelType: "Gasoline",
+    availableLocations: ["London", "Paris", "Tokyo"],
   }
 ];
