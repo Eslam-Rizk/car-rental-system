@@ -29,7 +29,8 @@ export function editEntity() {
     fuelCapacity,
     luggageCapacity,
     passengerCapacity,
-    rating
+    rating,
+    imageUrls
   ) {
     const edited = {};
     if (make != null) edited.make = make;
@@ -44,6 +45,7 @@ export function editEntity() {
     if (luggageCapacity != null) edited.luggageCapacity = luggageCapacity;
     if (passengerCapacity != null) edited.passengerCapacity = passengerCapacity;
     if (rating != null) edited.rating = rating;
+    if (imageUrls != null) edited.imageUrls = imageUrls;
     return edited;
   }
 
