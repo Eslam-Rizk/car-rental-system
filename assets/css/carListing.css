@@ -139,7 +139,7 @@ input[type="date"].form-control {
 /*----------------------------CAR CARD--------------- */
 
 #carListings {
-   width: 1024px;
+    width: 1024px;
 }
 
 .car-card {
@@ -147,11 +147,11 @@ input[type="date"].form-control {
     border-radius: 20px;
     box-shadow: 0 5px 8px rgba(0, 0, 0, 0.2);
     transition: transform 0.3s ease;
-    width: 100%; 
+    width: 100%;
     min-width: 300px;
     height: auto;
     padding: 15px;
-    margin-left: 1.5rem; 
+    margin-left: 1.5rem;
     margin-right: 1.5rem;
 }
 
@@ -354,7 +354,7 @@ input[type="date"].form-control {
         font-size: 2.5rem;
     }
 
-    .search-form .row > div {
+    .search-form .row>div {
         margin-bottom: 15px;
     }
 
@@ -457,7 +457,7 @@ input[type="date"].form-control {
 
     .car-details-icons {
         width: 100px;
-        gap: 5px; 
+        gap: 5px;
     }
 
     .icon-item {

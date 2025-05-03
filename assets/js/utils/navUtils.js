@@ -172,7 +172,7 @@ export function attachNavAndFooter() {
 
     // Set active navigation link based on current page
     setActiveNavLink();
-    
+
     // Check if user is logged in and update UI accordingly
     checkLogin();
 
@@ -186,20 +186,20 @@ export function attachNavAndFooter() {
 function setActiveNavLink() {
     // Get the current page filename from the URL
     const currentPage = window.location.pathname.split('/').pop() || 'index.html';
-    
+
     // Find all navigation links
     const navLinks = document.querySelectorAll('.navbar-nav .nav-link');
-    
+
     // Remove active class from all links
     navLinks.forEach(link => {
         link.classList.remove('active');
         link.removeAttribute('aria-current');
     });
-    
+
     // Add active class to the link that matches the current page
     navLinks.forEach(link => {
         const href = link.getAttribute('href');
-        if (href === currentPage || 
+        if (href === currentPage ||
             (currentPage === 'index.html' && (href === '#' || href === '/' || href === ''))) {
             link.classList.add('active');
             link.setAttribute('aria-current', 'page');
@@ -207,42 +207,3 @@ function setActiveNavLink() {
     });
 }
 
-/**
- * Checks if the user is logged in and updates UI elements accordingly
- */
-function checkLoginStatus() {
-    // Check if user data exists in local storage
-    const userData = localStorage.getItem('userData');
-    
-    if (userData) {
-        // User is logged in
-        const user = JSON.parse(userData);
-        
-        // Show profile dropdown and hide login button
-        const loginBtn = document.getElementById('loginBtn');
-        const profileDropdown = document.getElementById('profileDropdown');
-        
-        if (loginBtn && profileDropdown) {
-            loginBtn.style.display = 'none';
-            profileDropdown.style.display = 'flex';
-            
-            // Set user name in the dropdown
-            const nameDisplay = document.getElementById('nameDisplay');
-            if (nameDisplay && user.name) {
-                nameDisplay.textContent = user.name;
-            }
-        }
-        
-        // Set up logout button event listener
-        const logoutBtn = document.getElementById('logoutBtn');
-        if (logoutBtn) {
-            logoutBtn.addEventListener('click', function(e) {
-                e.preventDefault();
-                // Clear user data from storage
-                localStorage.removeItem('userData');
-                // Redirect to home page
-                window.location.href = 'index.html';
-            });
-        }
-    }
-}

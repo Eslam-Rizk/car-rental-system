@@ -80,6 +80,7 @@ export function displayTopRatedCars(cars, currentCarId) {
         const carName = `${topCar.make} ${topCar.model} ${topCar.year}`;
 
         setImage(`top${index + 1}-img`, topCar.imageUrls[0], carName);
+        setElementText(`top${index + 1}-rating`, topCar.rating);
         setElementText(`top${index + 1}-name`, carName);
         setElementText(`top${index + 1}-category`, topCar.category || 'N/A');
         setElementText(`top${index + 1}-seats`, `${topCar.passengerCapacity || 'N/A'}`);
