@@ -1,4 +1,4 @@
-import { getLoggedInCustomerId, getCustomerIdFromUrl } from '../utils/userUtils.js';
+import { getLoggedInCustomerId, getCustomerIdFromUrl, authLogin } from '../utils/userUtils.js';
 import { savedCustomers } from '../../../mock/storage/seedStorage.js';
 
 // ================= AUTHENTICATION =================
@@ -8,18 +8,20 @@ export function authDashboard() {
     // console.log(customerId)
     if (!customerId) {
         console.error("Unauthorized access");
-        window.location.href = "login.html";
-        // alert("You need to login first!");
+        authLogin("Unauthorized access", "index.html");
+        // window.location.href = "login.html";
 
     }
 
-    // then check if user is admin --> only allow access to admins
-    const customer = savedCustomers.getCustomerById(customerId);
-    if (!customer || customer.role !== "admin") {
-        console.error("Admin access required");
-        window.location.href = "index.html";
-        // alert("You don't have admin access!");
+    else {
+        // then check if user is admin --> only allow access to admins
+        const customer = savedCustomers.getCustomerById(customerId);
+        if (!customer || customer.role !== "admin") {
+            console.error("Admin access required");
+            authLogin("Admin access required", "index.html");
+            // window.location.href = "index.html";
 
+        }
     }
 
 }
@@ -39,8 +41,8 @@ export function dashboardSettingsAuth() {
     const loggedInCustomerId = getLoggedInCustomerId();
 
     if (customerIdFromUrl !== loggedInCustomerId) {
-        // alert("You are not authorized to view this settings page.");
-        window.location.href = "dashboard.html";
+        authLogin("", "login.html");
+        // window.location.href = "dashboard.html";
         throw new Error("Unauthorized settings access");
     }
 

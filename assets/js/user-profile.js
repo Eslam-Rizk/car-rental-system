@@ -1,5 +1,5 @@
 import { attachNavAndFooter } from "./utils/navUtils.js";
-import { getLoggedInCustomerId, getCustomerIdFromUrl } from "./utils/userUtils.js";
+import { getLoggedInCustomerId, getCustomerIdFromUrl, authLogin } from "./utils/userUtils.js";
 import { SettingsFormHandler } from "./utils/userSettings/userFormHadnler.js";
 import { generateBookingCards, handleBookingDetailsClick, } from "./utils/profileBookingHistoryUtils.js";
 import { updateUserProfileDisplay } from "./utils/profileBookingHistoryUtils.js";
@@ -10,7 +10,8 @@ initializeUser();
 function initializeUser() {
   const loggedInCustomerId = getLoggedInCustomerId();
   if (!loggedInCustomerId || loggedInCustomerId != getCustomerIdFromUrl()) {
-    window.location.href = 'login.html';
+    authLogin("Unauthorized access", "login.html");
+    // window.location.href = 'login.html';
     return;
   }
 

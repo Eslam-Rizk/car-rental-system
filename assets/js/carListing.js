@@ -178,6 +178,9 @@ function sortCars() {
     } else if (sortOption === 'price-desc') {
         filteredCars.sort((a, b) => b.dailyRate - a.dailyRate);
     }
+    else if (sortOption === 'rating') {
+        filteredCars.sort((a, b) => b.rating - a.rating);
+    }
     renderCarListings();
 }
 

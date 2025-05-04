@@ -130,12 +130,11 @@ export function attachNavAndFooter() {
                 <div class="col-md-3 mb-4 mb-md-0">
                     <h4 class="text-uppercase mb-3">Home</h4>
                     <ul class="list-unstyled">
-                        <li><a href="#" class="text-decoration-none">About Us</a></li>
-                        <li><a href="#" class="text-decoration-none">FAQ</a></li>
-                        <li><a href="#" class="text-decoration-none">Contact Us</a></li>
-                        <li><a href="#" class="text-decoration-none">Services</a></li>
+                        <li><a href="about.html" class="text-decoration-none">About Us</a></li>
+                        <li><a href="contact.html" class="text-decoration-none">Contact Us</a></li>
+                        <li><a href="listings.html" class="text-decoration-none">Car Listings</a></li>
+                        <li><a href="index.html#faq" class="text-decoration-none">FAQ</a></li>
                         <li><a href="#" class="text-decoration-none">Privacy Policy</a></li>
-                        <li><a href="#" class="text-decoration-none">Car Listings</a></li>
                     </ul>
                 </div>
                 <!-- Contact Us Column -->

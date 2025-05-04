@@ -11,19 +11,17 @@ import {
 import { authDashboard } from './utils/dashboardUtils.js';
 import { getAdminSettings } from './utils/dashboardUtils.js';
 import { logout } from "./utils/navUtils.js";
+import { authLogin } from './utils/userUtils.js';   
 
 // auth
-authDashboard()
+authDashboard();
 
 // ========SIDEBAR========
 // logout 
 logout();
 
 //for settings tab
-getAdminSettings()
-
-//manage tab
-// *insert functions here*
+getAdminSettings();
 
 // ================= CHART RENDERING =================
 document.addEventListener('DOMContentLoaded', () => {

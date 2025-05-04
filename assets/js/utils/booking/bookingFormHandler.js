@@ -316,7 +316,8 @@ function setupEventListeners() {
             successMessage.style.display = 'flex';
             setTimeout(() => {
                 successMessage.style.display = 'none';
-            }, 5000);
+                window.location.href = 'index.html';
+            }, 2000);
         }
 
         bookingForm.reset();

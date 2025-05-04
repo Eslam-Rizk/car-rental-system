@@ -4,6 +4,7 @@ import { initializeImageModal } from "./utils/imageModalUtils.js";
 import { initializePrice, initializePromoCode, calculatePrice } from "./utils/calculatePrice.js";
 import { seedStorage, savedCars } from "../../mock/storage/seedStorage.js";
 
+
 seedStorage();
 attachNavAndFooter();
 
