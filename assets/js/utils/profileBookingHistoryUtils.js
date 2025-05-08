@@ -75,10 +75,10 @@ function createBookingCardHTML(booking, car) {
               <span class="badge bg-${getStatusBadgeClass(booking.paymentStatus)} ${booking.paymentStatus === 'Pending' ? 'text-dark' : ''} fw-normal px-2 py-1">${booking.paymentStatus}</span>
             </div>
           <div class="car-details-icons mb-2 d-flex justify-content-between">
-            <i class="bi bi-person-fill"><span class="ms-1">${car.seats ? car.seats.toString().padStart(2, '0') : '05'}</span></i>
-            <i class="bi bi-suitcase"><span class="ms-1">${car.luggage ? car.luggage.toString().padStart(2, '0') : '03'}</span></i>
+            <i class="bi bi-person-fill"><span class="ms-1">${car.passengerCapacity ? car.passengerCapacity.toString().padStart(2, '0') : '05'}</span></i>
+            <i class="bi bi-suitcase"><span class="ms-1">${car.luggageCapacity ? car.luggageCapacity.toString().padStart(2, '0') : '03'}</span></i>
             <i class="bi bi-car-front-fill"><span class="ms-1">${car.transmission || 'automatic'}</span></i>
-            <i class="bi bi-fuel-pump-fill"><span class="ms-1">${car.fuel || 'Petrol'}</span></i>
+            <i class="bi bi-fuel-pump-fill"><span class="ms-1">${car.fuelType || 'Petrol'}</span></i>
           </div>
         </div>
         <div class="car-price mt-3 d-flex align-items-center justify-content-between">
